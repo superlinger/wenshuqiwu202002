@@ -1,0 +1,325 @@
+[{
+  "tag": "H1",
+  "text": "Is PyTorch Catching TensorFlow?",
+  "translation": "PyTorch正在捕获TensorFlow吗？"
+}, {
+  "tag": "H2",
+  "text": "The State of Deep Learning Frameworks in 2020",
+  "translation": "2020年深度学习框架现状"
+}, {
+  "tag": "P",
+  "text": "It’s been 10 months since I looked at landscape for the major deep learning frameworks. PyTorch and TensorFlow have emerged as the clear frameworks of choice. TensorFlow had a two year head start on PyTorch, but PyTorch has been closing the gap in many areas. Let’s see where things stand now! 👍",
+  "translation": "自从我研究主要的深度学习框架以来已经过去了10个月。 PyTorch和TensorFlow已经成为明确的选择框架。 TensorFlow在PyTorch上有两年的领先优势，但是PyTorch在许多领域都在缩小差距。 让我们看看现在的状况！ 👍"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*aP7S_7TeW7iG189tTQWXEA.jpeg?q=20",
+  "caption": "PyTorch and TensorFlow?",
+  "type": "image",
+  "file": "1!aP7S_7TeW7iG189tTQWXEA.jpeg"
+}, {
+  "tag": "H1",
+  "text": "What’s New?",
+  "translation": "什么是新的？"
+}, {
+  "tag": "P",
+  "text": "TensorFlow and PyTorch look more and more like each other. TensorFlow has adopted PyTorch innovations and PyTorch has adopted TensorFlow innovations. Notably, now both languages can run in a dynamic eager execution mode or a static graph mode.",
+  "translation": "TensorFlow和PyTorch看起来越来越相似。 TensorFlow已采用PyTorch创新，而PyTorch已采用TensorFlow创新。 值得注意的是，现在两种语言都可以在动态渴望执行模式或静态图形模式下运行。"
+}, {
+  "tag": "P",
+  "text": "Both frameworks are open source, but PyTorch is Facebook’s baby and TensorFlow is Google’s baby.",
+  "translation": "这两个框架都是开源的，但是PyTorch是Facebook的孩子，而TensorFlow是Google的孩子。"
+}, {
+  "tag": "P",
+  "text": "Let’s look at a few other notable differences and updates. 👍",
+  "translation": "让我们看看其他一些明显的差异和更新。 👍"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*CUnY_XSh01ZFXrSqQvfWLg.png?q=20",
+  "type": "image",
+  "file": "1!CUnY_XSh01ZFXrSqQvfWLg.png"
+}, {
+  "tag": "H2",
+  "text": "PyTorch",
+  "translation": "火炬"
+}, {
+  "tag": "P",
+  "text": "PyTorch is on version 1.4 as of this writing. It has been adding features to increase adoption by industry. PyTorch can now be run more easily on Google Cloud’s Tensor Processing Units (TPUs) — the fastest way to train complex deep learning models.",
+  "translation": "在撰写本文时，PyTorch的版本为1.4。 它一直在增加功能以增加行业采用率。 现在，可以在Google Cloud的Tensor处理单元（TPU）上更轻松地运行PyTorch，这是训练复杂的深度学习模型的最快方法。"
+}, {
+  "tag": "P",
+  "text": "Also, the maintainers of the Chainer framework, Preferred Networks, recently brought their team to PyTorch. Finally, if you are into C++ or Java, PyTorch has a version for you. 😀",
+  "translation": "此外，Chainer框架的维护者Preferred Networks最近将他们的团队带到PyTorch。 最后，如果您使用C ++或Java，PyTorch会为您提供一个版本。 😀"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*9KPB7U5v07o28WDBTMoYVg.png?q=20",
+  "type": "image",
+  "file": "1!9KPB7U5v07o28WDBTMoYVg.png"
+}, {
+  "tag": "H2",
+  "text": "TensorFlow",
+  "translation": "TensorFlow"
+}, {
+  "tag": "P",
+  "text": "TensorFlow 2.0 introduced many improvements that make the API more streamlined and brain friendly. It tightly integrated Keras as it’s front-end, high-level API. Keras can still be used with some other frameworks, but it generally makes sense to use it as part of TensorFlow.",
+  "translation": "TensorFlow 2.0引入了许多改进，这些改进使API更加简化并且对大脑更友好。 它将Keras紧密集成为前端的高级API。 Keras仍然可以与其他框架一起使用，但通常将其用作TensorFlow的一部分是有意义的。"
+}, {
+  "tag": "P",
+  "text": "Also, if you prefer JavaScript to Python, TensorFlow has a JavaScript version for you. 😀",
+  "translation": "此外，如果您更喜欢JavaScript而不是Python，TensorFlow会为您提供JavaScript版本。 😀"
+}, {
+  "tag": "P",
+  "text": "TensorFlow still has more bells and whistles for deep learning in production and on the edge than PyTorch does, but PyTorch is getting closer to feature parity.",
+  "translation": "与PyTorch相比，TensorFlow在生产和边缘深度学习方面还有更多的花哨之处，但PyTorch越来越接近于功能对等。"
+}, {
+  "tag": "H1",
+  "text": "Method",
+  "translation": "方法"
+}, {
+  "tag": "P",
+  "text": "PyTorch and TensorFlow are the two games in town if you want to learn a popular deep learning framework. I’m not looking at other frameworks because no other framework has been widely adopted.",
+  "translation": "如果您想学习流行的深度学习框架，PyTorch和TensorFlow是城里的两个游戏。 我不在考虑其他框架，因为没有其他框架被广泛采用。"
+}, {
+  "tag": "P",
+  "text": "In my previous analysis, I looked at many metrics. The results showed TensorFlow and PyTorch were both growing at a decent clip. In this article, I’m going to focus on the four metrics that I think matter most: job listings, research use, online search results, and self-reported use.",
+  "translation": "在之前的分析中，我研究了许多指标。 结果显示TensorFlow和PyTorch都以不错的速度增长。 在本文中，我将重点介绍我认为最重要的四个指标：工作清单，研究用途，在线搜索结果和自我报告的用途。"
+}, {
+  "tag": "P",
+  "text": "Let’s jump in!🚀",
+  "translation": "跳进去吧！🚀"
+}, {
+  "tag": "H1",
+  "text": "Job Listings",
+  "translation": "工作清单"
+}, {
+  "tag": "P",
+  "text": "I searched Indeed, Monster, SimplyHired, and LinkedIn for the keywords TensorFlow and PyTorch in the United States on January 26, 2020.",
+  "translation": "2020年1月26日，我在美国的Indeed，Monster，SimplyHired和LinkedIn上搜索了TensorFlow和PyTorch关键字。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*hLj2F1UFbyvegLlqgEyLWw.png?q=20",
+  "type": "image",
+  "file": "1!hLj2F1UFbyvegLlqgEyLWw.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*36Xis27YceQ2_2Tn720pGQ.png?q=20",
+  "type": "image",
+  "file": "1!36Xis27YceQ2_2Tn720pGQ.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*q-hEjbiSfhZR4WbXg9sZmA.png?q=20",
+  "type": "image",
+  "file": "1!q-hEjbiSfhZR4WbXg9sZmA.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Cf83AVIa8oacXKUxorMRYg.png?q=20",
+  "type": "image",
+  "file": "1!Cf83AVIa8oacXKUxorMRYg.png"
+}, {
+  "tag": "P",
+  "text": "TensorFlow appeared in an average of twice as many search results on each job listing website. Here are the raw numbers:",
+  "translation": "TensorFlow在每个求职网站上平均出现两倍的搜索结果。 以下是原始数字："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*8J42exXWeBjoT84vRFy2kg.png?q=20",
+  "type": "image",
+  "file": "1!8J42exXWeBjoT84vRFy2kg.png"
+}, {
+  "tag": "P",
+  "text": "And here are the results as percentages of the total.",
+  "translation": "这是结果占总数的百分比。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*oCHpvjD9e9fFHuEx5fm6pA.png?q=20",
+  "type": "image",
+  "file": "1!oCHpvjD9e9fFHuEx5fm6pA.png"
+}, {
+  "tag": "P",
+  "text": "In my analysis ten months ago, I noted that TensorFlow appeared in three times as many listings as PyTorch. Now TensorFlow’s advantage is down to 2x. 📉",
+  "translation": "在十个月前的分析中，我注意到TensorFlow出现的次数是PyTorch的三倍。 现在，TensorFlow的优势降低到2倍。 📉"
+}, {
+  "tag": "H1",
+  "text": "Research",
+  "translation": "研究"
+}, {
+  "tag": "P",
+  "text": "PyTorch is now the leader in terms of papers in top research conferences. Horace He, a former PyTorch intern, researched and discussed the topic in this article. Here’s a chart showing the growth.",
+  "translation": "PyTorch现在是顶级研究会议论文的领导者。 前PyTorch实习生Horace He研究并讨论了该主题。 这是显示增长的图表。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*jMaM2mVqPjtMcgTkBnouCQ.png?q=20",
+  "caption": "Source: https://chillee.github.io/pytorch-vs-tensorflow/",
+  "type": "image",
+  "file": "1!jMaM2mVqPjtMcgTkBnouCQ.png"
+}, {
+  "tag": "P",
+  "text": "Anything over 50% means more mentions for PyTorch than TensorFlow for that conference.",
+  "translation": "对于该会议，任何超过50％的内容都意味着PyTorch的提及量超过TensorFlow。"
+}, {
+  "tag": "P",
+  "text": "As a more detailed sample, here are the raw scores from the NeurlIPS conference, with PyTorch eclipsing TensorFlow.",
+  "translation": "作为更详细的示例，这是NeurlIPS会议的原始分数，PyTorch取代了TensorFlow。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*dCf91WMBzCkCW7_KNMVSTQ.png?q=20",
+  "caption": "Source: https://chillee.github.io/pytorch-vs-tensorflow/",
+  "type": "image",
+  "file": "1!dCf91WMBzCkCW7_KNMVSTQ.png"
+}, {
+  "tag": "P",
+  "text": "In the recent NerulIPS conference, PyTorch was in 166 papers and TensorFlow was in 74. PyTorch went from being in fewer papers than TensorFlow in 2018 to more than doubling TensorFlow’s number in 2019.",
+  "translation": "在最近的NerulIPS会议上，PyTorch的论文数量为166，而TensorFlow的论文数量为74。PyTorch的论文数量从2018年的TensorFlow数量减少到2019年的TensorFlow数量增加一倍以上。"
+}, {
+  "tag": "P",
+  "text": "I found it surprising that PyTorch surpassed TensorFlow so quickly. It will be interesting to see if PyTorch continues to extend its lead in this area. 📈",
+  "translation": "我发现PyTorch如此快地超过TensorFlow令人惊讶。 有趣的是，PyTorch是否会继续在这一领域扩大领先地位。 📈"
+}, {
+  "tag": "P",
+  "text": "Let’s look at online searches next.",
+  "translation": "接下来让我们看看在线搜索。"
+}, {
+  "tag": "H1",
+  "text": "Search Popularity",
+  "translation": "搜索人气"
+}, {
+  "tag": "P",
+  "text": "I used Google Trends to find the relative number of searches for PyTorch (Software) and TensorFlow (Computer application) in the USA from January 26, 2017 to January 26, 2020.",
+  "translation": "我使用Google趋势查找了2017年1月26日至2020年1月26日在美国的PyTorch（软件）和TensorFlow（计算机应用程序）的相对搜索量。"
+}, {
+  "tag": "P",
+  "text": "See the results below with TensorFlow in blue and PyTorch in red:",
+  "translation": "看到下面的结果，蓝色的TensorFlow和红色的PyTorch："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*YKjcXRyBmc19Hqmez9b2mw.png?q=20",
+  "caption": "Google search interest. TensorFlow in blue. PyTorch in red.",
+  "type": "image",
+  "file": "1!YKjcXRyBmc19Hqmez9b2mw.png"
+}, {
+  "tag": "P",
+  "text": "Apparently no one wants to search for deep learning frameworks around the winter holidays. 🎄😀",
+  "translation": "显然没有人愿意在寒假前后搜索深度学习框架。 🎄😀"
+}, {
+  "tag": "P",
+  "text": "Here’s the same data with linear trend lines.",
+  "translation": "这是带有线性趋势线的相同数据。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*e7fGJaWE_P6x500Obq8_Pw.png?q=20",
+  "caption": "TensorFlow in blue. PyTorch in red. See the interactive online version at Tableau Public.",
+  "type": "image",
+  "file": "1!e7fGJaWE_P6x500Obq8_Pw.png"
+}, {
+  "tag": "P",
+  "text": "PyTorch has closed the gap considerably. It will be interesting to see if the trend holds.",
+  "translation": "PyTorch已大大缩小了差距。 看看趋势是否成立会很有趣。"
+}, {
+  "tag": "P",
+  "text": "Finally, let’s look at what folks say they are using.",
+  "translation": "最后，让我们看看人们说的是什么。"
+}, {
+  "tag": "H1",
+  "text": "Reported Use",
+  "translation": "报告使用"
+}, {
+  "tag": "P",
+  "text": "In the Stack Overflow Developer Survey from 2019, 10.3% of respondents reported using TensorFlow while 3.3% reported using Torch/PyTorch. The subset of professional developers had similar scores (9.4% vs. 2.9%). No other deep learning frameworks were reported.",
+  "translation": "在2019年的Stack Overflow开发人员调查中，有10.3％的受访者表示使用过TensorFlow，而3.3％的受访者表示使用过Torch / PyTorch。 专业开发人员的子集得分相似（9.4％比2.9％）。 没有其他深度学习框架的报道。"
+}, {
+  "tag": "P",
+  "text": "It’s worth noting that the survey was conducted in early 2019, so we’ll have to wait and see what the 2020 results show. 📊",
+  "translation": "值得注意的是，这项调查是在2019年初进行的，因此我们必须拭目以待，看看2020年的结果如何。 📊"
+}, {
+  "tag": "H1",
+  "text": "Recap",
+  "translation": "概括"
+}, {
+  "tag": "P",
+  "text": "TensorFlow is still mentioned in many more job listings that PyTorch, but the gap is closing. PyTorch has taken the lead in usage in research papers at top conferences and almost closed the gap in Google search results. TensorFlow remains three times more common in usage according to the most recent Stack Overflow Developer Survey.",
+  "translation": "与PyTorch相比，TensorFlow在更多工作清单中仍被提及，但差距正在缩小。 PyTorch在顶级会议的研究论文中占据领先地位，几乎弥补了Google搜索结果的空白。 根据最新的Stack Overflow开发人员调查，TensorFlow的使用率仍然是普通三倍。"
+}, {
+  "tag": "P",
+  "text": "Overall, TensorFlow still leads in most areas, but PyTorch is gaining. 🐎",
+  "translation": "总体而言，TensorFlow仍在大多数领域处于领先地位，但PyTorch仍在增长。 🐎"
+}, {
+  "tag": "H1",
+  "text": "What Should You Focus On?",
+  "translation": "您应该关注什么？"
+}, {
+  "tag": "P",
+  "text": "This project was born out of my desire to spend my time using and educating with the deep learning framework that makes the most sense for people to learn. I’m still undecided as to whether the answer to the next two years is PyTorch or TensorFlow.",
+  "translation": "这个项目是出于我希望花时间使用和学习对人们来说最有意义的深度学习框架而产生的。 我仍然不确定未来两年的答案是PyTorch还是TensorFlow。"
+}, {
+  "tag": "P",
+  "text": "It appears likely that PyTorch will continue on its trajectory toward parity. However, TensorFlow is still the safe choice. It will be in demand for the foreseeable future, particularly by employers.",
+  "translation": "PyTorch可能会继续朝着平价的方向发展。 但是，TensorFlow仍然是安全的选择。 在可预见的将来，尤其是雇主，将需要它。"
+}, {
+  "tag": "P",
+  "text": "It’s worth noting that both frameworks continue to innovate in a spirit of cooperative competition. The coming innovations will shape their popularity and provide benefits for users. 🎉",
+  "translation": "值得注意的是，两个框架都本着合作竞争的精神不断创新。 即将到来的创新将塑造其受欢迎程度并为用户带来利益。 🎉"
+}, {
+  "tag": "H1",
+  "text": "Resources",
+  "translation": "资源资源"
+}, {
+  "tag": "P",
+  "text": "If you are ready to learn deep learning, I suggest the following resources:",
+  "translation": "如果您准备学习深度学习，我建议以下资源："
+}, {
+  "tag": "P",
+  "text": "The fast.ai MOOC has great videos and a supportive community. It’s especially useful if you want to learn PyTorch.",
+  "translation": "fast.ai MOOC拥有出色的视频和支持社区。 如果您想学习PyTorch，它特别有用。"
+}, {
+  "tag": "P",
+  "text": "Chollet’s Deep Learning with Python book is a great primer on deep learning. He’s the original author of Keras. It’s an especially good option if you want to learn TensorFlow.",
+  "translation": "Chollet的《 Python深度学习》一书是深度学习的重要入门。 他是Keras的原始作者。 如果您想学习TensorFlow，这是一个特别好的选择。"
+}, {
+  "tag": "P",
+  "text": "Both TensorFlow and PyTorch have nice tutorials and guides in their docs.",
+  "translation": "TensorFlow和PyTorch在其文档中都有不错的教程和指南。"
+}, {
+  "tag": "H2",
+  "text": "Prerequisites",
+  "translation": "先决条件"
+}, {
+  "tag": "P",
+  "text": "Before you tackle deep learning, I suggest you learn Python. If you are brand new to Python, might I suggest my Memorable Python book? 😀",
+  "translation": "在进行深度学习之前，建议您学习Python。 如果您是Python的新手，我可以推荐一本值得纪念的Python书吗？ 😀"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/proxy/1*SFhA0Us9DUYgoH-BtKwIYw.png",
+  "type": "image",
+  "file": "b51f3036-6d81-46d2-bf53-dd914693d9e8"
+}, {
+  "tag": "P",
+  "text": "Once you are comfortable with Python basics, I suggest you learn the NumPy and pandas Python libraries for data cleaning and analysis. McKinney’s Python for Data Analysis book covers NumPy and pandas well. I also have pandas book in the works, so subscribe to my Data Awesome mailing list to be the first to learn when it’s released.",
+  "translation": "熟悉Python基础知识后，建议您学习NumPy和pandas Python库以进行数据清理和分析。 麦金尼的《 Python for Data Analysis》一书很好地涵盖了NumPy和熊猫。 我的著作中也有熊猫书，所以请订阅我的Data Awesome邮件列表，这是第一个发布时第一个学习的列表。"
+}, {
+  "tag": "P",
+  "text": "Finally, before jumping into the deep learning branch of machine learning, I suggest you learn to use more general machine learning algorithms with the scikit-learn library. I like Müller and Guido’s Introduction to Machine Learning with Python. Also, the second edition of Aurélien Géron’s Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow covers machine learning and deep learning with TensorFlow 2.0.",
+  "translation": "最后，在进入机器学习的深度学习分支之前，我建议您通过scikit-learn库学习使用更通用的机器学习算法。 我喜欢Müller和Guido的Python机器学习入门。 此外，第二版AurélienGéron的Scikit-Learn，Keras和TensorFlow的动手机器学习涵盖了TensorFlow 2.0的机器学习和深度学习。"
+}, {
+  "tag": "H1",
+  "text": "Wrap",
+  "translation": "包裹"
+}, {
+  "tag": "P",
+  "text": "I hope you found this evaluation of the state of the most popular deep learning frameworks useful. If you did, please share it on your favorite social media so other folks can find it, too. 👍",
+  "translation": "我希望您发现对最流行的深度学习框架的状态进行的评估很有用。 如果您这样做了，请在您喜欢的社交媒体上分享它，以便其他人也可以找到它。 👍"
+}, {
+  "tag": "P",
+  "text": "I write about Python, Docker, SQL, and other tech topics. If any of that’s of interest to you, follow me and read more here.",
+  "translation": "我撰写有关Python，Docker，SQL和其他技术主题的文章。 如果您有任何兴趣，请关注我并在此处阅读更多内容。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*5-YSSTOcGDgaHejL.png?q=20",
+  "type": "image",
+  "file": "0!5-YSSTOcGDgaHejL.png"
+}, {
+  "tag": "P",
+  "text": "Happy Deciding! ⚖️",
+  "translation": "决定愉快！ ⚖️"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Jeff Hale的文章《Is PyTorch Catching TensorFlow?》，参考：https://towardsdatascience.com/is-pytorch-catching-tensorflow-ca88f9128304)",
+  "translation": "（本文翻译自Jeff Hale的文章《 PyTorch正在捕获TensorFlow吗？》，参考：https：//towardsdatascience.com/is-pytorch-catching-tensorflow-ca88f9128304）"
+}]
