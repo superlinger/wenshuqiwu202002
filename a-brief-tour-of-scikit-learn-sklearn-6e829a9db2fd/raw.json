@@ -1,0 +1,291 @@
+[{
+  "tag": "H1",
+  "text": "A Brief Tour of Scikit-learn (Sklearn)",
+  "translation": "Scikit学习简介（Sklearn）"
+}, {
+  "tag": "H2",
+  "text": "Introduction to Sklearn",
+  "translation": "Sklearn简介"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*fDtrCfzYX-peAK17r7X6CA.jpeg?q=20",
+  "caption": "Source",
+  "type": "image",
+  "file": "1!fDtrCfzYX-peAK17r7X6CA.jpeg"
+}, {
+  "tag": "P",
+  "text": "For machine learning, Python and R are the most widely used programming languages today. Scikit-learn is a python library that provides methods for data reading, data preparation, regression, classification, unsupervised clustering, and much more. In this post, we will go over some of the basic methods for building regression models. The documentation for this package is extensive and a fantastic resource for every data scientist. You can find the documentation here.",
+  "translation": "对于机器学习，Python和R是当今使用最广泛的编程语言。 Scikit-learn是一个python库，提供数据读取，数据准备，回归，分类，无监督聚类等方法。 在本文中，我们将介绍一些用于构建回归模型的基本方法。 该软件包的文档内容丰富，是每个数据科学家的宝贵资源。 您可以在此处找到文档。"
+}, {
+  "tag": "P",
+  "text": "Let’s get started!",
+  "translation": "让我们开始吧！"
+}, {
+  "tag": "P",
+  "text": "DATA PREPARATION",
+  "translation": "资料准备"
+}, {
+  "tag": "P",
+  "text": "For our regression problems, we will be working with weather data which can be found here.",
+  "translation": "对于我们的回归问题，我们将使用可在此处找到的天气数据。"
+}, {
+  "tag": "P",
+  "text": "First, let’s import the data and print the first five rows:",
+  "translation": "首先，让我们导入数据并打印前五行："
+}, {
+  "tag": "PRE",
+  "text": "import pandas as pd df = pd.read_csv(\"weatherHistory.csv\")print(df.head())",
+  "translation": "以pd df = pd.read_csv（“ weatherHistory.csv”）print（df.head（））导入熊猫"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*UyVD08MK7wx_NhcZJYYRIA.png?q=20",
+  "type": "image",
+  "file": "1!UyVD08MK7wx_NhcZJYYRIA.png"
+}, {
+  "tag": "P",
+  "text": "Next, let’s convert the date column into a pandas date-time object and create year, month, and day columns:",
+  "translation": "接下来，让我们将date列转换为pandas date-time对象，并创建year，month和day列："
+}, {
+  "tag": "PRE",
+  "text": "df['Formatted Date'] = pd.to_datetime(df['Formatted Date'],  utc=True,)df['year'] = df['Formatted Date'].dt.yeardf['month'] = df['Formatted Date'].dt.monthdf['day'] = df['Formatted Date'].dt.day",
+  "translation": "df ['Formatted Date'] = pd.to_datetime（df ['Formatted Date']，utc = True，）df ['year'] = df ['Formatted Date']。dt.yeardf ['month'] = df ['格式化日期'] .dt.monthdf ['day'] = df ['格式化日期'] .dt.day"
+}, {
+  "tag": "P",
+  "text": "Let’s print the first five rows again to verify the creation of the new columns:",
+  "translation": "让我们再次打印前五行，以验证是否创建了新列："
+}, {
+  "tag": "PRE",
+  "text": "print(df.head())",
+  "translation": "打印（df.head（））"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*ftlXmMMXOfOjZqovyqkpbA.png?q=20",
+  "type": "image",
+  "file": "1!ftlXmMMXOfOjZqovyqkpbA.png"
+}, {
+  "tag": "P",
+  "text": "Now, let’s define our input and target variables. We will be using humidity, year, month, day, pressure, visibility, and wind bearing to predict temperature:",
+  "translation": "现在，让我们定义输入和目标变量。 我们将使用湿度，年，月，日，压力，能见度和风向来预测温度："
+}, {
+  "tag": "PRE",
+  "text": "import numpy as npX = np.array(df[[ 'Humidity', 'year', 'month', 'day', 'Pressure (millibars)', 'Visibility (km)', 'Wind Bearing (degrees)']])y = np.array(df['Temperature (C)'])",
+  "translation": "导入numpy为npX = np.array（df [[“湿度”，“年”，“月”，“天”，“压力（毫巴）”，“能见度（km）”，“风向（度）”] ]）y = np.array（df ['温度（C）']）"
+}, {
+  "tag": "P",
+  "text": "We will then split our data for training and testing:",
+  "translation": "然后，我们将拆分数据以进行培训和测试："
+}, {
+  "tag": "PRE",
+  "text": "from sklearn.model_selection import train_test_splitX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)",
+  "translation": "从sklearn.model_selection导入train_test_splitX_train，X_test，y_train，y_test = train_test_split（X，y，test_size = 0.2，random_state = 42）"
+}, {
+  "tag": "P",
+  "text": "Now all of our necessary variables are defined. Let’s build some models!",
+  "translation": "现在，我们所有必需的变量都已定义。 让我们建立一些模型！"
+}, {
+  "tag": "P",
+  "text": "LINEAR REGRESSION",
+  "translation": "线性回归"
+}, {
+  "tag": "P",
+  "text": "Let’s start with linear regression. Linear regression fits a linear function with coefficients such that the residual sum of squares between targets and predictions is minimized.",
+  "translation": "让我们从线性回归开始。 线性回归将线性函数与系数拟合，以使目标和预测之间的平方余数最小。"
+}, {
+  "tag": "P",
+  "text": "We import the LinearRegression package as follows:",
+  "translation": "我们按如下所示导入LinearRegression包："
+}, {
+  "tag": "PRE",
+  "text": "from sklearn.linear_model import LinearRegression",
+  "translation": "从sklearn.linear_model导入LinearRegression"
+}, {
+  "tag": "P",
+  "text": "The error metric we will be using to evaluate the performance of our model is the mean squared error (MSE). MSE is defined by the following equation:",
+  "translation": "我们将用来评估模型性能的误差度量是均方误差（MSE）。 MSE由以下公式定义："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*D-7K2fUG8Ev3iA_81svXjw.gif?q=20",
+  "type": "image",
+  "file": "1!D-7K2fUG8Ev3iA_81svXjw.gif"
+}, {
+  "tag": "P",
+  "text": "Here, y is the actual value and y-tilde is the prediction.",
+  "translation": "此处，y是实际值，y-tilde是预测值。"
+}, {
+  "tag": "P",
+  "text": "Let’s define a linear regression object, fit our model, and evaluate performance:",
+  "translation": "让我们定义一个线性回归对象，拟合我们的模型，并评估性能："
+}, {
+  "tag": "PRE",
+  "text": "reg = LinearRegression()reg.fit(X_train, y_train)y_pred = reg.predict(X_test)from sklearn import metricsprint('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))",
+  "translation": "reg = LinearRegression（）reg.fit（X_train，y_train）y_pred =来自sklearn导入metricsprint的reg.predict（X_test）print（'均方差"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*g32_gW-7h2ZCvxoJ8K1JRw.png?q=20",
+  "type": "image",
+  "file": "1!g32_gW-7h2ZCvxoJ8K1JRw.png"
+}, {
+  "tag": "P",
+  "text": "The performance isn’t great. This simply means that the relationship between the input and target is not linear. Additionally, exploratory data analysis (EDA) may further inform smart feature selection and engineering which may improve performance.",
+  "translation": "表现不佳。 这仅表示输入与目标之间的关系不是线性的。 另外，探索性数据分析（EDA）可以进一步告知智能功能选择和工程设计，从而可以提高性能。"
+}, {
+  "tag": "P",
+  "text": "RANDOM FORESTS",
+  "translation": "随机森林"
+}, {
+  "tag": "P",
+  "text": "Now let’s take a look at random forests. Random forest is a tree-based method that ensembles multiple individual decision trees.",
+  "translation": "现在，让我们看一下随机森林。 随机森林是一种基于树的方法，将多个单独的决策树整合在一起。"
+}, {
+  "tag": "P",
+  "text": "We import the RandomForestRegressor package as follows:",
+  "translation": "我们按如下所示导入RandomForestRegressor包："
+}, {
+  "tag": "PRE",
+  "text": "from sklearn.ensemble import RandomForestRegressor",
+  "translation": "从sklearn.ensemble导入RandomForestRegressor"
+}, {
+  "tag": "P",
+  "text": "Let’s define a random forest regression object, fit our model, and evaluate performance:",
+  "translation": "让我们定义一个随机森林回归对象，拟合模型并评估性能："
+}, {
+  "tag": "PRE",
+  "text": "reg_rf = RandomForestRegressor()reg_rf.fit(X_train, y_train)y_pred = reg_rf.predict(X_test)from sklearn import metricsprint('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))",
+  "translation": "reg_rf = RandomForestRegressor（）reg_rf.fit（X_train，y_train）y_pred = reg_rf.predict（X_test）来自sklearn导入metricsprint（``均方误差：''，metrics.mean_squared_error（y_test，y_pred））"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*lcI-p8A_1dGvixRSkbue4Q.png?q=20",
+  "type": "image",
+  "file": "1!lcI-p8A_1dGvixRSkbue4Q.png"
+}, {
+  "tag": "P",
+  "text": "We can see that random forest performance is much better than linear regression.",
+  "translation": "我们可以看到，随机森林的性能要比线性回归好得多。"
+}, {
+  "tag": "P",
+  "text": "We can also print the feature importance. This allows us to see which variables are most significant for temperature prediction:",
+  "translation": "我们还可以打印功能重要性。 这使我们可以查看哪些变量对温度预测最重要："
+}, {
+  "tag": "PRE",
+  "text": "feature_df = pd.DataFrame({'Importance':reg_rf.feature_importances_, 'Features': [ 'Humidity', 'year', 'month', 'day', 'Pressure (millibars)', 'Visibility (km)', 'Wind Bearing (degrees)'] })print(feature_df)",
+  "translation": "feature_df = pd.DataFrame（{'Importance'：reg_rf.feature_importances_，'Features'：['Humidity'，'year'，'month'，'day'，'Pressure（millibars）'，'可见度（km）'， '风向（度）']}）print（feature_df）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*dxeNbwh7yC7qzNSuCDw6RA.png?q=20",
+  "type": "image",
+  "file": "1!dxeNbwh7yC7qzNSuCDw6RA.png"
+}, {
+  "tag": "P",
+  "text": "We can see that month has the highest importance which makes sense.",
+  "translation": "我们可以看到，月份具有最高的重要性，这是有道理的。"
+}, {
+  "tag": "P",
+  "text": "I’d like to point out that by not passing any parameters, like max_depth and n_estimators, I selected default random forest values (which are n_estimators = 10 and max_depth = 10 ). We can further improve performance by optimizing parameters in random forests. This can be done manually or in an automated way using grid search techniques. I will leave the matter of parameter optimization for another post.",
+  "translation": "我想指出，通过不传递任何参数（例如max_depth和n_estimators），我选择了默认的随机森林值（n_estimators = 10和max_depth = 10）。 通过优化随机森林中的参数，我们可以进一步提高性能。 可以使用网格搜索技术手动或以自动方式完成此操作。 我将把参数优化的问题留给另一篇文章。"
+}, {
+  "tag": "P",
+  "text": "SUPPORT VECTOR MACHINES",
+  "translation": "支持向量机"
+}, {
+  "tag": "P",
+  "text": "The next method I’ll discuss is called support vector regression. This is an extension of support vector machines (SVM). SVMs construct a set of hyperplanes in high dimensional feature space that can be used for regression and classification problems.",
+  "translation": "我将讨论的下一个方法称为支持向量回归。 这是支持向量机（SVM）的扩展。 SVM在高维特征空间中构造了一组超平面，可用于回归和分类问题。"
+}, {
+  "tag": "P",
+  "text": "We import the SVR package as follows:",
+  "translation": "我们按以下方式导入SVR软件包："
+}, {
+  "tag": "PRE",
+  "text": "from sklearn.svm import SVR",
+  "translation": "从sklearn.svm导入SVR"
+}, {
+  "tag": "P",
+  "text": "Since SVRs are slow to train, I will only select the first 100 records for training and testing. Feel free to train and test on the full data set for a more suitable comparison of performance between models.",
+  "translation": "由于SVR的训练速度很慢，因此我只会选择前100条记录进行训练和测试。 随意训练和测试完整的数据集，以更合适地比较模型之间的性能。"
+}, {
+  "tag": "PRE",
+  "text": "df = df.head(100)",
+  "translation": "df = df.head（100）"
+}, {
+  "tag": "P",
+  "text": "Let’s define a support vector regression object, fit our model, and evaluate performance:",
+  "translation": "让我们定义一个支持向量回归对象，拟合我们的模型，并评估性能："
+}, {
+  "tag": "PRE",
+  "text": "reg_svr = SVR()reg_svr.fit(X_train, y_train)y_pred = reg_svr.predict(X_test)from sklearn import metricsprint('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))",
+  "translation": "reg_svr = SVR（）reg_svr.fit（X_train，y_train）y_pred = reg_svr.predict（X_test）来自sklearn导入metricsprint（'均方误差：'，metrics.mean_squared_error（y_test，y_pred））"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*4V-kqhVzZj7_KfVsyC2izg.png?q=20",
+  "type": "image",
+  "file": "1!4V-kqhVzZj7_KfVsyC2izg.png"
+}, {
+  "tag": "P",
+  "text": "We see that support vector regression performs better than linear regression but worse than random forests. Again, this comparison isn’t exactly appropriate since we didn’t train using the full data set.",
+  "translation": "我们看到，支持向量回归的性能比线性回归好，但比随机森林差。 同样，这种比较并不完全合适，因为我们没有使用完整的数据集进行训练。"
+}, {
+  "tag": "P",
+  "text": "Similar to the random forest example, the support vector machine parameters can be optimized such that error is minimized.",
+  "translation": "类似于随机森林示例，可以优化支持向量机参数，以使误差最小化。"
+}, {
+  "tag": "P",
+  "text": "K-NEAREST NEIGHBORS",
+  "translation": "K-近邻"
+}, {
+  "tag": "P",
+  "text": "The final method I will discuss is k-nearest neighbors for regression. K-nearest neighbors use Euclidean distance calculations where the prediction is the average of the k nearest neighbors.",
+  "translation": "我将讨论的最终方法是k近邻回归。 K个最近邻居使用欧几里得距离计算，其中预测是k个最近邻居的平均值。"
+}, {
+  "tag": "P",
+  "text": "We import the KNeighborsRegressor package as follows:",
+  "translation": "我们按以下方式导入KNeighborsRegressor包："
+}, {
+  "tag": "PRE",
+  "text": "from sklearn.neighbors import KNeighborsRegressor",
+  "translation": "从sklearn.neighbors导入KNeighborsRegressor"
+}, {
+  "tag": "P",
+  "text": "Let’s define a k-nearest neighbors regression object, fit our model, and evaluate performance:",
+  "translation": "让我们定义一个k最近邻回归对象，拟合我们的模型，并评估效果："
+}, {
+  "tag": "PRE",
+  "text": "reg_knn = KNeighborsRegressor()reg_knn.fit(X_train, y_train)y_pred = reg_knn.predict(X_test)from sklearn import metricsprint('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))",
+  "translation": "reg_knn = KNeighborsRegressor（）reg_knn.fit（X_train，y_train）y_pred = reg_knn.predict（X_test）来自sklearn导入metricsprint（``均方误差：''，metrics.mean_squared_error（y_test，y_pred））"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*wvNfzw9wBS6KSod4ty9Hsg.png?q=20",
+  "type": "image",
+  "file": "1!wvNfzw9wBS6KSod4ty9Hsg.png"
+}, {
+  "tag": "P",
+  "text": "We see that k-nearest neighbors algorithm outperform linear regression when trained on the full data set.",
+  "translation": "我们看到，在完整数据集上训练时，k最近邻居算法优于线性回归。"
+}, {
+  "tag": "P",
+  "text": "CONCLUSIONS",
+  "translation": "结论"
+}, {
+  "tag": "P",
+  "text": "I will stop here but feel free to play around with model feature selection to see if you can improve the performance of some of these models.",
+  "translation": "我将在这里停止，但是可以随意选择模型功能，以查看是否可以改善其中一些模型的性能。"
+}, {
+  "tag": "P",
+  "text": "To recap, I outlined a brief introduction to the python machine learning library. I went over how to define model objects, fit models to data, and predict output using linear regression, random forest, support vector machine, and K-nearest neighbor models. In addition, by exploring these different types of models we were able to peek under the hood of the machine learning library. Notice the four modules we used from the library :",
+  "translation": "回顾一下，我概述了python机器学习库的简要介绍。 我介绍了如何定义模型对象，使模型适合数据以及如何使用线性回归，随机森林，支持向量机和K近邻模型预测输出。 此外，通过探索这些不同类型的模型，我们能够在机器学习库的框架下进行窥视。 注意我们从库中使用的四个模块："
+}, {
+  "tag": "OL",
+  "texts": ["linear_models", "ensemble", "SVM", "neighbors"],
+  "translations": ["linear_models", "合奏", "支持向量机", "邻居"]
+}, {
+  "tag": "P",
+  "text": "While we only looked at methods for regression, each of these modules has additional methods for classification. In another post, I will outline some of the classification methods that are most common in the python machine learning library.",
+  "translation": "虽然我们只研究了回归方法，但是每个模块都有其他分类方法。 在另一篇文章中，我将概述python机器学习库中最常见的一些分类方法。"
+}, {
+  "tag": "P",
+  "text": "I hope this post was informative. The code from this post is available on GitHub. Thank you for reading and happy machine learning!",
+  "translation": "我希望这篇文章能提供更多信息。 这篇文章中的代码可在GitHub上找到。 感谢您的阅读和愉快的机器学习！"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Sadrach Pierre, Ph.D.的文章《A Brief Tour of Scikit-learn (Sklearn)》，参考：https://towardsdatascience.com/a-brief-tour-of-scikit-learn-sklearn-6e829a9db2fd)",
+  "translation": "（本文翻译自Sadrach Pierre，博士。《 Scikit-learn（Sklearn）简介》，参考：https：//towardsdatascience.com/a-brief-tour-of-scikit-learn-sklearn- 6e829a9db2fd）"
+}]
