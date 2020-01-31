@@ -1,0 +1,290 @@
+[{
+  "tag": "P",
+  "text": "Found this article useful? Check out another interesting article below",
+  "translation": "觉得这篇文章有用吗？ 在下面查看另一篇有趣的文章"
+}, {
+  "tag": "H2",
+  "text": "Do we Need Math? Imagine our Life Without It",
+  "translation": "我们需要数学吗？ 想象没有它的生活"
+}, {
+  "tag": "H3",
+  "text": "Journey to the world without math and why abstractions are the key to everything",
+  "translation": "没有数学的世界之旅，以及为什么抽象是一切的关键"
+}, {
+  "tag": "P",
+  "text": "I faced lots of such situations at my work. It’s not a punch into PyTorch or TF side, but rather “cry of help”.",
+  "translation": "我在工作中遇到了很多这样的情况。 这不是PyTorch或TF方面的重拳，而是“呼救声”。"
+}, {
+  "tag": "H2",
+  "text": "*** There is another side of ML community, that is looking for a professional tool for “Embedded AI”, but can’t find it. ***",
+  "translation": "*** ML社区的另一面是，正在寻找“嵌入式AI”的专业工具，但找不到它。 ***"
+}, {
+  "tag": "H1",
+  "text": "Anything good?",
+  "translation": "有什么好处吗"
+}, {
+  "tag": "P",
+  "text": "I see a huge interest in AI from big semiconductor companies, and they are doing remarkably valuable and important things. They worth another article, so I list a couple of them not to make this article too long.",
+  "translation": "我看到大型半导体公司对AI产生了极大的兴趣，它们正在做非常有价值和重要的事情。 它们值得另一篇文章，因此我列出其中一些，以免使本文太长。"
+}, {
+  "tag": "UL",
+  "texts": ["CMSIS-NN — efficient neural network kernels for Arm Cortex-M CPUs", "Compilers which produce highly effective inference code that is optimized based on the hardware you have", "and a lot of other cool stuff"],
+  "translations": ["CMSIS-NN —用于Arm Cortex-M CPU的高效神经网络内核", "产生高效推理代码的编译器，这些推理代码根据您拥有的硬件进行了优化", "还有很多其他很酷的东西"]
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*6gUJzJKUs7XA8vE6?q=20",
+  "caption": "Photo by Ahmed Hasan on Unsplash",
+  "type": "image",
+  "file": "0*6gUJzJKUs7XA8vE6"
+}, {
+  "tag": "P",
+  "text": "Imagine that you have a microcontroller. Its main task is to process your finger touches into the screen. It has ARM Cortex-M0 processor, 256KB of memory (where only 80–120 is available for you). It’s a real-time system, so you have a small amount of time to make inference for your model, let’s say 100 microseconds. And your goal is to improve or replace some algorithm there.",
+  "translation": "假设您有一个微控制器。 它的主要任务是处理您的手指触摸屏幕。 它具有ARM Cortex-M0处理器，256KB内存（其中只有80–120可用）。 这是一个实时系统，因此您可以花很少的时间来推断模型，例如100微秒。 您的目标是在那里改善或替换某些算法。"
+}, {
+  "tag": "P",
+  "text": "Good luck, and welcome to the world of “Embedded AI.”",
+  "translation": "祝您好运，欢迎来到“嵌入式AI”世界。"
+}, {
+  "tag": "H2",
+  "text": "*** The embedded world” consist of 1–2$ chips with limited resources. And this is what is used on the production level ***",
+  "translation": "***嵌入式世界”由资源有限的1-2美元芯片组成。 这就是在生产水平上使用的***"
+}, {
+  "tag": "H1",
+  "text": "2. Pure Infrastructure",
+  "translation": "2.纯基础设施"
+}, {
+  "tag": "P",
+  "text": "I have been working on the project I described above. Everything was great. I developed a small network that potentially has to fit into that microcontroller.",
+  "translation": "我一直在从事上述项目。 一切都很棒。 我开发了一个可能必须适合该微控制器的小型网络。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*wmr5Z-DBBpnBnhsn?q=20",
+  "caption": "Photo by Matty Lynn Barnes on Unsplash",
+  "type": "image",
+  "file": "0*wmr5Z-DBBpnBnhsn"
+}, {
+  "tag": "P",
+  "text": "Time to move the model from my computer to device has begun!",
+  "translation": "是时候开始将模型从我的电脑转移到设备了！"
+}, {
+  "tag": "OL",
+  "texts": ["Quantization."],
+  "translations": ["量化。"]
+}, {
+  "tag": "P",
+  "text": "That processor was not able to do operations with floating-point numbers. Even if it could, we would not use it because it’s a quite complex operation and requires much time.",
+  "translation": "该处理器无法执行浮点数运算。 即使可以，我们也不会使用它，因为这是一个非常复杂的操作，需要很多时间。"
+}, {
+  "tag": "P",
+  "text": "So, I did model weights quantization — converting a continuous range of values into a finite range of discrete values.",
+  "translation": "因此，我对权重量化进行了模型化-将值的连续范围转换为离散值的有限范围。"
+}, {
+  "tag": "P",
+  "text": "And guess what? Neither PyTorch and TensorflowLite do not fully support it. They do not support all activation function (while I used pretty simple HardTanh). PyTorch even could not save the quantized model into the file.",
+  "translation": "你猜怎么着？ PyTorch和TensorflowLite都不完全支持它。 它们不支持所有激活功能（尽管我使用了非常简单的HardTanh）。 PyTorch甚至无法将量化模型保存到文件中。"
+}, {
+  "tag": "P",
+  "text": "So, I had to do it by hand.",
+  "translation": "所以，我不得不手工做。"
+}, {
+  "tag": "P",
+  "text": "2. Inference code generation",
+  "translation": "2.推理代码生成"
+}, {
+  "tag": "P",
+  "text": "You want to run your model on that controller. Right? So, you need C-code for model inference.",
+  "translation": "您想在该控制器上运行模型。 对？ 因此，您需要使用C代码进行模型推断。"
+}, {
+  "tag": "P",
+  "text": "It’s sad, but you have to do it by hand. Why? PyTorch does not have a functionality of inference code generation. In contrast, TFLite has, but it’s pretty limited and again does not support common activation functions.",
+  "translation": "很难过，但您必须手动完成。 为什么？ PyTorch没有推断代码生成的功能。 相比之下，TFLite具有功能，但功能相当有限，并且不支持常见的激活功能。"
+}, {
+  "tag": "P",
+  "text": "So, I again did it by hand.",
+  "translation": "因此，我再次手动完成。"
+}, {
+  "tag": "P",
+  "text": "What do you think when you hear “embedded device”? Imagine the picture and keep it in mind.",
+  "translation": "当您听到“嵌入式设备”时您怎么看？ 想象一下图片并牢记在心。"
+}, {
+  "tag": "H2",
+  "text": "1. It’s any electrical machinery. Even my microwave and washing machine",
+  "translation": "1.它是任何电机。 甚至我的微波炉和洗衣机"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*BLIQ8aJecGQLFCd7?q=20",
+  "caption": "Photo by Marcos Ramírez on Unsplash",
+  "type": "image",
+  "file": "0*BLIQ8aJecGQLFCd7"
+}, {
+  "tag": "P",
+  "text": "Yeah, you are right!",
+  "translation": "嗯你是对的！"
+}, {
+  "tag": "P",
+  "text": "Almost any electrical device today is an embedded device. It may have one or several controllers inside responsible for each exact function: touch sensing, engine condition monitoring etc.",
+  "translation": "如今，几乎所有的电气设备都是嵌入式设备。 它内部可能具有一个或几个控制器来负责每个确切的功能：触摸感应，发动机状态监控等。"
+}, {
+  "tag": "H2",
+  "text": "2. Arduino or/and Raspberry PI",
+  "translation": "2. Arduino或/和Raspberry PI"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*0RmHNeHbzs3L0SK1?q=20",
+  "type": "image",
+  "file": "0*0RmHNeHbzs3L0SK1"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*M_JbHOLgLigaVuiO?q=20",
+  "caption": "Photos by Harrison Broadbent on Unsplash",
+  "type": "image",
+  "file": "0*M_JbHOLgLigaVuiO"
+}, {
+  "tag": "P",
+  "text": "Congrats, you are right again!",
+  "translation": "恭喜，您再次正确！"
+}, {
+  "tag": "P",
+  "text": "They are ones of the most popular and widely used kits for DIY projects. And yes, they are embedded devices.",
+  "translation": "它们是用于DIY项目的最受欢迎和使用最广泛的工具包之一。 是的，它们是嵌入式设备。"
+}, {
+  "tag": "H2",
+  "text": "3. Jetson Nano and similar",
+  "translation": "3. Jetson Nano和类似产品"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*c_6HZv5scE3rK8j4.png?q=20",
+  "caption": "Photo by NVIDIA",
+  "type": "image",
+  "file": "0*c_6HZv5scE3rK8j4.png"
+}, {
+  "tag": "P",
+  "text": "It’s right again.",
+  "translation": "再次正确。"
+}, {
+  "tag": "P",
+  "text": "It’s a special developer kit “aka mini-computer”, developed precisely for running ML models on it. It’s extremely powerful and, to be honest, super sexy.",
+  "translation": "这是一个特殊的开发套件“ aka mini-computer”，专门为在其上运行ML模型而开发。 它非常强大，说实话，超级性感。"
+}, {
+  "tag": "H1",
+  "text": "But there is something missed here",
+  "translation": "但是这里有些遗漏"
+}, {
+  "tag": "P",
+  "text": "I have many friends who are doing fabulous hardware pet-projects. They commonly use Arduino or STM32(aka hardcore Arduino) there.",
+  "translation": "我有很多朋友正在做很棒的硬件宠物项目。 他们通常在那里使用Arduino或STM32（又名Hardcore Arduino）。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*sMaY5nem6hFC7m7_?q=20",
+  "type": "image",
+  "file": "0*sMaY5nem6hFC7m7_"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*ydCFC8NCqzFkcMeY?q=20",
+  "type": "image",
+  "file": "0*ydCFC8NCqzFkcMeY"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*lSVGHXTvI4Q-9KE8?q=20",
+  "caption": "Smart helmet, Robotic car and ALU",
+  "type": "image",
+  "file": "0*lSVGHXTvI4Q-9KE8"
+}, {
+  "tag": "P",
+  "text": "I know several AI-engineers who are thrilled about Jetson Nano and similar devices. They think that it’s future for Embedded AI.",
+  "translation": "我认识几个对Jetson Nano和类似设备感到兴奋的AI工程师。 他们认为嵌入式AI的未来。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*_1vw1t9I5Ch2GuLC.jpg?q=20",
+  "caption": "Photo by Nvidia",
+  "type": "image",
+  "file": "0*_1vw1t9I5Ch2GuLC.jpg"
+}, {
+  "tag": "P",
+  "text": "And now. Please, think about “How many of such devices are used in production level?”",
+  "translation": "现在。 请考虑“在生产级别使用了多少这种设备？”"
+}, {
+  "tag": "H1",
+  "text": "The answer — tiny",
+  "translation": "答案-小"
+}, {
+  "tag": "P",
+  "text": "Think about how many electrical devices you have in the house. Then add tons of controllers in your car. The security system in your job. I can continue a very long list.",
+  "translation": "考虑一下您家中有多少个电气设备。 然后在您的汽车中添加大量的控制器。 您工作中的安全系统。 我可以继续很长的清单。"
+}, {
+  "tag": "P",
+  "text": "And each of that device has some controller. Usually, it’s miniature and super cheap. It can not be compared with the resources and capabilities of Jetson or Raspberry.",
+  "translation": "每个设备都有一个控制器。 通常，它是微型且超级便宜。 它无法与Jetson或Raspberry的资源和功能相提并论。"
+}, {
+  "tag": "H2",
+  "text": "Think different",
+  "translation": "换个角度思考"
+}, {
+  "tag": "H1",
+  "text": "Machine Learning Fails When It Comes to Embedded System. Here’s Why",
+  "translation": "嵌入式系统机器学习失败。 这就是为什么"
+}, {
+  "tag": "H2",
+  "text": "A closer look into the embedded world and what ML industry can not tackle so far",
+  "translation": "深入研究嵌入式世界以及迄今为止机器学习行业无法解决的问题"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*ChA81UKNwAGJw2_D?q=20",
+  "caption": "Photo by Daniel Wiadro on Unsplash",
+  "type": "image",
+  "file": "0*ChA81UKNwAGJw2_D"
+}, {
+  "tag": "P",
+  "text": "Machine Learning reached its peak nowadays and finally used everywhere. You can see face recognition systems in the airport and personalized advertisements in Facebook.",
+  "translation": "如今，机器学习达到了顶峰，并最终在各个地方得到了应用。 您可以在机场看到人脸识别系统，并在Facebook中看到个性化广告。"
+}, {
+  "tag": "P",
+  "text": "Although, when we talk about combining ML with embedded devices there is still a considerable gap.",
+  "translation": "虽然，当我们谈论将ML与嵌入式设备结合时，仍然存在很大差距。"
+}, {
+  "tag": "H1",
+  "text": "1. We do not understand what the embedded world is",
+  "translation": "1.我们不了解什么是嵌入式世界"
+}, {
+  "tag": "P",
+  "text": "Working with ML, we used to have enormous computational power.",
+  "translation": "使用ML，我们曾经拥有巨大的计算能力。"
+}, {
+  "tag": "P",
+  "text": "AlexNet requires 727 MegaFlops and 235Mb of memory to process a small 227x227px image. For example, ARM Cortex-A8 on Google Nexus S can produce 66 MegaFlops per second. So, you have to wait ~11 seconds for inference. That’s a lot!",
+  "translation": "AlexNet需要727 MegaFlops和235Mb的内存来处理小的227x227px图像。 例如，Google Nexus S上的ARM Cortex-A8每秒可产生66个MegaFlops。 因此，您必须等待〜11秒才能进行推断。 好多啊！"
+}, {
+  "tag": "P",
+  "text": "*FLOP — floating-point operation",
+  "translation": "* FLOP —浮点运算"
+}, {
+  "tag": "P",
+  "text": "Check out more info: Estimates of memory consumption and FLOP counts for various CNNs and Floating-point performance of ARM cores and their efficiency.",
+  "translation": "查看更多信息：各种CNN的内存消耗和FLOP计数以及ARM内核的浮点性能及其效率的估计。"
+}, {
+  "tag": "P",
+  "text": "I had several ML-related courses in the university. We did much cool stuff in homework. But even there my 4GB GTX1050 was not enough to train all the models.",
+  "translation": "我在大学里有几门与ML相关的课程。 我们在功课上做了很多很酷的事情。 但是即使在那里我的4GB GTX1050也不足以训练所有模型。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*KbWJLUTeLRcMkZpF.png?q=20",
+  "caption": "Problem understanding is essential to build the right product",
+  "type": "image",
+  "file": "0*KbWJLUTeLRcMkZpF.png"
+}, {
+  "tag": "P",
+  "text": "General ML engineer rarely thinks about computational resources. Moreover, he/she seldom care about memory usage. Why? Cause it’s cheap and even your phone has pretty good CPU and a lot of memory.",
+  "translation": "一般的ML工程师很少考虑计算资源。 此外，他/她很少关心内存使用情况。 为什么？ 因为价格便宜，甚至您的手机都具有不错的CPU和大量内存。"
+}, {
+  "tag": "P",
+  "text": "Do you still feel a lack of memory in your phone when it comes to photos from the last party? Imagine that you work with the TrueTouch sensing controller which has 256KB of flash memory. Yeah, 256KB. And you can not use all of that because of existing firmware. So, around 100KB. Check out your last model size. Probably it is much much larger.",
+  "translation": "上次聚会中的照片时，手机上是否仍然缺少记忆？ 想象一下，您使用的是具有256KB闪存的TrueTouch感应控制器。 是的，256KB。 而且由于现有固件，您无法使用所有这些功能。 因此，大约100KB。 查看您上一次的模特尺寸。 可能更大。"
+}, {
+  "tag": "P",
+  "text": "Is it getting interesting? Let’s continue :)",
+  "translation": "变得有趣了吗？ 让我们继续:)"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Andrew Zhuravchak的文章《Machine Learning Fails When It Comes to Embedded System. Here’s Why》，参考：https://towardsdatascience.com/machine-learning-fails-when-it-comes-to-embedded-system-9ce6def9ba75)",
+  "translation": "（本文翻译自Andrew Zhuravchak的文章，《嵌入式系统中机器学习失败。这就是为什么》，参考：https：//towardsdatascience.com/machine-learning-fails-when-it-comes-to-embedded-system -9ce6def9ba75）"
+}]
