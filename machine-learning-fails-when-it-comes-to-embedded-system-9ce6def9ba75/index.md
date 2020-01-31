@@ -11,7 +11,7 @@
 + CMSIS-NN —用于Arm Cortex-M CPU的高效神经网络内核
 + 产生高效推理代码的编译器，这些推理代码根据您拥有的硬件进行了优化
 + 还有很多其他很酷的东西
-![Photo by Ahmed Hasan on Unsplash](0*6gUJzJKUs7XA8vE6)
+![Photo by Ahmed Hasan on Unsplash](0!6gUJzJKUs7XA8vE6)
 > Photo by Ahmed Hasan on Unsplash
 
 
@@ -22,7 +22,7 @@
 # 2.纯基础设施
 
 我一直在从事上述项目。 一切都很棒。 我开发了一个可能必须适合该微控制器的小型网络。
-![Photo by Matty Lynn Barnes on Unsplash](0*wmr5Z-DBBpnBnhsn)
+![Photo by Matty Lynn Barnes on Unsplash](0!wmr5Z-DBBpnBnhsn)
 > Photo by Matty Lynn Barnes on Unsplash
 
 
@@ -47,7 +47,7 @@
 
 当您听到“嵌入式设备”时您怎么看？ 想象一下图片并牢记在心。
 ## 1.它是任何电机。 甚至我的微波炉和洗衣机
-![Photo by Marcos Ramírez on Unsplash](0*BLIQ8aJecGQLFCd7)
+![Photo by Marcos Ramírez on Unsplash](0!BLIQ8aJecGQLFCd7)
 > Photo by Marcos Ramírez on Unsplash
 
 
@@ -55,8 +55,8 @@
 
 如今，几乎所有的电气设备都是嵌入式设备。 它内部可能具有一个或几个控制器来负责每个确切的功能：触摸感应，发动机状态监控等。
 ## 2. Arduino或/和Raspberry PI
-![](0*0RmHNeHbzs3L0SK1)
-![Photos by Harrison Broadbent on Unsplash](0*M_JbHOLgLigaVuiO)
+![](0!0RmHNeHbzs3L0SK1)
+![Photos by Harrison Broadbent on Unsplash](0!M_JbHOLgLigaVuiO)
 > Photos by Harrison Broadbent on Unsplash
 
 
@@ -64,7 +64,7 @@
 
 它们是用于DIY项目的最受欢迎和使用最广泛的工具包之一。 是的，它们是嵌入式设备。
 ## 3. Jetson Nano和类似产品
-![Photo by NVIDIA](0*c_6HZv5scE3rK8j4.png)
+![Photo by NVIDIA](0!c_6HZv5scE3rK8j4.png)
 > Photo by NVIDIA
 
 
@@ -74,14 +74,14 @@
 # 但是这里有些遗漏
 
 我有很多朋友正在做很棒的硬件宠物项目。 他们通常在那里使用Arduino或STM32（又名Hardcore Arduino）。
-![](0*sMaY5nem6hFC7m7_)
-![](0*ydCFC8NCqzFkcMeY)
-![Smart helmet, Robotic car and ALU](0*lSVGHXTvI4Q-9KE8)
+![](0!sMaY5nem6hFC7m7_)
+![](0!ydCFC8NCqzFkcMeY)
+![Smart helmet, Robotic car and ALU](0!lSVGHXTvI4Q-9KE8)
 > Smart helmet, Robotic car and ALU
 
 
 我认识几个对Jetson Nano和类似设备感到兴奋的AI工程师。 他们认为嵌入式AI的未来。
-![Photo by Nvidia](0*_1vw1t9I5Ch2GuLC.jpg)
+![Photo by Nvidia](0!_1vw1t9I5Ch2GuLC.jpg)
 > Photo by Nvidia
 
 
@@ -94,7 +94,7 @@
 ## 换个角度思考
 # 嵌入式系统机器学习失败。 这就是为什么
 ## 深入研究嵌入式世界以及迄今为止机器学习行业无法解决的问题
-![Photo by Daniel Wiadro on Unsplash](0*ChA81UKNwAGJw2_D)
+![Photo by Daniel Wiadro on Unsplash](0!ChA81UKNwAGJw2_D)
 > Photo by Daniel Wiadro on Unsplash
 
 
@@ -112,7 +112,7 @@ AlexNet需要727 MegaFlops和235Mb的内存来处理小的227x227px图像。 例
 查看更多信息：各种CNN的内存消耗和FLOP计数以及ARM内核的浮点性能及其效率的估计。
 
 我在大学里有几门与ML相关的课程。 我们在功课上做了很多很酷的事情。 但是即使在那里我的4GB GTX1050也不足以训练所有模型。
-![Problem understanding is essential to build the right product](0*KbWJLUTeLRcMkZpF.png)
+![Problem understanding is essential to build the right product](0!KbWJLUTeLRcMkZpF.png)
 > Problem understanding is essential to build the right product
 
 

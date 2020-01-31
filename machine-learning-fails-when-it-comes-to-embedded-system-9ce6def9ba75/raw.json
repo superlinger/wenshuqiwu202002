@@ -35,7 +35,7 @@
   "image": "https://miro.medium.com/max/30/0*6gUJzJKUs7XA8vE6?q=20",
   "caption": "Photo by Ahmed Hasan on Unsplash",
   "type": "image",
-  "file": "0*6gUJzJKUs7XA8vE6"
+  "file": "0!6gUJzJKUs7XA8vE6"
 }, {
   "tag": "P",
   "text": "Imagine that you have a microcontroller. Its main task is to process your finger touches into the screen. It has ARM Cortex-M0 processor, 256KB of memory (where only 80–120 is available for you). It’s a real-time system, so you have a small amount of time to make inference for your model, let’s say 100 microseconds. And your goal is to improve or replace some algorithm there.",
@@ -61,7 +61,7 @@
   "image": "https://miro.medium.com/max/30/0*wmr5Z-DBBpnBnhsn?q=20",
   "caption": "Photo by Matty Lynn Barnes on Unsplash",
   "type": "image",
-  "file": "0*wmr5Z-DBBpnBnhsn"
+  "file": "0!wmr5Z-DBBpnBnhsn"
 }, {
   "tag": "P",
   "text": "Time to move the model from my computer to device has begun!",
@@ -115,7 +115,7 @@
   "image": "https://miro.medium.com/max/30/0*BLIQ8aJecGQLFCd7?q=20",
   "caption": "Photo by Marcos Ramírez on Unsplash",
   "type": "image",
-  "file": "0*BLIQ8aJecGQLFCd7"
+  "file": "0!BLIQ8aJecGQLFCd7"
 }, {
   "tag": "P",
   "text": "Yeah, you are right!",
@@ -132,13 +132,13 @@
   "tag": "FIGURE",
   "image": "https://miro.medium.com/max/30/0*0RmHNeHbzs3L0SK1?q=20",
   "type": "image",
-  "file": "0*0RmHNeHbzs3L0SK1"
+  "file": "0!0RmHNeHbzs3L0SK1"
 }, {
   "tag": "FIGURE",
   "image": "https://miro.medium.com/max/30/0*M_JbHOLgLigaVuiO?q=20",
   "caption": "Photos by Harrison Broadbent on Unsplash",
   "type": "image",
-  "file": "0*M_JbHOLgLigaVuiO"
+  "file": "0!M_JbHOLgLigaVuiO"
 }, {
   "tag": "P",
   "text": "Congrats, you are right again!",
@@ -156,7 +156,7 @@
   "image": "https://miro.medium.com/max/30/0*c_6HZv5scE3rK8j4.png?q=20",
   "caption": "Photo by NVIDIA",
   "type": "image",
-  "file": "0*c_6HZv5scE3rK8j4.png"
+  "file": "0!c_6HZv5scE3rK8j4.png"
 }, {
   "tag": "P",
   "text": "It’s right again.",
@@ -177,18 +177,18 @@
   "tag": "FIGURE",
   "image": "https://miro.medium.com/max/30/0*sMaY5nem6hFC7m7_?q=20",
   "type": "image",
-  "file": "0*sMaY5nem6hFC7m7_"
+  "file": "0!sMaY5nem6hFC7m7_"
 }, {
   "tag": "FIGURE",
   "image": "https://miro.medium.com/max/30/0*ydCFC8NCqzFkcMeY?q=20",
   "type": "image",
-  "file": "0*ydCFC8NCqzFkcMeY"
+  "file": "0!ydCFC8NCqzFkcMeY"
 }, {
   "tag": "FIGURE",
   "image": "https://miro.medium.com/max/30/0*lSVGHXTvI4Q-9KE8?q=20",
   "caption": "Smart helmet, Robotic car and ALU",
   "type": "image",
-  "file": "0*lSVGHXTvI4Q-9KE8"
+  "file": "0!lSVGHXTvI4Q-9KE8"
 }, {
   "tag": "P",
   "text": "I know several AI-engineers who are thrilled about Jetson Nano and similar devices. They think that it’s future for Embedded AI.",
@@ -198,7 +198,7 @@
   "image": "https://miro.medium.com/max/30/0*_1vw1t9I5Ch2GuLC.jpg?q=20",
   "caption": "Photo by Nvidia",
   "type": "image",
-  "file": "0*_1vw1t9I5Ch2GuLC.jpg"
+  "file": "0!_1vw1t9I5Ch2GuLC.jpg"
 }, {
   "tag": "P",
   "text": "And now. Please, think about “How many of such devices are used in production level?”",
@@ -232,7 +232,7 @@
   "image": "https://miro.medium.com/max/30/0*ChA81UKNwAGJw2_D?q=20",
   "caption": "Photo by Daniel Wiadro on Unsplash",
   "type": "image",
-  "file": "0*ChA81UKNwAGJw2_D"
+  "file": "0!ChA81UKNwAGJw2_D"
 }, {
   "tag": "P",
   "text": "Machine Learning reached its peak nowadays and finally used everywhere. You can see face recognition systems in the airport and personalized advertisements in Facebook.",
@@ -270,7 +270,7 @@
   "image": "https://miro.medium.com/max/30/0*KbWJLUTeLRcMkZpF.png?q=20",
   "caption": "Problem understanding is essential to build the right product",
   "type": "image",
-  "file": "0*KbWJLUTeLRcMkZpF.png"
+  "file": "0!KbWJLUTeLRcMkZpF.png"
 }, {
   "tag": "P",
   "text": "General ML engineer rarely thinks about computational resources. Moreover, he/she seldom care about memory usage. Why? Cause it’s cheap and even your phone has pretty good CPU and a lot of memory.",
