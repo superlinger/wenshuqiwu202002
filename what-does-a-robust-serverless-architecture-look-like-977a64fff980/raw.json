@@ -1,0 +1,115 @@
+[{
+  "tag": "P",
+  "text": "Co-authored with Dave Wesley, SRG Software.",
+  "translation": "与SRG Software的Dave Wesley合着。"
+}, {
+  "tag": "P",
+  "text": "When it comes to a robust serverless architecture, the structure of code rests on a developer’s ability to create isolated solutions for a bigger picture. The code is often functional in nature as reusability rests on its ability to process data without class-based blueprints.",
+  "translation": "对于健壮的无服务器架构，代码的结构取决于开发人员为更大的视图创建隔离的解决方案的能力。 该代码本质上通常是功能性的，因为可重用性取决于其处理数据的能力而无需基于类的蓝图。"
+}, {
+  "tag": "P",
+  "text": "A robust serverless architecture for larger software takes where the potential breaks are and where data could be lost into consideration. By centralizing triggers around permanency, it solves this issue and reduces the risk caused by the transient nature of serverless.",
+  "translation": "针对大型软件的健壮的无服务器架构会考虑潜在的中断和可能丢失数据的位置。 通过围绕永久性集中触发器，它解决了此问题，并降低了由于无服务器的短暂性而导致的风险。"
+}, {
+  "tag": "P",
+  "text": "Functional parallelism is one of the architectural methods that can be used for a robust serverless architecture. When it comes to triggers, implementing permanency is a good practice for data protection and validations. It’s also a way to deal with the expected statelessness of serverless.",
+  "translation": "功能并行是可用于健壮的无服务器体系结构的体系结构方法之一。 关于触发器，实现永久性是数据保护和验证的一种好习惯。 这也是处理无服务器预期的无状态性的一种方法。"
+}, {
+  "tag": "H1",
+  "text": "Consolidated, Isolated, and Event-Driven by Nature",
+  "translation": "大自然的整合，隔离和事件驱动"
+}, {
+  "tag": "P",
+  "text": "It’s easy to fall into the trappings of writing a function for anything imaginable. When it comes to serverless, it’s easy to boot up a function that performs a job. That job can be activated through an automated chron job, triggered through gateways, data changes, and code pipeline activities.",
+  "translation": "很容易陷入为任何可能的事情编写函数的陷阱。 对于无服务器，很容易启动执行工作的功能。 可以通过自动计时作业激活该作业，可以通过网关，数据更改和代码管道活动来触发该作业。"
+}, {
+  "tag": "P",
+  "text": "While this sounds fantastic for isolated cases, larger applications in a serverless environment require the architect to look at the overall set of expected events and design functions as a modular network.",
+  "translation": "尽管这对于孤立的案例来说听起来很棒，但是在无服务器环境中的大型应用程序要求架构师将整个预期事件和设计功能视为一个模块化网络。"
+}, {
+  "tag": "P",
+  "text": "In a way, building apps in a serverless manner is a deconstructed approach to software development. It can be booted up in parts without dependencies and deliver rapid problem-solving solutions.",
+  "translation": "在某种程度上，以无服务器方式构建应用程序是一种解构的软件开发方法。 它可以部分启动而无需依赖，并提供快速的问题解决方案。"
+}, {
+  "tag": "P",
+  "text": "A robust serverless architecture enforces a certain code condensation and modularity in order to minimize interdependence. Its statelessness disconnects the functions from one another and a persistent data source becomes a single space for truthiness.",
+  "translation": "健壮的无服务器架构强制执行一定的代码压缩和模块化，以最大程度地减少相互依赖性。 它的无状态性使功能彼此断开，并且持久性数据源成为真实性的唯一空间。"
+}, {
+  "tag": "P",
+  "text": "Chaining functions can cause a serial domino effect if something fails. A parallel approach to the relationship between functions mitigates this risk.",
+  "translation": "如果发生故障，链接功能会导致串行多米诺骨牌效应。 对功能之间的关系采用并行方法可减轻这种风险。"
+}, {
+  "tag": "P",
+  "text": "Take a look at the diagrams below, for example:",
+  "translation": "看下面的图，例如："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*MVCHDgvVjmwpcF-NokUdGQ.jpeg?q=20",
+  "caption": "Serial serverless approach",
+  "type": "image",
+  "file": "1!MVCHDgvVjmwpcF-NokUdGQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "The above process flow is a default that some of us can fall into when creating serverless code. This is because it’s easy to think in a traditional dependency injection model where one function triggers another. We may put in a recursion if the requirements make sense. However, when applied to serverless applications, a break in the flow can ultimately cause a break for the outcome with no contingency plan.",
+  "translation": "上面的流程是默认的，我们中的一些人在创建无服务器代码时可能会陷入其中。 这是因为在传统的依赖注入模型中，一个函数触发另一个函数很容易想到。 如果要求合理，我们可以递归进行。 但是，当将其应用于无服务器应用程序时，流程中断最终会导致没有应急计划的结果中断。"
+}, {
+  "tag": "P",
+  "text": "This is because a serial approach doesn’t satisfy the need for each function to be truly independent. The trigger for the above approach is a serverless function calling another, meaning that it has the potential to pass data along the pipeline without validation or proper state management.",
+  "translation": "这是因为串行方法不能满足每个功能真正独立的需要。 上述方法的触发器是调用另一个的无服务器功能，这意味着它有可能沿管道传递数据而无需验证或进行适当的状态管理。"
+}, {
+  "tag": "P",
+  "text": "Take a look at the following diagram. It has the same three serverless function but they’re connected to one another via a stateful trigger.",
+  "translation": "看下图。 它具有相同的三个无服务器功能，但它们通过有状态触发器相互连接。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*mmhCHKjPWz0EzEPOhF80rw.jpeg?q=20",
+  "caption": "Parallel Serverless approach",
+  "type": "image",
+  "file": "1!mmhCHKjPWz0EzEPOhF80rw.jpeg"
+}, {
+  "tag": "P",
+  "text": "This methodology may appear more complex but if you look at where the potential breaking points are, they are based on the triggers and not the function.",
+  "translation": "这种方法可能看起来更复杂，但是如果您查看潜在的断点在哪里，它们是基于触发器而不是函数。"
+}, {
+  "tag": "P",
+  "text": "When recursions are implemented, the trigger is based on something persistent, rather than a transient space where you risk losing the output.",
+  "translation": "实施递归时，触发器基于持久性内容，而不是可能会丢失输出的临时空间。"
+}, {
+  "tag": "P",
+  "text": "The architecture also allows for multiple pieces of code to run. Serverless and its associated tableless data storage are cheap. In part, this is because its inception is designed with high volume usage.",
+  "translation": "该体系结构还允许运行多个代码。 无服务器及其相关的无表数据存储很便宜。 在某种程度上，这是因为它的初始设计是为了大量使用。"
+}, {
+  "tag": "P",
+  "text": "While the first diagram runs one function at a time in order to trigger the other, therefore appearing to use less computational power, the second diagram allows for two functions to run in an isolated manner but remain connected through the data triggers.",
+  "translation": "虽然第一个图一次运行一个功能以触发另一个功能，因此似乎使用了较少的计算能力，但第二个图允许两个功能以隔离的方式运行，但仍通过数据触发器保持连接。"
+}, {
+  "tag": "H1",
+  "text": "What Does a Robust Serverless Architecture Look Like?",
+  "translation": "稳健的无服务器架构是什么样的？"
+}, {
+  "tag": "H2",
+  "text": "Everything has its quirks if not designed properly",
+  "translation": "如果设计不当，一切都会有怪癖"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*xQW7fwUwI40eY9Wu8VvcNQ.png?q=20",
+  "caption": "Image by Aphinya Dechalert. co-written with David Wesley",
+  "type": "image",
+  "file": "1!xQW7fwUwI40eY9Wu8VvcNQ.png"
+}, {
+  "tag": "P",
+  "text": "Serverless is one of the latest industry buzzwords — but, like anything in tech, if it’s not set up properly, your development investments can collapse like a house of cards.",
+  "translation": "无服务器是业界最新的流行语之一-但是，就像技术上的任何事物一样，如果设置不正确，您的开发投资可能像纸牌屋一样崩溃。"
+}, {
+  "tag": "P",
+  "text": "All the major cloud players now offer some sort of serverless architecture support — AWS with Lambda, Google with Cloud Functions and, Microsoft with Azure Functions. The open-sourced and free Serverless framework is also designed and created to help developers automate their processes and create better serverless code.",
+  "translation": "现在，所有主要的云播放器都提供某种无服务器架构支持-带有Lambda的AWS，带有云功能的Google和带有Azure功能的Microsoft。 还设计和创建了开源的免费Serverless框架，以帮助开发人员自动化其流程并创建更好的无服务器代码。"
+}, {
+  "tag": "P",
+  "text": "The rationale behind serverless is that it’s event-driven with the ability to scale automatically without the need for infrastructure setup or intervention. But the question that’s not asked often enough is this: What does a robust serverless architecture look like?",
+  "translation": "无服务器背后的理由是，它是事件驱动的，具有自动扩展的能力，而无需基础架构的设置或干预。 但是，人们经常问的一个问题是：健壮的无服务器架构是什么样的？"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Aphinya Dechalert的文章《What Does a Robust Serverless Architecture Look Like?》，参考：https://medium.com/better-programming/what-does-a-robust-serverless-architecture-look-like-977a64fff980)",
+  "translation": "（本文翻译自Aphinya Dechalert的文章，《稳健的无服务器架构看起来像什么？》，参考：https：//medium.com/better-programming/what-does-a-robust-serverless-architecture-look-like- 977a64fff980）"
+}]
