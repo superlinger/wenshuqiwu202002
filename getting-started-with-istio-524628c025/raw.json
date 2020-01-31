@@ -1,0 +1,736 @@
+[{
+  "tag": "P",
+  "text": "Was this article useful to you? I’d love to hear your feedback, so don’t hold back! If you are interested in Kafka, Kubernetes, microservices, or event streaming, or just have any questions, follow me on Twitter.",
+  "translation": "这篇文章对您有用吗？ 我希望听到您的反馈，所以请不要退缩！ 如果您对Kafka，Kubernetes，微服务或事件流感兴趣，或者有任何疑问，请在Twitter上关注我。"
+}, {
+  "tag": "P",
+  "text": "Think of a service mesh as a pixie that works behind the scenes, unthanked and unacknowledged, to help with traffic management, instrumentation and observability, security policy enforcement, and other mundane but necessary tasks that you would leave you bored out of your wits trying to implement in your application code. Particularly when it comes to information security, implementing these concerns at the application layer, even with the help of client libraries, has never been easy — which also explains the flourishing of commercial API gateway vendors.",
+  "translation": "可以将服务网格想象为在后台工作的小精灵，它们毫不客气且未被承认，以帮助进行流量管理，检测和可观察性，安全策略实施以及其他平凡但必不可少的任务，而这些尝试会让您无所适从 在您的应用程序代码中实现。 尤其是在信息安全方面，即使在客户端库的帮助下，在应用程序层实现这些问题也从未如此轻松，这也说明了商业API网关供应商的兴旺发展。"
+}, {
+  "tag": "P",
+  "text": "This article has only scratched the surface of Istio. We didn’t discuss resiliency patterns such as rate limiting, circuit breakers, back-off and retry; nor did we cover fault injection or chaos testing — an entire area of reliability engineering saved for another day. Istio’s advanced load-balancing was given a miss, along with certificate management and authorization. There is only so much one can fit into an article before it becomes overbearing. Nonetheless, you should by now have the necessary knowledge and tools to start using Istio in your application ecosystem.",
+  "translation": "本文仅涉及Istio的表面。 我们没有讨论速率限制，断路器，退避和重试等弹性模式； 我们也没有涵盖故障注入或混乱测试-可靠性工程的整个领域又节省了一天。 Istio的高级负载平衡功能，证书管理和授权功能都被忽略了。 在文章变得霸道之前，只能容纳这么多文章。 尽管如此，您现在应该已经具备了在应用程序生态系统中开始使用Istio的必要知识和工具。"
+}, {
+  "tag": "P",
+  "text": "There is undoubtedly a fair amount of practice necessary to become proficient in Istio, but it is a gentle ramp-up in comparison to the much steeper learning curve of Kubernetes. Also, when compared to the effort it would take to correctly implement each of its capabilities in isolation and to maintain these in the long run, the return makes the investment appear very viable indeed.",
+  "translation": "精通Istio无疑需要大量的实践，但是与Kubernetes陡峭的学习曲线相比，这是一种缓慢的提升。 此外，与正确地隔离实现每个功能并长期保持这些功能所需的努力相比，回报确实使投资显得非常可行。"
+}, {
+  "tag": "H1",
+  "text": "Before we begin",
+  "translation": "开始之前"
+}, {
+  "tag": "P",
+  "text": "This article intends to offer a ‘gentle’ introduction to Istio. By ‘gentle’, we don’t mean quick, dumbed-down or crammed. We shall start with the fundamental concepts, then take a tour showing how they come together with incremental examples. Expect a long read. Put the kettle on. Try to follow the examples in order, as some will depend on the previous ones. By the end of it, you should understand what Istio is, where it can be used, and have the confidence to drive it yourself.",
+  "translation": "本文旨在提供对Istio的“温和”介绍。 所谓“温柔”，不是指快速，愚蠢或拥挤。 我们将从基本概念入手，然后浏览一下如何将它们与增量示例结合在一起。 期待长时间阅读。 放水壶。 尝试按顺序执行示例，因为某些示例将取决于前面的示例。 到最后，您应该了解Istio是什么，可以在哪里使用它，并有信心自己驱动它。"
+}, {
+  "tag": "P",
+  "text": "The material presented in this article would be classed as intermediate to advanced on the Kubernetes knowledge spectrum. A strong background in Kubernetes and Docker is essential: you should have a thorough hands-on understanding of core Kubernetes concepts, ability to deploy and manage containerized workloads, and comfortably use kubectl to navigate and alter the state of your Kubernetes cluster.",
+  "translation": "本文介绍的材料在Kubernetes知识范围内将被分类为中级或高级。 Kubernetes和Docker的强大背景至关重要：您应该对Kubernetes核心概念有透彻的实践了解，具有部署和管理容器化工作负载的能力，并舒适地使用kubectl导航和更改Kubernetes集群的状态。"
+}, {
+  "tag": "H1",
+  "text": "Introducing Istio",
+  "translation": "介绍Istio"
+}, {
+  "tag": "P",
+  "text": "Istio is a service mesh — an application-aware infrastructure layer for facilitating service-to-service communications. By ‘application-aware’, it is meant that the service mesh understands, to some degree, the nature of service communications and can intervene in a value-added manner. For example, a service mesh can implement resiliency patterns (retries, circuit breakers), alter the traffic flow (shape the traffic, affect routing behavior, facilitate canary releases), as well as add a whole host of comprehensive security controls. Being intrinsically aware of the traffic passing between services, Istio can also provide fine-grained instrumentation and telemetry insights, providing a degree of observability to an otherwise opaque distributed system.",
+  "translation": "Istio是一个服务网格—一种应用程序感知的基础结构层，用于促进服务到服务的通信。 “应用程序感知”是指服务网格在某种程度上了解服务通信的性质，并且可以以增值的方式进行干预。 例如，服务网格可以实现弹性模式（重试，断路器），更改流量（调整流量，影响路由行为，促进金丝雀释放），并添加大量的全面安全控制。 意识到服务之间传递的流量，Istio还可以提供细粒度的仪表和遥测洞察力，从而为不透明的分布式系统提供一定程度的可观察性。"
+}, {
+  "tag": "P",
+  "text": "Note: Service meshes refer to Layer 7 protocols in the OSI reference model, but can also be configured to operate at layers 3 and 4.",
+  "translation": "注意：服务网格是指OSI参考模型中的第7层协议，但也可以配置为在第3层和第4层运行。"
+}, {
+  "tag": "P",
+  "text": "Istio is backed by Google, IBM, and Lyft, and is currently the most widely-adopted service mesh architecture. Kubernetes, which was originally designed by Google, also dovetails nicely into Istio. It would be fair to label Istio as a ‘Kubernetes-native service mesh’.",
+  "translation": "Istio得到了Google，IBM和Lyft的支持，并且是目前使用最广泛的服务网格体系结构。 Kubernetes最初由Google设计，也很好地融入了Istio。 将Istio标记为“ Kubernetes原生服务网格”是公平的。"
+}, {
+  "tag": "H2",
+  "text": "How it works",
+  "translation": "怎么运行的"
+}, {
+  "tag": "P",
+  "text": "Like most service mesh implementations, Istio complements existing application containers with a proxy container, called a sidecar. Sidecar proxies are specially configured Envoy instances that intercept network traffic entering and leaving service containers and reroute the traffic over a dedicated network, as illustrated below.",
+  "translation": "像大多数服务网格实现一样，Istio通过称为“边车”的代理容器来补充现有的应用程序容器。 Sidecar代理是经过特殊配置的Envoy实例，可拦截进入和离开服务容器的网络流量，并通过专用网络重新路由流量，如下所示。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*bWQio3rKD0XpE8Kl?q=20",
+  "type": "image",
+  "file": "0!bWQio3rKD0XpE8Kl"
+}, {
+  "tag": "P",
+  "text": "Sidecar proxies are lightweight components optimized for latency and throughput, housing minimal configuration and routing intelligence. Routing decisions are made on the basis of policies hosted by a separate control plane — the metaphorical ‘brain’ of the service mesh. The control plane comprises a dedicated set of components deployed into the Kubernetes cluster — much like any other containerized application — residing in a dedicated istio-system namespace. The components of the control plane are intentionally separated from the data plane — the elements that perform the actual routing of network traffic and interface directly with the application containers. This separation is illustrated in the diagram below.",
+  "translation": "Sidecar代理是针对延迟和吞吐量进行了优化的轻型组件，仅具有最小的配置和路由智能。 路由决策是基于由单独的控制平面（服务网格的隐喻“大脑”）托管的策略制定的。 控制平面包括部署在Kubernetes集群中的一组专用组件，就像其他任何容器化应用程序一样，它们驻留在专用的istio-system名称空间中。 控制平面的组件有意与数据平面分离，这些元素执行网络流量的实际路由并直接与应用程序容器接口。 下图说明了这种分离。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*0t8pXEEjVrGnubPt?q=20",
+  "type": "image",
+  "file": "0!0t8pXEEjVrGnubPt"
+}, {
+  "tag": "P",
+  "text": "Note: The sidecar proxy pattern isn’t the only approach to service mesh implementations. An alternative approach, pioneered by the Netflix technology suite, employed client-side libraries (Ribbon, Hysterix, Eureka, Archaius) to fill the role of a data plane, taking routing cues from a centralised control plane. This approach had the benefit of being agnostic of the container orchestration engine, or indeed containers altogether — it could be deployed in an embedded form within legacy, container-less applications. The benefits of Netflix libraries were also its drawbacks — they required intrusive changes to applications and offered support for a limited number of programming languages, being predominantly JVM-focused. By contrast, more modern sidecar-based service mesh designs are language-agnostic — deployed transparently alongside existing applications, requiring comparatively little engagement on behalf of application developers.",
+  "translation": "注意：Sidecar代理模式不是服务网格实现的唯一方法。 由Netflix技术套件首创的另一种方法是使用客户端库（Ribbon，Hysterix，Eureka和Archaius）来填充数据平面的角色，并从集中控制平面获取路由提示。 这种方法的好处是，与容器编排引擎（或者实际上完全是容器）无关，可以将其以嵌入式形式部署在传统的无容器应用程序中。 Netflix库的好处也是它的缺点-它们需要对应用程序进行侵入式更改，并为有限的编程语言（主要针对JVM）提供支持。 相比之下，更现代的基于sidecar的服务网格设计与语言无关，可与现有应用程序透明部署，无需花费太多时间就可以代表应用程序开发人员。"
+}, {
+  "tag": "P",
+  "text": "Unsurprisingly, sidecar-based service meshes have enjoyed considerable adoption from operations and DevOps teams — the highly desirable separation between business logic and infrastructure is carried forward in a contemporary service mesh design.",
+  "translation": "毫不奇怪，基于Sidecar的服务网格在运营和DevOps团队中得到了广泛采用-在现代服务网格设计中，业务逻辑和基础结构之间的高度可取的分离得以实现。"
+}, {
+  "tag": "H1",
+  "text": "Core concepts",
+  "translation": "核心概念"
+}, {
+  "tag": "P",
+  "text": "Istio expands upon the nomenclature of a ‘vanilla’ Kubernetes setup with several Istio-specific resource types. Being a Kubernetes-native service mesh, Istio designs have implemented these concepts using custom resource definitions (CRDs). CRDs are nothing more than declarative snippets of configuration specified in YAML and managed using kubectl, akin to the built-in types such as Pod, Service, Deployment, and so on.",
+  "translation": "Istio扩展了具有多种Istio特定资源类型的“香草” Kubernetes设置的命名法。 作为Kubernetes原生服务网格，Istio设计已使用自定义资源定义（CRD）来实现这些概念。 CRD只不过是YAML中指定并使用kubectl管理的声明性配置片段，类似于诸如Pod，Service，Deployment等内置类型。"
+}, {
+  "tag": "H2",
+  "text": "Virtual services",
+  "translation": "虚拟服务"
+}, {
+  "tag": "P",
+  "text": "A virtual service specifies how requests inbound to a specific virtual host are routed to the underlying destinations.",
+  "translation": "虚拟服务指定入站到特定虚拟主机的请求如何路由到基础目标。"
+}, {
+  "tag": "P",
+  "text": "Virtual services decouple service consumers from service providers to the degree that simply isn’t possible with conventional Kubernetes services, which are rudimentary load balancers by comparison. Typical use cases for virtual services include the partitioning of request traffic to different versions of the service, which are specified as service subsets. Clients send requests to a virtual service with no awareness of the underlying provider implementation, and then Envoy forwards traffic to different versions depending on the rules defined within the virtual service configuration. For example, “X percent of calls go to a new version” or “Calls from these users go to version Y”. The astute reader will recognize these use cases as ‘canary’ rollouts, where traffic to a new service release is gradually ramped up to mitigate the risks of a big-bang release.",
+  "translation": "虚拟服务将服务使用者与服务提供商之间的耦合程度降到了传统的Kubernetes服务所无法达到的程度，而传统的Kubernetes服务是基本的负载平衡器。 虚拟服务的典型用例包括将请求流量分区到服务的不同版本，这些版本指定为服务子集。 客户端在不了解底层提供程序实现的情况下将请求发送到虚拟服务，然后Envoy根据虚拟服务配置中定义的规则将流量转发到不同版本。 例如，“ X％的呼叫转到新版本”或“这些用户的呼叫转到Y版本”。 精明的读者会将这些用例视为“金丝雀”的部署，其中逐渐增加了对新服务版本的访问量，以缓解大规模爆炸的风险。"
+}, {
+  "tag": "P",
+  "text": "In addition to splitting traffic to multiple underlying provider implementations, virtual services also allow you to do the opposite — combine multiple disparate services into a single virtual service. In other words, virtual services can act as a rudimentary aggregation layer, obviating the need for a dedicated reverse proxy such as NGINX.",
+  "translation": "除了将流量分配给多个基础提供商实现之外，虚拟服务还允许您做相反的工作-将多个完全不同的服务组合为一个虚拟服务。 换句话说，虚拟服务可以充当基本的聚合层，从而消除了对专用反向代理（如NGINX）的需求。"
+}, {
+  "tag": "P",
+  "text": "A well-planned virtual service can also facilitate the Strangler Pattern. Provided that the service contracts are unchanged, fine-grained service routing rules can target individual endpoints, shifting the request traffic to a microservices-style implementation once the original endpoint has become deprecated on the monolith. Combining matching rules with percentage-based traffic policies, one can transparently orchestrate a gradual migration purely on the provider-end — the service consumers remaining none the wiser.",
+  "translation": "精心计划的虚拟服务还可以促进Strangler模式。 假设服务合同不变，细粒度的服务路由规则可以针对各个端点，一旦原始端点在整体上已被弃用，就可以将请求流量转移到微服务风格的实现中。 将匹配规则与基于百分比的流量策略结合起来，可以透明地在提供商端透明地安排逐步迁移，而服务使用者则毫无明智之举。"
+}, {
+  "tag": "P",
+  "text": "The snippet below provides a simple example of a virtual service.",
+  "translation": "下面的代码片段提供了虚拟服务的简单示例。"
+}, {
+  "tag": "PRE",
+  "text": "apiVersion: networking.istio.io/v1alpha3kind: VirtualServicemetadata:  name: reviewsspec:  hosts:  - shoppingcart  http:  - match:    - headers:        end-user:          exact: emil.koutanov    route:    - destination:        host: shoppingcart        subset: v3  - route:    - destination:        host: shoppingcart        subset: v3      weight: 25    - destination:        host: shoppingcart        subset: v2      weight: 75",
+  "translation": "apiVersion：networking.istio.io/v1alpha3种类：VirtualServicemetadata：名称：reviewspec：主机：-shoppingcart http：-匹配：-标头：最终用户：确切：emil.koutanov路线：-目的地：主机：shoppingcart子集：v3-路线 ：-目的地：主机：shoppingcart子集：v3权重：25-目的地：主机：shoppingcart子集：v2权重：75"
+}, {
+  "tag": "P",
+  "text": "The hosts section binds the virtual service to a user-addressable destination(s). In other words, it acts as a trigger to invoke the virtual service. These destinations can be fixed IP addresses, DNS names or service names — the latter being either a short Kubernetes name or an FQDN (fully-qualified domain name). Wildcard prefixes (denoted by the * character) are also supported — triggering the virtual service on a subdomain. The specified hosts don't actually need to resolve to any existing service names; you can specify arbitrary hosts to match on.",
+  "translation": "主机部分将虚拟服务绑定到用户可寻址的目的地。 换句话说，它充当调用虚拟服务的触发器。 这些目标可以是固定的IP地址，DNS名称或服务名称-后者可以是Kubernetes的短名称或FQDN（完全合格的域名）。 还支持通配符前缀（用*字符表示），从而在子域上触发虚拟服务。 指定的主机实际上不需要解析为任何现有服务名称； 您可以指定要匹配的任意主机。"
+}, {
+  "tag": "P",
+  "text": "Note: The flexibility of the hosts matching model is a double-edged sword. Because the host name can be arbitrary, Istio will not conduct any form of sanity checking. For example, if the host name in the above example was misspelled as ‘shopingcart’, Istio will happily apply the configuration. Later, when the clients attempt to invoke the correctly named shoppingcart host, the request will be routed to the service directly — our virtual service rule will not have had any effect.",
+  "translation": "注意：主机匹配模型的灵活性是一把双刃剑。 由于主机名可以是任意的，因此Istio不会进行任何形式的健全性检查。 例如，如果上例中的主机名拼写错误为“ shopingcart”，则Istio将很乐意应用该配置。 稍后，当客户端尝试调用正确命名的shoppingcart主机时，请求将直接路由到服务-我们的虚拟服务规则将不会产生任何效果。"
+}, {
+  "tag": "P",
+  "text": "The http section describes the routing rules — match conditions and actions for routing HTTP/1.1, HTTP/2, and gRPC traffic sent to the destination(s) specified in the host's field. (You can also use tcp and tls sections to configure routing rules for TCP and unterminated TLS traffic.)",
+  "translation": "http部分描述了路由规则-匹配条件和用于路由发送到主机字段中指定的目标的HTTP / 1.1，HTTP / 2和gRPC通信的条件和操作。 （您也可以使用tcp和tls部分为TCP和未终止的TLS通信配置路由规则。）"
+}, {
+  "tag": "P",
+  "text": "A routing rule consists of the destination where the traffic is to be forwarded, as well as zero or more match conditions. In the example above, the first rule only matches requests from the user emil.koutanov. Routing rules are evaluated in a strict top-to-bottom sequence: the first matching rule is actioned, falling through to the next rule if unmatched. So in our example, the user emil.koutanov will always be directed to v3 of the shoppingcart service. All other users will be served v3 in 25% of cases. Because rules with a match predicate might not get fired, it is considered a good practice to leave the last rule without a match predicate — effectively posing as a 'catch-all'.",
+  "translation": "路由规则由要转发流量的目的地以及零个或多个匹配条件组成。 在上面的示例中，第一个规则仅匹配来自用户emil.koutanov的请求。 路由规则以严格的自上而下的顺序进行评估：第一个匹配的规则将被执行，如果不匹配，则落入下一个规则。 因此，在我们的示例中，用户emil.koutanov将始终被定向到shoppingcart服务的v3。 在25％的情况下，将为所有其他用户提供v3版本。 因为带有匹配谓词的规则可能不会被解雇，所以最好的做法是保留最后一个没有匹配谓词的规则-有效地冒充“全部捕获”。"
+}, {
+  "tag": "P",
+  "text": "Unlike the virtual names specified in the hosts section, the destination hosts must be resolvable to real addresses. When providing a short name for the destination host, Istio will happily add a domain suffix based on the namespace of the virtual service. If the destination lies in a different namespace, the host should specify a fully-qualified service name. Istio maintainers recommend using fully-qualified names in production, as it avoids potential ambiguity and misconfiguration.",
+  "translation": "与主机部分中指定的虚拟名称不同，目标主机必须可解析为真实地址。 为目标主机提供简称时，Istio将根据虚拟服务的名称空间愉快地添加域后缀。 如果目标位于其他名称空间中，则主机应指定标准服务名称。 Istio维护人员建议在生产中使用标准名称，因为这样可以避免潜在的歧义和配置错误。"
+}, {
+  "tag": "P",
+  "text": "So far we have seen destinations and subsets without paying much attention to where they are defined. A destination rule is an optional fine-grained policy that controls the traffic for a specific destination. Destination rules are applied after virtual service routing rules are evaluated, in other words, they apply to the traffic’s ‘real’ destination.",
+  "translation": "到目前为止，我们没有看到目的地和子集，而没有十分注意它们的定义位置。 目标规则是一种可选的细粒度策略，用于控制特定目标的流量。 在评估了虚拟服务路由规则之后，便应用了目标规则，换句话说，它们适用于流量的“真实”目标。"
+}, {
+  "tag": "P",
+  "text": "Destination rules are defined as a CRD of the DestinationRule kind. The following is an example of a destination rule.",
+  "translation": "目标规则定义为DestinationRule类型的CRD。 以下是目标规则的示例。"
+}, {
+  "tag": "PRE",
+  "text": "apiVersion: networking.istio.io/v1alpha3kind: DestinationRulemetadata:  name: shoppingcart-destinationrulespec:  host: shoppingcart  trafficPolicy:    loadBalancer:      simple: RANDOM  subsets:  - name: v2    labels:      version: v2    trafficPolicy:      loadBalancer:        simple: ROUND_ROBIN  - name: v3    labels:      version: v3",
+  "translation": "apiVersion：networking.istio.io/v1alpha3种类：DestinationRulemetadata：名称：shoppingcart-destinationrulespec：主机：shoppingcart trafficPolicy：loadBalancer：简单：RANDOM子集：-名称：v2标签：版本：v2 trafficPolicy：loadBalancer：简单：ROUND_ROBIN-名称：v3 标签：版本：v3"
+}, {
+  "tag": "P",
+  "text": "This example should begin to make more sense, now that it’s actually complete. The v2 and v3 subsets that we were using in the VirtualService definition are merely references to labeled versions of the shoppingcart service. Labels are a standard Kubernetes concept — free-form key-value pairs that can be used to annotate Kubernetes resources. The version label will presumably appear in the metadata section of the service's Deployment resource definition, and will be matched at runtime when the appropriate destination rule subset is invoked.",
+  "translation": "既然实际上已经完成了，这个例子应该会变得更有意义。 我们在VirtualService定义中使用的v2和v3子集仅是对shoppingcart服务的标记版本的引用。 标签是标准的Kubernetes概念-可用于注释Kubernetes资源的自由格式键值对。 版本标签可能会出现在服务的“部署”资源定义的“元数据”部分中，并且在调用适当的目标规则子集时会在运行时匹配。"
+}, {
+  "tag": "H2",
+  "text": "Gateways",
+  "translation": "网关"
+}, {
+  "tag": "P",
+  "text": "A gateway controls the flow of traffic into and out of the service mesh. Behind the scenes, a gateway is an Envoy proxy instance deployed in a standalone configuration (not attached to an application container) at the notional boundary of the data plane.",
+  "translation": "网关控制流入和流出服务网格的流量。 在幕后，网关是一个Envoy代理实例，它以独立配置（未附加到应用程序容器）部署在数据平面的概念边界上。"
+}, {
+  "tag": "P",
+  "text": "The overwhelming majority of use cases for gateways revolve around the management of inbound traffic. In this capacity, gateways act similarly to regular Kubernetes ingress resources. The primary difference between a gateway and a Kubernetes ingress is that the former is designed to work specifically with Istio, while the latter is a standard API designed to handle external traffic. Ingresses and ingress controllers are generally independent of a service mesh and can function without one. In theory, one can deploy an ingress controller and configure an ingress to pre-route traffic before it reaches an Istio gateway. This strategy may be useful for aggregating services, where some services might be wired using a service mesh, while others may be deployed conventionally.",
+  "translation": "网关的绝大多数用例都围绕入站流量的管理。 以这种能力，网关的行为类似于常规的Kubernetes入口资源。 网关和Kubernetes入口之间的主要区别在于，前者被设计为专门与Istio一起使用，而后者是被设计为处理外部流量的标准API。 入口和入口控制器通常独立于服务网格，并且无需一个即可运行。 从理论上讲，可以部署入口控制器并配置入口以在流量到达Istio网关之前对其进行路由。 此策略对于聚合服务可能有用，其中某些服务可能使用服务网格进行有线连接，而其他服务可能会按常规部署。"
+}, {
+  "tag": "P",
+  "text": "The following snippet is an example of a gateway definition.",
+  "translation": "以下代码段是网关定义的示例。"
+}, {
+  "tag": "PRE",
+  "text": "apiVersion: networking.istio.io/v1alpha3kind: Gatewaymetadata:  name: shoppingcart-gatewayspec:  selector:    istio: ingressgateway  servers:  - port:      number: 443      name: https      protocol: HTTPS    hosts:    - shoppingcart.example.com    tls:      mode: SIMPLE      serverCertificate: /tmp/tls.crt      privateKey: /tmp/tls.key",
+  "translation": "apiVersion：网络。 serverCertificate：/tmp/tls.crt privateKey：/tmp/tls.key"
+}, {
+  "tag": "P",
+  "text": "This simple example accepts HTTPS traffic destined to shoppingcart.example.com on port 443. The traffic cannot flow into the service mesh until we first bind the gateway to a virtual service. Expanding on our earlier virtual service example:",
+  "translation": "这个简单的示例在端口443上接受发往shoppingcart.example.com的HTTPS流量。除非首先将网关绑定到虚拟服务，否则该流量无法流入服务网格。 扩展我们之前的虚拟服务示例："
+}, {
+  "tag": "PRE",
+  "text": "apiVersion: networking.istio.io/v1alpha3kind: VirtualServicemetadata:  name: reviewsspec:  hosts:  - shoppingcart  gateways:  - shoppingcart-gateway  http:  - match:    - headers:        end-user:          exact: emil.koutanov    route:    - destination:        host: shoppingcart        subset: v3  - route:    - destination:        host: shoppingcart        subset: v3      weight: 25    - destination:        host: shoppingcart        subset: v2      weight: 75",
+  "translation": "apiVersion：网络。 shoppingcart子集：v3-路线：-目的地：主机：shoppingcart子集：v3权重：25-目的地：主机：shoppingcart子集：v2权重：75"
+}, {
+  "tag": "P",
+  "text": "All we added to the previous example was the gateways section, specifying our gateway by its name. Ingress traffic on the shoppingcart-gateway gateway will now be permitted to flow into the shoppingcart virtual service.",
+  "translation": "我们在上一个示例中添加的全部是gateways部分，通过其名称指定我们的网关。 现在，shoppingcart-gateway网关上的入口流量将被允许流入shoppingcart虚拟服务。"
+}, {
+  "tag": "P",
+  "text": "In addition to handling ingress traffic, a gateway can also act as a controlled exit point for traffic leaving the mesh. A gateway will let you limit which services can access external networks and monitor the traffic that is permitted to leave. There are several reasons why one might want to limit egress at the infrastructure level, independent of the underlying applications. Compliance is chief among them — for example, the PCI DSS standard requires that outbound traffic from the cardholder data environment (CDE) is restricted to authorized communications, demanding that default-deny rules are in place to block unspecified traffic. Another common reason is to mitigate attacks, whereby one or more components in your system may become compromised and could attempt to leak sensitive data.",
+  "translation": "除了处理入口流量外，网关还可以充当离开网状网络的流量的受控出口点。 网关将使您限制哪些服务可以访问外部网络并监视允许离开的流量。 有几个原因可能导致人们想要在基础结构级别上限制出口，而与底层应用程序无关。 其中主要是合规性-例如，PCI DSS标准要求将来自持卡人数据环境（CDE）的出站流量限制为经过授权的通信，要求采用默认拒绝规则来阻止未指定的流量。 另一个常见的原因是减轻攻击，从而使系统中的一个或多个组件受到威胁，并可能试图泄漏敏感数据。"
+}, {
+  "tag": "H2",
+  "text": "Service entries",
+  "translation": "服务条目"
+}, {
+  "tag": "P",
+  "text": "Service entry is an internal definition of a service maintained by Istio in its dedicated service registry. Service entries are not something one comes across too often; you can deploy a complete distributed system in Istio without ever touching this concept. Still, it is classed as a core Istio concept, and one should at least be aware of it.",
+  "translation": "服务条目是Istio在其专用服务注册表中维护的服务的内部定义。 服务条目并不是经常遇到的东西； 您可以在Istio中部署完整的分布式系统，而无需触碰这个概念。 尽管如此，它仍被视为Istio的核心概念，至少应该意识到这一点。"
+}, {
+  "tag": "P",
+  "text": "The major sets of use cases for service entries fall into the following broad categories:",
+  "translation": "服务条目的主要用例集分为以下大类："
+}, {
+  "tag": "UL",
+  "texts": ["Legacy application integration: communications with services that are not deployed in Kubernetes or are not directly reachable from within the Istio data plane.", "Multi-cluster compositing: logical aggregation of services from several physical Kubernetes clusters.", "Extending the mesh beyond Kubernetes: adding workloads deployed on physical hardware and VMs to an existing service mesh.", "Instrumenting external services: for example, retries, percentage routing, tracing, etc. of calls to external services."],
+  "translations": ["传统应用程序集成：与未部署在Kubernetes中或无法从Istio数据平面直接访问的服务进行通信。", "多集群合成：来自多个物理Kubernetes集群的服务的逻辑聚合。", "将网格扩展到Kubernetes之外：将部署在物理硬件和VM上的工作负载添加到现有服务网格。", "检测外部服务：例如，对外部服务的呼叫的重试，路由百分比，跟踪等。"]
+}, {
+  "tag": "P",
+  "text": "Note: You don’t need to configure a service entry just to access an external service, for example, maps.googleapis.com. Istio egress Envoy proxies are configured to pass-through requests to unknown services by default. However, unregistered destinations will not benefit from the fine-grained traffic policies that apply to Istio-enhanced services.",
+  "translation": "注意：您不需要仅配置服务条目即可访问外部服务，例如maps.googleapis.com。 默认情况下，Istio egress Envoy代理配置为将请求传递给未知服务。 但是，未注册的目的地将无法从适用于Istio增强服务的细粒度流量策略中受益。"
+}, {
+  "tag": "P",
+  "text": "For a practical example of a service entry scenario, consider an external service hosted by someprovider.com that requires mutual TLS (mTLS) for authentication. One option is to deploy X.509 certificates and signed PEM keys to every consumer deployed in our Kubernetes cluster. This presents a logistical challenge: there may be several such consumers and each will require potentially intrusive changes to the application code to support the use of mTLS. On top of that, we have to distribute and rotate key material. This challenge can be solved by configuring Istio to act as a forward proxy, transparently encapsulating traffic originating from our data plane into a TLS tunnel, acting as an mTLS terminator. See the resource definitions below.",
+  "translation": "对于服务进入场景的实际示例，请考虑由someprovider.com托管的外部服务，该服务需要相互TLS（mTLS）进行身份验证。 一种选择是将X.509证书和签名的PEM密钥部署到我们Kubernetes集群中部署的每个使用者。 这带来了后勤方面的挑战：可能会有几个这样的使用者，并且每个使用者都需要对应用程序代码进行潜在的侵入性更改以支持mTLS的使用。 最重要的是，我们必须分发和旋转关键材料。 通过配置Istio作为前向代理，将来自我们数据平面的流量透明封装到TLS隧道（充当mTLS终结器）中，可以解决此难题。 请参阅下面的资源定义。"
+}, {
+  "tag": "PRE",
+  "text": "apiVersion: networking.istio.io/v1alpha3kind: ServiceEntrymetadata:  name: external-serviceentryspec:  hosts:  - someprovider.com  ports:  - number: 443    name: https    protocol: HTTPS  location: MESH_EXTERNAL  resolution: DNS---apiVersion: networking.istio.io/v1alpha3kind: DestinationRulemetadata:  name: external-destinationrulespec:  host: someprovider.com  trafficPolicy:    tls:      mode: MUTUAL      clientCertificate: /etc/certs/myclientcert.pem      privateKey: /etc/certs/client_private_key.pem      caCertificates: /etc/certs/rootcacerts.pem",
+  "translation": "apiVersion：networking.istio.io/v1alpha3kind：ServiceEntrymetadata：名称：external-serviceentryspec：主机：-someprovider.com端口：-数字：443名称：https协议：HTTPS位置：MESH_EXTERNAL分辨率：DNS --- apiVersion：networking.istio .io / v1alpha3kind：DestinationRulemetadata：名称：external-destinationrulespec：主机：someprovider.com trafficPolicy：tls：模式：MUTUAL clientCertificate：/etc/certs/myclientcert.pem privateKey：/etc/certs/client_private_key.pem caCertificate：/ etc / certs / rootcacerts.pem"
+}, {
+  "tag": "P",
+  "text": "Two resources have been defined: service entry and a corresponding destination rule. The former does comparatively little — it enrolls someprovider.com as a service entry, placing it within the scope of Istio. The latter does the heavy lifting — specifying the authentication mode, the CA certificate for verifying the provider, and the private key and certificate for authenticating the client.",
+  "translation": "已经定义了两个资源：服务条目和相应的目标规则。 前者做的很少，它注册someprovider.com作为服务条目，并将其置于Istio的范围内。 后者承担了繁重的工作-指定身份验证模式，用于验证提供程序的CA证书以及用于验证客户端的私钥和证书。"
+}, {
+  "tag": "H2",
+  "text": "Sidecars",
+  "translation": "边车"
+}, {
+  "tag": "P",
+  "text": "We have previously touched upon sidecars as a defining element of the Istio service mesh architecture. Indeed, the humble Envoy proxy sidecar is the proverbial workhorse in the Istio ecosystem, moving traffic in the data plane at the discretion of the control plane.",
+  "translation": "之前，我们已经将Sidecar视为Istio服务网格体系结构的定义元素。 确实，不起眼的Envoy代理服务器是Istio生态系统中众所周知的主力军，它在控制平面的决定下在数据平面中移动流量。"
+}, {
+  "tag": "P",
+  "text": "Sidecars are sort of in the same boat as service entries, in that you might get a fair way through your build without dealing with them directly. Sidecars are routinely injected into application pods with minimal involvement from the user and will inherit a default configuration that works out of the box. By default, Istio will configure all sidecar proxies in the mesh to reach every workload instance, as well as accept traffic on all the ports associated with the workload.",
+  "translation": "边车与服务入口在同一条船上，因为您可以在构建过程中获得公平的方式，而无需直接处理它们。 常规将Sidecar注入到应用程序Pod中，而用户的参与很少，并将继承默认配置，该配置可以直接使用。 默认情况下，Istio将配置网格中的所有Sidecar代理以到达每个工作负载实例，并接受与工作负载关联的所有端口上的流量。"
+}, {
+  "tag": "P",
+  "text": "One may explicitly amend a sidecar configuration for the following reasons:",
+  "translation": "出于以下原因，可以明确修改Sidecar配置："
+}, {
+  "tag": "UL",
+  "texts": ["Limit the set of ports and protocols that an Envoy proxy accepts.", "Limit the set of services that an Envoy proxy can reach."],
+  "translations": ["限制Envoy代理接受的端口和协议集。", "限制Envoy代理可以访问的服务集。"]
+}, {
+  "tag": "P",
+  "text": "Sidecar configurations may be applied to an entire namespace, or specific workloads by using a workloadSelector. This gives rise to scoping rules. When determining the sidecar configuration to be applied to a particular workload instance, preference will be given to the Sidecar resource with a workloadSelector over a configuration void of a workloadSelector. Furthermore, a namespace can have at most one sidecar configuration without a workloadSelector. If no sidecar configuration is matched in the local namespace, the global default configuration defined in the istio-system namespace (or the configured root Istio namespace) will take effect. To make things that bit more complicated, the behavior of the system is undefined if two or more sidecar configurations with a workloadSelector select the same workload instance.",
+  "translation": "通过使用工作负载选择器，可以将Sidecar配置应用于整个名称空间或特定的工作负载。 这产生了范围界定规则。 当确定要应用到特定工作负载实例的Sidecar配置时，将优先选择带有工作负载选择器的Sidecar资源，而不是没有工作负载选择器的配置。 此外，一个名称空间最多可以具有一个sidecar配置，而不需要工作负载选择器。 如果本地名称空间中没有任何sidecar配置匹配，则istio-system名称空间（或配置的根Istio名称空间）中定义的全局默认配置将生效。 为了使事情变得更加复杂，如果两个或多个带有工作负载选择器的Sidecar配置选择相同的工作负载实例，则系统的行为是不确定的。"
+}, {
+  "tag": "P",
+  "text": "The global default configuration is quite permissive. You can view the default by running:",
+  "translation": "全局默认配置是相当宽松的。 您可以通过运行以下命令查看默认值："
+}, {
+  "tag": "PRE",
+  "text": "kubectl get sidecar default -n istio-system -o yaml",
+  "translation": "kubectl默认获取sidecar -n istio-system -o yaml"
+}, {
+  "tag": "P",
+  "text": "Resulting in:",
+  "translation": "导致："
+}, {
+  "tag": "PRE",
+  "text": "apiVersion: networking.istio.io/v1alpha3kind: Sidecarmetadata:  annotations:    kubectl.kubernetes.io/last-applied-configuration: |      *** omitted for brevity ***  creationTimestamp: \"2019-12-25T01:32:02Z\"  generation: 1  labels:    operator.istio.io/component: IngressGateway    operator.istio.io/managed: Reconcile    operator.istio.io/version: 1.4.0    release: istio  name: default  namespace: istio-system  resourceVersion: \"4527\"  selfLink: /apis/networking.istio.io/v1alpha3/namespaces/istio-system/sidecars/default  uid: 5cee1cb3-1d48-11ea-84b7-025000000001spec:  egress:  - hosts:    - '*/*'",
+  "translation": "apiVersion：networking.istio.io/v1alpha3kind：Sidecarmetadata：注释：kubectl.kubernetes.io/last-applied-configuration： ***为简便起见，省略*** creationTimestamp：“ 2019-12-25T01：32：02Z”代：1标签：operator.istio.io/component：IngressGateway operator.istio.io/managed：协调operator.istio.io /版本：1.4.0发行版：istio名称：默认名称空间：istio-system resourceVersion：“ 4527” selfLink：/apis/networking.istio.io/v1alpha3/namespaces/istio-system/sidecars/default uid：5cee1cb3-1d48- 11ea-84b7-025000000001spec：出口：-主机：-'* / *'"
+}, {
+  "tag": "P",
+  "text": "The following sample amendment to the global default configuration restricts egress traffic only to other workloads in the same namespace, and to services in the istio-system namespace.",
+  "translation": "以下对全局默认配置的示例修订将出口流量仅限制为同一名称空间中的其他工作负载以及istio-system名称空间中的服务。"
+}, {
+  "tag": "PRE",
+  "text": "apiVersion: networking.istio.io/v1alpha3kind: Sidecarmetadata:  name: default  namespace: istio-systemspec:  egress:  - hosts:    - \"./*\"    - \"istio-system/*\"",
+  "translation": "apiVersion：networking.istio.io/v1alpha3kind：Sidecarmetadata：名称：默认命名空间：istio-systemspec：出口：-主机：-“ ./*”-“ istio-system / *”"
+}, {
+  "tag": "H1",
+  "text": "Getting Started",
+  "translation": "入门"
+}, {
+  "tag": "P",
+  "text": "Now that we have a solid appreciation of the core Istio concepts, let’s put it to use. We are going to deploy the sample Bookinfo application included in the Istio distribution, which we will later spice up with a few Istio bells and whistles. Specifically, we are going to demonstrate distributed tracing with Zipkin and mandatory user authentication with JWT.",
+  "translation": "现在，我们已经对Istio的核心概念有了深刻的了解，现在就开始使用它。 我们将部署Istio发行版中包含的示例Bookinfo应用程序，稍后我们将为它添加一些Istio特色。 具体来说，我们将演示使用Zipkin进行分布式跟踪以及使用JWT进行强制性用户身份验证。"
+}, {
+  "tag": "H2",
+  "text": "Requirements",
+  "translation": "要求"
+}, {
+  "tag": "P",
+  "text": "The examples are going to use Istio 1.4. This version of Istio has been tested with Kubernetes releases 1.13, 1.14, and 1.15. The examples have been verified with Kubernetes 1.14.8.",
+  "translation": "这些示例将使用Istio 1.4。 此版本的Istio已在Kubernetes 1.13、1.14和1.15版本中进行了测试。 这些示例已通过Kubernetes 1.14.8进行了验证。"
+}, {
+  "tag": "P",
+  "text": "It is assumed that you have access to a Kubernetes cluster and a solid background in Kubernetes. The Kubernetes cluster that comes with Docker Desktop will do just fine.",
+  "translation": "假定您有权访问Kubernetes集群，并且在Kubernetes中具有坚实的背景。 Docker Desktop随附的Kubernetes集群可以正常工作。"
+}, {
+  "tag": "H2",
+  "text": "Installation",
+  "translation": "安装"
+}, {
+  "tag": "P",
+  "text": "Start by downloading the Istio distribution:",
+  "translation": "首先下载Istio发行版："
+}, {
+  "tag": "PRE",
+  "text": "curl -L https://istio.io/downloadIstio | sh -",
+  "translation": "curl -L https://istio.io/downloadIstio | sh-"
+}, {
+  "tag": "P",
+  "text": "Move to the Istio package directory. At the time of writing, the latest stable Istio version was 1.4.2. You might have a newer version, so please change the path accordingly.",
+  "translation": "移至Istio软件包目录。 在撰写本文时，最新的稳定Istio版本是1.4.2。 您可能有较新的版本，因此请相应地更改路径。"
+}, {
+  "tag": "PRE",
+  "text": "cd istio-1.4.2",
+  "translation": "光盘istio-1.4.2"
+}, {
+  "tag": "P",
+  "text": "The installation directory contains the following:",
+  "translation": "安装目录包含以下内容："
+}, {
+  "tag": "UL",
+  "texts": ["Istio resource definitions — required to install Istio to a Kubernetes cluster. Recall, Istio is just another application deployed into Kubernetes.", "Sample applications in the samples/ directory.", "The istioctl client binary in the bin/ directory."],
+  "translations": ["Istio资源定义-将Istio安装到Kubernetes集群所需。 回想一下，Istio只是部署到Kubernetes中的另一个应用程序。", "sample /目录中的示例应用程序。", "bin /目录中的istioctl客户端二进制文件。"]
+}, {
+  "tag": "P",
+  "text": "The next step is optional but highly recommended. Add istioctl to your path:",
+  "translation": "下一步是可选的，但强烈建议您这样做。 在您的路径中添加istioctl："
+}, {
+  "tag": "PRE",
+  "text": "export PATH=$PWD/bin:$PATH",
+  "translation": "导出PATH = $ PWD / bin：$ PATH"
+}, {
+  "tag": "P",
+  "text": "Istio offers several configuration profiles. These profiles provide pre-canned customizations of the Istio control plane and the sidecars for the Istio data plane. You can start with one of Istio’s built-in configuration profiles and then tailor the configuration for your specific needs. There are five built-in profiles; we will briefly touch upon three of the more common ones.",
+  "translation": "Istio提供了几个配置文件。 这些配置文件为Istio控制平面和Istio数据平面的边车提供了固定的定制。 您可以从Istio的内置配置文件之一开始，然后根据您的特定需求定制配置。 有五个内置配置文件。 我们将简要介绍三个较常见的三个。"
+}, {
+  "tag": "OL",
+  "texts": ["default: The recommended profile for production deployments. Features minimal add-ons and uses production-grade defaults.", "demo: Used to showcase the breadth of Istio's functionality. Features the complete set of add-ons and configuration optimized for minimal resource usage. It also contains an elevated amount of tracing and access logging, so it is generally not recommended for performance-sensitive deployments.", "minimal: A minimalistic deployment of Istio sufficient to utilize its traffic management capabilities."],
+  "translations": ["默认值：建议用于生产部署的配置文件。 具有最少的附加组件，并使用生产级默认值。", "演示：用于展示Istio功能的广度。 具有完整的附加组件集和配置，可优化以最小化资源使用。 它还包含大量的跟踪和访问日志记录，因此通常不建议将其用于对性能敏感的部署。", "最少：足以充分利用其流量管理功能的Istio的简约部署。"]
+}, {
+  "tag": "P",
+  "text": "Let’s go ahead and install the demo profile:",
+  "translation": "让我们继续安装演示配置文件："
+}, {
+  "tag": "PRE",
+  "text": "istioctl manifest apply --set profile=demo \\    --set values.tracing.enabled=true \\    --set values.tracing.provider=zipkin",
+  "translation": "istioctl清单套用--set profile = demo \\ --set values.tracing.enabled = true \\ --set values.tracing.provider = zipkin"
+}, {
+  "tag": "P",
+  "text": "Running this operation for the first time may take a little while. Kubernetes will deploy a dozen or so services, pulling in a whole bunch of Docker images. In addition, we have enabled the Zipkin add-on that we expect to showcase at a later point. If you have a previous installation of Istio without this add-on, don’t worry — you can rerun istioctl manifest apply at any time, specifying an alternate profile or a different set of add-ons.",
+  "translation": "首次运行此操作可能需要一段时间。 Kubernetes将部署十几个服务，并引入大量Docker映像。 此外，我们启用了Zipkin插件，我们希望稍后再展示。 如果您以前安装了Istio，但没有安装此插件，请放心-您可以随时重新运行istioctl清单应用，并指定备用配置文件或一组不同的插件。"
+}, {
+  "tag": "P",
+  "text": "Having deployed Istio, verify that all components are present by querying the istio-system namespace. (This is the default Istio root namespace, and can be reconfigured to an alternate namespace if necessary.)",
+  "translation": "部署Istio后，通过查询istio-system名称空间来验证是否存在所有组件。 （这是默认的Istio根名称空间，如有必要，可以将其重新配置为备用名称空间。）"
+}, {
+  "tag": "PRE",
+  "text": "kubectl get svc -n istio-system",
+  "translation": "kubectl获取svc -n istio-system"
+}, {
+  "tag": "P",
+  "text": "Outputting:",
+  "translation": "输出："
+}, {
+  "tag": "PRE",
+  "text": "NAME                     TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)                                                                                                                      AGEgrafana                  ClusterIP      10.105.190.242   <none>        3000/TCP                                                                                                                     3d3histio-citadel            ClusterIP      10.100.144.109   <none>        8060/TCP,15014/TCP                                                                                                           3d3histio-egressgateway      ClusterIP      10.101.65.30     <none>        80/TCP,443/TCP,15443/TCP                                                                                                     3d3histio-galley             ClusterIP      10.100.233.70    <none>        443/TCP,15014/TCP,9901/TCP,15019/TCP                                                                                         3d3histio-ingressgateway     LoadBalancer   10.106.108.201   localhost     15020:30912/TCP,80:30218/TCP,443:30059/TCP,15029:31861/TCP,15030:32620/TCP,15031:30363/TCP,15032:30868/TCP,15443:30359/TCP   3d3histio-pilot              ClusterIP      10.108.102.237   <none>        15010/TCP,15011/TCP,8080/TCP,15014/TCP                                                                                       3d3histio-policy             ClusterIP      10.111.28.108    <none>        9091/TCP,15004/TCP,15014/TCP                                                                                                 3d3histio-sidecar-injector   ClusterIP      10.103.185.22    <none>        443/TCP                                                                                                                      3d3histio-telemetry          ClusterIP      10.111.73.89     <none>        9091/TCP,15004/TCP,15014/TCP,42422/TCP                                                                                       3d3hkiali                    ClusterIP      10.109.207.229   <none>        20001/TCP                                                                                                                    3d3hprometheus               ClusterIP      10.96.164.188    <none>        9090/TCP                                                                                                                     3d3htracing                  ClusterIP      10.108.205.179   <none>        80/TCP                                                                                                                       3d3hzipkin                   ClusterIP      10.107.7.90      <none>        9411/TCP                                                                                                                     3d3h",
+  "translation": "名称类型集群IP外部IP端口AGEgrafana ClusterIP 10.105.190.242 <无> 3000 / TCP 3d3histio-citadel ClusterIP 10.100.144.109 <无> 8060 / TCP，15014 / TCP 3d3histio-egressgateway集群ClusterIP 10.101.65.30 <无> 80 / TCP，443 / TCP，15443 / TCP 3d3histio-galley ClusterIP 10.100.233.70 <无> 443 / TCP，15014 / TCP，9901 / TCP，15019 / TCP 3d3hi stio-ingressgateway LoadBalancer 10.106.108.201本地主机15020：30912 / TCP，80：30218 / TCP，443：30059 / TCP，15029：31861 / TCP，15030：32620 / TCP，15031：30363 / TCP，15032：30868 / TCP， 15443：30359 / TCP 3d3历史飞行员ClusterIP 10.108.102.237 <无> 15010 / TCP，15011 / TCP，8080 / TCP，15014 / TCP 3d3历史政策ClusterIP 10.111.28.108 <无> 9091 / TCP，15004 / TCP，15014 / TCP 3d3组织侧注入器ClusterIP 10.103.185.22 <无> 443 / TCP 3d3组织遥测集群IP 10.111.73.89 <无> 9091 / TCP，15004 / TCP，15014 / TCP，42422 / TCP 3d3hk iali ClusterIP 10.109.207.229 <无> 20001 / TCP 3d3hprometheus ClusterIP 10.96.164.188 <无> 9090 / TCP 3d3htracing ClusterIP 10.108.205.179 <无> 80 / TCP 3d3hzipkin ClusterIP 10.107.7.90 <无> 9411 / TCP 3d3h"
+}, {
+  "tag": "P",
+  "text": "Ensure the corresponding Istio pods are also deployed and have a status of Running. When deploying for the first time, it may take a while before the READY status of each pod transitions from 0/1 to 1/1:",
+  "translation": "确保相应的Istio Pod也已部署并且状态为“正在运行”。 首次部署时，每个Pod的READY状态可能需要一段时间才能从0/1转换为1/1："
+}, {
+  "tag": "PRE",
+  "text": "kubectl get pods -n istio-system",
+  "translation": "kubectl获取pods -n istio-system"
+}, {
+  "tag": "P",
+  "text": "Outputting:",
+  "translation": "输出："
+}, {
+  "tag": "PRE",
+  "text": "NAME                                      READY   STATUS    RESTARTS   AGEgrafana-5f798469fd-qmzqd                  1/1     Running   1          3d3histio-citadel-6dc789bc4c-qcpq6            1/1     Running   2          3d3histio-egressgateway-75cb89bd7f-96xbw      1/1     Running   1          3d3histio-galley-5bcd89bd9c-6z9hm             1/1     Running   1          3d3histio-ingressgateway-7d6b9b5ffc-n9vrp     1/1     Running   1          3d3histio-pilot-678b45584b-h2pxv              1/1     Running   1          3d3histio-policy-9f78db4cb-bjk54              1/1     Running   5          3d3histio-sidecar-injector-7d65c79dd5-th5ts   1/1     Running   2          3d3histio-telemetry-fc488f958-9np6n           1/1     Running   5          3d3histio-tracing-6bc9795bd7-4gqrr            1/1     Running   1          3d2hkiali-7964898d8c-bsxvd                    1/1     Running   1          3d3hprometheus-586d4445c7-qcjxk               1/1     Running   1          3d3h"
+}, {
+  "tag": "H2",
+  "text": "Enabling sidecar injection",
+  "translation": "启用边车注入"
+}, {
+  "tag": "P",
+  "text": "Istio will automatically inject sidecar containers into application pods launched in any namespace labeled with istio-injection=enabled.",
+  "translation": "Istio将自动将sidecar容器注入以istio-injection = enabled标记的任何命名空间中启动的应用程序容器中。"
+}, {
+  "tag": "P",
+  "text": "As our Bookinfo example will be hosted in the default namespace, let's prepare it for sidecar injection:",
+  "translation": "由于我们的Bookinfo示例将托管在默认名称空间中，因此让我们为进行侧向车注入做好准备："
+}, {
+  "tag": "PRE",
+  "text": "kubectl label namespace default istio-injection=enabled",
+  "translation": "kubectl标签名称空间默认istio-injection = enabled"
+}, {
+  "tag": "P",
+  "text": "Istio does not force automatic sidecar injection upon your application. You can use istioctl kube-inject to enrich any existing resource definitions, explicitly injecting Envoy containers in your application pods before deploying them:",
+  "translation": "Istio不会在您的应用程序上强制进行自动边车注入。 您可以使用istioctl kube-inject来丰富任何现有资源定义，在部署它们之前将Envoy容器显式注入到应用程序pod中："
+}, {
+  "tag": "PRE",
+  "text": "istioctl kube-inject -f <resource-definitions>.yaml | kubectl apply -f -",
+  "translation": "istioctl kube-inject -f <资源定义> .yaml | kubectl适用-f-"
+}, {
+  "tag": "H2",
+  "text": "About the Bookinfo example",
+  "translation": "关于Bookinfo示例"
+}, {
+  "tag": "P",
+  "text": "The Bookinfo application is included in the Istio distribution in the samples/bookinfo/ directory. It's a polyglot application that displays information about a book, similar to a catalog entry of an online book store. It comprises four microservices communicating in a directed acyclic graph (DAG) arrangement:",
+  "translation": "Bookinfo应用程序包含在Istio发行版的samples / bookinfo /目录中。 这是一个多语言应用程序，用于显示有关图书的信息，类似于在线图书商店的目录条目。 它包含以有向无环图（DAG）安排通信的四个微服务："
+}, {
+  "tag": "P",
+  "text": "productpage: Invokes the details and reviews services to populate the page.",
+  "translation": "productpage：调用详细信息并查看服务以填充页面。"
+}, {
+  "tag": "P",
+  "text": "details: Contains book information.",
+  "translation": "详细信息：包含书籍信息。"
+}, {
+  "tag": "P",
+  "text": "reviews: Contains book reviews. Depending on the implementation version, the reviews service will call the ratings service to obtain book ratings. There are three versions of reviews deployed:",
+  "translation": "评论：包含书评。 根据实现版本的不同，审阅服务将调用评级服务以获得书评。 部署了三种版本的评论："
+}, {
+  "tag": "UL",
+  "texts": ["v1 doesn’t call the ratings service.", "v2 calls the ratings service, displaying each rating as 1 to 5 black stars.", "v3 calls the ratings service, displaying each rating as 1 to 5 red stars."],
+  "translations": ["v1不会致电评分服务。", "v2呼叫分级服务，将每个分级显示为1到5个黑色星体。", "v3呼叫分级服务，将每个分级显示为1到5个红色星标。"]
+}, {
+  "tag": "P",
+  "text": "ratings: Contains book rating information that accompanies a book review.",
+  "translation": "评分：包含书评随附的书评信息。"
+}, {
+  "tag": "P",
+  "text": "The high-level architecture of Bookinfo is illustrated below.",
+  "translation": "Bookinfo的高级体系结构如下所示。"
+}, {
+  "tag": "H2",
+  "text": "Deploying Bookinfo",
+  "translation": "部署Bookinfo"
+}, {
+  "tag": "P",
+  "text": "Deploy the application using kubectl:",
+  "translation": "使用kubectl部署应用程序："
+}, {
+  "tag": "PRE",
+  "text": "kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml",
+  "translation": "kubectl apply -f样本/bookinfo/platform/kube/bookinfo.yaml"
+}, {
+  "tag": "P",
+  "text": "Note: If you chose not to enable automatic sidecar injection, the equivalent could be achieved with istioctl:",
+  "translation": "注意：如果您选择不启用自动边车注入，则使用istioctl可以实现等效功能："
+}, {
+  "tag": "PRE",
+  "text": "kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml)",
+  "translation": "kubectl apply -f <（istioctl kube-inject -f样本/bookinfo/platform/kube/bookinfo.yaml）"
+}, {
+  "tag": "P",
+  "text": "Run kubectl get svc and kubectl get po to verify that the application has been deployed:",
+  "translation": "运行kubectl get svc和kubectl get po验证应用程序已部署："
+}, {
+  "tag": "PRE",
+  "text": "NAME          TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGEdetails       ClusterIP   10.104.247.109   <none>        9080/TCP   3d4hkubernetes    ClusterIP   10.96.0.1        <none>        443/TCP    3d5hproductpage   ClusterIP   10.102.89.169    <none>        9080/TCP   3d4hratings       ClusterIP   10.103.85.175    <none>        9080/TCP   3d4hreviews       ClusterIP   10.100.227.109   <none>        9080/TCP   3d4hNAME                             READY   STATUS    RESTARTS   AGEdetails-v1-c5b5f496d-zz5dh       2/2     Running   2          3d4hproductpage-v1-c7765c886-zdqv4   2/2     Running   0          2m17sratings-v1-f745cf57b-lln4d       2/2     Running   2          3d4hreviews-v1-75b979578c-t4ns7      2/2     Running   0          2m17sreviews-v2-597bf96c8f-jrs2c      2/2     Running   0          2m17sreviews-v3-54c6c64795-zxzk2      2/2     Running   0          2m17s",
+  "translation": "名称类型集群IP外部IP端口的详细信息ClusterIP 10.104.247.109 <无> 9080 / TCP 3d4hkubernetes ClusterIP 10.96.0.1 <无> 443 / TCP 3d5h产品页面ClusterIP 10.102.89.169 <无> 9080 / TCP 3d4hratings ClusterIP 10.103.85。 <无> 9080 / TCP 3d4h审查ClusterIP 10.100.227.109 <无> 9080 / TCP 3d4h名称就绪状态重新启动AGEdetails-v1-c5b5f496d-zz5dh 2/2运行2 3d4hproductpage-v1-c7765c886-zdqv4 2/2运行0 2b17s额定值 -lln4d 2/2运行2 3d4hreviews-v1-75b979578c-t4ns7 2/2运行0 2m17sreviews-v2-597bf96c8f-jrs2c 2/2运行0 2m17sreviews-v3-54c6c64795-zxzk2 2/2运行0 2m17s"
+}, {
+  "tag": "P",
+  "text": "Once deployed in Istio, the architecture of Bookinfo will be amended slightly to reflect the presence of sidecar proxies:",
+  "translation": "在Istio中部署后，Bookinfo的体系结构将进行少许修改以反映Sidecar代理的存在："
+}, {
+  "tag": "P",
+  "text": "Let’s take a moment to look around. The first step is to determine whether we have a virtual service:",
+  "translation": "让我们花点时间环顾四周。 第一步是确定我们是否有虚拟服务："
+}, {
+  "tag": "PRE",
+  "text": "kubectl get vs",
+  "translation": "kubectl获取与"
+}, {
+  "tag": "P",
+  "text": "Outputting:",
+  "translation": "输出："
+}, {
+  "tag": "PRE",
+  "text": "NAME       GATEWAYS             HOSTS   AGEbookinfo   [bookinfo-gateway]   [*]     3d4h",
+  "translation": "NAME GATEWAYS HOSTS AGEbookinfo [bookinfo-gateway] [*] 3d4h"
+}, {
+  "tag": "P",
+  "text": "Dump the virtual service configuration to YAML:",
+  "translation": "将虚拟服务配置转储到YAML："
+}, {
+  "tag": "PRE",
+  "text": "kubectl get vs bookinfo -o yaml",
+  "translation": "kubectl get vs bookinfo -o yaml"
+}, {
+  "tag": "P",
+  "text": "Outputting:",
+  "translation": "输出："
+}, {
+  "tag": "PRE",
+  "text": "apiVersion: networking.istio.io/v1alpha3kind: VirtualServicemetadata:  annotations:    kubectl.kubernetes.io/last-applied-configuration: |      *** omitted for brevity ***  creationTimestamp: \"2019-12-25T01:54:39Z\"  generation: 1  name: bookinfo  namespace: default  resourceVersion: \"6896\"  selfLink: /apis/networking.istio.io/v1alpha3/namespaces/default/virtualservices/bookinfo  uid: 85c222bd-1d4b-11ea-84b7-025000000001spec:  gateways:  - bookinfo-gateway  hosts:  - '*'  http:  - match:    - uri:        exact: /productpage    - uri:        prefix: /static    - uri:        exact: /login    - uri:        exact: /logout    - uri:        prefix: /api/v1/products    route:    - destination:        host: productpage        port:          number: 9080",
+  "translation": "apiVersion：networking.istio.io/v1alpha3kind：VirtualServicemetadata：注释：kubectl.kubernetes.io/last-applied-configuration： ***为简便起见，省略*** creationTimestamp：“ 2019-12-25T01：54：39Z”代：1名称：bookinfo名称空间：默认资源版本：“ 6896” selfLink：/apis/networking.istio.io/v1alpha3/namespaces / default / virtualservices / bookinfo uid：85c222bd-1d4b-11ea-84b7-025000000001spec：网关：-bookinfo-gateway主机：-'*'http：-匹配：-uri：确切：/ productpage-uri：前缀：/ static- uri：精确：/ login-uri：精确：/ logout-uri：前缀：/ api / v1 / products路由：-目的地：主机：productpage端口：数字：9080"
+}, {
+  "tag": "P",
+  "text": "What does that tell us? Well for starters, we have a virtual service named bookinfo that traps requests to any (*) host. The virtual service will accept requests that match the paths specified in spec.http.match, forwarding them to the productpage destination on port 9080.",
+  "translation": "这告诉我们什么？ 首先，我们有一个名为bookinfo的虚拟服务，可将请求捕获到任何（*）主机。 虚拟服务将接受与spec.http.match中指定的路径匹配的请求，并将其转发到端口9080上的productpage目标。"
+}, {
+  "tag": "P",
+  "text": "We can also see that the bookinfo virtual service is bound to the bookinfo-gateway gateway. Let's drill into it:",
+  "translation": "我们还可以看到bookinfo虚拟服务已绑定到bookinfo-gateway网关。 让我们深入了解一下："
+}, {
+  "tag": "PRE",
+  "text": "kubectl get gw bookinfo-gateway -o yaml",
+  "translation": "kubectl获取gw bookinfo-gateway -o yaml"
+}, {
+  "tag": "P",
+  "text": "Outputting:",
+  "translation": "输出："
+}, {
+  "tag": "PRE",
+  "text": "apiVersion: networking.istio.io/v1alpha3kind: Gatewaymetadata:  annotations:    kubectl.kubernetes.io/last-applied-configuration: |      *** omitted for brevity ***  creationTimestamp: \"2019-12-25T01:54:39Z\"  generation: 1  name: bookinfo-gateway  namespace: default  resourceVersion: \"6895\"  selfLink: /apis/networking.istio.io/v1alpha3/namespaces/default/gateways/bookinfo-gateway  uid: 85bf7194-1d4b-11ea-84b7-025000000001spec:  selector:    istio: ingressgateway  servers:  - hosts:    - '*'    port:      name: http      number: 80      protocol: HTTP",
+  "translation": "apiVersion：networking.istio.io/v1alpha3kind：Gatewaymetadata：注释：kubectl.kubernetes.io/last-applied-configuration： ***为简便起见，省略*** creationTimestamp：“ 2019-12-25T01：54：39Z”代：1名称：bookinfo-gateway命名空间：默认resourceVersion：“ 6895” selfLink：/apis/networking.istio.io/v1alpha3 / namespaces / default / gateways / bookinfo-gateway uid：85bf7194-1d4b-11ea-84b7-025000000001spec：选择器：istio：ingressgateway服务器：-主机：-'*'端口：名称：HTTP编号：80协议：HTTP"
+}, {
+  "tag": "P",
+  "text": "This is informing us that an Istio gateway is serving HTTP traffic on port 80 for all hosts. We should just call the Bookinfo service already, but first we need to know what address and port number the gateway is reachable on from outside the cluster. The answer to this depends on how the underlying Istio ingress gateway service is exposed. (Remember, Istio is made up of regular Kubernetes components — they need to be exposed to be reachable from outside the cluster.)",
+  "translation": "通知我们，Istio网关正在端口80上为所有主机提供HTTP通信。 我们应该只已经调用Bookinfo服务，但是首先我们需要知道从群集外部可以访问网关的地址和端口号。 答案取决于如何公开底层的Istio入口网关服务。 （请记住，Istio由常规的Kubernetes组件组成-必须公开它们才能从群集外部访问。）"
+}, {
+  "tag": "PRE",
+  "text": "kubectl get svc istio-ingressgateway -n istio-system",
+  "translation": "kubectl get svc istio-ingressgateway -n istio-system"
+}, {
+  "tag": "P",
+  "text": "Outputting:",
+  "translation": "输出："
+}, {
+  "tag": "PRE",
+  "text": "NAME                   TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)                                                                                                                      AGEistio-ingressgateway   LoadBalancer   10.106.108.201   localhost     15020:30912/TCP,80:30218/TCP,443:30059/TCP,15029:31861/TCP,15030:32620/TCP,15031:30363/TCP,15032:30868/TCP,15443:30359/TCP   3d20h",
+  "translation": "名称类型集群IP外部IP端口网关入口负载均衡器10.106.108.201本地主机15020：30912 / TCP，80：30218 / TCP，443：30059 / TCP，15029：31861 / TCP，15030：32620 / TCP， 15031：30363 / TCP，15032：30868 / TCP，15443：30359 / TCP 3d20h"
+}, {
+  "tag": "P",
+  "text": "I happen to be running this example on the Kubernetes cluster that ships with Docker Desktop, so in my case, the EXTERNAL-IP is set to localhost. You might be running a Kubernetes cluster in AWS or GCP, in which case the LoadBalancer service type will be implemented using a cloud-native load balancer (for example, an ELB or an NLB). Alternatively, you might find yourself in an environment that doesn't support a LoadBalancer service — for example, MiniKube without tunnel — in which case the EXTERNAL-IP will be displayed as <none> or perpetually <pending>. In this case, you can access the ingress gateway service using its node port by checking the port mapping for port 80 in the PORT(S) column.",
+  "translation": "我碰巧在Docker Desktop随附的Kubernetes集群上运行此示例，因此在我的情况下，EXTERNAL-IP设置为localhost。 您可能正在AWS或GCP中运行Kubernetes集群，在这种情况下，将使用云本地负载均衡器（例如ELB或NLB）来实现LoadBalancer服务类型。 或者，您可能会发现自己处于不支持LoadBalancer服务的环境中（例如，不带隧道的MiniKube），在这种情况下，EXTERNAL-IP将显示为<none>或永久显示为<pending>。 在这种情况下，您可以通过检查PORT（S）列中端口80的端口映射来使用其节点端口访问入口网关服务。"
+}, {
+  "tag": "P",
+  "text": "Let’s invoke our app. Browse to localhost/productpage. (Replace the host and port as appropriate.)",
+  "translation": "让我们调用我们的应用程序。 浏览到localhost / productpage。 （适当替换主机和端口。）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*rlEW7rFeFrTNNZon?q=20",
+  "type": "image",
+  "file": "0!rlEW7rFeFrTNNZon"
+}, {
+  "tag": "P",
+  "text": "Refresh the screen several times. You’ll notice that a slightly different view is served each time. That’s because the reviews service is selecting all pods with the label app: reviews. We will deal with that later.",
+  "translation": "刷新屏幕几次。 您会注意到，每次提供的视图都略有不同。 这是因为评论服务正在选择带有标签应用“评论”的所有广告连播。 我们稍后会处理。"
+}, {
+  "tag": "P",
+  "text": "Congratulations! You have successfully deployed your first application using Istio.",
+  "translation": "恭喜你！ 您已经使用Istio成功部署了第一个应用程序。"
+}, {
+  "tag": "H2",
+  "text": "Distributed tracing with Zipkin",
+  "translation": "使用Zipkin进行分布式跟踪"
+}, {
+  "tag": "P",
+  "text": "Before we make any drastic changes to our Bookinfo deployment, let’s first use Zipkin to gain some insights on how traffic flows throughout our microservices architecture.",
+  "translation": "在对Bookinfo部署进行任何重大更改之前，让我们首先使用Zipkin来了解流量如何在整个微服务架构中流动。"
+}, {
+  "tag": "P",
+  "text": "Zipkin is not accessible directly. To use it, you must set up temporary port forwarding:",
+  "translation": "无法直接访问Zipkin。 要使用它，必须设置临时端口转发："
+}, {
+  "tag": "PRE",
+  "text": "istioctl dashboard zipkin",
+  "translation": "istioctl仪表板zipkin"
+}, {
+  "tag": "P",
+  "text": "This will launch the Zipkin UI in a new browser tab. Click the ‘Find Traces’ button to see the recent traces:",
+  "translation": "这将在新的浏览器选项卡中启动Zipkin UI。 点击“查找轨迹”按钮以查看最近的轨迹："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*L74G8YG261l21uB9?q=20",
+  "type": "image",
+  "file": "0!L74G8YG261l21uB9"
+}, {
+  "tag": "P",
+  "text": "Zipkin will render traces that traverse the chosen service. You can expand a trace, revealing the underlying spans:",
+  "translation": "Zipkin将呈现遍历所选服务的跟踪。 您可以展开跟踪，以显示基础跨度："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*__n5ZD5-FJ6LLJOT?q=20",
+  "type": "image",
+  "file": "0!__n5ZD5-FJ6LLJOT"
+}, {
+  "tag": "P",
+  "text": "Zipkin also lets us visualise the high-level dependencies between services. Click on the ‘Dependencies’ link at the top of the screen:",
+  "translation": "Zipkin还使我们可以可视化服务之间的高级依赖关系。 点击屏幕顶部的“依赖关系”链接："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*h96woC2K1V26fSN-?q=20",
+  "type": "image",
+  "file": "0!h96woC2K1V26fSN-"
+}, {
+  "tag": "P",
+  "text": "Not bad, huh? We got all this without lifting a finger.",
+  "translation": "还不错吧？ 我们不费吹灰之力就得到了所有这些。"
+}, {
+  "tag": "H2",
+  "text": "Tailored routing",
+  "translation": "量身定制的路由"
+}, {
+  "tag": "P",
+  "text": "The routing to the reviews service is a bit all over the place at the moment: customers are being served three versions at random. Let's put some structure around how we deliver a service to our consumers. Run the following, which will inject a pair of resource definitions into kubectl via standard input, heredoc style.",
+  "translation": "目前，到处都有评论服务的路由：随机向客户提供三种版本的评论。 让我们围绕如何向消费者提供服务的方式进行一些调整。 运行以下命令，这将通过标准输入（heredoc样式）将一对资源定义注入到kubectl中。"
+}, {
+  "tag": "PRE",
+  "text": "cat <<EOF | kubectl apply -f -apiVersion: networking.istio.io/v1alpha3kind: VirtualServicemetadata:  name: reviewsspec:  hosts:  - reviews  http:  - match:    - headers:        end-user:          exact: bob    route:    - destination:        host: reviews        subset: v1  - route:    - destination:        host: reviews        subset: v3      weight: 25    - destination:        host: reviews        subset: v2      weight: 75---apiVersion: networking.istio.io/v1alpha3kind: DestinationRulemetadata:  name: reviewsspec:  host: reviews  subsets:  - name: v1    labels:      version: v1  - name: v2    labels:      version: v2  - name: v3    labels:      version: v3EOF",
+  "translation": "猫<< EOF | kubectl apply -f -apiVersion：networking.istio.io/v1alpha3kind：VirtualServicemetadata：名称：reviewsspec：主机：-评论http：-match：-标头：最终用户：确切：bob路线：-目的地：主机：评论子集： v1-路线：-目的地：主机：评论子集：v3权重：25-目的地：主机：评论子集：v2权重：75 --- api版本：networking.istio.io/v1alpha3kind：DestinationRulemetadata：名称：评论规范：主机：评论 子集：-名称：v1标签：版本：v1-名称：v2标签：版本：v2-名称：v3标签：版本：v3EOF"
+}, {
+  "tag": "P",
+  "text": "We are now serving a canary release of v3 to 25% of our general visitors, with the remainder still being on v2. In this example, we have a particularly fussy user — bob — who is presumably quite important to us. This user will always be served v1 once he signs in.",
+  "translation": "现在，我们向25％的普通访问者提供了v3的金丝雀版本，其余版本仍在v2上。 在此示例中，我们有一个特别挑剔的用户— bob —可能对我们来说非常重要。 登录后将始终为该用户提供v1服务。"
+}, {
+  "tag": "P",
+  "text": "Try the Bookinfo site now. Refreshing the page will mostly serve v2, with the occasional v3 coming through. Sign in with another user — say, charlie — the behavior is still the same. (By the way, the password field is purely ornamental — any password will work.) Now sign out, and sign back in as a user bob. The screen will render the v1 view, no how many times you press that refresh button.",
+  "translation": "立即尝试Bookinfo网站。 刷新页面主要用于v2，偶尔会通过v3。 与另一个用户（例如charlie）登录，其行为仍然相同。 （顺便说一句，密码字段纯粹是装饰性的-任何密码都可以使用。）现在注销，然后以鲍勃用户身份重新登录。 屏幕将呈现v1视图，而不显示您按下该刷新按钮的次数。"
+}, {
+  "tag": "P",
+  "text": "Note: In case you are wondering, Istio does not have any special comprehension of user identity. The end-user header is simply appended by the productpage service for all authenticated sessions.",
+  "translation": "注意：如果您想知道，Istio对用户身份没有任何特殊的了解。 最终用户标头仅由productpage服务附加到所有已认证的会话。"
+}, {
+  "tag": "H1",
+  "text": "Enabling origin authentication",
+  "translation": "启用原始身份验证"
+}, {
+  "tag": "P",
+  "text": "Authentication is another common use case for service meshes. Much like an off-the-shelf API gateway, a service mesh can furnish transparent authentication and authorization controls on top of existing services. Our next example will use JSON web tokens to authenticate a user to a service. Istio calls this origin authentication, in contrast to transport authentication which verifies services.",
+  "translation": "身份验证是服务网格的另一个常见用例。 就像现成的API网关一样，服务网格可以在现有服务之上提供透明的身份验证和授权控制。 我们的下一个示例将使用JSON Web令牌来验证用户对服务的身份。 与验证服务的传输身份验证相反，Istio将此称为源身份验证。"
+}, {
+  "tag": "P",
+  "text": "To experiment with JWT authentication we need both a valid JWT and a JWKS (JSON Web Key Set) endpoint. The latter is a set of signed public keys that can be used to verify a JWT. A sample JWKS endpoint has been provided for us by the good folks at Istio. Next, we will create a Policy resource that mandates the use of JWT for the productpage service, but only for those resources that start with the /productpage or /api/v1 paths. Selective authentication is useful when the same application also serves static content that needs to be kept open to unauthenticated users.",
+  "translation": "为了试验JWT身份验证，我们需要一个有效的JWT和一个JWKS（JSON Web密钥集）端点。 后者是一组签名的公共密钥，可用于验证JWT。 Istio的好伙伴为我们提供了一个示例JWKS端点。 接下来，我们将创建一个策略资源，该资源强制将JWT用于productpage服务，但仅用于以/ productpage或/ api / v1路径开头的资源。 当同一应用程序还提供需要向未经身份验证的用户开放的静态内容时，选择性身份验证很有用。"
+}, {
+  "tag": "PRE",
+  "text": "cat <<EOF | kubectl apply -f -apiVersion: \"authentication.istio.io/v1alpha1\"kind: \"Policy\"metadata:  name: \"productpage-policy\"  namespace: defaultspec:  targets:  - name: productpage  origins:  - jwt:      issuer: \"testing@secure.istio.io\"      jwksUri: \"https://raw.githubusercontent.com/istio/istio/release-1.4/security/tools/jwt/samples/jwks.json\"      trigger_rules:      - included_paths:        - prefix: /productpage        - prefix: /api/v1  principalBinding: USE_ORIGINEOF",
+  "translation": "猫<< EOF | kubectl apply -f -apiVersion：“ authentication.istio.io/v1alpha1”种类：“ Policy”元数据：名称：“ productpage-policy”名称空间：defaultspec：目标：-名称：productpage来源：-jwt：发行者：“ testing @ secure.istio.io” jwksUri：“ https://raw.githubusercontent.com/istio/istio/release-1.4/security/tools/jwt/samples/jwks.json” trigger_rules：-included_paths：-前缀：/ productpage- 前缀：/ api / v1主体绑定：USE_ORIGINEOF"
+}, {
+  "tag": "P",
+  "text": "Give Istio a few seconds to propagate the new policy. Then invoke the productpage service with curl, outputting just the status code:",
+  "translation": "给Istio几秒钟时间传播新策略。 然后使用curl调用productpage服务，仅输出状态代码："
+}, {
+  "tag": "PRE",
+  "text": "curl -s http://localhost/productpage -o /dev/null -w \"%{http_code}\\n\"",
+  "translation": "curl -s http：// localhost / productpage -o / dev / null -w“％{http_code} \\ n”"
+}, {
+  "tag": "P",
+  "text": "Resulting in:",
+  "translation": "导致："
+}, {
+  "tag": "PRE",
+  "text": "401",
+  "translation": "401"
+}, {
+  "tag": "P",
+  "text": "Unauthorized, as expected. Let’s try again, this time passing in a valid JWT:",
+  "translation": "未经授权，符合预期。 让我们再试一次，这次传入一个有效的JWT："
+}, {
+  "tag": "PRE",
+  "text": "JWT=$(curl https://raw.githubusercontent.com/istio/istio/release-1.4/security/tools/jwt/samples/demo.jwt -s)curl -H \"Authorization: Bearer $JWT\" -s http://localhost/productpage -o /dev/null -w \"%{http_code}\\n\"",
+  "translation": "JWT = $（curl https://raw.githubusercontent.com/istio/istio/release-1.4/security/tools/jwt/samples/demo.jwt -s）curl -H“授权：承载$ JWT” -s http ：// localhost / productpage -o / dev / null -w“％{http_code} \\ n”"
+}, {
+  "tag": "P",
+  "text": "Resulting in:",
+  "translation": "导致："
+}, {
+  "tag": "PRE",
+  "text": "200",
+  "translation": "200"
+}, {
+  "tag": "P",
+  "text": "We have successfully enabled bearer token authentication. This means we can now replace our crude authentication form with an external identity provider — such as AWS Cognito — by simply plugging in an alternate JWKS file.",
+  "translation": "我们已经成功启用了承载令牌认证。 这意味着我们现在可以通过简单地插入备用JWKS文件，用外部身份提供程序（例如AWS Cognito）替换粗略的身份验证表单。"
+}, {
+  "tag": "H2",
+  "text": "Visualisation with Grafana",
+  "translation": "用Grafana可视化"
+}, {
+  "tag": "P",
+  "text": "One of the instant gratifications of adopting a service mesh is the sheer amount of telemetry one gets out of the box. We have already looked at distributed tracing with Zipkin; let’s now take a look at service and mesh-level metrics that Istio provides.",
+  "translation": "采用服务网格的当下满足之一是开箱即用的遥测数量。 我们已经研究了使用Zipkin进行分布式跟踪。 现在让我们看一下Istio提供的服务和网格级别指标。"
+}, {
+  "tag": "P",
+  "text": "The demo profile of Istio comes with Prometheus and Grafana installed. We can proxy access to Grafana via the istio dashboard command:",
+  "translation": "Istio的演示配置文件随附了Prometheus和Grafana。 我们可以通过istio仪表板命令代理对Grafana的访问："
+}, {
+  "tag": "PRE",
+  "text": "istioctl dashboard grafana",
+  "translation": "istioctl仪表板grafana"
+}, {
+  "tag": "P",
+  "text": "This will open a browser tab to the Grafana homepage. There are a couple dozen pre-canned dashboards for all aspects of Istio’s behaviour. On the top-left, select ‘Dashboards’, followed by ‘Istio Service Dashboard’.",
+  "translation": "这将打开一个浏览器标签到Grafana主页。 针对Istio行为的各个方面，有几十个预装的仪表板。 在左上角，选择“仪表板”，然后选择“ Istio服务仪表板”。"
+}, {
+  "tag": "P",
+  "text": "The initial impressions may be underwhelming: empty graphs and melancholic widgets showing ‘No Data’. That shouldn’t surprise us; after all, no-one is using our Bookinfo service just now. Let’s simulate some traffic:",
+  "translation": "最初的印象可能令人印象深刻：空白图表和显示“无数据”的忧郁小部件。 那不应该令我们感到惊讶； 毕竟，没有人正在使用我们的Bookinfo服务。 让我们模拟一些流量："
+}, {
+  "tag": "PRE",
+  "text": "for i in `seq 1 1000`; do curl -s -o /dev/null http://localhost/productpage; done",
+  "translation": "因为我在``seq 1 1000''中; 做curl -s -o / dev / null http：// localhost / productpage; 做完了"
+}, {
+  "tag": "P",
+  "text": "Go back to the dashboard and select productpage.default.svc.cluster.local from the 'Service' drop-down. If the drop-down is empty, refresh the screen and it should re-populate. The dashboard will light up like a Christmas tree. We are going to see our request throughput (queries per second), the error rate, the turnaround time (request duration), as well as more fine-grained metrics.",
+  "translation": "返回信息中心，然后从“服务”下拉菜单中选择productpage.default.svc.cluster.local。 如果下拉菜单为空，请刷新屏幕，然后重新填充屏幕。 仪表板将像圣诞树一样点亮。 我们将看到我们的请求吞吐量（每秒查询），错误率，周转时间（请求持续时间）以及更细粒度的指标。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*RUEfMpuux9EWWb9t?q=20",
+  "type": "image",
+  "file": "0!RUEfMpuux9EWWb9t"
+}, {
+  "tag": "P",
+  "text": "Take your time to browse the other dashboards. Istio exposes its critical metrics for the underlying control plane components — Mixer, Citadel, Pilot, and Galley. Also, Istio provides a convenient summary ‘Istio Performance Dashboard’ that merges the key components into a single view.",
+  "translation": "花时间浏览其他仪表板。 Istio公开了其对基础控制平面组件（混音器，城堡，飞行员和厨房）的关键指标。 此外，Istio还提供了一个方便的摘要“ Istio Performance Dashboard”，它将关键组件合并到一个视图中。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*dEO7mCjKWWGg9XHR?q=20",
+  "type": "image",
+  "file": "0!dEO7mCjKWWGg9XHR"
+}, {
+  "tag": "H1",
+  "text": "Getting Started With Istio",
+  "translation": "Istio入门"
+}, {
+  "tag": "H2",
+  "text": "Understanding what a service mesh is and how it can be used effectively in a microservices architecture.",
+  "translation": "了解什么是服务网格以及如何在微服务体系结构中有效地使用它。"
+}, {
+  "tag": "P",
+  "text": "The last few years have brought about immense changes in the software architecture landscape. A major shift that we have all witnessed is the breakdown of large monolithic and coarse-grained applications into fine-grained deployment units called microservices, communicating predominantly by way of synchronous REST and gRPC interfaces, as well as asynchronous events and message passing. The benefits of this architecture are numerous, but the drawbacks are equally evident. Aspects of software development that used to be straightforward in the ‘old world’, such as debugging, profiling and performance management, are now an order of magnitude more complex. Also, a microservices architecture brings its own unique challenges. Services are more fluid and elastic, and tracking of their instances, their versions and dependencies is a Herculean challenge that balloons in complexity as the service landscape evolves. To top this off, services will fail in isolation, further exacerbated by unreliable networks. Given a large enough system, parts of it may be suffering a minor outage at any given point in time, potentially impacting a subset of users, quite often without the operator’s awareness. With so many ‘moving parts’, how does one stay on top of these challenges and ensure the system is running smoothly without impacting the customer and driving the developers out of their wits?",
+  "translation": "最近几年在软件体系结构领域带来了巨大的变化。我们都见证了一个重大转变，即将大型的整体应用程序和粗粒度应用程序分解为称为微服务的细粒度部署单元，主要通过同步REST和gRPC接口以及异步事件和消息传递进行通信。这种体系结构的好处很多，但缺点同样明显。过去在“旧世界”中直截了当的软件开发方面，例如调试，概要分析和性能管理，现在已经复杂了一个数量级。此外，微服务架构也带来了自己独特的挑战。服务更具流动性和弹性，并且跟踪它们的实例，它们的版本和依赖关系是一项艰巨的挑战，随着服务领域的发展其复杂性迅速增加。最重要的是，服务将孤立地失败，并且由于不可靠的网络而进一步加剧。给定足够大的系统，在任何给定的时间点，系统的某些部分可能会遭受轻微故障，从而可能会影响一部分用户，而这往往是操作员无法察觉的。拥有如此众多的“活动部件”，如何应对这些挑战并确保系统平稳运行而又不影响客户并驱使开发人员精疲力尽？"
+}, {
+  "tag": "P",
+  "text": "With the increased adoption of microservices, the industry has been steadily coming up with patterns and best-practices that have made the entire experience more palatable. Resiliency Patterns, Service Discovery, Container Orchestration, Canary Releases, Observability Patterns, BFF, API Gateway… These are some of the concepts that practitioners will employ to build more robust and sustainable distributed systems. But these concepts are just that — abstract notions and patterns — they require someone to implement them somewhere in the system. More often than not, that ‘someone’ is you and ‘somewhere’ is everywhere.",
+  "translation": "随着微服务的日益普及，该行业一直在稳步提出各种模式和最佳实践，这些模式和最佳实践使整个体验变得更加可口。 弹性模式，服务发现，容器编排，Canary版本，可观察性模式，BFF，API网关……这些是从业人员将用来构建更健壮和可持续的分布式系统的概念。 但是这些概念仅仅是抽象概念和模式，它们需要有人在系统中的某个地方实现它们。 通常，“某人”是您，而“某处”无处不在。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Emil Koutanov的文章《Getting Started With Istio》，参考：https://medium.com/swlh/getting-started-with-istio-524628c025)",
+  "translation": "（本文翻译自Emil Koutanov的文章，《 Istio入门》，参考：https：//medium.com/swlh/getting-started-with-istio-524628c025）"
+}]
