@@ -1,0 +1,246 @@
+[{
+  "tag": "H1",
+  "text": "How to develop Software like a CTO",
+  "translation": "如何像CTO一样开发软件"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/48/0*vTryr8NFyB-JR8_o?q=20",
+  "caption": "Diego PH on Unsplash",
+  "type": "image",
+  "file": "0!vTryr8NFyB-JR8_o"
+}, {
+  "tag": "P",
+  "text": "The U.S. Bureau of Labor Statistics predicts that in 2020 there will be 1.4 million more software development jobs than applicants who can fill them in the U.S. alone.",
+  "translation": "美国劳工统计局预测，到2020年，软件开发工作的职位将比仅在美国就职的申请人多140万。"
+}, {
+  "tag": "P",
+  "text": "That statistic is even more surprising when you learn that in 2018 there were 23 million software developers around the world",
+  "translation": "当您了解到2018年全球有2300万软件开发人员时，该统计数字甚至更令人惊讶"
+}, {
+  "tag": "P",
+  "text": "These numbers mean two things:",
+  "translation": "这些数字意味着两件事："
+}, {
+  "tag": "UL",
+  "texts": ["Good Software development practices are a must", "There are a lot of opinions on what “good development practices” look like, and navigating those opinions can be challenging"],
+  "translations": ["良好的软件开发实践是必须的", "关于“良好的开发实践”是什么样的，有很多意见，而要浏览这些意见可能是具有挑战性的"]
+}, {
+  "tag": "P",
+  "text": "There are however also a few individuals in the Tech Field who often share their opinions on software development in the forms of interviews, blogs, and books, (Martin Fowler or Kent Beck for example) whose opinions are often seen as valuable in the Software world.",
+  "translation": "但是，在技术领域中也有一些人经常以访谈，博客和书籍的形式（例如，Martin Fowler或Kent Beck）分享他们对软件开发的意见，这些意见在软件世界中常常被认为是有价值的。 。"
+}, {
+  "tag": "P",
+  "text": "One of those people is Founder and longtime CTO of Tripwire, Gene Kim. Mostly known for his books, Kim has had a profound impact in his career on the outlook on the importance of Software Development Practices. Many are familiar with the books he has written or co-written: The Phoenix Project, The DevOps Handbook, Accelerate, and were delighted to see his newest release The Unicorn Project.",
+  "translation": "其中之一是Tripwire的创始人兼长期首席技术官Gene Kim。 Kim的著作广为人知，他的职业生涯对软件开发实践的重要性产生了深远的影响。 许多人熟悉他所写或合着的书：《凤凰计划》，《 DevOps手册》，《加速》，并高兴地看到他最新发行的《独角兽计划》。"
+}, {
+  "tag": "P",
+  "text": "While The Phoenix Project focused much on the DevOps / Infrastructure side of Software Development, The Unicorn Project follows Tech Lead and Architect Maxine as she tries to navigate the challenges of ever changing requirements and external dependencies in her Dev Team. In Phoenix used “The Three Ways” and the “Four Types of Work” to describe important concepts which many use to help define DevOps today.",
+  "translation": "Phoenix项目的重点是软件开发的DevOps /基础架构方面，而Unicorn项目则跟随技术主管和架构师Maxine，她试图在其开发团队中应对不断变化的需求和外部依赖项带来的挑战。 在Phoenix中，“三种方式”和“四种工作类型”描述了重要的概念，许多人今天使用这些概念来帮助定义DevOps。"
+}, {
+  "tag": "P",
+  "text": "In this article I would like to share the key takeaways from some of Gene Kim’s finest works.",
+  "translation": "在本文中，我想分享一些吉恩·金（Gene Kim）最好的作品的主要收获。"
+}, {
+  "tag": "H1",
+  "text": "Takeaways from The Phoenix Project:",
+  "translation": "凤凰计划的要点："
+}, {
+  "tag": "P",
+  "text": "Written in the form of a novel with made up characters and story line, The Phoenix Project follows IT Manager Bill as he tries to deal with the expectations to go faster and the communication and dependency challenges that many teams have. It illustrates how the “DevOps” movement can be used to transform teams by following the underlying principles of the movement, described as the Three Ways:",
+  "translation": "凤凰城项目以小说的形式写成，小说由人物和故事情节组成，遵循IT经理Bill的想法，试图应对更快发展的期望以及许多团队在沟通和依赖性方面的挑战。 它说明了“ DevOps”运动如何通过遵循运动的基本原理（称为“三种方式”）来改造团队。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/40/0*kegXRWEGugESp9Qc?q=20",
+  "type": "image",
+  "file": "0!kegXRWEGugESp9Qc"
+}, {
+  "tag": "H1",
+  "text": "The Three Ways:",
+  "translation": "三种方式："
+}, {
+  "tag": "H2",
+  "text": "The Principles of Flow",
+  "translation": "流动原理"
+}, {
+  "tag": "P",
+  "text": "illustrates IT as a value stream. Almost like a factory line, where each component adds value to the line with the expectation that it only has to be done once",
+  "translation": "将IT视为价值流。 几乎就像工厂生产线一样，其中每个组件都为生产线增加了价值，并期望仅需完成一次"
+}, {
+  "tag": "UL",
+  "texts": ["Work flows in only one direction — downstream", "Defects are never passed downstream", "We should always be trying to improve the flow"],
+  "translations": ["工作仅朝一个方向流动-下游", "缺陷永远不会传递到下游", "我们应该一直在努力改善流程"]
+}, {
+  "tag": "H2",
+  "text": "The Principles of Feedback",
+  "translation": "反馈原则"
+}, {
+  "tag": "P",
+  "text": "used as a way to measure the value added by your stream",
+  "translation": "用作衡量流增加的价值的方法"
+}, {
+  "tag": "UL",
+  "texts": ["An upstream feedback loop should be in place", "The feedback loop should be as short as possible, meaning quick feedback on additions/changes"],
+  "translations": ["上游反馈回路应该到位", "反馈循环应尽可能短，这意味着对添加/更改的快速反馈"]
+}, {
+  "tag": "H2",
+  "text": "The Principles of Continuous Learning and Experimentation",
+  "translation": "持续学习与实验原理"
+}, {
+  "tag": "P",
+  "text": "describes the culture and environment of a software organization",
+  "translation": "描述软件组织的文化和环境"
+}, {
+  "tag": "UL",
+  "texts": ["Seek to master things through practice", "Learn from success and failure", "Promote experimentation rather than fearing it and the possibility of failure."],
+  "translations": ["通过练习寻求掌握东西", "从成功和失败中学习", "促进实验，而不要担心实验和失败的可能性。"]
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*xvp2z4Bz3gu8iq7b?q=20",
+  "caption": "The Three Ways as an image",
+  "type": "image",
+  "file": "0!xvp2z4Bz3gu8iq7b"
+}, {
+  "tag": "H1",
+  "text": "The Four Types of Work:",
+  "translation": "四种工作类型："
+}, {
+  "tag": "OL",
+  "texts": ["Business Projects — these are the projects your Stakeholders ask you to do for customers", "Internal Projects — an example of this would be migrating from a locally hosted data center to a cloud provider", "Operational Changes — this could be something like deploying new features", "Unplanned Work — failures, bugs, or sudden changes in plans which require immediate action."],
+  "translations": ["业务项目-这些是您的涉众要求您为客户做的项目", "内部项目-例如，将从本地托管的数据中心迁移到云提供商", "运营变更-可能类似于部署新功能", "计划外的工作-计划中的故障，错误或突然更改，需要立即采取行动。"]
+}, {
+  "tag": "H1",
+  "text": "Takeaways from Accelerate:",
+  "translation": "加速的要点："
+}, {
+  "tag": "P",
+  "text": "Written as a result of research done in the State of DevOps Report which is a survey filled out by companies around the world of all sizes, Accelerate published the Four Key Metrics which the researchers determined are the only differentiators between low, medium, and high performing teams:",
+  "translation": "作为《 DevOps状况报告》中一项研究的结果，该报告是由世界各地各种规模的公司进行的一项调查，Accelerate发布了四个关键指标，研究人员确定这四个指标是低，中，高绩效之间的唯一区别 团队："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/40/0*-0RjaWfiHefCuux1?q=20",
+  "type": "image",
+  "file": "0!-0RjaWfiHefCuux1"
+}, {
+  "tag": "H1",
+  "text": "The Four Key Metrics:",
+  "translation": "四个关键指标："
+}, {
+  "tag": "OL",
+  "texts": ["Lead Time for changes — amount of time between a customer or stakeholder making a request, and that request landing as code into production", "Deployment Frequency — how often changes are deployed to production", "Mean Time to Recovery — how long it takes to recover from a discovered failure", "Change fail percentage — what percentage of your changes cause an error, failure, or bug in your system"],
+  "translations": ["变更的前置时间-客户或利益相关者提出请求与该请求作为代码进入生产之间的时间间隔", "部署频率-将变更部署到生产的频率", "平均恢复时间-从发现的故障中恢复需要多长时间", "变更失败百分比-您的变更百分比导致系统中的错误，失败或错误"]
+}, {
+  "tag": "P",
+  "text": "The metric measurements between low, medium, and high performing teams are divided as follows, with the leftmost column being a high performing team:",
+  "translation": "低，中和高绩效团队之间的度量标准划分如下，最左边的列是高绩效团队："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*10eWxRh2rkHlofwr?q=20",
+  "caption": "The Four Key Metrics for High, Medium, and Low performing teams",
+  "type": "image",
+  "file": "0!10eWxRh2rkHlofwr"
+}, {
+  "tag": "P",
+  "text": "The Phoenix Project and Accelerate helped to set a basis, which many teams are still trying to adapt, on which Software Development Teams can measure their productivity and efficiency while directly having an understanding of how they can improve in those areas.",
+  "translation": "Phoenix Project和Accelerate帮助建立了一个基础，许多团队仍在努力适应这一基础，软件开发团队可以在此基础上衡量其生产率和效率，同时直接了解他们在这些领域如何改进。"
+}, {
+  "tag": "H1",
+  "text": "Takeaways from The Unicorn Project:",
+  "translation": "独角兽计划的收获："
+}, {
+  "tag": "P",
+  "text": "With the release of The Unicorn Project, Gene Kim has expanded upon his ideas of Software Development to identify what he considers to be the most important challenges impacting engineering and business today. He frames these challenges under what he calls “The Five Ideals”. Similarly to The Phoenix Project, the book is written as a novel with different stories and scenarios to illustrate these learnings and confirm the importance of the DevOps movement as a way to quickly and more safely deliver software.",
+  "translation": "随着“独角兽项目”的发布，Gene Kim扩展了他对软件开发的想法，以确定他认为是当今影响工程和业务的最重要挑战。 他将这些挑战归结为“五个理想”。 与《凤凰计划》相似，这本书是一本小说，具有不同的故事和场景，以说明这些学习情况并确认DevOps运动作为快速安全地交付软件的重要性。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/40/0*SIjmN_Wa5Ux9k6pI?q=20",
+  "type": "image",
+  "file": "0!SIjmN_Wa5Ux9k6pI"
+}, {
+  "tag": "H1",
+  "text": "The Five Ideals:",
+  "translation": "五个理想："
+}, {
+  "tag": "H2",
+  "text": "Locality and Simplicity",
+  "translation": "局部性和简单性"
+}, {
+  "tag": "P",
+  "text": "This relates to what degree a development team can make a local code change in one or more locations, without impacting or needing various other teams and other locations. We all know that being able to do things on our own without needing others to help us or provide something for us is easier. Needing coordination from multiple teams to deploy or develop a new feature only results in delays and potential challenges as a result of miscommunication.",
+  "translation": "这与开发团队可以在一个或多个位置进行本地代码更改而不会影响或需要各种其他团队和其他位置的程度有关。 我们都知道，无需别人帮助我们或为我们提供某些东西就可以自己做事更容易。 需要多个团队的协作来部署或开发新功能，只会因沟通不畅而导致延误和潜在挑战。"
+}, {
+  "tag": "P",
+  "text": "In order for this to work, we need simplicity, meaning that parts of a product or software itself is loosely coupled from others and is kept as simplistic as possible in its implementation and infrastructure.",
+  "translation": "为了使它起作用，我们需要简单性，这意味着产品或软件本身的各个部分与其他部分之间是松散耦合的，并且在其实现和基础结构中应尽可能简化。"
+}, {
+  "tag": "H2",
+  "text": "Focus, Flow, and Joy",
+  "translation": "专注，流动与欢乐"
+}, {
+  "tag": "P",
+  "text": "A developer’s daily work and the way that work feels directly impact how effective that developer is. When developers can focus on writing code without delays or dependencies, it creates a sense of Flow and therefore joy. From the book:",
+  "translation": "开发人员的日常工作和工作方式直接影响开发人员的效率。 当开发人员可以专注于编写代码而没有延迟或依赖时，它会产生一种流动感，从而带来欢乐。 从书中："
+}, {
+  "tag": "P",
+  "text": "“Is our work marked by boredom and waiting for other people to get things done on our behalf? Do we blindly work on small pieces of the whole, only seeing the outcomes of our work during a deployment when everything blows up, leading to firefighting, punishment, and burnout? Or do we work in small batches, ideally single-piece flow, getting fast and continual feedback on our work? “",
+  "translation": "“我们的工作是否充满无聊并等待其他人代表我们完成工作？ 我们是否盲目地对整个小部分进行研究，只在部署过程中看到一切都炸毁，导致消防，惩罚和倦怠时才看到我们的工作成果？ 还是我们以小批量（理想情况下为单件生产）工作，从而获得对我们工作的快速而持续的反馈？ “"
+}, {
+  "tag": "H2",
+  "text": "Improvement of Daily Work",
+  "translation": "改善日常工作"
+}, {
+  "tag": "P",
+  "text": "This ideal is directly related to technical debt and architecture. The largest companies in the world (often referred to as the FANGs: Facebook, Amazon, Netflix, Google, etc) are as successful and consistent as they are because they make a conscious decision to get rid of the tech debt they have. Microsoft is famous for a culture which says if a developer has a choice between working on a feature or improving developer productivity, the choice should always be developer productivity. A great quote from the book:",
+  "translation": "这个理想与技术债务和架构直接相关。 世界上最大的公司（通常称为FANG：Facebook，Amazon，Netflix，Google等）之所以如此成功和稳定，是因为他们做出了有意识的决定来摆脱现有的技术债务。 微软以一种文化着称，这种文化说，如果开发人员在功能开发或提高开发人员生产率之间做出选择，那么选择应该始终是开发人员生产率。 这本书的一句名言："
+}, {
+  "tag": "P",
+  "text": "“Amazon likely spent over $1 billion over six years rearchitecting all their internal services to be decoupled from each other.”",
+  "translation": "“亚马逊可能会在六年内花费超过10亿美元重新配置其所有内部服务，以使彼此分离。”"
+}, {
+  "tag": "H2",
+  "text": "Psychological Safety",
+  "translation": "心理安全"
+}, {
+  "tag": "P",
+  "text": "As shown in not only the State of DevOps Report, but also the Google Aristotle Project a culture where members of team feel safe to make mistakes and learn from them, and to take risks is important to the effectiveness of a team. This is because teams need to be able to talk about the problems they have and feel safe doing so, because prevention is required to solve the problems, which requires honesty and no fear.",
+  "translation": "正如《 DevOps状态报告》和Google Aristotle Project所显示的那样，团队成员可以放心地从错误中吸取教训，并承担风险，这对于团队的效率至关重要。 这是因为团队需要能够谈论他们所遇到的问题并感到安全，因为需要预防才能解决问题，这需要诚实和无畏。"
+}, {
+  "tag": "H2",
+  "text": "Customer Focus",
+  "translation": "以客户为中心"
+}, {
+  "tag": "P",
+  "text": "As the name implies, this ideal reminds us to question if what the team is developing or working on is something that actually matters to customers (are they willing to pay us for it?) or is it only something that brings value to our own functional silo? If our daily actions are not providing value to the customer, maybe we should be working on something else.",
+  "translation": "顾名思义，这种理想使我们想起团队正在开发或从事的工作是否对客户真正重要（他们是否愿意为此付出代价？）还是仅仅是为我们自身职能带来价值的事情？ 筒仓？ 如果我们的日常行为无法为客户提供价值，那么也许我们应该在其他方面开展工作。"
+}, {
+  "tag": "P",
+  "text": "Some of my favorite quotes from the book:",
+  "translation": "这本书中我最喜欢的一些报价："
+}, {
+  "tag": "P",
+  "text": "“Hoare principle: “There are two ways to write code: write code so simple there are obviously no bugs in it, or write code so complex that there are no obvious bugs in it.”",
+  "translation": "“ Hoare原则：“有两种编写代码的方法：编写代码如此简单，显然其中没有错误；编写代码如此复杂，以至于其中没有明显的错误。”"
+}, {
+  "tag": "P",
+  "text": "“Punishing failure and “shooting the messenger” only cause people to hide their mistakes, and eventually, all desire to innovate is completely extinguished.”",
+  "translation": "“惩罚性失败和“攻击信使”只会使人们掩盖错误，最终，所有对创新的渴望都将被彻底扑灭。”"
+}, {
+  "tag": "P",
+  "text": "“Creating software should be a collaborative and conversational endeavor — individuals need to interact with each other to create new knowledge and value for the customer.”",
+  "translation": "“创建软件应该是一种协作和对话式的努力—个人需要相互交流才能为客户创造新的知识和价值。”"
+}, {
+  "tag": "P",
+  "text": "“Technical debt is what you feel the next time you want to make a change.”",
+  "translation": "“技术债务是您下次要进行更改时的感受。”"
+}, {
+  "tag": "P",
+  "text": "These three books help to layout a sort of template or example which development teams can follow when working on projects and trying to increase their efficiencies, with many of the largest and most successful software companies already using these ideas. I am looking forward to the next book this guy writes.",
+  "translation": "这三本书帮助设计了一个模板或示例，开发团队在进行项目并试图提高效率时可以遵循这些模板或示例，许多最大，最成功的软件公司已经在使用这些思想。 我期待这个家伙写的下一本书。"
+}, {
+  "tag": "P",
+  "text": "What do you think? Is there something he missed?",
+  "translation": "你怎么看？ 他错过了什么吗？"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Tylor Borgeson的文章《How to develop Software like a CTO》，参考：https://medium.com/swlh/software-development-practices-as-recommended-by-gene-kim-c6f6e952309f)",
+  "translation": "（本文翻译自Tylor Borgeson的文章，《如何像CTO一样开发软件》，参考：https：//medium.com/swlh/software-development-practices-as-recommended-gene-kim-c6f6e952309f）"
+}]
