@@ -1,0 +1,213 @@
+[{
+  "tag": "H1",
+  "text": "How to Build Slim Docker Images Fast",
+  "translation": "如何快速构建Slim Docker映像"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*vYePvQIDQvSEb94FzxSsuA.png?q=20",
+  "type": "image",
+  "file": "1!vYePvQIDQvSEb94FzxSsuA.png"
+}, {
+  "tag": "P",
+  "text": "Do you remember those days, when you wrote awesome software but you couldn’t install it on someone else’s machine or it crashed there? Though this is never a nice experience, we could always say",
+  "translation": "您还记得那些日子，当您编写出色的软件但无法将其安装在其他人的计算机上或崩溃的情况下？ 虽然这从来都不是很好的体验，但我们总是可以说"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/26/1*M9Po20ew_9C32r3fhx1BBA.png?q=20",
+  "type": "image",
+  "file": "1!M9Po20ew_9C32r3fhx1BBA.png"
+}, {
+  "tag": "P",
+  "text": "Nowadays, that’s not an excuse any more due to containerization.",
+  "translation": "如今，由于集装箱化，这已不再是借口。"
+}, {
+  "tag": "P",
+  "text": "Very briefly, with containerization, you pack your application and all necessary dependencies into an image. On execution, you run that image as a container. With this, you don’t have to mess around with another person’s system to make your software run. The container and hence your software should just run anywhere if it runs on your machine. This is also useful for data scientists when deploying models that depend on different packages and versions of those. For me, data scientists must know how to create images and containers.",
+  "translation": "简而言之，通过容器化，您可以将应用程序和所有必要的依赖项打包到映像中。 执行时，您将该图像作为容器运行。 这样一来，您就不必为弄乱他人的系统而运行您的软件。 如果容器在您的计算机上运行，则您的软件应随即运行。 这对于数据科学家在部署依赖于不同软件包和版本的模型时也很有用。 对我来说，数据科学家必须知道如何创建图像和容器。"
+}, {
+  "tag": "P",
+  "text": "As you all know, Docker is the major player in that realm and Docker images are ubiquitous. This is awesome, as you can start for example databases of different versions side by side without a hassle. Hacking together images for your apps is also very simple. This is due to the large number of base images and the simple definition-language. However, when you hack images together without knowing what you are doing, you have two issues.",
+  "translation": "众所周知，Docker是该领域的主要参与者，并且Docker映像无处不在。 这很棒，因为您可以轻松地并排启动例如不同版本的数据库。 将您的应用程序图像合并在一起也非常简单。 这是由于大量的基本图像和简单的定义语言所致。 但是，当您在不知道自己在做什么的情况下将图像混合在一起时，就会遇到两个问题。"
+}, {
+  "tag": "OL",
+  "texts": ["You waste disk space as your images become unnecessarily fat.", "You waste time by waiting for builds that take too long."],
+  "translations": ["由于图像不必要地发胖，您浪费了磁盘空间。", "您等待太长时间的构建会浪费时间。"]
+}, {
+  "tag": "P",
+  "text": "In this article, I want to show you how you can mitigate these two issues. Luckily, this only requires you to know a few tricks and techniques offered by Docker. To make the tutorial fun and useful, I show you how to pack a Python App into a Docker image. You can find all the code referenced below in my Github repository.",
+  "translation": "在本文中，我想向您展示如何缓解这两个问题。 幸运的是，这仅需要您了解Docker提供的一些技巧和技术。 为了使本教程有趣且有用，我向您展示了如何将Python App打包到Docker映像中。 您可以在我的Github存储库中找到下面引用的所有代码。"
+}, {
+  "tag": "P",
+  "text": "Are you ready? Let’s get it on.",
+  "translation": "你准备好了吗？ 让我们继续。"
+}, {
+  "tag": "H1",
+  "text": "The Tutorial",
+  "translation": "教程"
+}, {
+  "tag": "P",
+  "text": "Let’s assume all our code lives in a single Python file main.py. As we are cool kids, we use the latest and greatest Python version, which is 3.8 at the time of writing this article. Our app is just a simple webserver and it depends on pandas, fastapi, and, uvicorn. We store the dependencies in a requirements.txt file. Locally, we develop the app in a virtual environment. This environment resides in a folder named .venv within the same folder as the code (this becomes important soon). Now, we decide to pack all that into a Docker image. To do so, all we have to do is",
+  "translation": "假设我们所有的代码都位于一个Python文件main.py中。 因为我们很酷，所以我们使用最新最好的Python版本，在撰写本文时为3.8。 我们的应用程序只是一个简单的Web服务器，它依赖于熊猫，fastapi和uvicorn。 我们将依赖项存储在requirements.txt文件中。 在本地，我们在虚拟环境中开发应用程序。 该环境位于与代码位于同一文件夹中的名为.venv的文件夹中（这很快变得很重要）。 现在，我们决定将所有内容打包到Docker映像中。 为此，我们要做的就是"
+}, {
+  "tag": "OL",
+  "texts": ["Use a base image with Python 3.8 available.", "Copy over the code and the requirements file.", "Install the requirements and dependencies in the image.", "Expose a command that runs our App"],
+  "translations": ["使用可用于Python 3.8的基本映像。", "复制代码和需求文件。", "在映像中安装需求和依赖项。", "公开运行我们的应用程序的命令"]
+}, {
+  "tag": "FIGURE",
+  "type": "code"
+}, {
+  "tag": "P",
+  "text": "The first version of our Docker image looks like",
+  "translation": "我们的Docker映像的第一个版本看起来像"
+}, {
+  "tag": "PRE",
+  "text": "FROM python:3.8.0-slimCOPY . /appRUN apt-get update \\&& apt-get install gcc -y \\&& apt-get cleanWORKDIR appRUN pip install --user -r requirements.txtENTRYPOINT uvicorn main:app --reload --host 0.0.0.0 --port 8080",
+  "translation": "从python：3.8.0-slimCOPY。 / appRUN apt-get update \\ && apt-get install gcc -y \\ && apt-get cleanWORKDIR appRUN pip install --user -r requirements.txtENTRYPOINT uvicorn main：app --reload --host 0.0.0.0 --port 8080"
+}, {
+  "tag": "P",
+  "text": "Apart from our code and requirements, we need to install GCC as FastApi requires that on installation. We build our image by",
+  "translation": "除了我们的代码和要求之外，我们还需要安装GCC，因为FastApi在安装时需要这样做。 我们通过以下方式建立我们的形象"
+}, {
+  "tag": "PRE",
+  "text": "docker build -t my-app:v1 .",
+  "translation": "docker build -t my-app：v1。"
+}, {
+  "tag": "P",
+  "text": "The size of this image is about 683 MB and takes about a minute to build it (excluding downloading the base image). Let’s see how we can reduce that.",
+  "translation": "该映像的大小约为683 MB，需要大约一分钟的时间来构建（不下载基础映像）。 让我们看看如何减少这种情况。"
+}, {
+  "tag": "H2",
+  "text": "Base Image",
+  "translation": "基本图片"
+}, {
+  "tag": "P",
+  "text": "Regarding the base image, I already made a conscious choice using Python slim. Why did I exactly choose that?",
+  "translation": "关于基本图像，我已经使用Python slim做出了明智的选择。 我为什么要选择那个呢？"
+}, {
+  "tag": "P",
+  "text": "I could have taken for example a full Ubuntu or CentOS Image, which would lead to an image size > 1GB. But, as I only need Python there is no reason for installing all that.",
+  "translation": "例如，我可以使用完整的Ubuntu或CentOS映像，这将导致映像大小> 1GB。 但是，由于我只需要Python，因此无需安装所有组件。"
+}, {
+  "tag": "P",
+  "text": "On the lower end of the image size, we could take python:3.8.0-alpine. But, my code relies on pandas, which is a pain to install on alpine. Alpine also has issues regarding stability and security. Furthermore, slim is only ~80MB larger than alpine, which is still fine. For more information about how to choose the optimal Python image, I refer the interested reader to this article.",
+  "translation": "在图像大小的低端，我们可以使用python：3.8.0-alpine。 但是，我的代码依赖于熊猫，这在高山上安装很麻烦。 高山也有关于稳定性和安全性的问题。 此外，slim仅比高山大80MB，这还是可以的。 有关如何选择最佳Python图像的更多信息，请向有兴趣的读者介绍该文章。"
+}, {
+  "tag": "H2",
+  "text": "Build Context",
+  "translation": "构建上下文"
+}, {
+  "tag": "P",
+  "text": "When you build the image, the first line printed to your console says: Sending build context to Docker daemon. On my computer, this took around 5 seconds and 154 MB were sent over. What is happening here? Docker copies over all files and folders that are within the build context, to the daemon. Here, the build context is directory the Dockerfile is stored in. As we only need two text files, 154 MB sounds quite a lot, doesn’t it? The reason for that is that Docker copies over everything, for example, the .venv folder that contains the virtual environment, or the .git folder.",
+  "translation": "构建映像时，打印到控制台的第一行显示：将构建上下文发送到Docker守护程序。 在我的计算机上，这花费了大约5秒钟，并且发送了154 MB。 这是怎么回事 Docker将构建上下文中的所有文件和文件夹复制到守护程序。 在这里，构建上下文是存储Dockerfile的目录。由于我们只需要两个文本文件，所以154 MB听起来很多，不是吗？ 这样做的原因是Docker复制了所有内容，例如包含虚拟环境的.venv文件夹或.git文件夹。"
+}, {
+  "tag": "P",
+  "text": "To fix that, you only need to add a file named .dockerignore next to your Dockerfile. In this file, you list line by line what Docker should not copy over. This is like what git does with the .gitignore file. As a small example, let’s say we have a couple of Excel files and PNGs in our folder which we don’t want to copy over. The .dockerignore file looks like",
+  "translation": "要解决此问题，您只需在Dockerfile旁边添加一个名为.dockerignore的文件。 在此文件中，逐行列出了Docker不应该复制的内容。 就像git对.gitignore文件所做的一样。 举一个小例子，假设我们的文件夹中有几个Excel文件和PNG，我们不想复制它们。 .dockerignore文件看起来像"
+}, {
+  "tag": "PRE",
+  "text": "*.xlsx*.pngvenv.venv.git",
+  "translation": "* .xlsx * .pngvenv.venv.git"
+}, {
+  "tag": "P",
+  "text": "In our example, after I added this file, “sending build context to docker” only takes a couple of milliseconds, and only 7.2 kb are sent over. I reduced the image size from 683 Mb to 529 Mb, which is roughly the size of the former build context. Nice! Adding a .dockerignore file contributes to both accelerating builds and reducing image size.",
+  "translation": "在我们的示例中，添加此文件后，“将构建上下文发送到docker”仅花费几毫秒，并且仅发送了7.2 kb。 我将映像大小从683 Mb减小到了529 Mb，这大约是以前构建上下文的大小。 真好！ 添加.dockerignore文件有助于加快构建速度并减小图像大小。"
+}, {
+  "tag": "H2",
+  "text": "Layer Caching",
+  "translation": "层缓存"
+}, {
+  "tag": "P",
+  "text": "As already said, it takes around 60 seconds to build this image on my machine. Most of the time, I estimate ~99.98%, is used for installing the requirements and dependencies. You may assume now there is not much room for improvement here. But there is when you have to build the image frequently! Why? Docker can make use of Layer Caching.",
+  "translation": "如前所述，在我的计算机上构建此映像大约需要60秒钟。 我估计大多数时候，大约有99.98％的时间用于安装需求和依赖项。 您可能会认为现在这里没有太多的改进空间。 但是有些时候您必须经常构建映像！ 为什么？ Docker可以利用层缓存。"
+}, {
+  "tag": "P",
+  "text": "Every line in a Docker file represents a layer. By adding/removing something from the line, or by changing a file or folder it references, you change the layer. When this happens, this layer and all layers below get rebuild. Otherwise, Docker uses a cached version of that layer. To exploit that, you should structure your Dockerfiles such that",
+  "translation": "Docker文件中的每一行都代表一个层。 通过添加/删除行中的内容，或更改其引用的文件或文件夹，可以更改图层。 发生这种情况时，将重建此层以及其下的所有层。 否则，Docker将使用该层的缓存版本。 要利用该漏洞，您应该对Dockerfile进行结构化，以便"
+}, {
+  "tag": "OL",
+  "texts": ["Layers that don’t change often should appear close to the beginning of the Dockerfile. Installing the compiler is a good example here.", "Layers that change often should appear close to the end of the Dockerfile. Copying source code is the perfect example here."],
+  "translations": ["经常不变的层应该出现在Dockerfile的开头附近。 在这里安装编译器是一个很好的例子。", "经常变化的层应该出现在Dockerfile的结尾附近。 复制源代码是这里的完美示例。"]
+}, {
+  "tag": "P",
+  "text": "Cool. Enough theory, let’s get back to our example.",
+  "translation": "凉。 理论足够，让我们回到我们的例子。"
+}, {
+  "tag": "P",
+  "text": "Assume you don’t change the requirements, and you only update your code. This is quite common when developing software. Now, every time you build your image, these nasty dependencies are reinstalled. Building the image always takes the same amount of time. Annoying! We don’t make use of caching yet.",
+  "translation": "假设您没有更改要求，而只更新了代码。 开发软件时，这很常见。 现在，每次构建映像时，都会重新安装这些讨厌的依赖项。 建立映像始终需要相同的时间。 烦人！ 我们还没有使用缓存。"
+}, {
+  "tag": "P",
+  "text": "Here comes the magic new Dockerfile that resolves your problem",
+  "translation": "神奇的新Dockerfile来解决您的问题"
+}, {
+  "tag": "PRE",
+  "text": "FROM python:3.8.0-slimRUN apt-get update \\&& apt-get install gcc -y \\&& apt-get cleanCOPY requirements.txt /app/requirements.txtWORKDIR appRUN pip install --user -r requirements.txtCOPY . /appENTRYPOINT uvicorn main:app --reload --host 0.0.0.0 --port 1234",
+  "translation": "从python：3.8.0-slimRUN apt-get update \\ && apt-get install gcc -y \\ && apt-clean cleanCOPY requirements.txt /app/requirements.txtWORKDIR appRUN pip install --user -r requirements.txtCOPY。 / appENTRYPOINT uvicorn main：app --reload --host 0.0.0.0 --port 1234"
+}, {
+  "tag": "P",
+  "text": "That doesn’t look very magic and different, right? The only thing we did, is to first install GCC and separate copying the requirements and copying the source code.",
+  "translation": "看起来并没有什么魔力和不同，对吧？ 我们要做的唯一一件事就是首先安装GCC，然后分别复制需求和复制源代码。"
+}, {
+  "tag": "P",
+  "text": "GCC and dependencies change very rarely. That is why this layer now appears very early. Requirements change also slowly but more frequently than GCC. That is why this layer comes after the GCC one. Our source code changes very often. Consequently copying it over happens late. Now, when we make changes to our source code and rebuild the image, the dependencies are not reinstalled as Docker uses the cached layers. Rebuilding now takes almost no time. That is great as we can spend more time on testing and executing our app!",
+  "translation": "GCC和依赖项更改很少。 这就是为什么此层现在显示得很早的原因。 需求变更也比GCC缓慢但频繁。 这就是为什么该层位于GCC之后。 我们的源代码经常更改。 因此，将其复制会发生得较晚。 现在，当我们更改源代码并重建映像时，由于Docker使用缓存的层，因此不会重新安装依赖项。 现在，重建几乎不需要时间。 太好了，因为我们可以花更多的时间来测试和执行我们的应用程序！"
+}, {
+  "tag": "H2",
+  "text": "Multi-Stage Builds",
+  "translation": "多阶段构建"
+}, {
+  "tag": "P",
+  "text": "In our example image, we have to install GCC to install FastApi and uvicorn. But, for running the application we don’t need a compiler. Now imagine you not only need GCC but other programs like Git, or CMake, or NPM, or …. Your production image becomes fatter and fatter.",
+  "translation": "在示例图像中，我们必须安装GCC才能安装FastApi和uvicorn。 但是，对于运行该应用程序，我们不需要编译器。 现在想象您不仅需要GCC，还需要其他程序，例如Git，CMake，NPM或…。 您的生产形象越来越胖。"
+}, {
+  "tag": "P",
+  "text": "Multi-Stage Builds to our rescue!",
+  "translation": "多阶段构建，助我们一臂之力！"
+}, {
+  "tag": "P",
+  "text": "With Multi-Stage builds, you can define various images in the same Dockerfile. Each image performs a different step. You can copy files and artifacts produced from one image to another. Most commonly, you have one image for building your app and another one for running it. All you need to do is copying the build artifacts and dependencies from the build image to the app image.",
+  "translation": "使用多阶段构建，您可以在同一Dockerfile中定义各种映像。 每个图像执行不同的步骤。 您可以将从一个图像生成的文件和工件复制到另一个图像。 最常见的情况是，您有一个用于构建应用程序的映像，另一个是用于运行应用程序的映像。 您需要做的就是将构建工件和依赖项从构建映像复制到应用程序映像。"
+}, {
+  "tag": "P",
+  "text": "For our example, this looks like",
+  "translation": "对于我们的示例，这看起来像"
+}, {
+  "tag": "PRE",
+  "text": "# Here is the build imageFROM python:3.8.0-slim as builderRUN apt-get update \\&& apt-get install gcc -y \\&& apt-get cleanCOPY requirements.txt /app/requirements.txtWORKDIR appRUN pip install --user -r requirements.txtCOPY . /app# Here is the production imageFROM python:3.8.0-slim as appCOPY --from=builder /root/.local /root/.localCOPY --from=builder /app/main.py /app/main.pyWORKDIR appENV PATH=/root/.local/bin:$PATHENTRYPOINT uvicorn main:app --reload --host 0.0.0.0 --port 1234",
+  "translation": "＃这是build imageFROM python：3.8.0-slim作为builderRUN apt-get update \\ && apt-get install gcc -y \\ && apt-get cleanCOPY requirements.txt /app/requirements.txtWORKDIR appRUN pip install --user- r requirements.txtCOPY。 / app＃这是生产图像从python：3.8.0-slim作为appCOPY --from = builder /root/.local /root/.localCOPY --from = builder /app/main.py /app/main.pyWORKDIR appENV PATH = / root / .local / bin：$ PATHENTRYPOINT uvicorn main：app --reload --host 0.0.0.0 --port 1234"
+}, {
+  "tag": "P",
+  "text": "When we build that, we arrive at a final production image size of 353 MB. This is roughly half the size of our first version. Congratulations, not too bad. Remember the smaller your production image gets, the better it is!",
+  "translation": "构建该文件时，最终的生产映像大小为353 MB。 这大约是我们第一个版本的大小的一半。 恭喜，还不错。 请记住，您的生产图像越小，效果越好！"
+}, {
+  "tag": "P",
+  "text": "As a side note, multi-stage builds also increase security. Hui, why is that? Assume you need a secret, like an SSH key, to access certain resources at build time. Even if you delete that secret in a later layer, it is still there in the previous layers. This means someone with access to your image can get that secret. With multi-stage builds, you only copy the necessary runtime artifacts. Consequently, the production image never sees the secret and you’ve resolved that issue.",
+  "translation": "附带说明，多阶段构建还可以提高安全性。 慧，为什么呢？ 假设您需要一个秘密（例如SSH密钥）来在构建时访问某些资源。 即使您在以后的层中删除了该机密，它仍在先前的层中存在。 这意味着有权访问您的图像的人可以获取该秘密。 在多阶段构建中，您仅复制必要的运行时工件。 因此，生产图片永远都看不到秘密，而您已经解决了该问题。"
+}, {
+  "tag": "P",
+  "text": "There are many more details on multi-stage builds, and I refer the reader to this article and this article.",
+  "translation": "有关多阶段构建的更多详细信息，我请读者参考本文和本文。"
+}, {
+  "tag": "H1",
+  "text": "Wrap Up",
+  "translation": "包起来"
+}, {
+  "tag": "P",
+  "text": "In this article, I have shown you a few easy tips and tricks on how you can create smaller Docker images that are built faster. Remember",
+  "translation": "在本文中，我向您展示了一些简单的技巧和窍门，说明如何创建更快构建的较小的Docker映像。 记得"
+}, {
+  "tag": "UL",
+  "texts": ["Always add a .dockerignore file.", "Think about the order of your layers and order them from slow- to fast-changing actions.", "Try to use and exploit multi-stage builds."],
+  "translations": ["始终添加.dockerignore文件。", "考虑一下图层的顺序，并将其从缓慢变化的动作转变为快速变化的动作。", "尝试使用和利用多阶段构建。"]
+}, {
+  "tag": "P",
+  "text": "I hope this will save you some disk space and time in the future.",
+  "translation": "我希望这将为您节省一些磁盘空间和时间。"
+}, {
+  "tag": "P",
+  "text": "Thank you for following this post. As always, feel free to contact me for questions, comments, or suggestions.",
+  "translation": "感谢您关注这篇文章。 与往常一样，如有任何问题，意见或建议，请随时与我联系。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Simon Hawe的文章《How to Build Slim Docker Images Fast》，参考：https://towardsdatascience.com/how-to-build-slim-docker-images-fast-ecc246d7f4a7)"
+}]
