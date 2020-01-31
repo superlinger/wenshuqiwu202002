@@ -1,0 +1,207 @@
+[{
+  "tag": "H1",
+  "text": "Notes From the Author",
+  "translation": "作者注"
+}, {
+  "tag": "P",
+  "text": "It took me quite some time to finish the second part of the article. I was busy with school and finding a job. I am a master’s student in Human-Computer Interaction (HCI) but I have interested in many different fields. Artificial Intelligence is one of them. I hope this article helped you in any way. Also, I desperately need a job, so let me know if you have one for me. Writing is also my hobby because I like figuring things out and sharing them with others, so you will see more like this coming if you follow me on Medium.",
+  "translation": "我花了一些时间才能完成本文的第二部分。 我正忙着上学和找工作。 我是人机交互（HCI）的硕士课程，但是对许多不同的领域感兴趣。 人工智能就是其中之一。 希望本文对您有任何帮助。 另外，我非常需要一份工作，所以请告诉我您是否有适合我的工作。 写作也是我的爱好，因为我喜欢弄清楚事物并与他人分享，因此如果您在Medium上关注我，您会发现更多类似的事情。"
+}, {
+  "tag": "P",
+  "text": "“The future is in the hands of you and I, together we will make tomorrow a better place.”",
+  "translation": "“未来掌握在您和我的手中，我们将携手使明天变得更美好。”"
+}, {
+  "tag": "P",
+  "text": "— Shen Huang, Author of this Article",
+  "translation": "—沉煌，本文作者"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*ocCGPw2FN9B-q6nf77V1Ng.gif?q=20",
+  "caption": "Forward Propagation of Artificial Neural Network",
+  "type": "image",
+  "file": "1!ocCGPw2FN9B-q6nf77V1Ng.gif"
+}, {
+  "tag": "P",
+  "text": "Back Propagation & Cost Functions",
+  "translation": "反向传播和成本函数"
+}, {
+  "tag": "P",
+  "text": "Forward Propagation is based on Weights, Biases and the Activation Function, but what determines these values? Activation Function is selected beforehand, but for a large neural network, it would be impossible to manually select the appropriate Weights and Biases.",
+  "translation": "正向传播基于权重，偏差和激活函数，但是由什么决定这些值？ 激活功能是预先选择的，但是对于大型神经网络，将无法手动选择适当的权重和偏差。"
+}, {
+  "tag": "P",
+  "text": "In the field of Machine Learning, the models are supposed to “learn” from the data on its own, this learning process is also called “training”. Usually, the data is split into 2 different sets — the Training Set and the Test Set. The Training Set is used to “train” the model into a more mature state, and then the performance will be evaluated by the Test Set.",
+  "translation": "在机器学习领域，模型应该从数据本身“学习”，这种学习过程也称为“训练”。 通常，数据被分为2个不同的集合-训练集和测试集。 训练集用于将模型“训练”为更成熟的状态，然后性能将由测试集评估。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Lebu5-odN_7u03ZjbeRKBA.png?q=20",
+  "caption": "Comparison Between Conventional Algorithms and Machine Learning",
+  "type": "image",
+  "file": "1!Lebu5-odN_7u03ZjbeRKBA.png"
+}, {
+  "tag": "P",
+  "text": "There are many different methods to “train” an Artificial Neural Network, but the most popular one is with Back Propagation.",
+  "translation": "有很多不同的方法可以“训练”人工神经网络，但是最受欢迎的方法是反向传播。"
+}, {
+  "tag": "P",
+  "text": "Before Back Propagation, the Weights and Biases of the neural network are usually initialized randomly, in Normal Distribution. The neural network will then perform a Forward Propagation. Since the Weights and Biases are initialized at random, the result of the first Forward Propagation is usually way off. A Cost Function is then used to calculate the difference between the expected result and the output of the neural network. After the difference is calculated, it will be used to adjust the Weight and Biases of the previous layer. The process propagates backward in layers, and thus it is called “Back Propagation”.",
+  "translation": "在反向传播之前，通常以正态分布随机初始化神经网络的权重和偏移。 然后，神经网络将执行正向传播。 由于权重和偏差是随机初始化的，因此第一次正向传播的结果通常很遥远。 然后使用成本函数来计算预期结果与神经网络输出之间的差异。 计算出差异后，将用于调整上一层的权重和偏差。 该过程逐层向后传播，因此被称为“反向传播”。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*-tfKpsGYTeDt2s22VXKBAw.gif?q=20",
+  "caption": "Back Propagation of Artificial Neural Network",
+  "type": "image",
+  "file": "1!-tfKpsGYTeDt2s22VXKBAw.gif"
+}, {
+  "tag": "P",
+  "text": "Here is a more formal tutorial on Back Propagation, as it requires some advanced math to explain. An explanation of Neural Networks and code examples can be found here, where the author uses matrix operations to simulate a neural network in Python.",
+  "translation": "这是有关反向传播的更正式的教程，因为它需要一些高级数学来解释。 在这里可以找到神经网络的解释和代码示例，作者使用矩阵运算来模拟Python中的神经网络。"
+}, {
+  "tag": "FIGURE",
+  "type": "code"
+}, {
+  "tag": "H2",
+  "text": "Convolutional Neural Network (CNN)",
+  "translation": "卷积神经网络（CNN）"
+}, {
+  "tag": "P",
+  "text": "In order to process graphical data with better efficiency, Yann LeCun invented the Convolutional Neural Network in 1994. The network takes count of the spacial information on a 2D array. Convolutional Neural Network is also great for analyzing other 2D data where spacial information matters, which includes a chessboard.",
+  "translation": "为了更好地处理图形数据，Yann LeCun于1994年发明了卷积神经网络。该网络在2D阵列上对空间信息进行计数。 卷积神经网络也非常适合分析空间信息至关重要的其他2D数据，包括棋盘。"
+}, {
+  "tag": "P",
+  "text": "Convolutional Neural Network is constructed with 3 types of layers — Convolutional Layers, Pooling Layers, and Fully Connected Layers. These layers with different shape and sizes will have different performance on different subjects. Research on Convolutional Neural Networks usually involves adjusting those layers and their compositions to optimize performance on target data sets.",
+  "translation": "卷积神经网络由3种类型的层构成-卷积层，池化层和完全连接层。 这些具有不同形状和大小的图层在不同主题上的表现将有所不同。 卷积神经网络的研究通常涉及调整这些层及其组成，以优化目标数据集的性能。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Xh36H5xZNFtglRev8gDSjw.png?q=20",
+  "caption": "Example Architecture of Convolutional Neural Networks",
+  "type": "image",
+  "file": "1!Xh36H5xZNFtglRev8gDSjw.png"
+}, {
+  "tag": "P",
+  "text": "Convolutional Layer (conv)",
+  "translation": "卷积层（conv）"
+}, {
+  "tag": "P",
+  "text": "Convolutional Layer usually appears as the first layer of a Convolutional Neural Network. These types of layers will scan through the source layer with a filter, and put the sum into the destination layer. Some filters are good at detecting edges and some are good in other tasks, more details on different kinds of convolutional filters and their applications in Computer Vision can be found here.",
+  "translation": "卷积层通常显示为卷积神经网络的第一层。 这些类型的层将使用过滤器扫描源层，并将总和放入目标层。 有些过滤器擅长检测边缘，有些过滤器擅长其他任务，有关各种卷积过滤器及其在“计算机视觉”中的应用的更多详细信息，请参见此处。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*e2bNVdMHu4R_x8okU52d4w.gif?q=20",
+  "caption": "Convolutional Layer (3x3)",
+  "type": "image",
+  "file": "1!e2bNVdMHu4R_x8okU52d4w.gif"
+}, {
+  "tag": "P",
+  "text": "Pooling Layer (pool)",
+  "translation": "池化层（池）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*_01Vlh6QQ9f99ACD5dzZMg.gif?q=20",
+  "caption": "Pooling Layer (2x2 — Max Pooling)",
+  "type": "image",
+  "file": "1!_01Vlh6QQ9f99ACD5dzZMg.gif"
+}, {
+  "tag": "P",
+  "text": "Pooling Layer iterate through the source layer and selects a specific value inside the bounded region. The value is typically maximum, minimum, average within the region. Reducing information into a smaller size is also called “downsampling”.",
+  "translation": "池层遍历源层，并在有界区域内选择一个特定值。 该值通常是该区域内的最大值，最小值，平均值。 将信息缩小为较小的大小也称为“下采样”。"
+}, {
+  "tag": "P",
+  "text": "Fully Connected Layer (fc)",
+  "translation": "全连接层（fc）"
+}, {
+  "tag": "P",
+  "text": "Fully Connected Layer is essentially a Multi-layer Perceptron, which is sometimes called “softmax” and essentially does something called “weighted sum”.",
+  "translation": "完全连接层本质上是一个多层感知器，有时被称为“ softmax”，并且其本质上称为“加权总和”。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*ocCGPw2FN9B-q6nf77V1Ng.gif?q=20",
+  "caption": "Fully Connected Layer is Just an Artificial Neural Network",
+  "type": "image",
+  "file": "1!ocCGPw2FN9B-q6nf77V1Ng.gif"
+}, {
+  "tag": "P",
+  "text": "Convolutional Neural Network is most often used in the field of Computer Vision, which impacts many fields such as eCommerce, FinTech, Game Artificial Intelligence, Cancer Detection, Orthopedics, Psychiatry, WildFire Detection and many more. Here is an article on how Computer Vision is impacting eCommerce and another article on some Cool Frontend Frameworks in Computer Vision.",
+  "translation": "卷积神经网络最常用于计算机视觉领域，它影响到许多领域，例如电子商务，金融科技，游戏人工智能，癌症检测，骨科，精神病学，野火检测等。 这是一篇有关计算机视觉如何影响电子商务的文章，另一篇是关于计算机视觉中一些很酷的前端框架的文章。"
+}, {
+  "tag": "H1",
+  "text": "Alpha Go Zero, Mastering the Game of Go with Machine Learning",
+  "translation": "Alpha Go Zero，通过机器学习掌握Go游戏"
+}, {
+  "tag": "P",
+  "text": "“It’s perfect, it’s just flawless, merciless. … I don’t think I could catch up with it in my lifetime.”",
+  "translation": "“完美，完美无瑕。 …我认为我一生都无法赶上它。”"
+}, {
+  "tag": "P",
+  "text": "— Ke Jie (World Champion in Go) after losing three games to Alpha Go Zero",
+  "translation": "-柯洁（Go的世界冠军）在输给Alpha Go Zero的三场比赛后"
+}, {
+  "tag": "P",
+  "text": "Congratulations!!! We have come to the point where this article is intended for. Now we will be ready to understand how the legendary Chess and Go AI work from tip to toe.",
+  "translation": "恭喜！！！ 我们已经到了本文的目的。 现在，我们将准备了解传说中的国际象棋和围棋AI从头到脚的工作方式。"
+}, {
+  "tag": "P",
+  "text": "Design Architecture of Alpha Go Zero",
+  "translation": "Alpha零设计架构"
+}, {
+  "tag": "P",
+  "text": "Alpha Go Zero is made of a Convolutional Neural Networks and a Monte Carlo Tree. It is trained in self-play with Reinforcement Learning algorithms.",
+  "translation": "Alpha Go Zero由卷积神经网络和蒙特卡洛树组成。 它使用强化学习算法进行自我训练。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/25/1*I8lZs71t8El0W-xdLyJb5g.gif?q=20",
+  "caption": "How Alpha Go Zero Makes a Turn",
+  "type": "image",
+  "file": "1!I8lZs71t8El0W-xdLyJb5g.gif"
+}, {
+  "tag": "P",
+  "text": "There are several terms we should get familiar with. Since Medium does not support subscript for most letters, subscripts are represented by letters inside brackets after “_” similar to LaTeX.",
+  "translation": "我们应该熟悉几个术语。 由于Medium不支持大多数字母的下标，因此类似于LaTeX，下标由“ _”后方括号内的字母表示。"
+}, {
+  "tag": "UL",
+  "texts": ["State (s): The State of the game is represented by s_(t), from s_(0) to s_(T), where s_(T) is the Terminating State.", "Monte Carlo Tree (α): Monte Carlo Tree α_(θ) is used to decide the next State of the game.", "Move (a): The Move a_(t) for each State s_(t) is determined by the Search Probability π_(t).", "Search Probability (π): The Search Probability π_(t) is used to determine Move a_(t) at State s_(t).", "Convolutional Neural Network (f): Convolutional Neural Network f_(θ) is used to output the Value Vector v and Policy Vector p by analyzing the board.", "Value Vector (v): Value Vector v_(t) represents the probability of the current player winning in position s_(t)", "Policy Scalar (p): Policy Scalar p_(t) represents probability distribution over moves.", "Winner (z): Winner z is propagated back to train the model."],
+  "translations": ["状态：游戏的状态由s_（t）表示，从s_（0）到s_（T），其中s_（T）是终止状态。", "蒙特卡洛树（α）：蒙特卡洛树α_（θ）用于确定游戏的下一个状态。", "移动（a）：每个状态s_（t）的移动a_（t）由搜索概率π_（t）确定。", "搜索概率（π）：搜索概率π_（t）用于确定状态s_（t）的移动a_（t）。", "卷积神经网络（f）：卷积神经网络f_（θ）用于通过分析电路板来输出值向量v和策略向量p。", "值向量（v）：值向量v_（t）表示当前玩家在位置s_（t）获胜的概率", "策略标量（p）：策略标量p_（t）表示移动的概率分布。", "优胜者（z）：将优胜者z传播回去训练模型。"]
+}, {
+  "tag": "P",
+  "text": "Alpha Go Zero is trained entirely through self-play and only uses 1 Convolutional Neural Network, different from the original Alpha Go which requires 2 Convolutional Neural Networks and borrows information from professional human play.",
+  "translation": "Alpha Go Zero完全通过自我游戏进行训练，并且仅使用1个卷积神经网络，而原始的Alpha Go则需要2个卷积神经网络，并从专业的人类游戏中借鉴信息。"
+}, {
+  "tag": "P",
+  "text": "Alpha Go Zero takes the game board as raw input to the Convolutional Neural Network. The network then outputs a vector v and a scalar p. Monte Carlo Tree is then used to compute the Search Probability π, which is used to determine the move for the next stage of the game. In the end, a winner z is determined by the rule of the game and is used to train the model with reinforcement learning.",
+  "translation": "Alpha Go Zero将游戏板作为卷积神经网络的原始输入。 然后，网络输出向量v和标量p。 然后，将蒙特卡洛树（Monte Carlo Tree）用于计算搜索概率π，该搜索概率π用于确定游戏下一阶段的移动。 最后，获胜者z由游戏规则确定，并用于通过强化学习来训练模型。"
+}, {
+  "tag": "P",
+  "text": "And by now we have just learned how Alpha Go Zero works!!! More importantly, we have stepped into the world of Artificial Intelligence.",
+  "translation": "到目前为止，我们已经了解了Alpha Go Zero的工作原理！！！ 更重要的是，我们已经进入了人工智能领域。"
+}, {
+  "tag": "H1",
+  "text": "Artificial Intelligence, The Present, and The Future",
+  "translation": "人工智能，现在与未来"
+}, {
+  "tag": "P",
+  "text": "“Mark my words — A.I. is far more dangerous than nukes”",
+  "translation": "“记下我的话-A.I. 比核武器要危险得多”"
+}, {
+  "tag": "P",
+  "text": "— Elon Musk, CEO of Tesla & Space X, Co-founder of OpenAI, and many more…",
+  "translation": "-Tesla和Space X的首席执行官Elon Musk，OpenAI的联合创始人等等。"
+}, {
+  "tag": "P",
+  "text": "Our research in Artificial Intelligence is in an interesting state. Before Machine Learning all the AI are hard-coded to behave the way we expect them to. Machine Learning allows the AI to improve themself independently and sometimes yields unexpected behaviors. Researchers have observed gradually increasing intelligent behaviors in AI Agents by putting them into environments and reward them with certain rules. This can be fascinating while scary to think about.",
+  "translation": "我们在人工智能方面的研究处于有趣的状态。 在机器学习之前，所有的AI都经过硬编码以按照我们期望的方式运行。 机器学习使AI能够独立改善自身，有时会产生意外行为。 研究人员观察到，通过将智能代理置于环境中并通过一定的规则对其进行奖励，可以逐渐增加其智能行为。 这让人着迷，但令人恐惧。"
+}, {
+  "tag": "FIGURE",
+  "type": "code"
+}, {
+  "tag": "P",
+  "text": "Researches inside game environments are like math and physics. By itself, such research may be only curious to know about and fun to try out, but lacks any solid values. However, they will provide a necessary foundation for other, more applied science and engineering. The future is in the hands of you and I, together we will make tomorrow a better place.",
+  "translation": "游戏环境内部的研究就像数学和物理学一样。 就其本身而言，这样的研究可能只是想知道并且很想尝试，但缺乏任何扎实的价值。 但是，它们将为其他更多应用科学和工程学提供必要的基础。 未来掌握在您和我的手中，我们将携手使明天变得更美好。"
+}, {
+  "tag": "H1",
+  "text": "Understanding AlphaGo: how AI thinks and learns (Advanced)",
+  "translation": "了解AlphaGo：AI如何思考和学习（高级）"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Shen Huang的文章《Understanding AlphaGo: how AI thinks and learns (Advanced)》，参考：https://towardsdatascience.com/understanding-alphago-how-ai-thinks-and-learns-advanced-d70780744dae)",
+  "translation": "（本文翻译自Shen Huang的文章《了解AlphaGo：AI的思维和学习方式（高级）》，参考：https：//towardsdatascience.com/understanding-alphago-how-ai-thinks-and-learns-advanced-d70780744dae）"
+}]
