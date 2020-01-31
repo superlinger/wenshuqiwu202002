@@ -1,0 +1,126 @@
+[{
+  "tag": "P",
+  "text": "Imagine that in addition to technical debt, there would be a technical tax for the amount owed. Every year the engineering team has to prepare a form where all taxable events are listed: how many shortcuts were taken, how many hours of operational overhead there was because of these shortcuts, etc. Would it make things work differently in software engineering?",
+  "translation": "想象一下，除了技术债务外，还需要为所欠金额支付技术税。 每年，工程团队必须准备一张列出所有应纳税事件的表格：采取了多少快捷方式，由于这些快捷方式而产生了多少小时的运营开销，等等。这会使软件工程的工作方式有所不同吗？"
+}, {
+  "tag": "H1",
+  "text": "Technical debt and technical tax",
+  "translation": "技术债务和技术税"
+}, {
+  "tag": "P",
+  "text": "There is a concept in software engineering called “technical debt.” It’s when you do something you know is not right, but you are still doing it. As some meme was saying, “we do something not because it’s easy, but because it seemed easy.” So something seemed easy, it took (hopefully) less time to implement it, but now it causes troubles. This is technical debt.",
+  "translation": "软件工程中有一个称为“技术债务”的概念。当您做某事时，您知道不正确，但您仍在这样做。 正如一些模因所说的那样，“我们做某件事不是因为它很容易，而是因为它看起来很容易。”所以看起来某件事很容易，（希望）实现它所需的时间更少，但现在却引起了麻烦。 这是技术债务。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*Qxhb6A46n8f7AzafQTa-lw.png?q=20",
+  "type": "image",
+  "file": "1!Qxhb6A46n8f7AzafQTa-lw.png"
+}, {
+  "tag": "P",
+  "text": "Some project tracking tools consider the output of static analysis tools (such as pmd, findbugs) as “technical debt.” The method is too long, a duplicate string literal, don’t overcomplicate comparison, etc.… Such findings could be useful, though if you have enough experience, such checks are mostly annoying. And it’s obviously nowhere near capturing the real technical debt. There could be a good code with tons of warnings from static analysis tools, and there could be code on the verge of technical bankruptcy, which is doing incredible according to the same tool.",
+  "translation": "一些项目跟踪工具将静态分析工具（例如pmd，findbugs）的输出视为“技术债务”。该方法过长，字符串文字重复，比较不复杂等。……这些发现可能很有用， 但是，如果您有足够的经验，这种检查通常很烦人。 而且显然还远远没有抓住真正的技术债务。 可能会有一个很好的代码，带有来自静态分析工具的大量警告，并且可能有代码处于技术破产的边缘，根据同一工具，它的工作令人难以置信。"
+}, {
+  "tag": "P",
+  "text": "So technical debt is not something easily detected by algorithms. Static analysis tools were for sure developed by smart people, and they would have got it right if it was the case.",
+  "translation": "因此，技术债务很难通过算法检测出来。 静态分析工具肯定是由聪明人开发的，如果真是这样，他们会做对的。"
+}, {
+  "tag": "P",
+  "text": "Ok, but then what is technical debt?",
+  "translation": "好吧，那什么是技术债务呢？"
+}, {
+  "tag": "H1",
+  "text": "What is technical debt",
+  "translation": "什么是技术债务"
+}, {
+  "tag": "P",
+  "text": "It’s clearly possible to measure it, although relative to each other: project “Aurora” has more technical debt than“Bravo,” but both of their debt combined is much less than one of a “Charlie.” In this regard, technical debt is similar to feelings and emotions human beings could experience: it’s hard to say in absolute units how much do you like a particular coffee (or tea), but it’s not hard to give a rough estimate and compare it to other coffee (or tea).",
+  "translation": "尽管彼此之间是相对的，但显然可以进行衡量：项目“ Aurora”比“ Bravo”拥有更多的技术债务，但是他们两个债务的总和远小于“ Charlie”之一。在这方面，技术债务是 类似于人类可能会经历的感觉和情感：很难以绝对单位说出您对某种咖啡（或茶）的喜欢程度，但是不难给出一个粗略的估算并将其与其他咖啡（或茶）进行比较。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*wiWbk3FDCju1Wu9P1wmiXg.png?q=20",
+  "type": "image",
+  "file": "1!wiWbk3FDCju1Wu9P1wmiXg.png"
+}, {
+  "tag": "P",
+  "text": "It’s also quite easy for a human to detect technical debt. Usually, you start on a new project and see something bizarre. You ask someone on a project about it, and the reply is, “oh, it’s technical debt. We opened an issue to clean it up a while ago but haven’t worked on it yet.”",
+  "translation": "人们也很容易发现技术债务。 通常，您开始一个新项目，然后看到一些奇怪的东西。 您向项目中的某人询问，答案是：“哦，这是技术债务。 我们开了一个问题来清理它，但还没有解决。”"
+}, {
+  "tag": "P",
+  "text": "It is also something that accumulates. Take a shortcut here and there — fine. A few more corner cuts — it doesn’t look good, but the software does what it’s supposed to do. Though doing the next change, you might find yourself adding a workaround to work around a shortcut you did a while ago. And to actually make it work you need one more little detail “off” when deploying the service... Slowly, but surely, you have to spend more and more time addressing things that have very little to do with the actual change you are trying to do in the system.",
+  "translation": "这也是积累的东西。 到处走捷径-很好。 还有更多的切角-看起来不太好，但是该软件可以完成预期的工作。 尽管进行了下一个更改，但是您可能会发现自己添加了一种变通方法来变通您之前所做的快捷方式。 为了使它真正起作用，在部署服务时您需要“关闭”更多细节……慢慢地，但是可以肯定的是，您必须花费越来越多的时间来解决与您尝试的实际更改无关的事情 在系统中做。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*TLw5QoLfNwLy6iDQEufvlQ.png?q=20",
+  "type": "image",
+  "file": "1!TLw5QoLfNwLy6iDQEufvlQ.png"
+}, {
+  "tag": "P",
+  "text": "And what is especially daunting, is that all of these shortcuts and workarounds are unpredictable and irrational until you get the context. If you are building a CRUD application, key-value store, or a string manipulation library, you can roughly understand what certain component does while looking at the implementation. It’s almost never the case with shortcuts — you usually need a very good understanding of the use case to make sense of why things are done this way.",
+  "translation": "尤其令人生畏的是，所有这些快捷方式和变通办法在您获得上下文之前都是不可预测且不合理的。 如果要构建CRUD应用程序，键值存储或字符串处理库，则在查看实现时可以大致了解某些组件的功能。 快捷方式几乎从来都不是这种情况-通常，您需要对用例有一个很好的了解，才能理解为什么用这种方式来完成事情。"
+}, {
+  "tag": "P",
+  "text": "And it is also inevitable. Most of the time, the software exists to add some value to the user, and sometimes it’s not always possible to have all the resources to deliver this value, not taking shortcuts.",
+  "translation": "这也是不可避免的。 在大多数情况下，该软件的存在是为了向用户添加一些价值，有时并不总是能够拥有所有资源来交付这一价值，而不是采用捷径。"
+}, {
+  "tag": "P",
+  "text": "So technical debt is a set of technical decisions and implementation details that result in unnecessary complexity, runtime, development, and operational overhead.",
+  "translation": "因此，技术债务是一组技术决策和实施细节，导致不必要的复杂性，运行时间，开发和运营开销。"
+}, {
+  "tag": "H1",
+  "text": "Technical interest",
+  "translation": "技术兴趣"
+}, {
+  "tag": "P",
+  "text": "Continuing a financial metaphor, if there is a debt, there should be interest: the time and effort that is spent to fight complications from running and changing code full of shortcuts.",
+  "translation": "继续讲财务隐喻，如果有债务，就应该有兴趣：花费时间和精力来应对运行和更改充满快捷方式的代码所带来的复杂性。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*Rf7aH0oUDCm_gZn-VMCjOw.png?q=20",
+  "type": "image",
+  "file": "1!Rf7aH0oUDCm_gZn-VMCjOw.png"
+}, {
+  "tag": "P",
+  "text": "Change after change, it adds up, following the law of compound interest, adding more and more work. At first, it’s more code. Then it’s more operational work: if flag “enable_backoff” is enabled — disable “experimental_fallout” flag, if changing the logic in tracking service — first make sure to update SQL functions in the database, etc.…",
+  "translation": "改变后改变，它遵循复利法则加起来，增加了越来越多的工作。 首先，是更多代码。 然后，这将需要更多的操作工作：如果启用了“ enable_backoff”标志-禁用了“ experimental_fallout”标志，如果更改了跟踪服务中的逻辑-首先请确保更新数据库中的SQL函数，等等。"
+}, {
+  "tag": "P",
+  "text": "The system becomes fragile, requiring more time to address failures, leaving even less time to do the regular development. More quick fixes are needed to resolve urgent problems, which result in more complexity. A specific class of “heroes” appears — people who bravely fight fires in overtime on a weekly basis and save the project from a complete disaster (or significantly reduce blast radius)…",
+  "translation": "该系统变得脆弱，需要更多的时间来解决故障，从而留出更少的时间进行常规开发。 需要更快速的修复来解决紧急问题，从而导致更加复杂。 出现了特定类别的“英雄”，即每周加班大胆地扑救火灾并从完全灾难中拯救项目（或显着减小爆炸半径）的人们……"
+}, {
+  "tag": "H1",
+  "text": "There is nothing bad in the debt",
+  "translation": "债务没有什么坏处"
+}, {
+  "tag": "P",
+  "text": "The picture of “technical bankruptcy” when most of the time has to be spent fighting fires doesn’t look good. But the thing with technical debt is that in some cases you don’t have to pay it off.",
+  "translation": "大部分时间都花在扑救火灾上的“技术破产”图景看起来并不好。 但是技术债的问题是，在某些情况下您不必还清债务。"
+}, {
+  "tag": "P",
+  "text": "There is (hopefully) no technical collection agency that would make persistent calls and ask to go and refactor services not to have a shared database. Or to drop the REST protocol and use a proper tool for RPCs to stop writing clients over and over again. Or move some logic to a common place (be careful with this though). In fact, most of the time, management would be happy if technical debt is not touched. It’s frustrating that it takes two weeks to move a button, but where are the guarantees that it would be better if we would spend these two weeks clearing technical debt? Sure, we have to pay the interest today, but maybe we won’t need to touch these parts of the application ever again or would re-write the whole module?",
+  "translation": "（希望如此）没有技术收集机构会进行持久呼叫并要求去重构服务以使其不具有共享数据库。 或者删除REST协议，并使用适当的RPC工具停止一次又一次地写入客户端。 或将一些逻辑移到一个共同的地方（尽管要小心一点）。 实际上，在大多数情况下，如果不涉及技术债务，管理层会很乐意。 令人沮丧的是，要花两个星期才能移动一个按钮，但是在哪里可以保证如果我们花这两个星期来清理技术债务会更好呢？ 当然，我们必须今天支付利息，但是也许我们不需要再次触摸应用程序的这些部分，还是会重新编写整个模块？"
+}, {
+  "tag": "P",
+  "text": "In some cases, this is not as crazy as it sounds. If the interest rate is 10%, but you can get a return of 30%, it makes more sense to have as much debt as possible. A good example of this is a prototype that is thrown away when the main user workflows and system design are more or less established. Or when the success of the product surpasses the planned capacity of the system, it might make sense to keep the system afloat with quick patches while a new system to handle a larger scale is in development.",
+  "translation": "在某些情况下，这并不像听起来那样疯狂。 如果利率是10％，但是您可以获得30％的回报，那么承担尽可能多的债务就更有意义了。 一个很好的例子是当主要用户工作流程和系统设计或多或少地建立起来后便被丢弃的原型。 或者，当产品的成功超过系统的计划容量时，在开发可处理更大规模的新系统的同时，使系统保持快速补丁可能是有意义的。"
+}, {
+  "tag": "P",
+  "text": "But even if you are not planning to throw the project away any time soon having some amount of technical debt is good. The example above describes what happens when too little attention is paid to fixing things. But having no technical debt is similar to striving to have 100% test coverage: you have to work very hard to get the last percent and get almost nothing in return.",
+  "translation": "但是，即使您不打算很快放弃该项目，也要承担一些技术债务。 上面的示例描述了如果太少注意解决问题会发生什么。 但是，没有技术债务就像努力争取100％的测试覆盖率：您必须非常努力才能获得最后的百分比，并且几乎没有得到任何回报。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*BXFYUBjH3KkXyWeXauvDkg.png?q=20",
+  "type": "image",
+  "file": "1!BXFYUBjH3KkXyWeXauvDkg.png"
+}, {
+  "tag": "P",
+  "text": "The key is in the balance.",
+  "translation": "关键在天平上。"
+}, {
+  "tag": "P",
+  "text": "But how do you know if balance is right? You don’t, it’s impossible. So two strategies are either try to guess when it’s time to pay off some of the debt (essentially, gambling), or to do it methodically.",
+  "translation": "但是您怎么知道平衡是否正确？ 你没有，那是不可能的。 因此，两种策略要么试图猜测何时偿还某些债务（本质上是赌博），要么有条不紊地偿还债务。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Yan Babitski的文章《Technical debt and technical tax》，参考：https://medium.com/swlh/technical-debt-and-technical-tax-839ebd104958)",
+  "translation": "（本文翻译自Yan Babitski的文章《技术债务与技术税》，参考：https：//medium.com/swlh/technical-debt-and-technical-tax-839ebd104958）"
+}]
