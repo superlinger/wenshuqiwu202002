@@ -1,0 +1,317 @@
+[{
+  "tag": "P",
+  "text": "If you are, like me, passionate about AI, Data Science or Psychology, please feel free to add me on LinkedIn.",
+  "translation": "如果您像我一样对AI，数据科学或心理学充满热情，请随时在LinkedIn上添加我。"
+}, {
+  "tag": "H2",
+  "text": "Bias",
+  "translation": "偏压"
+}, {
+  "tag": "H1",
+  "text": "How to Detect Bias in AI",
+  "translation": "如何在AI中检测偏见"
+}, {
+  "tag": "H2",
+  "text": "Detecting common (cognitive) biases in your data",
+  "translation": "检测数据中的常见（认知）偏差"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*01fweak0ejOLqWnovP2f5w.png?q=20",
+  "type": "image",
+  "file": "1!01fweak0ejOLqWnovP2f5w.png"
+}, {
+  "tag": "P",
+  "text": "Bias in Artificial Intelligence (AI) has been a popular topic over the last few years as AI-solutions have become more ingrained in our daily lives. As a psychologist who switched to data science, this topic is close to my heart.",
+  "translation": "在过去的几年中，随着AI解决方案在我们的日常生活中越来越根深蒂固，人工智能（AI）的偏见已成为热门话题。 作为转向数据科学的心理学家，这个话题非常贴切。"
+}, {
+  "tag": "P",
+  "text": "To prevent making AI models biased, one first has to be aware of the existence of a wide range of biases.",
+  "translation": "为了避免使AI模型产生偏差，首先必须意识到存在各种各样的偏差。"
+}, {
+  "tag": "P",
+  "text": "In order to detect bias, one has to be aware of its existence.",
+  "translation": "为了检测偏见，必须意识到它的存在。"
+}, {
+  "tag": "P",
+  "text": "To do that, this article will guide you through many common and uncommon biases you can find in different stages of developing AI. The stages are, among others:",
+  "translation": "为此，本文将指导您解决在开发AI的不同阶段中可能遇到的许多常见和不常见的偏见。 这些阶段包括："
+}, {
+  "tag": "UL",
+  "texts": ["Data Collection", "Data Preprocessing", "Data Analysis", "Modeling"],
+  "translations": ["数据采集", "数据预处理", "数据分析", "造型"]
+}, {
+  "tag": "P",
+  "text": "Hopefully, knowing which biases you might come across will help you in developing AI-solutions that are less biased.",
+  "translation": "希望，了解您可能遇到的偏见将有助于您开发偏见较少的AI解决方案。"
+}, {
+  "tag": "H1",
+  "text": "1. What is Bias?",
+  "translation": "1.什么是偏见？"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*pck8WNlSFZaDJsxUfO6-Qg.png?q=20",
+  "type": "image",
+  "file": "1!pck8WNlSFZaDJsxUfO6-Qg.png"
+}, {
+  "tag": "P",
+  "text": "Bias is considered to be a disproportionate inclination or prejudice for or against an idea or thing. Bias is often thought of in a human context, but it can exist in many different fields:",
+  "translation": "偏见被认为是对一个想法或事物的偏爱或偏见。 偏见通常是在人类的背景下想到的，但它可以存在于许多不同的领域："
+}, {
+  "tag": "UL",
+  "texts": ["Statistics — For example, the systematic distortion of a statistic", "Research —For example, bias towards the publication of certain experimental significant results", "Social sciences — For example, prejudice against certain groups of people"],
+  "translations": ["统计信息-例如，统计信息的系统失真", "研究-例如，偏向于发表某些实验性重大成果", "社会科学-例如，对某些人群的偏见"]
+}, {
+  "tag": "P",
+  "text": "In this article, we will combine several fields in which (cognitive) biases could appear in order to understand how biases could find its way into Artificial Intelligence.",
+  "translation": "在本文中，我们将结合几个领域，在这些领域中可能会出现（认知）偏差，以了解偏差如何进入人工智能。"
+}, {
+  "tag": "P",
+  "text": "Below, I will go through common stages of AI development and identify steps to detect where bias may be found.",
+  "translation": "在下文中，我将经历AI开发的常见阶段，并确定步骤以检测可能在哪里发现偏差。"
+}, {
+  "tag": "H1",
+  "text": "2. Data Collection",
+  "translation": "2.数据收集"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*hGA7D6DgUwEaqjxH9lWLYQ.jpeg?q=20",
+  "type": "image",
+  "file": "1!hGA7D6DgUwEaqjxH9lWLYQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "Data collection is the first and one of the most common places where you will find biases. The biggest reason for this is that data is typically collected or created by humans which allows for errors, outliers, and biases to easily seep into the data.",
+  "translation": "数据收集是您会发现偏见的第一个也是最常见的地方之一。 造成这种情况的最大原因是，数据通常是由人收集或创建的，从而允许错误，离群值和偏差易于渗入数据中。"
+}, {
+  "tag": "P",
+  "text": "Common biases found in the data collection process:",
+  "translation": "数据收集过程中常见的偏见："
+}, {
+  "tag": "UL",
+  "texts": ["Selection Bias— The selection of data in such a way that the sample is not representative of the population"],
+  "translations": ["选择偏差-选择数据时样本不能代表总体的数据选择"]
+}, {
+  "tag": "P",
+  "text": "For example, in many social research studies, researchers have been using students as participants in order to test their hypotheses. Students are clearly not representative of the general population and may bias the results found.",
+  "translation": "例如，在许多社会研究中，研究人员一直在使用学生作为参与者，以检验其假设。 学生显然不能代表一般人群，并且可能会偏向所发现的结果。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*fwGC9V0DamaGny7M246XbQ.png?q=20",
+  "caption": "Selection Bias",
+  "type": "image",
+  "file": "1!fwGC9V0DamaGny7M246XbQ.png"
+}, {
+  "tag": "UL",
+  "texts": ["The Framing Effect — Survey questions that are constructed with a particular slant."],
+  "translations": ["框架效应-调查以特定倾向构建的问题。"]
+}, {
+  "tag": "P",
+  "text": "As seen below, people are more likely to save a guaranteed 200 lives compared to a 33% chance of saving everyone, if the question was framed positively.",
+  "translation": "如下图所示，如果这个问题的答案是肯定的，那么人们更有可能挽救200条生命，而挽救所有人的几率是33％。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*6SNsguMKmrGah84nw_Xc_w.png?q=20",
+  "caption": "Treatment A was chosen by 72% of participants when it was presented with positive framing (“saves 200 lives”) dropping to 22% when the same choice was presented with negative framing (“400 people will die”).",
+  "type": "image",
+  "file": "1!6SNsguMKmrGah84nw_Xc_w.png"
+}, {
+  "tag": "UL",
+  "texts": ["Systematic Bias — This is a consistent and repeatable error."],
+  "translations": ["系统性偏差-这是一个一致且可重复的错误。"]
+}, {
+  "tag": "P",
+  "text": "This is often the result of faulty equipment. Correcting this error is important as the error is difficult to detect. A good understanding of the machinery or process is necessary.",
+  "translation": "这通常是设备故障的结果。 由于此错误很难检测，因此更正此错误很重要。 必须对机械或过程有充分的了解。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*QMX9ewVdvLA8vTUethZrMQ.png?q=20",
+  "caption": "Systematic Error",
+  "type": "image",
+  "file": "1!QMX9ewVdvLA8vTUethZrMQ.png"
+}, {
+  "tag": "UL",
+  "texts": ["Response Bias — A range of biases in which participants respond inaccurately or falsely to questions."],
+  "translations": ["回应偏见—一系列偏见，参与者对问题的回答不正确或错误。"]
+}, {
+  "tag": "P",
+  "text": "The response bias is often seen in questionnaires. Since these are filled out by participants, human bias easily finds its way in the data. For example, the Social Desirability Biasstates that people are likely to deny undesirable traits in their responses. This could be by emphasizing good behavior or understating bad behavior. Similarly, the Question Order Biasstates that people may answer questions differently based on the order of the questions.",
+  "translation": "答复偏见经常出现在问卷中。 由于这些都是参与者填写的，因此人为偏见很容易在数据中找到。 例如，《社会可取性偏见》指出人们很可能否认其反应中的不良特征。 这可以通过强调良好行为或低估不良行为来实现。 类似地，“问题顺序偏向”指出人们可能会根据问题的顺序不同地回答问题。"
+}, {
+  "tag": "P",
+  "text": "It is important to understand that how you design the collection process could heavily impact the kind of data you will be collecting. If not careful, your data will be strongly biased towards certain groups. Any resulting analyses will likely be flawed!",
+  "translation": "重要的是要了解，您如何设计收集过程会严重影响将要收集的数据类型。 如果不小心，您的数据将严重偏向某些群体。 任何结果分析都可能有缺陷！"
+}, {
+  "tag": "H1",
+  "text": "3. Data Preprocessing",
+  "translation": "3.数据预处理"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*rIBJYGFU-By9s_hY63TXWw.png?q=20",
+  "type": "image",
+  "file": "1!rIBJYGFU-By9s_hY63TXWw.png"
+}, {
+  "tag": "P",
+  "text": "When processing the data, there are many steps one can take in order to prepare it for analyses:",
+  "translation": "处理数据时，可以采取许多步骤来准备进行分析："
+}, {
+  "tag": "UL",
+  "texts": ["Outlier Detection"],
+  "translations": ["离群值检测"]
+}, {
+  "tag": "P",
+  "text": "You typically want to remove outliers as they might have a disproportionate effect on some analyses. In a dataset where all people are between 20 and 30 years old, a person with an age of 110 is likely to be less representative of the data.",
+  "translation": "您通常希望删除异常值，因为它们可能对某些分析产生不成比例的影响。 在所有人都在20到30岁之间的数据集中，一个110岁的人可能不太能代表数据。"
+}, {
+  "tag": "UL",
+  "texts": ["Missing Values"],
+  "translations": ["缺失值"]
+}, {
+  "tag": "P",
+  "text": "How you deal with missing values for certain variables can introduce bias. If you were to fill in all missing values with the mean, then you are purposefully nudging the data towards the mean. This could make you biased towards certain groups that behave closer to the mean.",
+  "translation": "您如何处理某些变量的缺失值会引入偏差。 如果要用均值填充所有缺失值，那么您有意将数据推向均值。 这可能会使您偏向表现更接近均值的某些群体。"
+}, {
+  "tag": "UL",
+  "texts": ["Filtering Data"],
+  "translations": ["筛选资料"]
+}, {
+  "tag": "P",
+  "text": "I have seen this happen many times where data is filtered so much, that it is hardly representative anymore of the target population. This introduces, in a way, Selection Bias to your data.",
+  "translation": "我已经多次看到这种情况，对数据进行了如此多的过滤，以致于它几乎不再代表目标人群。 这以某种方式将选择偏差引入数据。"
+}, {
+  "tag": "H1",
+  "text": "4. Data Analysis",
+  "translation": "4.数据分析"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*W5HDVhUSL4G8u8O6lpcueQ.png?q=20",
+  "type": "image",
+  "file": "1!W5HDVhUSL4G8u8O6lpcueQ.png"
+}, {
+  "tag": "P",
+  "text": "When developing an AI solution, the resulting product could be a model or algorithm. However, bias can just as easily be found in data analysis. Typically, we see the following biases in data analyses:",
+  "translation": "在开发AI解决方案时，最终产品可能是模型或算法。 但是，在数据分析中也很容易发现偏差。 通常，我们会在数据分析中看到以下偏见："
+}, {
+  "tag": "UL",
+  "texts": ["Misleading Graphs— A distorted graph that misrepresents data such that an incorrect conclusion may be derived from it."],
+  "translations": ["误导图-扭曲的图，它歪曲了数据，因此可能从中得出不正确的结论。"]
+}, {
+  "tag": "P",
+  "text": "For example, when reporting the results of an analysis, a Data Scientist could choose to start the y-axis of his graph at 0. Although this does not introduce bias in the data itself, there could be obvious Framing as the differences appear to be more pronounced (see image below).",
+  "translation": "例如，当报告分析结果时，数据科学家可以选择将其图的y轴从0开始。尽管这不会在数据本身中引入偏差，但由于差异似乎是 更明显（见下图）。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*Zc9LCrpt5dwbaWE3?q=20",
+  "caption": "The differences in crop yields seem to be low if the Y-axis is started at 0%. However, simply changing it to start at 70% results in a seemingly different perspective while the results are actually the same.",
+  "type": "image",
+  "file": "0!Zc9LCrpt5dwbaWE3"
+}, {
+  "tag": "P",
+  "text": "If you want to know more about the effects of Misleading Graphs, the book “How to Lie with Statistics” is highly recommended!",
+  "translation": "如果您想进一步了解误导图的影响，强烈建议您阅读“如何利用统计数据撒谎”一书！"
+}, {
+  "tag": "UL",
+  "texts": ["Confirmation Bias — The tendency to focus on information that confirms one’s preconceptions."],
+  "translations": ["确认偏见—倾向于专注于确认先入之见的信息的倾向。"]
+}, {
+  "tag": "P",
+  "text": "Let’s say you believe that there is a strong relationship between cancer and drinking wine. When performing your analysis you only search to confirm this hypothesis by not considering any confounding variables.",
+  "translation": "假设您认为癌症和喝酒之间有很强的关系。 在执行分析时，您仅通过不考虑任何混淆变量来搜索以确认该假设。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*a4X2_6v3UfnjHABXjA5uTA.png?q=20",
+  "caption": "The confirmation Bias",
+  "type": "image",
+  "file": "1!a4X2_6v3UfnjHABXjA5uTA.png"
+}, {
+  "tag": "P",
+  "text": "This might seem like an extreme example and something you would never do. But the reality is that humans are inherently biased and it is difficult to shake that. It happened to me more often than I would like to admit!",
+  "translation": "这似乎是一个极端的例子，您将永远做不到。 但是现实是，人类天生就有偏见，这很难撼动。 发生在我身上的次数比我想承认的要多！"
+}, {
+  "tag": "H1",
+  "text": "5. Modeling",
+  "translation": "5.造型"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*hUULuC9exB-bDbw4yunBoA.jpeg?q=20",
+  "type": "image",
+  "file": "1!hUULuC9exB-bDbw4yunBoA.jpeg"
+}, {
+  "tag": "P",
+  "text": "When talking about bias in AI, people typically mean an AI-system that somehow favors a certain group of people. A great example of this is the hiring-algorithm Amazon created which showed Gender Bias in its decisions. The data they used for this algorithm consisted mostly of males in technical roles which led it to favor men as high potential candidates.",
+  "translation": "当谈论AI的偏见时，人们通常指的是某种程度上有利于特定人群的AI系统。 一个很好的例子就是亚马逊创建的招聘算法，该算法在决策中显示了性别偏见。 他们用于此算法的数据主要由担任技术职务的男性组成，这使其倾向于使用男性作为高潜力候选人。"
+}, {
+  "tag": "P",
+  "text": "This is a classic example of the Garbage-in-Garbage-out Phenomenon in which your AI-solution is only as good as the data you use. That is why it is so important to detect bias in your data before you start modeling the data.",
+  "translation": "这是垃圾填满现象的经典示例，其中您的AI解决方案仅与您使用的数据一样好。 这就是为什么在开始对数据进行建模之前检测数据中的偏差如此重要的原因。"
+}, {
+  "tag": "P",
+  "text": "Let’s go through several types of biases you often see when creating a predictive model:",
+  "translation": "让我们研究一下在创建预测模型时经常会看到的几种类型的偏差："
+}, {
+  "tag": "UL",
+  "texts": ["Bias/Variance Trade-Off— The trade-off between bias (underlying assumptions of the model) and variance (the change in the prediction if different data is used)."],
+  "translations": ["偏差/方差折衷-偏差（模型的基本假设）和方差（如果使用不同的数据，则预测的变化）之间的折衷。"]
+}, {
+  "tag": "P",
+  "text": "A model with high variance will focus too much on the train data and does not generalize well. High bias, on the other hand, assumes that the data always behave in the same way, which is seldom true. When increasing your bias, you typically lower your variance and vice-versa. Thus, we often seek to balance bias and variance.",
+  "translation": "具有高方差的模型将过多地关注火车数据，并且不能很好地推广。 另一方面，高偏差假定数据始终以相同的方式运行，这很少是正确的。 当增加偏见时，通常会降低方差，反之亦然。 因此，我们经常寻求平衡偏见和差异。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*QvZdN9Q1bO0v528T.png?q=20",
+  "caption": "Demonstrating the effect of the trade-off between bias and variance.",
+  "type": "image",
+  "file": "0!QvZdN9Q1bO0v528T.png"
+}, {
+  "tag": "UL",
+  "texts": ["Concept Drift — The phenomenon in which the statistical properties of the target variable change over time in unforeseen ways."],
+  "translations": ["概念漂移–一种现象，目标变量的统计属性会随时间发生意外变化。"]
+}, {
+  "tag": "P",
+  "text": "Imagine you created a model that could predict the behavior of customers in an online shop. The model starts out great, but its performance diminishes a year later. What happened is that the behavior of customers has changed over the year. The concept of customer behavior has changed and negatively affects the quality of your model.",
+  "translation": "假设您创建了一个模型，可以预测在线商店中客户的行为。 该模型起初很棒，但一年后性能下降。 发生的事情是客户的行为在过去一年中发生了变化。 客户行为的概念已经改变，并对模型的质量产生负面影响。"
+}, {
+  "tag": "P",
+  "text": "The solution could simply be to retrain your model frequently with new data in order to be up-to-date with new behavior. However, an entirely new model might be necessary.",
+  "translation": "解决方案可能只是简单地使用新数据重新训练您的模型，以便及时掌握新行为。 但是，可能需要一个全新的模型。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*2KNPVvVWmvBVCUXOdWJK-w.png?q=20",
+  "caption": "The original data (left) versus concept drift (right) after time has passed and new data was added.",
+  "type": "image",
+  "file": "1!2KNPVvVWmvBVCUXOdWJK-w.png"
+}, {
+  "tag": "UL",
+  "texts": ["Class Imbalance— An extreme imbalance in the frequency of (target) classes."],
+  "translations": ["班级不平衡-（目标）班级频率的极端不平衡。"]
+}, {
+  "tag": "P",
+  "text": "Let’s say you want to classify whether a picture contains either a cat or a dog. If you have 1000 pictures of dogs and only 10 pictures of cats, then there is a Class Imbalance.",
+  "translation": "假设您要对图片包含猫还是狗进行分类。 如果您有1000张狗的照片而只有10张猫的照片，则存在类不平衡。"
+}, {
+  "tag": "P",
+  "text": "The result of class imbalance is that the model might be biased towards the majority class. As most pictures in the data are of dogs, the model would only need to always guess “dogs” in order to be 99% accurate. In reality, the model has not learned the difference between pictures of cats and dogs. This could be remedied by selecting the correct validation measure (e.g., balanced accuracy or F1-score instead of accuracy).",
+  "translation": "阶级失衡的结果是该模型可能偏向多数阶级。 由于数据中的大多数图片都是狗，因此该模型只需要始终猜测“狗”即可达到99％的准确率。 实际上，该模型尚未了解到猫和狗的图片之间的差异。 可以通过选择正确的验证措施（例如，平衡准确度或F1得分而不是准确度）来补救。"
+}, {
+  "tag": "H1",
+  "text": "6. What is next?",
+  "translation": "6.接下来是什么？"
+}, {
+  "tag": "P",
+  "text": "After reading about all these potential biases in your AI-solution, you might think:",
+  "translation": "在了解了AI解决方案中的所有这些潜在偏见之后，您可能会认为："
+}, {
+  "tag": "P",
+  "text": "“But how can I remove bias from my solution?” — You",
+  "translation": "“但是我该如何消除解决方案中的偏见？”-您"
+}, {
+  "tag": "P",
+  "text": "I believe that to tackle bias, you need to understand its source. Knowing is half the battle. After that, it is up to you figure out a way to remove or handle that specific bias. For example, if you figured out that the problem stems from selection bias in your data, then it might be preferred to add additional data. If class imbalance makes your model more biased towards the majority group, then you can look into strategies for resampling (e.g., SMOTE).",
+  "translation": "我认为，要解决偏见，您需要了解其根源。 知道是成功的一半。 之后，由您自己确定消除或处理该特定偏差的方法。 例如，如果您发现问题是由于数据中的选择偏差引起的，那么最好添加其他数据。 如果类别不平衡使您的模型更偏向多数群体，那么您可以研究重采样策略（例如SMOTE）。"
+}, {
+  "tag": "P",
+  "text": "NOTE: For an interactive overview of common cognitive biases, see this amazing visualization.",
+  "translation": "注意：有关常见认知偏差的交互式概述，请参见此惊人的可视化。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Maarten Grootendorst的文章《How to Detect Bias in AI》，参考：https://towardsdatascience.com/how-to-detect-bias-in-ai-872d04ce4efd)",
+  "translation": "（本文的英文翻译为“ Maarten Grootendorst的文章，如何在人工智能中检测偏见”，参考：https：//towardsdatascience.com/how-to-detect-bias-in-ai-872d04ce4efd）"
+}]
