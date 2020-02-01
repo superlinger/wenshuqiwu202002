@@ -1,0 +1,972 @@
+[{
+  "tag": "H1",
+  "text": "What’s Next?",
+  "translation": "下一步是什么？"
+}, {
+  "tag": "UL",
+  "texts": ["Goodbye, Object Oriented Programming by Charles Scalfani", "Object-Oriented Programming Oversold", "The Forgotten History of OOP by Eric Elliott", "Why OO Sucks by Joe Armstrong, creator of Erlang", "Object-Oriented Programming is Bad by Brian Will", "Execution in the Kingdom of Nouns by Steve Yegge", "Was object-oriented programming a failure?"],
+  "translations": ["再见，Charles Scalfani的面向对象编程", "面向对象编程超卖", "Eric Elliott的OOP被遗忘的历史", "为什么OO很烂Erlang的作者Joe Armstrong", "面向对象程序设计很糟糕，作者Brian Will", "史蒂夫·耶格（Steve Yegge）在名词王国中的处决", "面向对象编程是否失败？"]
+}, {
+  "tag": "H1",
+  "text": "The Defenders of OOP",
+  "translation": "OOP的捍卫者"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*P5vemKZMHHBFySM644aCzQ.jpeg?q=20",
+  "caption": "Photo by Ott Maidre from Pexels",
+  "type": "image",
+  "file": "1!P5vemKZMHHBFySM644aCzQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "I expect some sort of reaction from the defenders of OOP. They will say that this article is full of inaccuracies. Some might even start calling names. They might even call me a “junior” developer with no real-world OOP experience. Some might say that my assumptions are erroneous, and examples are useless. Whatever.",
+  "translation": "我希望OOP的捍卫者会做出某种反应。 他们会说这篇文章充满了错误。 有些甚至可能开始呼叫姓名。 他们甚至可以称我为没有实际OOP经验的“初级”开发人员。 有人可能会说我的假设是错误的，例子是没有用的。 随你。"
+}, {
+  "tag": "P",
+  "text": "They have the right to their opinion. However, their arguments in the defense of OOP are usually quite weak. It is ironic that most of them probably have never really programmed in a true functional language. How can someone draw comparisons between two things if you have never really tried both? Such comparisons aren’t very useful.",
+  "translation": "他们有权发表自己的意见。 但是，他们在辩护OOP方面的论点通常很薄弱。 具有讽刺意味的是，其中大多数人可能从未真正使用过真正的功能语言进行编程。 如果您从未真正尝试过两者，那么有人怎么能在两者之间进行比较？ 这样的比较不是很有用。"
+}, {
+  "tag": "P",
+  "text": "The Law of Demeter is not very useful — it does nothing to address the issue of non-determinism, shared mutable state is still shared mutable state, no matter how you access or mutate that state. a.total()is not much better than a.getB().getC().total(). It simply sweeps the problem under the rug.",
+  "translation": "得墨meter耳定律不是很有用-它无法解决不确定性问题，共享可变状态仍然是共享可变状态，无论您如何访问或更改该状态。 a.total（）并不比a.getB（）。getC（）。total（）好多少。 它只是简单地解决了问题。"
+}, {
+  "tag": "P",
+  "text": "Domain-Driven Design? That’s a useful design methodology, it helps a bit with the complexity. However, it still does nothing to address the fundamental issue of shared mutable state.",
+  "translation": "域驱动设计？ 这是一种有用的设计方法，它对复杂性有所帮助。 但是，它仍然无法解决共享可变状态的根本问题。"
+}, {
+  "tag": "H2",
+  "text": "Just a tool in a toolbox…",
+  "translation": "只是工具箱中的工具..."
+}, {
+  "tag": "P",
+  "text": "I often hear people say that OOP is just another tool in a toolbox. Yes, it is as much a tool in a toolbox as horses and cars are both tools for transportation… After all, they all serve the same purpose, right? Why use cars when we can continue riding good old horses?",
+  "translation": "我经常听到人们说OOP只是工具箱中的另一个工具。 是的，它既是工具箱中的工具，又是马和汽车都是运输工具……毕竟，它们都具有相同的目的，对吗？ 当我们可以继续骑好老马时，为什么要使用汽车呢？"
+}, {
+  "tag": "H2",
+  "text": "History repeats itself",
+  "translation": "历史总是重演"
+}, {
+  "tag": "P",
+  "text": "This actually reminds me of something. At the beginning of the 20th century, automobiles started replacing the horses. In the year 1900 New York had only a few cars on the roads, people have been using horses for transportation. In the year 1917, no more horses were left on the roads. A huge industry was centered around horse transportation. Entire businesses have been created around things like manure cleaning.",
+  "translation": "这实际上使我想起了一些东西。 20世纪初，汽车开始取代马匹。 1900年，纽约的道路上只有几辆汽车，人们一直在用马来运输。 1917年，马路上再也没有马匹留下。 马业是一个巨大的产业。 围绕粪便清洁之类的事物已经创建了整个企业。"
+}, {
+  "tag": "P",
+  "text": "And people resisted change. They called automobiles another “fad” that eventually pass. After all, horses have been here for centuries! Some even asked the government to intervene.",
+  "translation": "人们抵制变化。 他们称汽车为另一种最终消失的“时尚”。 毕竟，马匹已经在这里居住了几个世纪了！ 有些甚至要求政府干预。"
+}, {
+  "tag": "P",
+  "text": "How is this relevant? The software industry is centered around OOP. Millions of people are trained in OOP, and millions of companies make use of OOP in their code. Of course, they will try to discredit anything that threatens their bread-and-butter! It’s just common sense.",
+  "translation": "这有什么关系？ 软件行业以OOP为中心。 数以百万计的人接受过OOP培训，数百万公司在其代码中使用OOP。 当然，他们会尝试抹黑任何可能威胁到他们面包和黄油的东西！ 这只是常识。"
+}, {
+  "tag": "P",
+  "text": "We clearly see the history repeating itself — in the 20th century it was the horses vs automobiles, in the 21st century it is Object-Oriented vs Functional Programming.",
+  "translation": "我们清楚地看到了历史在重演-在20世纪是马与汽车，在21世纪是面向对象与功能编程。"
+}, {
+  "tag": "H1",
+  "text": "What Are the Alternatives?",
+  "translation": "有哪些选择？"
+}, {
+  "tag": "P",
+  "text": "Spoiler alert: Functional Programming.",
+  "translation": "剧透警告：功能编程。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*Ljy--Q00zpoRgQE1SJRReA.jpeg?q=20",
+  "caption": "Photo by Harley-Davidson on Unsplash",
+  "type": "image",
+  "file": "1!Ljy--Q00zpoRgQE1SJRReA.jpeg"
+}, {
+  "tag": "P",
+  "text": "If terms like functors and monads make you a little uneasy, then you’re not alone! Functional Programming wouldn’t have been so scary had they given more intuitive names to some of its concepts. Functor? That’s simply something we can transform with a function, think list.map. Monad? Simply computations that can be chained!",
+  "translation": "如果像函子和Monad之类的词使您有些不安，那么您并不孤单！ 如果函数式编程的某些概念使用更直观的名称，它们就不会那么吓人。 函子？ 这就是我们可以使用函数list.map进行转换的东西。 单子？ 可以链接的简单计算！"
+}, {
+  "tag": "P",
+  "text": "Trying out Functional Programming will make you a better developer. You will finally have the time to write real code that solves real-world problems, rather than having to spend most of your time thinking about abstractions and design patterns.",
+  "translation": "试用函数式编程将使您成为更好的开发人员。 您最终将有时间编写解决实际问题的真实代码，而不必花费大量时间思考抽象和设计模式。"
+}, {
+  "tag": "P",
+  "text": "You might not realize this, but you already are a functional programmer. Are you using functions in your day-to-day work? Yes? Then you’re already a functional programmer! You just have to learn how to make the best use of those functions.",
+  "translation": "您可能没有意识到这一点，但是您已经是一名函数程序员。 您是否在日常工作中使用功能？ 是？ 那么您已经是一名功能程序员！ 您只需要学习如何充分利用这些功能即可。"
+}, {
+  "tag": "P",
+  "text": "Two great functional languages with a very gentle learning curve are Elixir and Elm. They let the developer focus on what matters most — writing reliable software while removing all of the complexity that more traditional functional languages have.",
+  "translation": "Elixir和Elm是两种具有非常柔和的学习曲线的强大功能语言。 他们让开发人员专注于最重要的事情–编写可靠的软件，同时消除了传统功能语言所具有的所有复杂性。"
+}, {
+  "tag": "P",
+  "text": "What are the other options? Is your organization already is using C#? Give F# a try — it is an amazing functional language, and provides great interoperability with the existing .NET code. Using Java? Then using Scala or Clojure are both really good options. Using JavaScript? With the right guidance and linting, JavaScript can be a good functional language.",
+  "translation": "还有哪些其他选择？ 您的组织已经在使用C＃吗？ 尝试F＃—它是一种了不起的功能语言，并且与现有的.NET代码具有出色的互操作性。 使用Java？ 然后使用Scala或Clojure都是非常好的选择。 使用JavaScript？ 在正确的指导和支持下，JavaScript可以成为一种很好的功能语言。"
+}, {
+  "tag": "H1",
+  "text": "Time to Move On?",
+  "translation": "分手后要往前看了？"
+}, {
+  "tag": "P",
+  "text": "We now know that OOP is an experiment that failed. It is time to move on. It is time that we, as a community, admit that this idea has failed us, and we must give up on it.",
+  "translation": "现在我们知道OOP是一个失败的实验。 现在该继续前进了。 现在，我们作为一个社区承认这个想法使我们失败了，我们必须放弃它。"
+}, {
+  "tag": "P",
+  "text": "- Lawrence Krubner",
+  "translation": "-劳伦斯·克鲁伯纳"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*jfFiJr4OxVaU882JZBp1Hg.jpeg?q=20",
+  "caption": "Photo by SpaceX on Unsplash",
+  "type": "image",
+  "file": "1!jfFiJr4OxVaU882JZBp1Hg.jpeg"
+}, {
+  "tag": "P",
+  "text": "Why are we stuck using something that fundamentally is a suboptimal way to organize programs? Is this plain ignorance? I doubt it, the people working in software engineering aren’t stupid. Are we perhaps more worried about “looking smart” in the face of our peers by making use of fancy OOP terms like “design patterns”, “abstraction”, “encapsulation”, “polymorphism” and “interface segregation”? Probably not.",
+  "translation": "为什么我们坚持使用根本上不是组织程序的次优方式的东西？ 这是无知吗？ 我对此表示怀疑，从事软件工程的人并不愚蠢。 我们是否更担心通过使用一些奇特的OOP术语（例如“设计模式”，“抽象”，“封装”，“多态性”和“接口隔离”）来面对同行，“看上去很聪明”？ 可能不会。"
+}, {
+  "tag": "P",
+  "text": "I think that it’s really easy to continue using something that we’ve been using for decades. Most of the people have never really tried Functional Programming. Those who have (like myself) can never go back to writing OOP code.",
+  "translation": "我认为继续使用我们几十年来一直在使用的东西真的很容易。 大多数人从未真正尝试过函数式编程。 那些拥有（像我自己）的人永远不会回到编写OOP代码的过程。"
+}, {
+  "tag": "P",
+  "text": "Henry Ford once famously said — “If I had asked people what they wanted, they would have said faster horses”. In the world of software, most people would probably want a “better OOP language”. People can easily describe a problem they’re having (getting the codebase organized and less complex), but not the best solution.",
+  "translation": "亨利·福特曾经有句著名的话：“如果我问人们他们想要什么，他们会说更快的马”。 在软件世界中，大多数人可能希望使用“更好的OOP语言”。 人们可以轻松地描述他们所遇到的问题（使代码库井井有条，而且不太复杂），但不是最佳解决方案。"
+}, {
+  "tag": "H1",
+  "text": "Why Does OOP Dominate the Industry?",
+  "translation": "为什么OOP主导行业？"
+}, {
+  "tag": "P",
+  "text": "The answer is simple, the reptiloid alien race has conspired with the NSA (and the Russians) to torture us programmers to death…",
+  "translation": "答案很简单，外星人种族与美国国家安全局（以及俄罗斯人）密谋将我们的程序员折磨致死……"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*5XI0phuXVaXDD5hcVv6clA.jpeg?q=20",
+  "caption": "Photo by Gaetano Cessati on Unsplash",
+  "type": "image",
+  "file": "1!5XI0phuXVaXDD5hcVv6clA.jpeg"
+}, {
+  "tag": "P",
+  "text": "But seriously, Java is probably the answer.",
+  "translation": "但是说真的，Java可能就是答案。"
+}, {
+  "tag": "P",
+  "text": "Java is the most distressing thing to happen to computing since MS-DOS.",
+  "translation": "自从MS-DOS以来，Java是计算中最令人困扰的事情。"
+}, {
+  "tag": "P",
+  "text": "- Alan Kay, the inventor of object-oriented programming",
+  "translation": "-面向对象编程的发明者艾伦·凯（Alan Kay）"
+}, {
+  "tag": "H2",
+  "text": "Java was Simple",
+  "translation": "Java很简单"
+}, {
+  "tag": "P",
+  "text": "When it was first introduced in 1995, Java was a very simple programming language, compared to the alternatives. At that time, the barrier of entry for writing desktop applications was high. Developing desktop applications involved writing low-level win32 APIs in C, and developers also had to concern themselves with manual memory management. The other alternative was Visual Basic, but many probably didn’t want to lock themselves into the Microsoft ecosystem.",
+  "translation": "与其他语言相比，Java在1995年首次引入时是一种非常简单的编程语言。 当时，编写桌面应用程序的入门门槛很高。 开发桌面应用程序需要使用C编写底层Win32 API，并且开发人员还必须考虑手动内存管理。 另一种选择是Visual Basic，但是许多人可能不想将自己锁定在Microsoft生态系统中。"
+}, {
+  "tag": "P",
+  "text": "When Java was introduced, it was a no-brainer for many developers since it was free, and could be used across all platforms. Things like built-in garbage collection, friendly-named APIs (compared to the cryptic win32 APIs), proper namespaces, and familiar C-like syntax made Java even more approachable.",
+  "translation": "引入Java时，它是免费的，并且可以在所有平台上使用，因此对于许多开发人员而言，这是轻而易举的事。 诸如内置的垃圾收集，友好命名的API（与神秘的win32 API相比），适当的名称空间以及熟悉的类似于C的语法等使Java更加易于使用。"
+}, {
+  "tag": "P",
+  "text": "GUI programming was also becoming more popular, and it seemed that various UI components mapped well to classes. Method autocompletion in the IDEs also made people claim that OOP APIs are easier to use.",
+  "translation": "GUI编程也变得越来越流行，而且似乎各种UI组件都可以很好地映射到类。 IDE中的方法自动完成功能还使人们声称OOP API更易于使用。"
+}, {
+  "tag": "P",
+  "text": "Perhaps Java wouldn’t have been so bad had it not forced OOP on developers. Everything else about Java seemed pretty good. Its garbage collection, portability, exception handling features, which other mainstream programming languages lacked, were really great in 1995,",
+  "translation": "如果Java不强制对开发人员进行OOP，那么Java可能还不错。 关于Java的其他一切似乎都还不错。 其他主流编程语言所缺乏的垃圾回收，可移植性，异常处理功能在1995年确实很棒，"
+}, {
+  "tag": "H2",
+  "text": "Then C# came along",
+  "translation": "然后C＃出现了"
+}, {
+  "tag": "P",
+  "text": "Initially, Microsoft had been relying heavily on Java. When things started getting awry (and after a long legal battle with Sun Microsystems over Java licensing), Microsoft decided to invest in its own version of Java. That is when C# 1.0 was born. C# as a language has always been thought of as “the better Java”. However, there’s one huge problem — it was the same OOP language with the same flaws, hidden under a slightly improved syntax.",
+  "translation": "最初，微软一直严重依赖Java。 当事情开始变得不对劲时（在与Sun Microsystems就Java许可展开长期法律斗争之后），微软决定投资自己的Java版本。 那就是C＃1.0诞生的时候。 C＃作为一种语言一直被认为是“更好的Java”。 但是，存在一个巨大的问题-它是相同的OOP语言，但存在相同的缺陷，但隐藏在稍微改进的语法中。"
+}, {
+  "tag": "P",
+  "text": "Microsoft has been investing heavily in its .NET ecosystem, which also included good developer tooling. For years Visual Studio has probably been one of the best IDEs available. This, in turn, has led to wide-spread adoption of the .NET framework, especially in the enterprise.",
+  "translation": "微软一直在对其.NET生态系统进行大量投资，其中还包括良好的开发人员工具。 多年来，Visual Studio可能一直是最好的IDE之一。 反过来，这导致了.NET框架的广泛采用，尤其是在企业中。"
+}, {
+  "tag": "P",
+  "text": "More recently Microsoft has been investing heavily in the browser ecosystem, by pushing its TypeScript. TypeScript is great because it can compile pure JavaScript and adds in things like static type checking. What’s not so great about it is it has no proper support for functional constructs — no built-in immutable data structures, no function composition, no proper pattern matching. TypeScript is OOP-first, and mostly is C# for the browser. Anders Hejlsberg was even responsible for the design of both C# and TypeScript.",
+  "translation": "最近，Microsoft通过推销其TypeScript一直在浏览器生态系统中进行大量投资。 TypeScript很棒，因为它可以编译纯JavaScript并添加诸如静态类型检查之类的内容。 没什么大不了的是，它没有对功能结构的适当支持-没有内置的不变数据结构，没有功能组成，没有适当的模式匹配。 TypeScript是OOP优先的，对于浏览器来说大多数是C＃。 Anders Hejlsberg甚至负责C＃和TypeScript的设计。"
+}, {
+  "tag": "H2",
+  "text": "Functional languages",
+  "translation": "功能语言"
+}, {
+  "tag": "P",
+  "text": "Functional languages, on the other hand, have never been backed by someone as big as Microsoft. F# doesn’t count since the investment was minuscule. The development of functional languages is mostly community-driven. This probably explains the differences in popularity between OOP and FP languages.",
+  "translation": "另一方面，功能语言从来没有像Microsoft这样的大公司支持。 由于投资很小，因此F＃不算在内。 功能语言的开发主要是社区驱动的。 这可能解释了OOP和FP语言在流行度方面的差异。"
+}, {
+  "tag": "H1",
+  "text": "The Fall of the Four OOP Pillars",
+  "translation": "四个OOP支柱的陷落"
+}, {
+  "tag": "P",
+  "text": "The four pillars of OOP are: Abstraction, Inheritance, Encapsulation, and Polymorphism.",
+  "translation": "OOP的四个支柱是：抽象，继承，封装和多态。"
+}, {
+  "tag": "P",
+  "text": "Let’s see what they really are, one-by-one.",
+  "translation": "让我们一一看清它们的真实含义。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*CnBnNTvjfUGgUdXwogZdlA.jpeg?q=20",
+  "type": "image",
+  "file": "1!CnBnNTvjfUGgUdXwogZdlA.jpeg"
+}, {
+  "tag": "H2",
+  "text": "Inheritance",
+  "translation": "遗产"
+}, {
+  "tag": "P",
+  "text": "I think the lack of reusability comes in object-oriented languages, not in functional languages. Because the problem with object-oriented languages is they’ve got all this implicit environment that they carry around with them. You wanted a banana but what you got was a gorilla holding the banana and the entire jungle.",
+  "translation": "我认为缺乏可重用性的是面向对象的语言，而不是功能语言。 因为面向对象语言的问题在于它们拥有了它们所伴随的所有隐式环境。 您想要香蕉，但是得到的是一只大猩猩，拿着香蕉和整个丛林。"
+}, {
+  "tag": "P",
+  "text": "— Joe Armstrong, creator of Erlang",
+  "translation": "— Erlang的创建者Joe Armstrong"
+}, {
+  "tag": "P",
+  "text": "OOP inheritance has nothing to do with the real world. Inheritance, in fact, is an inferior way to achieve code reusability. The gang of four has explicitly recommended preferring composition over inheritance. Some modern programming languages avoid inheritance altogether.",
+  "translation": "OOP继承与现实世界无关。 实际上，继承是实现代码可重用性的一种次等方式。 四人帮派明确建议优先选择组成而不是继承。 一些现代的编程语言完全避免继承。"
+}, {
+  "tag": "P",
+  "text": "There are a few problems with inheritance:",
+  "translation": "继承存在一些问题："
+}, {
+  "tag": "OL",
+  "texts": ["Bringing in a lot of code that your class doesn’t even need (banana and the jungle problem).", "Having parts of your class defined somewhere else makes the code hard to reason about, especially with multiple levels of inheritance.", "In most programming languages, multiple inheritance isn’t even possible. This mostly renders inheritance useless as a code-sharing mechanism."],
+  "translations": ["引入大量您班级甚至不需要的代码（香蕉和丛林问题）。", "将类的某些部分定义在其他地方会使代码难以推理，尤其是在具有多个继承级别的情况下。", "在大多数编程语言中，甚至无法实现多重继承。 大多数情况下，继承不能用作代码共享机制。"]
+}, {
+  "tag": "H2",
+  "text": "OOP polymorphism",
+  "translation": "OOP多态性"
+}, {
+  "tag": "P",
+  "text": "Polymorphism is great, it allows us to change program behavior at runtime. However, it is a very basic concept in computer programming. I’m not too sure why OOP focuses so much on polymorphism. OOP polymorphism gets the job done but once again it results in the act of mental juggling. It makes the codebase significantly more complex, and reasoning about the concrete method that is being invoked becomes really hard.",
+  "translation": "多态性很棒，它允许我们在运行时更改程序行为。 但是，它是计算机编程中非常基本的概念。 我不太确定为什么OOP会如此关注多态性。 OOP多态性可以完成工作，但又导致精神错乱。 这使代码库变得更加复杂，并且要推理出要调用的具体方法变得非常困难。"
+}, {
+  "tag": "P",
+  "text": "Functional programming, on the other hand, allows us to achieve the same polymorphism in a much more elegant way…by simply passing in a function that defines the desired runtime behavior. What could be simpler than that? No need to define a bunch of overloaded abstract virtual methods in multiple files (and the interface).",
+  "translation": "另一方面，函数式编程使我们能够以更加优雅的方式实现相同的多态性……只需简单地传入定义所需运行时行为的函数即可。 还有什么比这更简单？ 无需在多个文件（和接口）中定义一堆重载的抽象虚拟方法。"
+}, {
+  "tag": "H2",
+  "text": "Encapsulation",
+  "translation": "封装形式"
+}, {
+  "tag": "P",
+  "text": "As we discussed earlier, encapsulation is the trojan horse of OOP. It is actually a glorified global mutable state and makes the unsafe code appear safe. An unsafe coding practice is a pillar that OOP programmers rely on in their day-to-day job…",
+  "translation": "如前所述，封装是OOP的特洛伊木马。 它实际上是一种美化的全局可变状态，使不安全的代码显得安全。 不安全的编码实践是OOP程序员在日常工作中所依赖的支柱……"
+}, {
+  "tag": "H2",
+  "text": "Abstraction",
+  "translation": "抽象化"
+}, {
+  "tag": "P",
+  "text": "Abstraction in OOP attempts to tackle complexity by hiding unnecessary details from the programmer. Theoretically, it should allow the developer to reason about the codebase without having to think about the hidden complexity.",
+  "translation": "OOP中的抽象试图通过向程序员隐藏不必要的细节来解决复杂性。 从理论上讲，它应该允许开发人员推理代码库而不必考虑隐藏的复杂性。"
+}, {
+  "tag": "P",
+  "text": "I don’t even know what to say…a fancy word for a simple concept. In procedural/functional languages we can simply “hide” the implementation details in a neighboring file. No need to call this basic act an “abstraction”.",
+  "translation": "我什至不知道该说些什么……一个简单的概念的奇特词。 在过程/功能语言中，我们可以简单地“隐藏”相邻文件中的实现细节。 无需将此基本行为称为“抽象”。"
+}, {
+  "tag": "P",
+  "text": "For more details on the fall of OOP pillars, please read Goodbye, Object Oriented Programming",
+  "translation": "有关OOP支柱下降的更多详细信息，请阅读再见，面向对象编程"
+}, {
+  "tag": "H1",
+  "text": "The Band-aids",
+  "translation": "创可贴"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*JOtbVvacgu-nH3ZR4mY2Og.jpeg?q=20",
+  "caption": "Image source: Photo by Pixabay from Pexels",
+  "type": "image",
+  "file": "1!JOtbVvacgu-nH3ZR4mY2Og.jpeg"
+}, {
+  "tag": "P",
+  "text": "What do we do when something is not working? It is simple, we only have two options — throw it away or try fixing it. OOP is something that can’t be thrown away easily, millions of developers are trained in OOP. And millions of organizations worldwide are using OOP.",
+  "translation": "当某事不起作用时我们该怎么办？ 很简单，我们只有两个选择-丢弃它或尝试修复它。 OOP是不容易被抛弃的东西，数百万的开发人员接受了OOP培训。 全球数以百万计的组织都在使用OOP。"
+}, {
+  "tag": "P",
+  "text": "You probably see now that OOP doesn’t really work, it makes our code complex and unreliable. And you’re not alone! People have been thinking hard for decades trying to address the issues prevalent in OOP code. They’ve come up with a myriad of design patterns.",
+  "translation": "您可能现在已经看到OOP不能真正起作用，它使我们的代码变得复杂且不可靠。 而且您并不孤单！ 数十年来，人们一直在努力解决OOP代码中普遍存在的问题。 他们提出了无数的设计模式。"
+}, {
+  "tag": "H2",
+  "text": "Design patterns",
+  "translation": "设计模式"
+}, {
+  "tag": "P",
+  "text": "OOP provides a set of guidelines that should theoretically allow developers to incrementally build larger and larger systems: SOLID principle, dependency injection, design patterns, and others.",
+  "translation": "OOP提供了一组指导原则，从理论上讲应允许开发人员逐步构建越来越大的系统：SOLID原理，依赖项注入，设计模式等。"
+}, {
+  "tag": "P",
+  "text": "Unfortunately, the design patterns are nothing other than band-aids. They exist solely to address the shortcomings of OOP. A myriad of books has even been written on the topic. They wouldn’t have been so bad, had they not been responsible for the introduction of enormous complexity to our codebases.",
+  "translation": "不幸的是，设计模式只不过是创可贴。 它们的存在仅仅是为了解决OOP的缺点。 关于该主题的书籍甚至很多。 如果他们不负责为我们的代码库引入巨大的复杂性，那么它们并不会那么糟糕。"
+}, {
+  "tag": "H2",
+  "text": "The problem factory",
+  "translation": "问题工厂"
+}, {
+  "tag": "P",
+  "text": "In fact, it is impossible to write good and maintainable Object-Oriented code.",
+  "translation": "实际上，不可能编写良好且可维护的面向对象代码。"
+}, {
+  "tag": "P",
+  "text": "On one side of the spectrum we have an OOP codebase that is inconsistent and doesn’t seem to adhere to any standards. On the other side of the spectrum, we have a tower of over-engineered code, a bunch of erroneous abstractions built one on top of one another. Design patterns are very helpful in building such towers of abstractions.",
+  "translation": "一方面，我们拥有一个不一致的OOP代码库，并且似乎没有遵循任何标准。 在频谱的另一端，我们有一堆过度设计的代码，一堆错误的抽象是彼此叠加构建的。 设计模式对于构建这样的抽象塔非常有帮助。"
+}, {
+  "tag": "P",
+  "text": "Soon, adding in new functionality, and even making sense of all the complexity, gets harder and harder. The codebase will be full of things like SimpleBeanFactoryAwareAspectInstanceFactory, AbstractInterceptorDrivenBeanDefinitionDecorator, TransactionAwarePersistenceManagerFactoryProxyorRequestProcessorFactoryFactory .",
+  "translation": "很快，添加新的功能，甚至理解所有的复杂性，变得越来越困难。 代码库将充满诸如SimpleBeanFactoryAwareAspectInstanceFactory，AbstractInterceptorDrivenBeanDefinitionDecorator，TransactionAwarePersistenceManagerFactoryProxyorRequestProcessorFactoryFactory之类的内容。"
+}, {
+  "tag": "P",
+  "text": "Precious brainpower has to be wasted trying to understand the tower of abstractions that the developers themselves have created. The absence of structure is in many cases better than having bad structure (if you ask me).",
+  "translation": "必须浪费宝贵的脑力去理解开发人员自己创建的抽象塔。 在许多情况下，缺少结构要比结构不好（如果您问我）要好。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*_xDSrTC0F2lke6OYtkRm8g.png?q=20",
+  "caption": "Image source: https://www.reddit.com/r/ProgrammerHumor/comments/418x95/theory_vs_reality/",
+  "type": "image",
+  "file": "1!_xDSrTC0F2lke6OYtkRm8g.png"
+}, {
+  "tag": "P",
+  "text": "Further reading: FizzBuzzEnterpriseEdition",
+  "translation": "进一步阅读：FizzBuzzEnterpriseEdition"
+}, {
+  "tag": "H1",
+  "text": "Refactoring",
+  "translation": "重构"
+}, {
+  "tag": "P",
+  "text": "Refactoring is an important part of a developer’s day-to-day job. Ironically, OOP code is notoriously hard to refactor. Refactoring is supposed to make the code less complex, and more maintainable. On the contrary, refactored OOP code becomes significantly more complex — to make the code testable, we’d have to make use of dependency injection, and create an interface for the refactored class. Even then, refactoring OOP code is really hard without dedicated tools like Resharper."
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/suzdalnitski/fa3cd5baec7e041d87d6d252eac88e79/raw/432c25f8e7d828eac00ac93b48ebb917b6708ecf/oop_refactoring.cs",
+  "code": "// before refactoring:\npublic class CalculatorForm {\n    private string aText, bText;\n    \n    private bool IsValidInput(string text) => true;\n    \n    private void btnAddClick(object sender, EventArgs e) {\n        if ( !IsValidInput(bText) || !IsValidInput(aText) ) {\n            return;\n        }\n    }\n}\n\n\n// after refactoring:\npublic class CalculatorForm {\n    private string aText, bText;\n    \n    private readonly IInputValidator _inputValidator;\n    \n    public CalculatorForm(IInputValidator inputValidator) {\n        _inputValidator = inputValidator;\n    }\n    \n    private void btnAddClick(object sender, EventArgs e) {\n        if ( !_inputValidator.IsValidInput(bText)\n            || !_inputValidator.IsValidInput(aText) ) {\n            return;\n        }\n    }\n}\n\npublic interface IInputValidator {\n    bool IsValidInput(string text);\n}\n\npublic class InputValidator : IInputValidator {\n    public bool IsValidInput(string text) => true;\n}\n\npublic class InputValidatorFactory {\n    public IInputValidator CreateInputValidator() => new InputValidator();\n}"
+}, {
+  "tag": "P",
+  "text": "In the simple example above, the line count has more than doubled just to extract a single method. Why does refactoring create even more complexity, when the code is being refactored in order to decrease complexity in the first place?",
+  "translation": "在上面的简单示例中，仅提取一种方法，行数就增加了一倍以上。 当重构代码以首先降低复杂性时，为什么重构会带来更大的复杂性？"
+}, {
+  "tag": "P",
+  "text": "Contrast this to a similar refactor of non-OOP code in JavaScript:"
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/suzdalnitski/34d6d33a2b998370c898121651d7dbad/raw/b66c728360c0d869cbaff9441c57a8d3b0e6a728/fp_refactoring.js",
+  "code": "// before refactoring:\n\n// calculator.js:\nconst isValidInput = text => true;\n\nconst btnAddClick = (aText, bText) => {\n  if (!isValidInput(aText) || !isValidInput(bText)) {\n    return;\n  }\n}\n\n\n// after refactoring:\n\n// inputValidator.js:\nexport const isValidInput = text => true;\n\n// calculator.js:\nimport { isValidInput } from './inputValidator';\n\nconst btnAddClick = (aText, bText, _isValidInput = isValidInput) => {\n  if (!_isValidInput(aText) || !_isValidInput(bText)) {\n    return;\n  }\n}"
+}, {
+  "tag": "P",
+  "text": "The code has literally stayed the same — we simply moved the isValidInput function to a different file and added a single line to import that function. We’ve also added _isValidInput to the function signature for the sake of testability.",
+  "translation": "代码从字面上保持不变-我们只是将isValidInput函数移至另一个文件，并添加了一行以导入该函数。 为了便于测试，我们还向函数签名添加了_isValidInput。"
+}, {
+  "tag": "P",
+  "text": "This is a simple example, but in practice the complexity grows exponentially as the codebase gets bigger.",
+  "translation": "这是一个简单的示例，但是在实践中，随着代码库变大，复杂度呈指数增长。"
+}, {
+  "tag": "P",
+  "text": "And that’s not all. Refactoring OOP code is extremely risky. Complex dependency graphs and state scattered all over OOP codebase, make it impossible for the human brain to consider all of the potential issues.",
+  "translation": "不仅如此。 重构OOP代码非常危险。 复杂的依赖关系图和状态分散在整个OOP代码库中，使人脑无法考虑所有潜在问题。"
+}, {
+  "tag": "H1",
+  "text": "Unit Testing",
+  "translation": "单元测试"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*xGn4uGgVyrRAXnqSwTF69w.jpeg?q=20",
+  "caption": "Photo by Ani Kolleshi on Unsplash",
+  "type": "image",
+  "file": "1!xGn4uGgVyrRAXnqSwTF69w.jpeg"
+}, {
+  "tag": "P",
+  "text": "Automated testing is an important part of the development process and helps tremendously in preventing regressions (i.e. bugs being introduced into existing code). Unit Testing plays a huge role in the process of automated testing.",
+  "translation": "自动化测试是开发过程中的重要组成部分，并且在防止回归（即将错误引入现有代码中）方面有很大帮助。 单元测试在自动化测试过程中扮演着重要角色。"
+}, {
+  "tag": "P",
+  "text": "Some might disagree, but OOP code is notoriously difficult to unit test. Unit Testing assumes testing things in isolation, and to make a method unit-testable:",
+  "translation": "有些人可能会不同意，但是众所周知，OOP代码很难进行单元测试。 单元测试假定测试是独立进行的，并使方法可单元测试："
+}, {
+  "tag": "OL",
+  "texts": ["Its dependencies have to be extracted into a separate class.", "Create an interface for the newly created class.", "Declare fields to hold the instance of the newly created class.", "Make use of a mocking framework to mock the dependencies.", "Make use of a dependency-injection framework to inject the dependencies."],
+  "translations": ["它的依赖关系必须提取到一个单独的类中。", "为新创建的类创建一个接口。", "声明字段以保存新创建的类的实例。", "利用模拟框架模拟依赖项。", "利用依赖项注入框架来注入依赖项。"]
+}, {
+  "tag": "P",
+  "text": "How much more complexity has to be created just to make a piece of code testable? How much time was wasted just to make some code testable?",
+  "translation": "为了使一段代码可测试，还必须创建多少复杂性？ 仅使一些代码可测试就浪费了多少时间？"
+}, {
+  "tag": "P",
+  "text": "> PS we’d also have to instantiate the entire class in order to test a single method. This will also bring in the code from all of its parent classes.",
+  "translation": "> PS，我们还必须实例化整个类以测试单个方法。 这还将从其所有父类中引入代码。"
+}, {
+  "tag": "P",
+  "text": "With OOP, writing tests for legacy code is even harder — almost impossible. Entire companies have been created (TypeMock) around the issue of testing legacy OOP code.",
+  "translation": "使用OOP，为遗留代码编写测试变得更加困难-几乎不可能。 已围绕测试旧版OOP代码创建了整个公司（TypeMock）。"
+}, {
+  "tag": "H2",
+  "text": "Boilerplate code",
+  "translation": "样板代码"
+}, {
+  "tag": "P",
+  "text": "Boilerplate code is probably the biggest offender when it comes to the signal-to-noise ratio. Boilerplate code is “noise” that is required to get the program to compile. Boilerplate code takes time to write and makes the codebase less readable because of the added noise.",
+  "translation": "当涉及信噪比时，样板代码可能是最大的违法者。 样板代码是使程序编译所需的“噪声”。 样板代码需要花费一些时间来编写代码，并且由于增加的噪音而使代码库的可读性降低。"
+}, {
+  "tag": "P",
+  "text": "While “program to an interface, not to an implementation” is the recommended approach in OOP, not everything should become an interface. We’d have to resort to using interfaces in the entire codebase, for the sole purpose of testability. We’d also probably have to make use of dependency injection, which further introduced unnecessary complexity.",
+  "translation": "虽然在OOP中建议“对接口编程，而不对实现编程”，但并非所有内容都应该成为接口。 出于可测试性的唯一目的，我们不得不在整个代码库中使用接口。 我们可能还必须使用依赖项注入，这进一步引入了不必要的复杂性。"
+}, {
+  "tag": "H2",
+  "text": "Testing private methods",
+  "translation": "测试私有方法"
+}, {
+  "tag": "P",
+  "text": "Some people say that private methods shouldn’t be tested… I tend to disagree, unit testing is called “unit” for a reason — test small units of code in isolation. Yet testing of private methods in OOP is nearly impossible. We shouldn’t be making private methodsinternal just for the sake of testability.",
+  "translation": "有人说不应测试私有方法……我倾向于不同意，单元测试之所以被称为“单元”，是因为有一个原因-孤立地测试小的代码单元。 然而，在OOP中测试私有方法几乎是不可能的。 我们不应仅出于可测试性而将内部私有方法。"
+}, {
+  "tag": "P",
+  "text": "In order to achieve testability of private methods, they usually have to be extracted into a separate object. This, in turn, introduces unnecessary complexity and boilerplate code.",
+  "translation": "为了实现私有方法的可测试性，通常必须将它们提取到单独的对象中。 反过来，这引入了不必要的复杂性和样板代码。"
+}, {
+  "tag": "H1",
+  "text": "The Kingdom of Nouns",
+  "translation": "名词王国"
+}, {
+  "tag": "P",
+  "text": "Objects bind functions and data structures together in indivisible units. I think this is a fundamental error since functions and data structures belong in totally different worlds.",
+  "translation": "对象将功能和数据结构以不可分割的单位绑定在一起。 我认为这是一个基本错误，因为函数和数据结构属于完全不同的世界。"
+}, {
+  "tag": "P",
+  "text": "— Joe Armstrong, creator of Erlang",
+  "translation": "— Erlang的创建者Joe Armstrong"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*GuXanDmlOQ1UVX_73Kkojw.jpeg?q=20",
+  "caption": "Photo by Cederic X on Unsplash",
+  "type": "image",
+  "file": "1!GuXanDmlOQ1UVX_73Kkojw.jpeg"
+}, {
+  "tag": "P",
+  "text": "Objects (or nouns) are at the very core of OOP. A fundamental limitation of OOP is that it forces everything into nouns. And not everything should be modeled as nouns. Operations (functions) should not be modeled as objects. Why are we forced to create a Multiplierclass when all we need is a function that multiplies two numbers? Simply have a Multiply function, let data be data and let functions be functions!",
+  "translation": "对象（或名词）是OOP的核心。 OOP的基本局限性是它迫使一切都变成名词。 并非所有事物都应建模为名词。 操作（功能）不应建模为对象。 当我们只需要一个将两个数字相乘的函数时，为什么要强制创建Multiplier类？ 只需具有一个乘法函数，让数据成为数据，让函数成为函数！"
+}, {
+  "tag": "P",
+  "text": "In non-OOP languages, doing trivial things like saving data to a file is straightforward — very similar to how you would describe an action in plain English.",
+  "translation": "在非OOP语言中，完成琐碎的事情（例如将数据保存到文件中）非常简单-与以普通英语描述动作的方式非常相似。"
+}, {
+  "tag": "P",
+  "text": "Real-world example, please!",
+  "translation": "请提供真实示例！"
+}, {
+  "tag": "P",
+  "text": "Sure, going back to the painter example, the painter owns a PaintingFactory. He has hired a dedicated BrushManager , ColorManager, a CanvasManager and a MonaLisaProvider. His good friend zombie makes use of a BrainConsumingStrategy . Those objects, in turn, define the following methods: CreatePainting , FindBrush , PickColor , CallMonaLisa , and ConsumeBrainz.",
+  "translation": "当然，回到画家的例子，画家拥有一个PaintingFactory。 他聘请了专用的BrushManager，ColorManager，CanvasManager和MonaLisaProvider。 他的好朋友僵尸利用了BrainConsumingStrategy策略。 这些对象依次定义以下方法：CreatePainting，FindBrush，PickColor，CallMonaLisa和ConsumeBrainz。"
+}, {
+  "tag": "P",
+  "text": "Of course, this is plain stupidity, and could never have happened in the real world. How much unnecessary complexity has been created for the simple act of drawing a painting?",
+  "translation": "当然，这是愚蠢的，在现实世界中不可能发生。 简单的绘画行为已经产生了多少不必要的复杂性？"
+}, {
+  "tag": "P",
+  "text": "There’s no need to invent strange concepts to hold your functions when they’re allowed to exist separately from the objects.",
+  "translation": "当允许它们与对象分开存在时，无需发明奇怪的概念来保留您的功能。"
+}, {
+  "tag": "H1",
+  "text": "The Problem with Real World Modeling",
+  "translation": "现实世界建模中的问题"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*Jom0iTH8tdFrCnb1Ah99TA.jpeg?q=20",
+  "caption": "Photo by Markus Spiske on Unsplash",
+  "type": "image",
+  "file": "1!Jom0iTH8tdFrCnb1Ah99TA.jpeg"
+}, {
+  "tag": "P",
+  "text": "Some people say that OOP tries to model the real world. This is simply not true — OOP has nothing to relate to in the real world. Trying to model programs as objects probably is one of the biggest OOP mistakes.",
+  "translation": "有人说OOP试图模拟现实世界。 事实并非如此-OOP与现实世界无关。 尝试将程序建模为对象可能是最大的OOP错误之一。"
+}, {
+  "tag": "H2",
+  "text": "The real world is not hierarchical",
+  "translation": "现实世界不是分层的"
+}, {
+  "tag": "P",
+  "text": "OOP attempts to model everything as a hierarchy of objects. Unfortunately, that is not how things work in the real world. Objects in the real world interact with each other using messages, but they mostly are independent of each other.",
+  "translation": "OOP尝试将所有事物建模为对象的层次结构。 不幸的是，事实并非如此。 现实世界中的对象使用消息彼此交互，但是它们大多彼此独立。"
+}, {
+  "tag": "H2",
+  "text": "Inheritance in the real world",
+  "translation": "现实世界中的传承"
+}, {
+  "tag": "P",
+  "text": "OOP inheritance is not modeled after the real world. The parent object in the real world is unable to change the behavior of child objects at run-time. Even though you inherit your DNA from your parents, they’re unable to make changes to your DNA as they please. You do not inherit “behaviors” from your parents, you develop your own behaviors. And you’re unable to “override” your parents’ behaviors.",
+  "translation": "OOP继承不是以真实世界为模型的。 现实世界中的父对象无法在运行时更改子对象的行为。 即使您从父母那里继承了您的DNA，他们也无法随意改变您的DNA。 您不会从父母那里继承“行为”，而是会发展自己的行为。 而且您无法“凌驾”父母的行为。"
+}, {
+  "tag": "H2",
+  "text": "The real world has no methods",
+  "translation": "现实世界没有方法"
+}, {
+  "tag": "P",
+  "text": "Does the piece of paper you’re writing on have a “write” method? No! You take an empty piece of paper, pick up a pen, and write some text. You, as a person, don’t have a “write” method either — you make the decision to write some text based on outside events or your internal thoughts.",
+  "translation": "您写的纸上有“写”方法吗？ 没有！ 您拿一张空纸，拿起笔，然后写一些文字。 作为一个人，您也没有“写”方法-您是根据外部事件或内部想法决定写一些文本的。"
+}, {
+  "tag": "H1",
+  "text": "The Trojan Horse of Encapsulation",
+  "translation": "封装特洛伊木马"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*tKw00xGqVz0df_dFntT_Zg.jpeg?q=20",
+  "caption": "Photo by Jamie McInall from Pexels",
+  "type": "image",
+  "file": "1!tKw00xGqVz0df_dFntT_Zg.jpeg"
+}, {
+  "tag": "P",
+  "text": "We’ve been told that encapsulation is one of the greatest benefits of OOP. It is supposed to protect the object’s internal state from outside access. There’s a small problem with this though. It doesn’t work.",
+  "translation": "我们被告知封装是OOP的最大优点之一。 可以保护对象的内部状态不受外部访问。 不过，这有一个小问题。 没用"
+}, {
+  "tag": "P",
+  "text": "Encapsulation is the trojan horse of OOP. It sells the idea of shared mutable state by making it appear safe. Encapsulation allows (and even encourages) unsafe code to sneak into our codebase, making the codebase rot from within.",
+  "translation": "封装是OOP的特洛伊木马。 它通过使它看起来安全来出售共享可变状态的想法。 封装允许（甚至鼓励）不安全的代码潜入我们的代码库中，从而使代码库从内部腐烂。"
+}, {
+  "tag": "H2",
+  "text": "The global state problem",
+  "translation": "全球状态问题"
+}, {
+  "tag": "P",
+  "text": "We’ve been told that global state is the root of all evil. It should be avoided at all costs. What we have never been told is that encapsulation, in fact, is glorified global state."
+}, {
+  "tag": "P",
+  "text": "To make the code more efficient, objects are passed not by their value, but by their reference. This is where “dependency injection” falls flat.",
+  "translation": "为了提高代码的效率，对象传递的依据不是其值，而是其引用。 这就是“依赖注入”落空的地方。"
+}, {
+  "tag": "P",
+  "text": "Let me explain. Whenever we create an object in OOP, we pass references to its dependencies to the constructor. Those dependencies also have their own internal state. The newly created object happily stores references to those dependencies in its internal state and is then happy to modify them in any way it pleases. And it also passes those references down to anything else it might end up using.",
+  "translation": "让我解释。 每当我们在OOP中创建对象时，都会将对其依赖项的引用传递给构造函数。 这些依赖项也有自己的内部状态。 新创建的对象在其内部状态中愉快地存储了对这些依赖项的引用，然后很乐意以自己喜欢的任何方式对其进行修改。 它还会将这些引用传递给可能最终使用的其他任何内容。"
+}, {
+  "tag": "P",
+  "text": "This creates a complex graph of promiscuously shared objects that all end up changing each other’s state. This, in turn, causes huge problems since it becomes almost impossible to see what caused the program state to change. Days might be wasted trying to debug such state changes. And you’re lucky if you don’t have to deal with concurrency (more on this later).",
+  "translation": "这会创建一个复杂的图形，其中包含混杂共享的对象，这些对象最终都会改变彼此的状态。 反过来，这又引起了巨大的问题，因为几乎看不到是什么导致了程序状态的改变。 尝试调试此类状态更改可能会浪费很多时间。 而且，如果您不必处理并发性，那么您会很幸运（稍后会详细介绍）。"
+}, {
+  "tag": "H2",
+  "text": "Methods/Properties",
+  "translation": "方法/性质"
+}, {
+  "tag": "P",
+  "text": "The methods or properties that provide access to particular fields are no better than changing the value of a field directly. It doesn’t matter whether you mutate an object’s state by using a fancy property or method — the result is the same: mutated state.",
+  "translation": "提供对特定字段的访问的方法或属性并不比直接更改字段的值更好。 通过使用奇特的属性或方法来改变对象的状态都没关系-结果相同：改变状态。"
+}, {
+  "tag": "H1",
+  "text": "The Problems of State",
+  "translation": "国家问题"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*1WeuR9OoKyD5EvtT9KjXOA.jpeg?q=20",
+  "caption": "Photo by Mika Baumeister on Unsplash",
+  "type": "image",
+  "file": "1!1WeuR9OoKyD5EvtT9KjXOA.jpeg"
+}, {
+  "tag": "P",
+  "text": "What is state? Simply put, state is any temporary data stored in memory. Think variables or fields/properties in OOP. Imperative programming (including OOP) describes computation in terms of the program state and changes to that state. Declarative (functional) programming describes the desired results instead, and don’t specify changes to the state explicitly."
+}, {
+  "tag": "H2",
+  "text": "Mutable State — the act of mental juggling",
+  "translation": "可变状态-精神杂耍的行为"
+}, {
+  "tag": "P",
+  "text": "I think that large objected-oriented programs struggle with increasing complexity as you build this large object graph of mutable objects. You know, trying to understand and keep in your mind what will happen when you call a method and what will the side effects be.",
+  "translation": "我认为，当您构建可变对象的大对象图时，大型面向对象的程序会越来越复杂。 您知道，尝试理解并牢记调用方法时会发生什么以及副作用是什么。"
+}, {
+  "tag": "P",
+  "text": "— Rich Hickey, creator of Clojure",
+  "translation": "— Clojure的创建者Rich Hickey"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*n1piNNED9MaIjNPSLRj-8w.jpeg?q=20",
+  "caption": "Image source: https://www.flickr.com/photos/48137825@N05/8707342427",
+  "type": "image",
+  "file": "1!n1piNNED9MaIjNPSLRj-8w.jpeg"
+}, {
+  "tag": "P",
+  "text": "State by itself is quite harmless. However, mutable state is the big offender. Especially if it is shared. What exactly is mutable state? Any state that can change. Think variables or fields in OOP.",
+  "translation": "国家本身是无害的。 但是，易变的国家是罪魁祸首。 特别是如果共享。 到底什么是可变状态？ 可以更改的任何状态。 考虑OOP中的变量或字段。"
+}, {
+  "tag": "P",
+  "text": "Real-world example, please!",
+  "translation": "请提供真实示例！"
+}, {
+  "tag": "P",
+  "text": "You have a blank piece of paper, you write a note on it, and you end up with the same piece of paper in a different state (text). You, effectively, have mutated the state of that piece of paper.",
+  "translation": "您有一张空白的纸，在上面写了一个便笺，最后得到的是同一张纸，但状态不同（文本）。 您实际上已经改变了这张纸的状态。"
+}, {
+  "tag": "P",
+  "text": "That is completely fine in the real world since nobody else probably cares about that piece of paper. Unless this piece of paper is the original Mona Lisa painting.",
+  "translation": "在现实世界中，这是完全可以的，因为没人会关心那张纸。 除非这张纸是蒙娜丽莎的原始画。"
+}, {
+  "tag": "P",
+  "text": "Limitations of the Human Brain",
+  "translation": "人脑的局限性"
+}, {
+  "tag": "P",
+  "text": "Why is mutable state such a big problem? The human brain is the most powerful machine in the known universe. However, our brains are really bad at working with state since we can only hold about 5 items at a time in our working memory. It is much easier to reason about a piece of code if you only think about what the code does, not what variables it changes around the codebase.",
+  "translation": "为什么可变状态这么大的问题？ 人脑是已知宇宙中最强大的机器。 但是，我们的大脑在处理状态上确实很不好，因为我们一次只能记住5个项目。 如果仅考虑代码的功能，而不考虑代码在代码库中更改的变量，则对代码片段进行推理就容易得多。"
+}, {
+  "tag": "P",
+  "text": "Programming with mutable state is an act of mental juggling️. I don’t know about you, but I could probably juggle two balls. Give me three or more balls and I will certainly drop all of them. Why are we then trying to perform this act of mental juggling every single day at work?",
+  "translation": "以可变状态进行编程是一种精神上的杂耍️。 我不认识你，但我可能会打两个球。 给我三个或三个以上的球，我一定会丢掉的。 那么，为什么我们每天都要在工作中尝试这种精神杂耍的行为？"
+}, {
+  "tag": "P",
+  "text": "Unfortunately, the mental juggling of mutable state is at the very core of OOP . The sole purpose for the existence of methods on an object is to mutate that same object.",
+  "translation": "不幸的是，对易变状态的心理处理是OOP的核心。 在对象上存在方法的唯一目的是使同一对象发生突变。"
+}, {
+  "tag": "H2",
+  "text": "Scattered state",
+  "translation": "分散状态"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*G02W6-MM2CSCsa9DiA5NFg.jpeg?q=20",
+  "caption": "Photo by Markus Spiske on Unsplash",
+  "type": "image",
+  "file": "1!G02W6-MM2CSCsa9DiA5NFg.jpeg"
+}, {
+  "tag": "P",
+  "text": "OOP makes the problem of code organization even worse by scattering state all over the program. The scattered state is then shared promiscuously between various objects.",
+  "translation": "OOP通过分散整个程序的状态，使代码组织的问题更加严重。 然后，分散状态在各种对象之间混杂地共享。"
+}, {
+  "tag": "P",
+  "text": "Real-world example, please!",
+  "translation": "请提供真实示例！"
+}, {
+  "tag": "P",
+  "text": "Let’s forget for a second that we’re all grown-ups, and pretend we’re trying to assemble a cool lego truck.",
+  "translation": "让我们先忘了我们都是成年人，并假装我们正在尝试组装一辆超酷的乐高卡车。"
+}, {
+  "tag": "P",
+  "text": "However, there’s a catch — all the truck parts are randomly mixed with parts from your other lego toys. And they have been put in 50 different boxes, randomly again. And you’re not allowed to group your truck parts together — you have to keep in your head where the various truck parts are, and can only take them out one by one.",
+  "translation": "但是，有一个陷阱-所有卡车零件都与其他乐高玩具中的零件随机混合。 然后将它们随机放入50个不同的盒子中。 而且，您不允许将卡车零件归为一类–您必须将头部放在各种卡车零件所在的位置，并且只能一一取出。"
+}, {
+  "tag": "P",
+  "text": "Yes, you will eventually assemble that truck, but how long will it take you?",
+  "translation": "是的，您最终会组装那辆卡车，但是要花多长时间？"
+}, {
+  "tag": "P",
+  "text": "How does this relate to programming?",
+  "translation": "这与编程有什么关系？"
+}, {
+  "tag": "P",
+  "text": "In Functional Programming, state typically is being isolated. You always know where some state is coming from. State is never scattered across your different functions. In OOP, every object has its own state, and when building a program , you have to keep in mind the state of all of the objects that you currently are working with.",
+  "translation": "在函数式编程中，状态通常是隔离的。 您总是知道某些状态从何而来。 状态永远不会分散在您的不同职能中。 在OOP中，每个对象都有其自己的状态，并且在构建程序时，必须牢记当前正在使用的所有对象的状态。"
+}, {
+  "tag": "P",
+  "text": "To make our lives easier, it is best to have only a very small portion of the codebase deal with state. Let the core parts of your application be stateless and pure. This actually is the main reason for the huge success of the flux pattern on the frontend (aka Redux).",
+  "translation": "为了使我们的生活更轻松，最好只让一小部分代码库处理状态。 让应用程序的核心部分成为无状态且纯净的。 这实际上是前端（也称为Redux）上的磁通量模式取得巨大成功的主要原因。"
+}, {
+  "tag": "H2",
+  "text": "Promiscuously shared state",
+  "translation": "混杂共享状态"
+}, {
+  "tag": "P",
+  "text": "As if our lives aren’t already hard enough because of having scattered mutable state, OOP goes one step further!",
+  "translation": "似乎由于分散的易变状态，我们的生活还不够艰难，OOP向前迈进了一步！"
+}, {
+  "tag": "P",
+  "text": "Real-world Example, Please!",
+  "translation": "请提供真实示例！"
+}, {
+  "tag": "P",
+  "text": "Mutable state in the real world is almost never a problem, since things are kept private and never shared. This is “proper encapsulation” at work. Imagine a painter who is working on the next Mona Lisa painting. He is working on the painting alone, finishes up, and then sells his masterpiece for millions.",
+  "translation": "现实世界中的可变状态几乎从来都不是问题，因为事物是保密的，并且永远不会共享。 这就是工作中的“正确封装”。 想象一个画家正在创作下一张《蒙娜丽莎》的作品。 他独自从事绘画工作，完成后将其杰作卖给数百万。"
+}, {
+  "tag": "P",
+  "text": "Now, he’s bored with all that money and decides to do things a little bit differently. He thinks that it would be a good idea to have a painting party. He invites his friends elf, Gandalf, policeman, and a zombie to help him out. Teamwork! They all start painting on the same canvas at the same time. Of course, nothing good comes out of it — the painting is a complete disaster!",
+  "translation": "现在，他厌倦了所有的钱，决定做一些不同的事情。 他认为举办绘画派对是个好主意。 他邀请他的朋友精灵，甘道夫，警察和僵尸来帮助他。 团队合作！ 他们都开始同时在同一块画布上绘画。 当然，这并没有带来什么好处-这幅画是一场彻底的灾难！"
+}, {
+  "tag": "P",
+  "text": "Shared mutable state makes no sense in the real world. Yet this is exactly what happens in OOP programs — state is promiscuously shared between various objects, and they mutate it in any way they see fit. This, in turn, makes reasoning about the program harder and harder as the codebase keeps growing."
+}, {
+  "tag": "H2",
+  "text": "Concurrency issues",
+  "translation": "并发问题"
+}, {
+  "tag": "P",
+  "text": "The promiscuous sharing of mutable state in OOP code makes parallelizing such code almost impossible. Complex mechanisms have been invented in order to address this problem. Thread locking, mutex, and many other mechanisms have been invented. Of course, such complex approaches have their own drawbacks — deadlocks, lack of composability, debugging multi-threaded code is very hard and time-consuming. I’m not even talking about the increased complexity caused by making use of such concurrency mechanisms.",
+  "translation": "OOP代码中可变状态的混杂共享使得几乎不可能并行化此类代码。 为了解决这个问题，已经发明了复杂的机制。 发明了线程锁定，互斥和许多其他机制。 当然，这种复杂的方法有其自身的缺点-死锁，缺乏可组合性，调试多线程代码非常困难且耗时。 我什至没有在谈论由于使用这种并发机制而导致的复杂性增加。"
+}, {
+  "tag": "H2",
+  "text": "Not all state is evil",
+  "translation": "并非所有国家都是邪恶的"
+}, {
+  "tag": "P",
+  "text": "Is all state evil? No, Alan Kay state probably is not evil! State mutation probably is fine if it is truly isolated (not the “OOP-way” isolated).",
+  "translation": "所有国家都是邪恶的吗？ 不，艾伦·凯州可能并不邪恶！ 如果状态突变是真正隔离的（不是“ OOP方式”隔离的），则可能很好。"
+}, {
+  "tag": "P",
+  "text": "It is also completely fine to have immutable data-transfer-objects. The key here is “immutable”. Such objects are then used to pass data between functions.",
+  "translation": "具有不变的数据传输对象也是完全可以的。 这里的关键是“不变的”。 然后使用此类对象在函数之间传递数据。"
+}, {
+  "tag": "P",
+  "text": "However, such objects would also make OOP methods and properties completely redundant. What’s the use in having methods and properties on an object if it cannot be mutated?",
+  "translation": "但是，此类对象也将使OOP方法和属性完全多余。 如果对象无法突变，在其上具有方法和属性有什么用？"
+}, {
+  "tag": "H2",
+  "text": "Mutability is Inherent to OOP",
+  "translation": "可变性是OOP固有的"
+}, {
+  "tag": "P",
+  "text": "Some might argue that mutable state is a design choice in OOP, not an obligation. There is a problem with that statement. It is not a design choice, but pretty much the only option. Yes, one can pass immutable objects to methods in Java/C#, but this is rarely done since most of the developers default to data mutation. Even if developers attempt to make proper use of immutability in their OOP programs, the languages provide no built-in mechanisms for immutability, and for working effectively with immutable data (i.e. persistent data structures).",
+  "translation": "有人可能会认为可变状态是OOP中的设计选择，而不是义务。 该声明有问题。 这不是设计选择，而是几乎唯一的选择。 是的，可以将不可变的对象传递给Java / C＃中的方法，但是很少这样做，因为大多数开发人员默认使用数据突变。 即使开发人员试图在其OOP程序中正确使用不变性，这些语言也没有提供内置机制来实现不变性以及有效处理不变数据（即持久性数据结构）。"
+}, {
+  "tag": "P",
+  "text": "Yes, we can ensure that objects communicate only by passing immutable messages and never pass any references (which is rarely done). Such programs would be more reliable than mainstream OOP. However, the objects still have to mutate their own state once a message has been received. A message is a side effect, and its single purpose is to cause changes. Messages would be useless if they couldn’t mutate the state of other objects."
+}, {
+  "tag": "P",
+  "text": "It is impossible to make use of OOP without causing state mutations.",
+  "translation": "在不引起状态突变的情况下不可能使用OOP。"
+}, {
+  "tag": "H1",
+  "text": "Code Complexity",
+  "translation": "代码复杂度"
+}, {
+  "tag": "P",
+  "text": "With OOP-inflected programming languages, computer software becomes more verbose, less readable, less descriptive, and harder to modify and maintain.",
+  "translation": "使用受OOP影响的编程语言，计算机软件变得更冗长，可读性更差，描述性更强，并且难以修改和维护。"
+}, {
+  "tag": "P",
+  "text": "— Richard Mansfield",
+  "translation": "—理查德·曼斯菲尔德（Richard Mansfield）"
+}, {
+  "tag": "P",
+  "text": "The most important aspect of software development is keeping the code complexity down. Period. None of the fancy features matter if the codebase becomes impossible to maintain. Even 100% test coverage is worth nothing if the codebase becomes too complex and unmaintainable.",
+  "translation": "软件开发的最重要方面是降低代码复杂度。 期。 如果代码库变得无法维护，那么任何精美的功能都不重要。 如果代码库变得过于复杂和不可维护，那么即使100％的测试覆盖率也毫无价值。"
+}, {
+  "tag": "P",
+  "text": "What makes the codebase complex? There are many things to consider, but in my opinion, the top offenders are: shared mutable state, erroneous abstractions, and low signal-to-noise ratio (often caused by boilerplate code). All of them are prevalent in OOP.",
+  "translation": "是什么使代码库变得复杂？ 有很多事情要考虑，但是在我看来，最主要的犯罪者是：共享的可变状态，错误的抽象以及低信噪比（通常由样板代码引起）。 所有这些在OOP中都很普遍。"
+}, {
+  "tag": "H1",
+  "text": "We Got OOP All Wrong",
+  "translation": "我们全都错了"
+}, {
+  "tag": "P",
+  "text": "I’m sorry that I long ago coined the term “objects” for this topic because it gets many people to focus on the lesser idea. The big idea is messaging.- Alan Kay, the inventor of OOP",
+  "translation": "很抱歉，我很久以前就为该主题创造了“对象”一词，因为它使许多人专注于较小的想法。 大想法是消息传递。-OOP的发明者艾伦·凯（Alan Kay）"
+}, {
+  "tag": "P",
+  "text": "Erlang is not usually thought of as an Object-Oriented language. But probably Erlang is the only mainstream Object-Oriented language out there. Yes, of course Smalltalk is a proper OOP language — however, it is not in wide use. Both Smalltalk and Erlang make use of OOP the way it was originally intended by its inventor, Alan Kay."
+}, {
+  "tag": "H2",
+  "text": "Messaging",
+  "translation": "讯息传递"
+}, {
+  "tag": "P",
+  "text": "Alan Kay coined the term “Object Oriented Programming” in the 1960s. He had a background in biology and was attempting to make computer programs communicate the same way living cells do.",
+  "translation": "艾伦·凯（Alan Kay）在1960年代创造了“面向对象程序设计”一词。 他具有生物学背景，并试图使计算机程序以与活细胞相同的方式进行通信。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*bzRsnzakR7O4RMbDfEZ1sA.jpeg?q=20",
+  "caption": "Photo by Muukii on Unsplash",
+  "type": "image",
+  "file": "1!bzRsnzakR7O4RMbDfEZ1sA.jpeg"
+}, {
+  "tag": "P",
+  "text": "Alan Kay’s big idea was to have independent programs (cells) communicate by sending messages to each other. The state of the independent programs would never be shared with the outside world (encapsulation).",
+  "translation": "艾伦·凯（Alan Kay）的主要想法是让相互独立的程序（单元）通过相互发送消息进行通信。 独立程序的状态永远不会与外界共享（封装）。"
+}, {
+  "tag": "P",
+  "text": "That’s it. OOP was never intended to have things like inheritance, polymorphism, the “new” keyword, and the myriad of design patterns.",
+  "translation": "而已。 OOP从未打算具有继承，多态性，“ new”关键字以及无数的设计模式之类的东西。"
+}, {
+  "tag": "H2",
+  "text": "OOP in its purest form",
+  "translation": "最纯正的OOP"
+}, {
+  "tag": "P",
+  "text": "Erlang is OOP in its purest form. Unlike more mainstream languages, it focuses on the core idea of OOP — messaging. In Erlang, objects communicate by passing immutable messages between objects.",
+  "translation": "Erlang是最纯粹的OOP。 与更主流的语言不同，它专注于OOP的核心概念-消息传递。 在Erlang中，对象通过在对象之间传递不可变消息进行通信。"
+}, {
+  "tag": "P",
+  "text": "Is there proof that immutable messages are a superior approach compared to method calls?",
+  "translation": "有没有证据表明不可变消息是比方法调用更好的方法？"
+}, {
+  "tag": "P",
+  "text": "Hell yes! Erlang is probably the most reliable language in the world. It powers most of the world’s telecom (and hence the internet) infrastructure. Some of the systems written in Erlang have reliability of 99.9999999% (you read that right — nine nines).",
+  "translation": "当然好！ Erlang可能是世界上最可靠的语言。 它为世界上大多数电信（以及互联网）基础设施提供动力。 用Erlang编写的某些系统的可靠性为99.9999999％（您没看错-九个九）。"
+}, {
+  "tag": "H1",
+  "text": "The Need for a Resilient Framework",
+  "translation": "弹性框架的需求"
+}, {
+  "tag": "P",
+  "text": "Good programmers write good code, bad programmers write bad code, no matter the programming paradigm. However, the programming paradigm should constrain bad programmers from doing too much damage. Of course, this is not you, since you already are reading this article and putting in the effort to learn. Bad programmers never have the time to learn, they only press random buttons on the keyboard like crazy. Whether you like it or not, you will be working with bad programmers, some of them will be really really bad. And, unfortunately, OOP does not have enough constraints in place that would prevent bad programmers from doing too much damage. OOPs…",
+  "translation": "无论编程范例如何，优秀的程序员都会编写出良好的代码，糟糕的程序员会编写出不良的代码。 但是，编程范例应限制不良的程序员进行过多的破坏。 当然，不是您本人，因为您已经在阅读本文并努力学习。 糟糕的程序员永远都没有时间学习，他们只会疯狂地按下键盘上的随机按钮。 无论您是否喜欢，您都将与糟糕的程序员一起工作，其中有些人真的非常糟糕。 而且，不幸的是，OOP没有足够的约束来阻止不良的程序员造成太大的损失。 糟糕..."
+}, {
+  "tag": "P",
+  "text": "I don’t consider myself a bad programmer, but even I am unable to write good code without a strong framework to base my work on. Yes, there are frameworks that concern themselves with some very particular problems (e.g. Angular or ASP.Net)."
+}, {
+  "tag": "P",
+  "text": "I’m not talking about the software frameworks. I’m talking about the more abstract dictionary definition of a framework: “an essential supporting structure” — frameworks that concern themselves with the more abstract things like code organization and tackling code complexity. Even though Object-Oriented and Functional Programming are both programming paradigms, they’re also both very high-level frameworks.",
+  "translation": "我不是在谈论软件框架。 我说的是框架的更抽象的字典定义：“基本的支持结构”，即与代码组织和处理代码复杂性等更抽象的东西相关的框架。 尽管面向对象的编程和函数式编程都是编程范例，但它们都是非常高级的框架。"
+}, {
+  "tag": "H2",
+  "text": "Limiting our choices",
+  "translation": "限制我们的选择"
+}, {
+  "tag": "P",
+  "text": "C++ is a horrible [object-oriented] language… And limiting your project to C means that people don’t screw things up with any idiotic “object model” c&@p. — Linus Torvalds, the creator of Linux",
+  "translation": "C ++是一种可怕的[面向对象]语言…而且将项目限制为C意味着人们不会用任何愚蠢的“对象模型” c＆@ p搞砸了。 — Linux的创建者Linus Torvalds"
+}, {
+  "tag": "P",
+  "text": "Linus Torvalds is widely known for his open criticism of C++ and OOP. One thing he was 100% right about is limiting programmers in the choices they can make. In fact, the fewer choices programmers have, the more resilient their code becomes. In the quote above, Linus Torvalds highly recommends having a good framework to base our code upon.",
+  "translation": "Linus Torvalds以对C ++和OOP的公开批评而闻名。 他100％正确的一件事是限制程序员可以做出的选择。 实际上，程序员选择的次数越少，代码的弹性就越大。 在上面的引用中，Linus Torvalds强烈建议有一个良好的框架作为我们代码的基础。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*ujt2PMrbhCZuGhufoxfr5w.jpeg?q=20",
+  "caption": "Photo by specphotops on Unsplash",
+  "type": "image",
+  "file": "1!ujt2PMrbhCZuGhufoxfr5w.jpeg"
+}, {
+  "tag": "P",
+  "text": "Many dislike speed limits on the roads, but they’re essential to help prevent people from crashing to death. Similarly, a good programming framework should provide mechanisms that prevent us from doing stupid things.",
+  "translation": "许多人不喜欢道路上的速度限制，但这对于防止人们坠毁致死至关重要。 同样，一个好的编程框架应该提供防止我们做愚蠢的事情的机制。"
+}, {
+  "tag": "P",
+  "text": "A good programming framework helps us to write reliable code. First and foremost, it should help reduce complexity by providing the following things:",
+  "translation": "一个好的编程框架可以帮助我们编写可靠的代码。 首先，它应该通过提供以下内容来帮助降低复杂性："
+}, {
+  "tag": "OL",
+  "texts": ["Modularity and reusability", "Proper state isolation", "High signal-to-noise ratio"],
+  "translations": ["模块化和可重用性", "正确的状态隔离", "高信噪比"]
+}, {
+  "tag": "P",
+  "text": "Unfortunately, OOP provides developers too many tools and choices, without imposing the right kinds of limitations. Even though OOP promises to address modularity and improve reusability, it fails to deliver on its promises (more on this later). OOP code encourages the use of shared mutable state, which has been proven to be unsafe time and time again. OOP typically requires a lot of boilerplate code (low signal-to-noise ratio).",
+  "translation": "不幸的是，OOP为开发人员提供了太多的工具和选择，而没有施加适当的限制。 即使OOP承诺解决模块化问题并提高可重用性，但它仍无法兑现其承诺（稍后会详细介绍）。 OOP代码鼓励使用共享的可变状态，这种状态一次又一次被证明是不安全的。 OOP通常需要很多样板代码（低信噪比）。"
+}, {
+  "tag": "H2",
+  "text": "Functional programming",
+  "translation": "功能编程"
+}, {
+  "tag": "P",
+  "text": "What exactly is Functional Programming? Some people consider it to be a highly complicated programming paradigm that is only applicable in academia and is not suitable for the “real-world”. This couldn’t be further from the truth!"
+}, {
+  "tag": "P",
+  "text": "Yes, Functional Programming has a strong mathematical foundation and takes its roots in lambda calculus. However, most of its ideas emerged as a response to the weaknesses in the more mainstream programming languages. Functions are the core abstraction of Functional Programming. When used properly, functions provide a level of code modularity and reusability never seen in OOP. It even features design patterns that address the issues of nullability and provides a superior way of error handling.",
+  "translation": "是的，函数式编程具有强大的数学基础，并且扎根于lambda演算。 但是，它的大多数想法是对更主流的编程语言中的弱点的回应。 函数是函数式编程的核心抽象。 如果使用得当，函数可以提供一定程度的代码模块化和可重用性，这在OOP中是前所未有的。 它甚至具有解决可为空问题的设计模式，并提供了一种错误处理的高级方法。"
+}, {
+  "tag": "P",
+  "text": "The one thing that Functional Programming does really well is it helps us write reliable software. The need for a debugger almost disappears completely. Yep, no need to step through your code and watch variables. I personally haven’t touched a debugger in a very long time.",
+  "translation": "函数式编程确实做得很好的一件事是，它可以帮助我们编写可靠的软件。 对调试器的需求几乎完全消失了。 是的，无需单步执行代码并观察变量。 我个人很长时间都没有接触过调试器。"
+}, {
+  "tag": "P",
+  "text": "The best part? If you already know how to use functions, then you’re already a functional programmer. You just need to learn how to make the best use of those functions!",
+  "translation": "最好的部分？ 如果您已经知道如何使用函数，那么您已经是函数程序员。 您只需要学习如何充分利用这些功能即可！"
+}, {
+  "tag": "P",
+  "text": "I’m not preaching Functional Programming, I don’t really care what programming paradigm you use writing your code. I’m simply trying to convey the mechanisms that Functional Programming provides to address the problems inherent with OOP/imperative programming.",
+  "translation": "我不是在讲函数编程，也不是很在意您编写代码所使用的编程范例。 我只是试图传达功能编程提供的机制，以解决OOP /命令式编程固有的问题。"
+}, {
+  "tag": "H1",
+  "text": "TLDR",
+  "translation": "TLDR"
+}, {
+  "tag": "P",
+  "text": "Object oriented programs are offered as alternatives to correct ones…",
+  "translation": "提供面向对象的程序作为正确程序的替代方案。"
+}, {
+  "tag": "P",
+  "text": "— Edsger W. Dijkstra, pioneer of computer science",
+  "translation": "—计算机科学先驱Edsger W. Dijkstra"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*MTb-Xx5D0H6LUJu_cQ9fMQ.jpeg?q=20",
+  "caption": "Photo by Sebastian Herrmann on Unsplash",
+  "type": "image",
+  "file": "1!MTb-Xx5D0H6LUJu_cQ9fMQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "Object-Oriented Programming has been created with one goal in mind — to manage the complexity of procedural codebases. In other words, it was supposed to improve code organization. There’s no objective and open evidence that OOP is better than plain procedural programming.",
+  "translation": "创建面向对象的程序时要牢记一个目标-管理过程代码库的复杂性。 换句话说，它应该改善代码组织。 没有客观公开的证据表明OOP比普通的程序编程要好。"
+}, {
+  "tag": "P",
+  "text": "The bitter truth is that OOP fails at the only task it was intended to address. It looks good on paper — we have clean hierarchies of animals, dogs, humans, etc. However, it falls flat once the complexity of the application starts increasing. Instead of reducing complexity, it encourages promiscuous sharing of mutable state and introduces additional complexity with its numerous design patterns. OOP makes common development practices, like refactoring and testing, needlessly hard.",
+  "translation": "严酷的事实是，OOP在它原本打算解决的唯一任务上失败了。 在纸上看起来很好—我们具有干净的动物，狗，人等的层次结构。但是，一旦应用程序的复杂性开始增加，它就会变得平坦。 与其降低复杂性，不如鼓励可变状态的混杂共享，并以其众多的设计模式引入额外的复杂性。 OOP使得不必要的通用开发实践（如重构和测试）变得困难。"
+}, {
+  "tag": "P",
+  "text": "Some might disagree with me, but the truth is that modern Java/C# OOP has never been properly designed. It never came out of a proper research institution (in contrast with Haskell/FP). Lambda calculus offers a complete theoretical foundation for Functional Programming. OOP has nothing to match that.",
+  "translation": "有些人可能不同意我的看法，但事实是，现代Java / C＃OOP从未经过适当的设计。 它从来没有来自适当的研究机构（与Haskell / FP相反）。 Lambda微积分为函数式编程提供了完整的理论基础。 OOP没有什么可比拟的。"
+}, {
+  "tag": "P",
+  "text": "Using OOP is seemingly innocent in the short-term, especially on greenfield projects. But what are the long-term consequences of using OOP? OOP is a time bomb, set to explode sometime in the future when the codebase gets big enough.",
+  "translation": "在短期内使用OOP似乎是无辜的，尤其是在新建项目中。 但是使用OOP的长期后果是什么？ OOP是定时炸弹，当代码库变得足够大时，它会在将来的某个时候爆炸。"
+}, {
+  "tag": "P",
+  "text": "Projects get delayed, deadlines get missed, developers get burned-out, adding in new features becomes next to impossible. The organization labels the codebase as the “legacy codebase”, and the development team plans a rewrite.",
+  "translation": "项目被拖延，错过了最后期限，开发人员精疲力尽，添加新功能几乎是不可能的。 该组织将代码库标记为“遗留代码库”，并且开发团队计划进行重写。"
+}, {
+  "tag": "P",
+  "text": "OOP is not natural for the human brain, our thought process is centered around “doing” things — go for a walk, talk to a friend, eat pizza. Our brains have evolved to do things, not to organize the world into complex hierarchies of abstract objects.",
+  "translation": "OOP对人脑而言并不自然，我们的思维过程围绕“做”的事情进行-散步，与朋友交谈，吃披萨。 我们的大脑已经进化为能够做事，而不是将世界组织成抽象对象的复杂层次。"
+}, {
+  "tag": "P",
+  "text": "OOP code is non-deterministic — unlike with functional programming, we’re not guaranteed to get the same output given the same inputs. This makes reasoning about the program very hard. As an oversimplified example, the output of 2+2 or calculator.Add(2, 2) mostly is equal to four, but sometimes it might become equal to three, five, and maybe even 1004. The dependencies of the Calculator object might change the result of the computation in subtle, but profound ways. OOPs…",
+  "translation": "OOP代码不是确定性的-与函数式编程不同，我们不能保证在输入相同的情况下获得相同的输出。 这使得对该程序进行推理非常困难。 举一个简化的例子，2 + 2或Calculator.Add（2，2）的输出通常等于4，但是有时它可能等于3、5，甚至1004。Calculator对象的依存关系可能会改变 微妙而深刻的计算结果。 糟糕..."
+}, {
+  "tag": "H1",
+  "text": "Disclaimer",
+  "translation": "免责声明"
+}, {
+  "tag": "P",
+  "text": "I’ll be honest, I’m not a raving fan of object-orientation. Of course, this article is going to be biased. However, I have good reasons to dislike OOP.",
+  "translation": "老实说，我不是狂热的面向对象。 当然，本文将有偏见。 但是，我有充分的理由不喜欢OOP。"
+}, {
+  "tag": "P",
+  "text": "I also understand that criticism of OOP is a very sensitive topic — I will probably offend many readers. However, I’m doing what I think is right. My goal is not to offend, but to raise awareness of the issues that OOP introduces.",
+  "translation": "我也了解批评OOP是一个非常敏感的话题-我可能会冒犯许多读者。 但是，我在做我认为正确的事情。 我的目标不是冒犯，而是提高对OOP引入的问题的认识。"
+}, {
+  "tag": "P",
+  "text": "I’m not criticizing Alan Kay’s OOP — he is a genius. I wish OOP was implemented the way he designed it. I’m criticizing the modern Java/C# approach to OOP.",
+  "translation": "我并不是在批评Alan Kay的OOP，他是个天才。 我希望以他设计的方式实施OOP。 我批评现代的Java / C＃OOP方法。"
+}, {
+  "tag": "P",
+  "text": "I think that it is not right that OOP is considered the de-facto standard for code organization by many people, including those in very senior technical positions. It is also unacceptable that many mainstream languages don’t offer any other alternatives to code organization other than OOP."
+}, {
+  "tag": "P",
+  "text": "Hell, I used to struggle a lot myself while working on OOP projects. And I had no single clue why I was struggling this much. Maybe I wasn’t good enough? I had to learn a couple more design patterns (I thought)! Eventually, I got completely burned out.",
+  "translation": "地狱，我在OOP项目上工作时经常会挣扎。 而且我没有一个线索可以说明我为什么要为此付出如此多的努力。 也许我还不够好？ 我不得不学习更多的设计模式（我认为）！ 最终，我完全精疲力尽了。"
+}, {
+  "tag": "P",
+  "text": "This post sums up my first-hand decade-long journey from Object-Oriented to Functional programming. Unfortunately, no matter how hard I try, I can no longer find use cases for OOP. I have personally seen OOP projects fail because they become too complex to maintain.",
+  "translation": "这篇文章总结了我从面向对象编程到函数式编程的第一手长达十年的旅程。 不幸的是，无论我多么努力，我都找不到OOP的用例。 我亲眼看到OOP项目失败，因为它们变得太复杂而无法维护。"
+}, {
+  "tag": "H1",
+  "text": "Object-Oriented Programming — The Trillion Dollar Disaster",
+  "translation": "面向对象编程—万亿美元灾难"
+}, {
+  "tag": "H2",
+  "text": "Why it’s time to move on from OOP",
+  "translation": "为什么要从OOP继续前进"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*yX-lpOM2F9cQYJqBl2dBSg.jpeg?q=20",
+  "caption": "Photo by Jungwoo Hong on Unsplash",
+  "type": "image",
+  "file": "1!yX-lpOM2F9cQYJqBl2dBSg.jpeg"
+}, {
+  "tag": "P",
+  "text": "OOP is considered by many to be the crown jewel of computer science. The ultimate solution to code organization. The end to all our problems. The only true way to write our programs. Bestowed upon us by the one true God of programming himself…",
+  "translation": "OOP被许多人视为计算机科学的皇冠上的明珠。 代码组织的最终解决方案。 我们所有问题的终结。 编写程序的唯一真实方法。 编程本身的一位真神赋予我们……"
+}, {
+  "tag": "P",
+  "text": "Until…it’s not, and people start succumbing under the weight of abstractions, and the complex graph of promiscuously shared mutable objects. Precious time and brainpower are being spent thinking about “abstractions” and “design patterns” instead of solving real-world problems."
+}, {
+  "tag": "P",
+  "text": "Many people have criticized Object-Oriented Programming, including very prominent software engineers. Heck, even the inventor of OOP himself is a well-known critic of modern OOP!",
+  "translation": "许多人批评了面向对象的编程，其中包括非常杰出的软件工程师。 赫克，甚至是OOP的发明者本人也是现代OOP的著名批评家！"
+}, {
+  "tag": "P",
+  "text": "The ultimate goal of every software developer should be to write reliable code. Nothing else matters if the code is buggy and unreliable. And what is the best way to write code that is reliable? Simplicity. Simplicity is the opposite of complexity. Therefore our first and foremost responsibility as software developers should be to reduce code complexity.",
+  "translation": "每个软件开发人员的最终目标应该是编写可靠的代码。 如果代码有错误且不可靠，则无所谓。 编写可靠代码的最佳方法是什么？ 简单。 简单与复杂相反。 因此，作为软件开发人员，我们的首要职责是降低代码复杂性。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/42/1*eSgw4TrT3_5kUU3QFFW4qA.jpeg?q=20",
+  "type": "image",
+  "file": "1!eSgw4TrT3_5kUU3QFFW4qA.jpeg"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Ilya Suzdalnitski的文章《Object-Oriented Programming — The Trillion Dollar Disaster》，参考：https://medium.com/better-programming/object-oriented-programming-the-trillion-dollar-disaster-92a4b666c7c7)",
+  "translation": "（本文翻译自Ilya Suzdalnitski的文章，《面向对象的编程—万亿美元灾难》，参考：https：//medium.com/better-programming/object-directional-programming-the-trillion-dollar-disaster-92a4b666c7c7）"
+}]
