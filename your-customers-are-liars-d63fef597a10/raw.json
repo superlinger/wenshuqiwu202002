@@ -1,0 +1,54 @@
+[{
+  "tag": "H1",
+  "text": "Your Customers Are Liars!",
+  "translation": "您的客户是骗子！"
+}, {
+  "tag": "P",
+  "text": "How can a milkshake teach you how to work with data startups.",
+  "translation": "奶昔如何教您如何与数据初创公司合作。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*AZiAnb87A9OyFcDY.jpeg?q=20",
+  "type": "image",
+  "file": "0!AZiAnb87A9OyFcDY.jpeg"
+}, {
+  "tag": "P",
+  "text": "I read a Harvard Business Review case study called Milkshake Marketing. If you watch the video, you might feel that it is a bit dated, but I think it can teach us a lesson: customers do not tell you the truth, sometimes.",
+  "translation": "我读了一份名为《奶昔行销》的《哈佛商业评论》案例研究。 如果您观看视频，您可能会觉得它有点过时，但是我认为它可以教给我们一个教训：有时客户不会告诉您真相。"
+}, {
+  "tag": "P",
+  "text": "In the case study, Clay Christensen talks about how customers were interviewed about how they like their milkshakes. Do they want them thick or thin? More chocolate or more vanilla, etc. The answers were applied to the milkshakes, but those changes, based on customer preferences, did not increase sales.",
+  "translation": "在案例研究中，克莱·克里斯滕森（Clay Christensen）谈到如何采访客户，了解他们如何喜欢奶昔。 他们想要厚还是薄？ 更多的巧克力或更多的香草等。答案适用于奶昔，但是根据客户的喜好，这些变化并没有增加销售量。"
+}, {
+  "tag": "H1",
+  "text": "Why?",
+  "translation": "为什么？"
+}, {
+  "tag": "P",
+  "text": "We can debate the cause; did they ask the wrong questions or did customers not tell the truth. Maybe it is both.",
+  "translation": "我们可以辩论原因。 他们问了错误的问题还是顾客没有说实话。 也许两者都是。"
+}, {
+  "tag": "P",
+  "text": "What did drive sales was when someone noticed how people bought their milkshakes. It turns out that they wanted them to be fast and filling. If you read the case study, you will see that when customers were observed, their behavior created different questions, which led to the correct answers. Those changes (i.e, getting milkshakes into the hands of hungry morning commuters faster) did increase sales.",
+  "translation": "推动销售的是某人注意到人们如何购买奶昔。 事实证明，他们希望它们快速而充实。 阅读案例研究后，您会发现，观察客户时，他们的行为会产生不同的问题，从而得出正确的答案。 这些变化（即更快地将奶昔送到饥饿的通勤者手中）确实增加了销量。"
+}, {
+  "tag": "P",
+  "text": "How does this apply to a technology startup?",
+  "translation": "这如何适用于技术初创公司？"
+}, {
+  "tag": "P",
+  "text": "Take sentiment analysis in natural language processing. It is hard to do, but if done right, it can lead to exciting insight for consumers and producers. But who needs it? Who values it? Will customers pay for it?",
+  "translation": "在自然语言处理中进行情感分析。 这很难做到，但是如果做得对，可以为消费者和生产者带来令人兴奋的见解。 但是谁需要呢？ 谁看重它？ 客户会为此付费吗？"
+}, {
+  "tag": "P",
+  "text": "I think it is a worthwhile exercise to observe your customers before you create changes or feedback questions. Its the context in which we see customer behavior that can drive what they value — which could help push your sales higher.",
+  "translation": "我认为在创建更改或反馈问题之前观察客户是值得的。 在这种情况下，我们可以看到客户的行为可以驱动他们的价值，这可以帮助您提高销售量。"
+}, {
+  "tag": "P",
+  "text": "We need to spend more time understanding our customers to build value.",
+  "translation": "我们需要花费更多的时间来了解我们的客户以创造价值。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自robert anzalone的文章《Your Customers Are Liars!》，参考：https://medium.com/datadriveninvestor/your-customers-are-liars-d63fef597a10)",
+  "translation": "（本文翻译自robert anzalone的文章，“您的客户都是骗子！”，参考：https：//medium.com/datadriveninvestor/your-customers-are-liars-d63fef597a10）"
+}]
