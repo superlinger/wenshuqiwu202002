@@ -1,0 +1,343 @@
+[{
+  "tag": "P",
+  "text": "I hope that I could teach you something useful.",
+  "translation": "我希望我能教你一些有用的东西。"
+}, {
+  "tag": "P",
+  "text": "Thanks for reading!",
+  "translation": "谢谢阅读！"
+}, {
+  "tag": "P",
+  "text": "If you have any questions, write me on LinkedIn!",
+  "translation": "如有任何疑问，请在LinkedIn上给我写信！"
+}, {
+  "tag": "P",
+  "text": "Also, check out my other articles on graspable machine learning topics.",
+  "translation": "另外，请查看其他有关可掌握的机器学习主题的文章。"
+}, {
+  "tag": "P",
+  "text": "Since you know how it works now, let’s get to a more interesting algorithm.",
+  "translation": "既然您知道它现在是如何工作的，那么让我们来看一个更有趣的算法。"
+}, {
+  "tag": "H1",
+  "text": "Reservoir Sampling",
+  "translation": "储层采样"
+}, {
+  "tag": "P",
+  "text": "Imagine that you have a large dataset and you want to uniformly sample an object. How could you do this? Well, if you know the size n of the data set, you can uniformly draw a random number k between 1 and n, scan the data set and take the k-th element.",
+  "translation": "假设您有一个庞大的数据集，并且想要对一个对象进行统一采样。 你怎么能这样 好吧，如果您知道数据集的大小n，则可以均匀地绘制介于1和n之间的随机数k，扫描数据集并取第k个元素。"
+}, {
+  "tag": "P",
+  "text": "But now imagine that you have a data stream and you have no clue in advance how many elements come in or when you want to stop reading the stream. Now it is getting difficult since you don’t know which range to draw your random index from. But this problem also has an easy solution, called Reservoir Sampling.",
+  "translation": "但是现在想象一下，您有一个数据流，并且事先不知道有多少元素进入，或者什么时候您想停止读取数据流。 现在变得越来越困难，因为您不知道从哪个范围绘制随机索引。 但是这个问题也有一个简单的解决方案，称为储层采样。"
+}, {
+  "tag": "P",
+  "text": "The idea is the following: You have a single box (the reservoir) for elements. When scanning the data stream, replace the content of the box with the current element with a certain probability.",
+  "translation": "想法如下：您有一个用于元素的框（容器）。 扫描数据流时，以一定的概率用当前元素替换框的内容。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*iGwuIsjKFZN3vGu8Fmc23A.png?q=20",
+  "caption": "A prototypical reservoir. Source: Super Mario World",
+  "type": "image",
+  "file": "1!iGwuIsjKFZN3vGu8Fmc23A.png"
+}, {
+  "tag": "P",
+  "text": "If I leave you alone with this idea, probably you could figure out the probability after some time. The goal after passing over n elements is to be able to have each element in the box with probability 1/n.",
+  "translation": "如果我不介意这个想法，也许您可以在一段时间后弄清楚概率。 经过n个元素之后的目标是能够使每个元素以1 / n的概率出现在框中。"
+}, {
+  "tag": "P",
+  "text": "In the easiest case, start with some constant probability p. But, for example, the probability of the first element being in the box after n-1 more elements is only (1-p)ⁿ, which exponentially small for any p<1 and not what we search for.",
+  "translation": "在最简单的情况下，从某个恒定概率p开始。 但是，例如，第一个元素在n-1个以上的元素之后出现在框中的概率仅为（1-p）ⁿ，对于任何p <1而不是我们要搜索的内容，它的指数均较小。"
+}, {
+  "tag": "P",
+  "text": "One idea to fix this: We have to decrease the probability of a swap the longer we scan the sequence. What is a simple decay rate? How about 1/n? Let’s try.",
+  "translation": "解决此问题的一个方法是：扫描序列的时间越长，我们就必须降低交换的可能性。 什么是简单衰减率？ 1 / n呢？ 咱们试试吧。"
+}, {
+  "tag": "P",
+  "text": "At first, the box is empty. We scan the first element and fill the box with the first element (with probability 1/1=1). So far so good.",
+  "translation": "首先，该框为空。 我们扫描第一个元素，并用第一个元素填充框（概率为1/1 = 1）。 到目前为止，一切都很好。"
+}, {
+  "tag": "P",
+  "text": "Now we get to the second element. We replace the content of the box with probability 1/2. After this step, the first element is in the box with probability 1/1 * 1/2 = 1/2, and the second element is inside the box with probability 1/2. Perfect! Let’s do another one.",
+  "translation": "现在我们进入第二个元素。 我们用1/2的概率替换盒子的内容。 完成此步骤后，第一个元素以1/1 * 1/2 = 1/2的概率位于框中，第二个元素以1/2的概率位于框中。 完善！ 让我们再做一个。"
+}, {
+  "tag": "P",
+  "text": "The third element is reached and it replaces the element within the box with probability 1/3. What is the probability that the first element is still in the box? It is the probability that it survived the first (ok, this is easy), second and third swap opportunity: 1/1 * 1/2 * 2/3 = 1/3. Looks good! And the second element? It had to survive the second and third swap opportunity, which happens with probability 1/2 * 2/3 = 1/3. It seems to work! And indeed, it does, as one can see with… induction!",
+  "translation": "到达第三个元素，它将以1/3的概率替换框中的元素。 第一个元素仍在框中的概率是多少？ 它是在第一次（好的，这很容易），第二和第三次交换机会中幸存下来的概率：1/1 * 1/2 * 2/3 = 1/3。 看起来不错！ 第二个要素？ 它必须度过第二个和第三个交换机会，发生的可能性为1/2 * 2/3 = 1/3。 看来可行！ 确实如此，正如人们可以看到的那样……归纳！"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*aKNfFphkeqkEmivHA3FkDw.png?q=20",
+  "type": "image",
+  "file": "1!aKNfFphkeqkEmivHA3FkDw.png"
+}, {
+  "tag": "P",
+  "text": "Here is the code:",
+  "translation": "这是代码："
+}, {
+  "tag": "PRE",
+  "text": "from random import randomclass ReservoirSampler:    def __init__(self):        self.result = None        self.n = 0    def update(self, element):        self.n += 1        if random() < 1 / self.n:  # Satisfied with prob. 1/n.            self.result = element",
+  "translation": "来自随机导入randomclass ReservoirSampler：def __init __（self）：self.result =无self.n = 0 def update（self，element）：self.n + = 1如果random（）<1 / self.n：＃满意 概率。 1 / n。 self.result =元素"
+}, {
+  "tag": "P",
+  "text": "We can do a quick check if it works. Let us repeatedly sample from a dataset of size 20. We expect to draw each element in about 5% of all cases.",
+  "translation": "我们可以快速检查一下是否可行。 让我们从大小为20的数据集中重复采样。我们期望在所有情况的5％中绘制每个元素。"
+}, {
+  "tag": "PRE",
+  "text": "results = []for _ in range(1000000):    r = ReservoirSampler()    for s in range(20):        r.update(s)    results.append(r.result)",
+  "translation": "结果= []对于_范围（1000000）：r = ReservoirSampler（）对于s范围（20）：r.update（s）results.append（r.result）"
+}, {
+  "tag": "P",
+  "text": "Visualizing results gives the following:",
+  "translation": "可视化结果给出以下内容："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*DL4sIpfsuXlbIMrdX_l0CA.png?q=20",
+  "type": "image",
+  "file": "1!DL4sIpfsuXlbIMrdX_l0CA.png"
+}, {
+  "tag": "P",
+  "text": "We can see that each element got sampled in around 5% of all trials. Perfect!",
+  "translation": "我们可以看到，在所有试验中大约有5％采样了每个元素。 完善！"
+}, {
+  "tag": "H1",
+  "text": "Conclusion",
+  "translation": "结论"
+}, {
+  "tag": "P",
+  "text": "We have seen that even nowadays memory-efficient algorithms are necessary. Clever tricks to process extremely large data sets are still relevant, and luckily, smart people have put a lot of effort into this field.",
+  "translation": "我们已经看到，即使在当今，也必须使用内存高效的算法。 处理超大数据集的巧妙技巧仍然很重要，幸运的是，聪明的人在该领域投入了很多精力。"
+}, {
+  "tag": "P",
+  "text": "In this article, I presented to you three quite simple examples of algorithms that should teach you how to approach the problem of extremely constraint memory.",
+  "translation": "在本文中，我向您介绍了三个非常简单的算法示例，这些示例应该教会您如何解决极度受限的内存问题。"
+}, {
+  "tag": "P",
+  "text": "Next time, if your data does not fit into your RAM again, think about if there might be a way to process it in a streaming fashion!",
+  "translation": "下次，如果您的数据不再适合您的RAM，请考虑是否可能有一种以流方式处理它的方法！"
+}, {
+  "tag": "P",
+  "text": "In Python, we can solve it using the following very simple class:",
+  "translation": "在Python中，我们可以使用以下非常简单的类来解决它："
+}, {
+  "tag": "PRE",
+  "text": "from math import infclass StreamingMinimum:    def __init__(self):        self.result = inf  # Immediately replaced by the 1st element    def update(self, element):        self.result = min(self.result, element)",
+  "translation": "从数学导入infclass StreamingMinimum：def __init __（self）：self.result = inf＃立即替换为第一个元素def update（self，element）：self.result = min（self.result，element）"
+}, {
+  "tag": "P",
+  "text": "You can use it via",
+  "translation": "您可以通过以下方式使用它"
+}, {
+  "tag": "PRE",
+  "text": "import numpy as npstream = iter(np.random.randn(10000))  # Simulate a streams = StreamingMinimum()for element in stream:    s.update(element)print(s.result)",
+  "translation": "import numpy as npstream = iter（np.random.randn（10000））＃模拟流= StreamingMinimum（）用于流中的元素：s.update（element）print（s.result）"
+}, {
+  "tag": "P",
+  "text": "Easy, right? Let’s increase the difficulty a bit.",
+  "translation": "容易吧？ 让我们增加难度。"
+}, {
+  "tag": "H2",
+  "text": "Finding the Mean",
+  "translation": "寻找均值"
+}, {
+  "tag": "P",
+  "text": "The same setting: big data set, but now we want to find the mean instead of the minimum.",
+  "translation": "相同的设置：大数据集，但现在我们想找到平均值而不是最小值。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*dWT5RecVbGG_96R_4gJANg.png?q=20",
+  "caption": "Of course, you knew the formula!",
+  "type": "image",
+  "file": "1!dWT5RecVbGG_96R_4gJANg.png"
+}, {
+  "tag": "P",
+  "text": "So, our problem now is the following:",
+  "translation": "因此，我们现在的问题如下："
+}, {
+  "tag": "P",
+  "text": "How to compute the mean of n+1 elements when we already have the mean of the first n elements?",
+  "translation": "当我们已经有了前n个元素的均值时，如何计算n + 1个元素的均值？"
+}, {
+  "tag": "P",
+  "text": "An easy solution is using the following identity that you would have probably come up with after thinking a little bit:",
+  "translation": "一个简单的解决方案是使用下面的标识，您可能会想一想："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*1MvVbNYifOoVbkbhKimUtA.png?q=20",
+  "type": "image",
+  "file": "1!1MvVbNYifOoVbkbhKimUtA.png"
+}, {
+  "tag": "P",
+  "text": "We can see that we don’t only have to store the old mean, but we also have to keep track of the number of elements n, since this is needed in the formula. In the case of computing the minimum, this was not necessary.",
+  "translation": "我们可以看到，我们不仅需要存储旧的均值，而且还必须跟踪元素n的数量，因为公式中需要这样做。 在计算最小值的情况下，这不是必需的。"
+}, {
+  "tag": "P",
+  "text": "Here is the class:",
+  "translation": "这是课程："
+}, {
+  "tag": "PRE",
+  "text": "class StreamingMean:    def __init__(self):        self.result = 0        self.n = 0    def update(self, element):        self.result = (self.result * self.n + element) / (self.n+1)        self.n += 1",
+  "translation": "class StreamingMean：def __init __（self）：self.result = 0 self.n = 0 def update（self，element）：self.result =（self.result * self.n + element）/（self.n + 1） self.n + = 1"
+}, {
+  "tag": "P",
+  "text": "You can test this code again as before. Just use the StreamingMean class instead of StreamingMinimum .",
+  "translation": "您可以像以前一样再次测试此代码。 只需使用StreamingMean类而不是StreamingMinimum即可。"
+}, {
+  "tag": "P",
+  "text": "Sanity check: the result is around 0, what we can also expect with standard normally distributed random variables. And again: checking the correctness of this algorithm is an easy induction exercise.",
+  "translation": "完整性检查：结果大约为0，这也是我们对标准正态分布随机变量的期望值。 再说一次：检查此算法的正确性是一个简单的归纳练习。"
+}, {
+  "tag": "P",
+  "text": "Now I hear some of you say:",
+  "translation": "现在我听到有人说："
+}, {
+  "tag": "P",
+  "text": "Why would I care about network stuff? I‘m a Machine Learning guy, duh! — you",
+  "translation": "我为什么要关心网络内容？ 我是机器学习的家伙，du！ -你"
+}, {
+  "tag": "P",
+  "text": "Well, there is another famous example from the Machine Learning world: Gradient Descent!",
+  "translation": "好吧，还有一个来自机器学习世界的著名例子：梯度下降！"
+}, {
+  "tag": "P",
+  "text": "If we deal with a small enough data set, it can fit into the (GPU) RAM completely, and we can use Batch Gradient Descent, i.e. put the complete data in the memory at once and process it. However, most of the time our working memory is too small, making it necessary to use the Stochastic Gradient Descent or the Mini-Batch Gradient Descent, which are examples of so-called Streaming Algorithms. Another example is the Hoeffding Tree Algorithm, which I described here.",
+  "translation": "如果我们处理足够小的数据集，则可以将其完全放入（GPU）RAM中，并且可以使用Batch Gradient Descent，即立即将完整的数据放入内存中并进行处理。 但是，大多数情况下，我们的工作内存太小，因此有必要使用随机梯度下降或最小批量梯度下降（所谓的流算法的示例）。 另一个示例是霍夫丁树算法，我在这里进行了介绍。"
+}, {
+  "tag": "P",
+  "text": "In this article, I want to show you a few examples of Streaming Algorithms, including Python implementations that you can use! Apart from making you aware of the problem, which I have already done. ;)",
+  "translation": "在本文中，我想向您展示一些流算法的示例，包括您可以使用的Python实现！ 除了让您意识到问题之外，我已经做到了。 ;）"
+}, {
+  "tag": "H1",
+  "text": "Intuition",
+  "translation": "直觉"
+}, {
+  "tag": "P",
+  "text": "With Streaming Algorithms, I refer to algorithms that are able to process an extremely large, maybe even unbounded, data set and compute some desired output using only a constant amount of RAM.",
+  "translation": "对于流算法，我指的是能够处理非常大的，甚至是无边界的数据集并仅使用恒定数量的RAM就能计算出所需输出的算法。"
+}, {
+  "tag": "P",
+  "text": "If the data set is unbounded, we call it a data stream. In this case, if we stop processing the data stream at some position n, we expect our algorithm to have a solution corresponding to the data seen up to this point.",
+  "translation": "如果数据集是无界的，我们称它为数据流。 在这种情况下，如果我们在位置n处停止处理数据流，则我们希望我们的算法具有与到目前为止所看到的数据相对应的解决方案。"
+}, {
+  "tag": "P",
+  "text": "In the following, just imagine that we either have an enormous data set on our hard disk that we want to process without loading it into our RAM at once (because we can’t) or that there is a source that outputs a data stream, for example, incoming tweets on Twitter. Both cases are handled the same way.",
+  "translation": "在下面的示例中，假设我们要么要处理硬盘上的大量数据集，而又不想立即将其加载到RAM中（因为我们不能），或者有一个源可以输出数据流， 例如，Twitter上的传入推文。 两种情况的处理方式相同。"
+}, {
+  "tag": "P",
+  "text": "I will phrase the upcoming examples in the language of large data sets since then we know that they are finite, and I don’t have to mention all the time that we stop reading a data stream.",
+  "translation": "从那时起，我将以大型数据集的语言来表述即将出现的示例，因为我们知道它们是有限的，而且我不必总是停止读取数据流。"
+}, {
+  "tag": "P",
+  "text": "We further assume that we can pass over the data exactly once.",
+  "translation": "我们进一步假设我们可以只传递一次数据。"
+}, {
+  "tag": "H1",
+  "text": "A gentle Start",
+  "translation": "温柔的开始"
+}, {
+  "tag": "P",
+  "text": "Let us get familiar with how we can design Streaming Algorithms using two simple examples.",
+  "translation": "让我们熟悉如何使用两个简单的示例设计流算法。"
+}, {
+  "tag": "H2",
+  "text": "Finding the Minimum",
+  "translation": "求最小"
+}, {
+  "tag": "P",
+  "text": "Imagine that there is an extremely large list of numbers, too large for your RAM. You want to find out the minimum of this list. In Python, classically you solve it like this:",
+  "translation": "想象一下，有一个非常庞大的数字列表，对于您的RAM来说太大了。 您想找出此列表的最小值。 在Python中，经典的解决方法是这样的："
+}, {
+  "tag": "PRE",
+  "text": "print(min(my_list))",
+  "translation": "打印（分钟（我的清单））"
+}, {
+  "tag": "P",
+  "text": "But this assumes that my_list is in the RAM already. So, how can we approach this in another way? Maybe you have found a solution already:",
+  "translation": "但这假设my_list已在RAM中。 那么，我们如何以另一种方式来解决呢？ 也许您已经找到了解决方案："
+}, {
+  "tag": "P",
+  "text": "Just read the data set number after number and update the minimum, whenever you find a smaller number.",
+  "translation": "只要找到一个较小的数字，就在数字之后读取数据集编号并更新最小值。"
+}, {
+  "tag": "P",
+  "text": "To be more precise: You read the first element and declare it the minimum. Then you read the second element, and if it is smaller than the current minimum (first element), declare it the minimum. Else, do nothing.",
+  "translation": "更精确地说：阅读第一个元素并将其声明为最小值。 然后读取第二个元素，如果它小于当前的最小值（第一个元素），则将其声明为最小值。 否则，什么都不做。"
+}, {
+  "tag": "P",
+  "text": "Then you read the third element, and if it is smaller than the current minimum, declare it the minimum. Else, do nothing.",
+  "translation": "然后，您读取第三个元素，如果它小于当前的最小值，则将其声明为最小值。 否则，什么都不做。"
+}, {
+  "tag": "P",
+  "text": "Then you read the fourth element, and if it is smaller than the current minimum, declare it the minimum. Else, do nothing.",
+  "translation": "然后，您读取第四个元素，如果它小于当前的最小值，则将其声明为最小值。 否则，什么都不做。"
+}, {
+  "tag": "P",
+  "text": "Ok, I stop it, you know where this is going. This basically works, because",
+  "translation": "好吧，我停下来，你知道这是怎么回事。 这基本上有效，因为"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*lcxBq9PE_nX791mRs-tXrQ.png?q=20",
+  "type": "image",
+  "file": "1!lcxBq9PE_nX791mRs-tXrQ.png"
+}, {
+  "tag": "P",
+  "text": "Using this formula, you can easily show via induction that the algorithm is correct. After reading the first element, the result is correct since a₁<∞ and hence min(∞, a₁)=a₁. The induction step is exactly the formula (think about it!). But enough of this, let us get back on track.",
+  "translation": "使用此公式，您可以通过归纳轻松地表明算法是正确的。 读取第一个元素后，结果正确，因为a since <∞，因此min（∞，a₁）=a₁。 归纳步骤正是公式（考虑一下！）。 但是，足够让我们回到正轨。"
+}, {
+  "tag": "H1",
+  "text": "Introduction to Streaming Algorithms",
+  "translation": "流算法简介"
+}, {
+  "tag": "H2",
+  "text": "A variety of Algorithms with Explanations and Implementations in Python",
+  "translation": "各种带有Python解释和实现的算法"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*92HlYLk5N-nu6GgX?q=20",
+  "caption": "Photo by Jon Flobrant on Unsplash",
+  "type": "image",
+  "file": "0!92HlYLk5N-nu6GgX"
+}, {
+  "tag": "P",
+  "text": "In the past, more than today programming meant to always keep in mind memory restrictions. While having 32 MB of RAM in the year 1990 was a fortune, nowadays sometimes even 32 GB on a home computer is not enough. While hard disks, RAM and GPU memories grew in size, so did the amount of data available. Therefore, it is still relevant to have a repertoire of memory-efficient algorithms.",
+  "translation": "在过去，编程比今天要意味着要始终牢记内存限制。 尽管在1990年拥有32 MB的RAM是一笔财富，但如今有时家用计算机甚至32 GB还是不够的。 硬盘，RAM和GPU内存的大小在增加时，可用数据量也在增加。 因此，拥有一系列存储器效率高的算法仍然很重要。"
+}, {
+  "tag": "H1",
+  "text": "Two small Examples",
+  "translation": "两个小例子"
+}, {
+  "tag": "P",
+  "text": "A classic example is an Internet switch that monitors different IPs sending packages to each other. A common task for a switch is to find out the heavy hitters, i.e. a pair of two IP addresses where IP₁ communicates extremely often to IP₂, compared to the other pairs. This is interesting since this might be an indicator of a Denial-of-Service attack.",
+  "translation": "一个典型的示例是Internet交换机，它监视彼此发送包的不同IP。 交换机的一项常见任务是找出麻烦的对象，即一对两个IP地址，与其他对相比，其中IP₁与IP 2的通信非常频繁。 这很有趣，因为这可能表示拒绝服务攻击。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*zWntPoHVm5y_Tz9R?q=20",
+  "caption": "Photo by Webaroo.com.au on Unsplash",
+  "type": "image",
+  "file": "0!zWntPoHVm5y_Tz9R"
+}, {
+  "tag": "P",
+  "text": "This sounds like an easy problem, right? Just implement some mapping from IP pairs (IP₁, IP₂) to the number of communications originating from IP₁ to IP₂. In Python, this could be a dictionary, an instance of the Counter class or an adjacency matrix. Then you can search for the highest k counts in the data structure and output the corresponding IP addresses.",
+  "translation": "这听起来像是一个简单的问题，对吗？ 只需实现一些从IP对（IP 1，IP 2）到从IP 1到IP 2的通信数量的映射。 在Python中，这可能是字典，Counter类的实例或邻接矩阵。 然后，您可以在数据结构中搜索最高的k个计数，并输出相应的IP地址。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*ZThW8IcUdBjIF8ZAmmvDFA.png?q=20",
+  "caption": "42.42.42.42 talked suspiciously often to 182.162.77.12, and 154.78.122.56 to 43.111.23.122. It might be worth investigating this.",
+  "type": "image",
+  "file": "1!ZThW8IcUdBjIF8ZAmmvDFA.png"
+}, {
+  "tag": "P",
+  "text": "But now think about the size of these data structures. A bigger switch can receive requests from millions of IPs and routes it to as many other IPs.",
+  "translation": "但是现在考虑一下这些数据结构的大小。 更大的交换机可以接收来自数百万个IP的请求，并将其路由到其他许多IP。"
+}, {
+  "tag": "P",
+  "text": "This means that we might end up with counts for millions times millions of IP pairs.",
+  "translation": "这意味着我们可能最终得到数百万乘以数百万的IP对。"
+}, {
+  "tag": "P",
+  "text": "This, paired with the usually low storage of a switch is fuel for a lot of trouble. It’s just impossible with this approach: we need an algorithm using less memory than storing everything. One way is using a Count-min Sketch. You can also search for “heavy hitters” on YouTube and find some nice explanations and examples if you are interested.",
+  "translation": "再加上通常存储空间不足的交换机，这会带来很多麻烦。 用这种方法是不可能的：我们需要一种比存储所有内容占用更少内存的算法。 一种方法是使用Count-min Sketch。 您也可以在YouTube上搜索“重击手”，如果有兴趣，可以找到一些不错的解释和示例。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Dr. Robert Kübler的文章《Introduction to Streaming Algorithms》，参考：https://towardsdatascience.com/introduction-to-streaming-algorithms-b71808de6d29)",
+  "translation": "（本文翻译自RobertKübler博士的文章《流算法简介》，参考：https：//towardsdatascience.com/introduction-to-streaming-algorithms-b71808de6d29）"
+}]
