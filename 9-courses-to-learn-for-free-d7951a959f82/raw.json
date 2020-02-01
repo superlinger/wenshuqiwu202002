@@ -1,0 +1,234 @@
+[{
+  "tag": "H1",
+  "text": "Final Thoughts",
+  "translation": "最后的想法"
+}, {
+  "tag": "P",
+  "text": "Taking a structured course can help you get out of the self-taught route and take you out of the tutorial rut by giving you a structure to topics and idea paths that you may not be aware of.",
+  "translation": "采取结构化的课程可以为您提供可能不知道的主题和想法路径的结构，从而帮助您摆脱自学之路，并使您脱离教程。"
+}, {
+  "tag": "P",
+  "text": "The main perk of the courses listed above is that they’re all free. That means that unless you want the certificate for showing purposes, the knowledge itself is free. The only cost is the initial time investment you put in.",
+  "translation": "上面列出的课程的主要好处是，它们都是免费的。 这意味着，除非您希望证书用于展示目的，否则知识本身是免费的。 唯一的成本就是您投入的初始时间。"
+}, {
+  "tag": "P",
+  "text": "Becoming a crafter of code is a constant act of learning. It doesn’t matter where you are in your your journey right now, learning is an activity that all the best developers have in common.",
+  "translation": "成为代码编写者是一种不断学习的行为。 无论您现在处于旅途中的哪个位置，学习都是所有优秀开发人员共同拥有的一项活动。"
+}, {
+  "tag": "H2",
+  "text": "9. Blockchain",
+  "translation": "9.区块链"
+}, {
+  "tag": "P",
+  "text": "Course by University at Buffalo and The State University of New York.",
+  "translation": "布法罗大学和纽约州立大学的课程。"
+}, {
+  "tag": "P",
+  "text": "Who isn’t talking about blockchain nowadays? It’s everywhere. But the issue with blockchain is that while there’s a lot of hype, a lot of people don’t really know what it is, what it does, or how it works.",
+  "translation": "如今谁在谈论区块链？ 到处都是。 但是区块链的问题在于，尽管有很多炒作，但很多人并不真正知道它是什么，它做什么或如何工作。"
+}, {
+  "tag": "P",
+  "text": "This is your chance to upgrade your skillset and get started on something that’s being touted as the next frontier of technology. It’s a different way of thinking about programming and how to create applications.",
+  "translation": "这是您提升技能的机会，并开始尝试被吹捧为下一个技术前沿的技术。 这是关于编程以及如何创建应用程序的另一种思考方式。"
+}, {
+  "tag": "P",
+  "text": "Blockchain is a revolution in action and this is your opportunity to be part of it.",
+  "translation": "区块链是一场革命，这是您参与其中的机会。"
+}, {
+  "tag": "H2",
+  "text": "8. IT Fundamentals for Cybersecurity",
+  "translation": "8.网络安全的IT基础"
+}, {
+  "tag": "P",
+  "text": "Course by IBM.",
+  "translation": "IBM的课程。"
+}, {
+  "tag": "P",
+  "text": "This course is created by IBM and aimed at beginners looking to get a better understanding of cybersecurity and how application building processes work.",
+  "translation": "本课程由IBM创建，面向希望对网络安全以及应用程序构建过程如何工作有更好了解的初学者。"
+}, {
+  "tag": "P",
+  "text": "The course content deals with security protocols, cybersecurity frameworks, and how cyber-attacks happen.",
+  "translation": "该课程内容涉及安全协议，网络安全框架以及网络攻击的发生方式。"
+}, {
+  "tag": "P",
+  "text": "Security is often one of the last things on people’s minds — until something happens. Then the magnificent Captain Hindsight kicks in! Having a good foundation in security that can help prevent these kinds of occurrences.",
+  "translation": "在某些事情发生之前，安全通常是人们心目中的最后一件事。 然后，宏伟的Hindsight船长踢了！ 在安全方面拥有良好的基础，可以帮助防止此类事件的发生。"
+}, {
+  "tag": "P",
+  "text": "You don’t have to be a coder to start this program, or even be looking to learn how to code. Rather, this course is suitable for all, regardless of your current discipline.",
+  "translation": "您无需成为编码器即可启动此程序，甚至不必学习如何编码。 而是，此课程适合所有学生，而不论您当前的学科是什么。"
+}, {
+  "tag": "H2",
+  "text": "7. Cloud Computing",
+  "translation": "7.云计算"
+}, {
+  "tag": "P",
+  "text": "Course by University of Illinois at Urbana-Champaign.",
+  "translation": "伊利诺伊大学香槟分校的课程。"
+}, {
+  "tag": "P",
+  "text": "The courses in this track are part of their Master in Computer Science degree. However, the content track for this certification is geared toward becoming an expert in cloud computing theories and technologies."
+}, {
+  "tag": "P",
+  "text": "It also touches on big data and how to deal with it in the cloud.",
+  "translation": "它还涉及大数据以及如何在云中进行处理。"
+}, {
+  "tag": "P",
+  "text": "This track is not for beginners and is better suited to those who already have experience in development work and maybe some years working with applications. It’s more of an upgrading of skill and knowledge.",
+  "translation": "本教程不适合初学者，更适合于那些已经在开发工作方面有经验并且可能在应用程序领域工作了几年的人。 这更多是技能和知识的提升。"
+}, {
+  "tag": "H2",
+  "text": "6. Architecting with Google Compute Engine",
+  "translation": "6.使用Google Compute Engine进行架构设计"
+}, {
+  "tag": "P",
+  "text": "Course by Google Cloud.",
+  "translation": "Google Cloud课程。"
+}, {
+  "tag": "P",
+  "text": "Cloud computing is the flavor of the coming decade and this course was created by Google to help you understand and work with their technologies.",
+  "translation": "云计算是未来十年的风潮，本课程由Google创建，旨在帮助您了解和使用其技术。"
+}, {
+  "tag": "P",
+  "text": "You’ll learn about infrastructure, the core services Google offers, how they work, as well as concepts and theories about cloud computing.",
+  "translation": "您将了解基础架构，Google提供的核心服务，它们的工作方式以及有关云计算的概念和理论。"
+}, {
+  "tag": "P",
+  "text": "This course is suited for those who already have some programming skills and want to upgrade into a true full-stack developer.",
+  "translation": "本课程适合那些已经具备一些编程技能并想要升级为真正的全栈开发人员的人。"
+}, {
+  "tag": "P",
+  "text": "Just because they can boot up something in the cloud, it doesn’t instantly make you a true full-stack developer. Cloud infrastructure and architecture is a complex creature, as complex as all the other parts of development work, and this certification track can bolster your knowledge and make you a better full stack developer.",
+  "translation": "仅仅因为他们可以在云中启动某些东西，它并不能立即使您成为真正的全栈开发人员。 云基础架构和体系结构是复杂的事物，与开发工作的所有其他部分一样复杂，并且此认证途径可以增强您的知识，并使您成为更好的全栈开发人员。"
+}, {
+  "tag": "H2",
+  "text": "5. Computational Thinking Using Python",
+  "translation": "5.使用Python进行计算思维"
+}, {
+  "tag": "P",
+  "text": "Course by Massachusetts Institute of Technology.",
+  "translation": "麻省理工学院的课程。"
+}, {
+  "tag": "P",
+  "text": "This is another beginner course, aimed at people who want to get started and test the waters with programming but don’t know where to start.",
+  "translation": "这是另一门初学者课程，适用于希望入门并通过编程测试水域却又不知道从哪里开始的人们。"
+}, {
+  "tag": "P",
+  "text": "The length of time required to complete this program (estimated at 5 months 14–16 hours per week commitment) suggests that the program is meatier in content.",
+  "translation": "完成该程序所需的时间长度（估计为5个月，每周承诺14-16小时）表明该程序的内容更加丰富。"
+}, {
+  "tag": "P",
+  "text": "The program overview says that you don’t need prior experience in computer science-related subjects and topics to get started. This means you’ll learn the important concepts that make up the foundation of computational thinking.",
+  "translation": "该计划概述说，您不需要具备与计算机科学相关的主题的专业经验就可以开始。 这意味着您将学习构成计算思维基础的重要概念。"
+}, {
+  "tag": "H2",
+  "text": "4. Introduction to Computer Science",
+  "translation": "4.计算机科学导论"
+}, {
+  "tag": "P",
+  "text": "Course by Microsoft.",
+  "translation": "Microsoft课程。"
+}, {
+  "tag": "P",
+  "text": "This certification consists of three courses and deals mainly with Python. The program is aimed at absolute beginners, which means that you’re not expected to know anything at all about programming.",
+  "translation": "该认证包括三门课程，主要涉及Python。 该程序面向绝对的初学者，这意味着您不会对编程有所了解。"
+}, {
+  "tag": "P",
+  "text": "It’s 100% self-paced and you can work through the program without needing to pay anything for access.",
+  "translation": "它是100％自定进度的，您无需支付任何访问费用就可以完成该程序。"
+}, {
+  "tag": "P",
+  "text": "If you’re looking for a starting foundational course, the free content in this one can help kickstart your career in tech. However, it’s important to note that this course is very Python-centric — which isn’t a bad thing, but if you’re looking for a general course, perhaps because your mind is better suited to generalist ways of learning, then the Harvard courses may be better for you.",
+  "translation": "如果您正在寻找入门基础课程，则本课程中的免费内容可以帮助您启动技术职业。 但是，需要注意的是，本课程是非常以Python为中心的-这不是一件坏事，但是如果您正在寻找通识课程，也许是因为您的思维更适合通才学习方法，那么哈佛 课程可能对您更好。"
+}, {
+  "tag": "H2",
+  "text": "3. Artificial Intelligence (AI)",
+  "translation": "3.人工智能（AI）"
+}, {
+  "tag": "P",
+  "text": "Course by Microsoft.",
+  "translation": "Microsoft课程。"
+}, {
+  "tag": "P",
+  "text": "This course is a bit more expensive to complete. However, it consists of 11 different courses with a focus on Python. Each course has its own certified certificate, with all 11 adding up to a professional certificate from Microsoft.",
+  "translation": "这门课程的完成成本更高。 但是，它包含11个不同的课程，重点是Python。 每个课程都有自己的认证证书，所有11门课程加起来都是Microsoft的专业证书。"
+}, {
+  "tag": "P",
+  "text": "It’s self-paced and the expected workload is approximately 4–6 hours per week — or an hour a night if you’re looking to slowly digest the content. Because it’s self-paced you can finish it faster if you have more time you can devote to it.",
+  "translation": "它是自定进度的，预期的工作量大约是每周4–6小时-如果您想慢慢地消化内容，则是每晚一个小时。 由于它具有自定进度，因此如果您有更多时间可以投入到它，则可以更快地完成它。"
+}, {
+  "tag": "P",
+  "text": "The course includes deep learning, ethics, artificial intelligence, and machine learning.",
+  "translation": "该课程包括深度学习，伦理学，人工智能和机器学习。"
+}, {
+  "tag": "H2",
+  "text": "2. Computer Science and Mobile Apps",
+  "translation": "2.计算机科学与移动应用"
+}, {
+  "tag": "P",
+  "text": "Course by HarvardX.",
+  "translation": "哈佛大学的课程。"
+}, {
+  "tag": "P",
+  "text": "This is another professional certificate by Harvard University via EdX. The first part of this course is the same as above — the second half sends you down a mobile application specialty with React Native.",
+  "translation": "这是哈佛大学通过EdX颁发的另一份专业证书。 本课程的第一部分与上文相同-下半部分将带您使用React Native进行移动应用程序专业培训。"
+}, {
+  "tag": "P",
+  "text": "If you’re looking specifically to get into front end development, the previously listed course is better suited. But if you’re looking to have cross-functional skills with mobile development, then this track may be right for you.",
+  "translation": "如果您想专门从事前端开发，那么上面列出的课程比较合适。 但是，如果您希望在移动开发方面具有跨职能技能，那么此课程可能适合您。"
+}, {
+  "tag": "P",
+  "text": "Whatever you end up choosing, you can still do the other path in conjunction since the content will eventually crop up in real-life scenarios.",
+  "translation": "无论最终选择什么，您仍然可以结合其他方法，因为内容最终将在现实生活中出现。"
+}, {
+  "tag": "H2",
+  "text": "1. Computer Science for Web Programming",
+  "translation": "1.用于网络编程的计算机科学"
+}, {
+  "tag": "P",
+  "text": "Course by HarvardX.",
+  "translation": "哈佛大学的课程。"
+}, {
+  "tag": "P",
+  "text": "This certificate contains one course that’s broken up into two parts. Both parts are free. The price of a verified certificate is about the same as a week’s worth of groceries for one person, so it’s not too bad.",
+  "translation": "该证书包含一门课程，分为两部分。 这两部分都是免费的。 验证证书的价格大约相当于一个人一周的杂货价值，因此也不错。"
+}, {
+  "tag": "P",
+  "text": "The first part covers the introductory component to web programming and touches on C, Python, SQL, JavaScript, CSS and HTML. The second part deals with more in-depth topics and includes Git, using APIs, SQL, scalability, testing, and various front end technologies.",
+  "translation": "第一部分介绍Web编程的介绍性组件，并涉及C，Python，SQL，JavaScript，CSS和HTML。 第二部分涉及更深入的主题，包括使用API，SQL，可伸缩性，测试和各种前端技术的Git。"
+}, {
+  "tag": "P",
+  "text": "All in all, the entire course can be completed in approximately 20 weeks. But, because it’s self-paced, it can be completed faster.",
+  "translation": "总而言之，整个课程可以在大约20周内完成。 但是，由于它是自定进度的，因此可以更快地完成。"
+}, {
+  "tag": "H1",
+  "text": "9 Free Programming Courses by Harvard, MIT, IBM, Google, and Microsoft",
+  "translation": "哈佛，麻省理工，IBM，Google和Microsoft提供的9项免费编程课程"
+}, {
+  "tag": "H2",
+  "text": "Get certified for the price of your groceries!",
+  "translation": "获得食品杂货价格的认证！"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*qkbk16Fv7pnWU-D9cEud5A.png?q=20",
+  "caption": "Logos compiled by Aphinya Dechalert",
+  "type": "image",
+  "file": "1!qkbk16Fv7pnWU-D9cEud5A.png"
+}, {
+  "tag": "P",
+  "text": "A traditional degree can be costly, especially if you’re thinking about a career change or don’t want to rack up a large student loan. While community colleges and local institutions tend to be much lower in cost, you might be unsure about such a long-term commitment or have family-related logistics to coordinate. Or maybe you just want to formally upgrade your skills without taking three years off.",
+  "translation": "传统学位的费用可能很高，尤其是在您考虑转行或不想为学生提供大笔贷款时。 虽然社区学院和地方机构的成本往往要低得多，但您可能不确定这样的长期承诺或需要与家庭相关的后勤协调。 或者，也许您只是想在不花三年时间的情况下正式提升自己的技能。"
+}, {
+  "tag": "P",
+  "text": "Here are nine courses where you can learn coding for free. The best part is that you can also get certified by ivy league institutes or industry leaders like Google, AWS, Microsoft, and IBM.",
+  "translation": "这里有九门课程，您可以免费学习编码。 最好的部分是您还可以通过常春藤联盟机构或Google，AWS，Microsoft和IBM等行业领导者的认证。"
+}, {
+  "tag": "P",
+  "text": "For the courses listed here, learning the content and completing the associated materials is often free but getting the accreditation for it can cost a little, depending on the provider and institution.",
+  "translation": "对于此处列出的课程，学习内容和完成相关材料通常是免费的，但要获得认证可能会花费一些钱，具体取决于提供者和机构。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Aphinya Dechalert的文章《9 Free Programming Courses by Harvard, MIT, IBM, Google, and Microsoft》，参考：https://medium.com/better-programming/9-courses-to-learn-for-free-d7951a959f82)",
+  "translation": "（本文翻译自Aphinya Dechalert的文章《哈佛，麻省理工，IBM，谷歌和微软的9道免费编程课程》，参考：https：//medium.com/better-programming/9-courses-to-learn-for- 免费-d7951a959f82）"
+}]
