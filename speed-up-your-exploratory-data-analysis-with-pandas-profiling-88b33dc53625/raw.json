@@ -1,0 +1,176 @@
+[{
+  "tag": "H1",
+  "text": "Speed Up Your Exploratory Data Analysis With Pandas-Profiling",
+  "translation": "使用Pandas-Profiling加快探索性数据分析的速度"
+}, {
+  "tag": "H2",
+  "text": "Get an intuition of your data’s structure with just one line of code",
+  "translation": "只需一行代码，即可直观了解数据的结构"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*5wtmLbUow_4piutRlvrJVg.jpeg?q=20",
+  "caption": "Source: https://unsplash.com/photos/gts_Eh4g1lk",
+  "type": "image",
+  "file": "1!5wtmLbUow_4piutRlvrJVg.jpeg"
+}, {
+  "tag": "H1",
+  "text": "Introduction",
+  "translation": "介绍"
+}, {
+  "tag": "P",
+  "text": "When importing a new data set for the very first time, the first thing to do is to get an understanding of the data. This includes steps like determining the range of specific predictors, identifying each predictor’s data type, as well as computing the number or percentage of missing values for each predictor.",
+  "translation": "第一次导入新数据集时，要做的第一件事就是了解数据。 这包括确定特定预测变量的范围，识别每个预测变量的数据类型以及计算每个预测变量的缺失值的数量或百分比之类的步骤。"
+}, {
+  "tag": "P",
+  "text": "The pandas library provides many extremely useful functions for EDA. However, before being able to apply most of them, you generally have to start with more general functions, such as df.describe(). Nevertheless, the functionality provided by such functions is limited and more often than not your initial EDA workflow is very similar for each new data set. As someone that does not find great joy in completing repetitive tasks, I recently searched for alternatives and came across pandas-profiling. Instead of just giving you a single output, pandas-profiling enables its user to quickly generate a very broadly structured HTML file containing most of what you might need to know before diving into a more specific and individual data exploration. In the following paragraphs, I am going to walk you through the application of pandas-profiling to the Titanic data set.",
+  "translation": "pandas库为EDA提供了许多非常有用的功能。 但是，在应用其中的大多数功能之前，通常必须先从更通用的功能开始，例如df.describe（）。 但是，此类功能所提供的功能是有限的，而且对于每个新数据集，您最初的EDA工作流程通常都非常相似。 作为一个在完成重复性任务时并没有感到非常高兴的人，我最近寻找了替代方法，并遇到了对熊猫进行剖析的情况。 Pandas概要分析不仅使您仅获得单个输出，还使用户可以快速生成结构非常广泛的HTML文件，其中包含您可能需要了解的大部分内容，然后才能进行更具体的个人数据探究。 在下面的段落中，我将引导您完成对Titanic数据集的熊猫轮廓分析的应用。"
+}, {
+  "tag": "H1",
+  "text": "Faster EDA",
+  "translation": "更快的EDA"
+}, {
+  "tag": "P",
+  "text": "I chose to apply pandas-profiling to the Titanic data set due to the data’s variety in type as well as its missing values. In my opinion, pandas-profiling is particularly interesting when the data is not cleaned yet and still requires further individualized adjustments. To better guide your focus during these individualized adjustments, you need to know where to start and what to focus on. This is where pandas-profiling comes in.",
+  "translation": "由于数据类型多样且缺少值，因此我选择对Titanic数据集应用熊猫分析。 我认为，当尚未清除数据并且仍需要进一步的个性化调整时，对熊猫进行分析特别有趣。 为了在这些个性化调整过程中更好地引导您的注意力，您需要知道从哪里开始以及应该关注什么。 这就是熊猫分析的用武之地。"
+}, {
+  "tag": "P",
+  "text": "First, let’s import the data and use pandas to retrieve some descriptive statistics:",
+  "translation": "首先，让我们导入数据并使用熊猫检索一些描述性统计信息："
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/lksfr/2d8efb25319c2297486d50e62df82633/raw/0f8f2caee09e833ef702a35d99a73c287e38790d/uno.py",
+  "code": "# importing required packages\nimport pandas as pd\nimport pandas_profiling\nimport numpy as np\n\n# importing the data\ndf = pd.read_csv('/Users/lukas/Downloads/titanic/train.csv')\n\n# descriptive statistics\ndf.describe()"
+}, {
+  "tag": "P",
+  "text": "The code chunk above will yield the following output:",
+  "translation": "上面的代码块将产生以下输出："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*HjTwgitMvweOWs7d6qt0pw.png?q=20",
+  "type": "image",
+  "file": "1!HjTwgitMvweOWs7d6qt0pw.png"
+}, {
+  "tag": "P",
+  "text": "While the output above contains lots of information, it does not tell you everything you might be interested in. For instance, you could assume that the data frame has 891 rows. If you wanted to check, you would have to add another line of code to determine the length of the data frame. While these computations are not very expensive, repeating them over and over again does take up time you could probably better use while cleaning the data.",
+  "translation": "尽管上面的输出包含很多信息，但是并不能告诉您可能感兴趣的所有内容。例如，您可以假设数据帧有891行。 如果要检查，则必须添加另一行代码以确定数据帧的长度。 尽管这些计算不是很昂贵，但是一遍又一遍地重复它们确实会花费一些时间，您可能在清理数据时可能会更好地使用它们。"
+}, {
+  "tag": "H2",
+  "text": "Overview",
+  "translation": "总览"
+}, {
+  "tag": "P",
+  "text": "Now, let’s do the same with pandas-profiling:",
+  "translation": "现在，让我们对pandas进行分析："
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/lksfr/b2ade654253c0056107bceed3edb1bb5/raw/d0fa22e5d94c05e4e0055483c99d84ddbe7abd41/dos.py",
+  "code": "pandas_profiling.ProfileReport(df)"
+}, {
+  "tag": "P",
+  "text": "Running this single line of code will create an HTML EDA report of your data. The code displayed above will create an inline output of the result; however, you could also choose to save your EDA report as an HTML file to be able to share it more easily.",
+  "translation": "运行这一行代码，将创建数据的HTML EDA报告。 上面显示的代码将创建结果的内联输出； 但是，您也可以选择将EDA报告另存为HTML文件，以便更轻松地共享它。"
+}, {
+  "tag": "P",
+  "text": "The first part of the HTML EDA report will contain an overview section providing you with basic information (number of observations, number of variables, etc.). It will also output a list of warnings telling you where to double-check the data and potentially focus your cleaning efforts on.",
+  "translation": "HTML EDA报告的第一部分将包含一个概述部分，为您提供基本信息（观察值，变量数等）。 它还会输出警告列表，告诉您在哪里要再次检查数据并可能将精力集中在清洁上。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*ApMODlv-fLqgF7pESsHf5w.png?q=20",
+  "caption": "Overview Output",
+  "type": "image",
+  "file": "1!ApMODlv-fLqgF7pESsHf5w.png"
+}, {
+  "tag": "H2",
+  "text": "Variable-Specific EDA",
+  "translation": "特定于变量的EDA"
+}, {
+  "tag": "P",
+  "text": "Following the overview, the EDA report provides you with helpful insights for each specific variable. These also include a small visualization describing the distribution of each variable:",
+  "translation": "在概述之后，EDA报告为您提供了每个特定变量的有用见解。 这些还包括一个小的可视化视图，描述了每个变量的分布："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*zac_xOJhOSPL9CPbebrjWA.png?q=20",
+  "caption": "Output for numeric variable ‘Age’",
+  "type": "image",
+  "file": "1!zac_xOJhOSPL9CPbebrjWA.png"
+}, {
+  "tag": "P",
+  "text": "As can be seen above, pandas-profiling provides you with a few helpful indicators, such as the percentage and number of missing values along with the descriptive statistics we saw earlier. Since ‘Age’ is a numeric variable, visualizing its distribution using a histogram tells us that this variable seems to be right-skewed.",
+  "translation": "从上面可以看出，pandas分析为您提供了一些有用的指标，例如缺失值的百分比和数量以及我们之前看到的描述性统计信息。 由于“年龄”是一个数字变量，因此使用直方图可视化其分布可以告诉我们该变量似乎是右偏的。"
+}, {
+  "tag": "P",
+  "text": "For a categorical variable, only minor changes are made:",
+  "translation": "对于类别变量，仅进行了较小的更改："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*poM1Oo9mdXEqtf9DYO_5mA.png?q=20",
+  "caption": "Output for categorical variable ‘Sex’",
+  "type": "image",
+  "file": "1!poM1Oo9mdXEqtf9DYO_5mA.png"
+}, {
+  "tag": "P",
+  "text": "Instead of computing the mean, minimum, and maximum, pandas-profiling computes the class counts for categorical variables. Since ‘Sex’ is a binary variable, we only find two distinct counts.",
+  "translation": "熊猫分析而不是计算均值，最小值和最大值，而是计算分类变量的类计数。 由于“性别”是一个二进制变量，因此我们只能找到两个不同的计数。"
+}, {
+  "tag": "P",
+  "text": "If you are like me, you might be wondering how exactly pandas-profiling computes its output. Luckily, the source code is available on GitHub. Since I am not a big fan of fabricating unnecessary black-box parts in my code, I am going to quickly dive into the source code for a numeric variable:",
+  "translation": "如果您像我一样，您可能想知道熊猫分析如何精确计算其输出。 幸运的是，源代码在GitHub上可用。 由于我不喜欢在代码中构造不必要的黑匣子部件，因此我将快速了解数字变量的源代码："
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/lksfr/01a8c0f4862c8831712246400f5e0e7b/raw/78518bfced339a69bef449042eb12296bd971115/source.py",
+  "code": "def describe_numeric_1d(series, **kwargs):\n    \"\"\"Compute summary statistics of a numerical (`TYPE_NUM`) variable (a Series).\n    Also create histograms (mini an full) of its distribution.\n    Parameters\n    ----------\n    series : Series\n        The variable to describe.\n    Returns\n    -------\n    Series\n        The description of the variable as a Series with index being stats keys.\n    \"\"\"\n    # Format a number as a percentage. For example 0.25 will be turned to 25%.\n    _percentile_format = \"{:.0%}\"\n    stats = dict()\n    stats['type'] = base.TYPE_NUM\n    stats['mean'] = series.mean()\n    stats['std'] = series.std()\n    stats['variance'] = series.var()\n    stats['min'] = series.min()\n    stats['max'] = series.max()\n    stats['range'] = stats['max'] - stats['min']\n    # To avoid to compute it several times\n    _series_no_na = series.dropna()\n    for percentile in np.array([0.05, 0.25, 0.5, 0.75, 0.95]):\n        # The dropna() is a workaround for https://github.com/pydata/pandas/issues/13098\n        stats[_percentile_format.format(percentile)] = _series_no_na.quantile(percentile)\n    stats['iqr'] = stats['75%'] - stats['25%']\n    stats['kurtosis'] = series.kurt()\n    stats['skewness'] = series.skew()\n    stats['sum'] = series.sum()\n    stats['mad'] = series.mad()\n    stats['cv'] = stats['std'] / stats['mean'] if stats['mean'] else np.NaN\n    stats['n_zeros'] = (len(series) - np.count_nonzero(series))\n    stats['p_zeros'] = stats['n_zeros'] * 1.0 / len(series)\n    # Histograms\n    stats['histogram'] = histogram(series, **kwargs)\n    stats['mini_histogram'] = mini_histogram(series, **kwargs)\n    return pd.Series(stats, name=series.name)"
+}, {
+  "tag": "P",
+  "text": "While this might seem like a huge code chunk, it is actually very easy to understand. Pandas-profiling’s source code includes another function determining the type of each variable. Should the variable be identified as a numeric variable, the function above will produce the output I showed earlier. This function uses fundamental pandas series operations, such as series.mean(), and stores the results in the stats dictionary. The plots are generated using adapted versions of matplotlib’s matplotlib.pyplot.hist function with the intention of being able to handle diverse types of data sets.",
+  "translation": "尽管这似乎是一个巨大的代码块，但实际上却很容易理解。 Pandas配置文件的源代码包括另一个确定每个变量类型的函数。 如果将变量标识为数字变量，则上面的函数将产生我之前显示的输出。 此函数使用基本的pandas系列操作（例如series.mean（）），并将结果存储在stats字典中。 这些图是使用matplotlib的matplotlib.pyplot.hist函数的改编版本生成的，旨在能够处理各种类型的数据集。"
+}, {
+  "tag": "H2",
+  "text": "Correlations & Sample",
+  "translation": "相关性和样本"
+}, {
+  "tag": "P",
+  "text": "Underneath the EDA for each specific variable, pandas-profiling will output both a Pearson and Spearman correlation matrix.",
+  "translation": "在每个特定变量的EDA之下，pandas分析将同时输出Pearson和Spearman相关矩阵。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*hgqgyfBI1UbTsa-dAeSUtQ.png?q=20",
+  "caption": "Pearson correlation matrix output",
+  "type": "image",
+  "file": "1!hgqgyfBI1UbTsa-dAeSUtQ.png"
+}, {
+  "tag": "P",
+  "text": "If you would like to, you can set some correlation thresholds in the initial line of code that generated the report. In doing so, you are able to adjust what strength of correlation you deem important for your analysis.",
+  "translation": "如果愿意，可以在生成报告的代码的初始行中设置一些相关性阈值。 这样，您就可以调整您认为对分析重要的相关强度。"
+}, {
+  "tag": "P",
+  "text": "Lastly, pandas-profiling will output a code sample. Strictly speaking, this is not a code sample but just the head of your data. This could lead to issues when the first few observations are not representative of the data’s characteristics in general.",
+  "translation": "最后，pandas分析将输出一个代码示例。 严格来说，这不是代码示例，而只是数据的开头。 当前几个观察结果通常不能代表数据的特征时，这可能会导致问题。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*8aCyLPNQFdZCT2xTHc6QIw.png?q=20",
+  "type": "image",
+  "file": "1!8aCyLPNQFdZCT2xTHc6QIw.png"
+}, {
+  "tag": "P",
+  "text": "Thus, I would recommend not using this last output for your initial analysis and instead running df.sample(5), which will randomly choose five observations from your data set.",
+  "translation": "因此，建议不要将最后的输出用于初始分析，而应运行df.sample（5），它将从数据集中随机选择五个观测值。"
+}, {
+  "tag": "H1",
+  "text": "Conclusion",
+  "translation": "结论"
+}, {
+  "tag": "P",
+  "text": "All in all, pandas-profiling provides some useful features, especially if your main objective is either to get a quick and dirty understanding of your data or to share your initial EDA with others in a visual format. Nevertheless, it does not come close to automating EDA. The actual, individualized work will still have to be completed manually.",
+  "translation": "总而言之，pandas分析提供了一些有用的功能，尤其是当您的主要目标是快速而又肮脏地理解数据或以可视格式与他人共享您的初始EDA时。 然而，它还不接近于自动化EDA。 实际的个性化工作仍然必须手动完成。"
+}, {
+  "tag": "P",
+  "text": "If you would like to see the entire EDA in one notebook, check out the notebook I used in nbviewer online. You can also find the code on my GitHub repo for Medium articles.",
+  "translation": "如果您想在一个笔记本中查看整个EDA，请在线查看我在nbviewer中使用的笔记本。 您也可以在我的GitHub存储库中找到有关中型文章的代码。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Lukas Frei的文章《Speed Up Your Exploratory Data Analysis With Pandas-Profiling》，参考：https://towardsdatascience.com/speed-up-your-exploratory-data-analysis-with-pandas-profiling-88b33dc53625)",
+  "translation": "（本文翻译自Lukas Frei的文章《使用Pandas-Profiling加快探索性数据分析》，参考：https：//towardsdatascience.com/speed-up-your-exploratory-data-analysis-with-pandas-profiling-88b33dc53625 ）"
+}]
