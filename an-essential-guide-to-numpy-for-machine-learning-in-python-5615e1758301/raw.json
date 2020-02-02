@@ -1,0 +1,335 @@
+[{
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*83d9FrJ1uYxKDhT1p0pn2w.jpeg?q=20",
+  "type": "image",
+  "file": "1!83d9FrJ1uYxKDhT1p0pn2w.jpeg"
+}, {
+  "tag": "H1",
+  "text": "Why would this be useful to you?",
+  "translation": "为什么这对您有用？"
+}, {
+  "tag": "P",
+  "text": "Well since most of us tend to forget(In case of those already who already implemented ML algorithms) the various library functions and end up writing code for pre-existing functions using sheer logic which is a waste of both time and energy, in such times it becomes essential if one understands the nuances of the Library being used efficiently. So Numpy being one of the essential libraries for Machine Learning requires an article of its own.",
+  "translation": "好吧，因为我们大多数人都倾向于忘记（对于已经实施了ML算法的人而言），各种库函数最终会使用纯粹的逻辑为预先存在的函数编写代码，这在这种情况下既浪费时间又浪费精力 如果人们了解有效利用图书馆的细微差别，就变得至关重要。 因此，Numpy作为机器学习必不可少的库之一，需要自己撰写一篇文章。"
+}, {
+  "tag": "H1",
+  "text": "Who are the readers of this Article?",
+  "translation": "谁是本文的读者？"
+}, {
+  "tag": "P",
+  "text": "Since understanding Numpy is the starting point of Data Pre-processing and later on implementing ML Algorithms, So you can be someone who is about to learn Machine Learning in the near future or has just begun and wants to get a more Hands on experience in learning Numpy for ML.",
+  "translation": "由于了解Numpy是数据预处理的起点，也是后来实施ML算法的起点，因此您可以成为即将在不久的将来学习机器学习或刚刚开始并希望获得更多实践经验的人 ML的Numpy。"
+}, {
+  "tag": "H1",
+  "text": "Trending AI Articles:",
+  "translation": "热门AI文章："
+}, {
+  "tag": "P",
+  "text": "1. Ten trends of Artificial Intelligence (AI) in 2019",
+  "translation": "1. 2019年人工智能（AI）的十大趋势"
+}, {
+  "tag": "P",
+  "text": "2. Bursting the Jargon bubbles — Deep Learning",
+  "translation": "2.打破行话泡沫—深度学习"
+}, {
+  "tag": "P",
+  "text": "3. How Can We Improve the Quality of Our Data?",
+  "translation": "3.我们如何改善数据质量？"
+}, {
+  "tag": "P",
+  "text": "4. Machine Learning using Logistic Regression in Python with Code",
+  "translation": "4.使用Python和代码进行逻辑回归的机器学习"
+}, {
+  "tag": "P",
+  "text": "But my main focus while writing this article is for it to serve as a quick refresher to Numpy for those who have had experience with the library but need a swift recap.",
+  "translation": "但是，在撰写本文时，我的主要重点是使它成为Numpy的快速入门，以供那些有使用该库经验但需要快速回顾的人参考。"
+}, {
+  "tag": "H1",
+  "text": "What are we waiting for ?Let’s begin!!",
+  "translation": "我们还等什么呢？让我们开始吧！！"
+}, {
+  "tag": "P",
+  "text": "Numpy is a library for the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays."
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*00pL0zLnfI7y8d5G1aQrHA.jpeg?q=20",
+  "type": "image",
+  "file": "1!00pL0zLnfI7y8d5G1aQrHA.jpeg"
+}, {
+  "tag": "P",
+  "text": "Moreover Numpy forms the foundation of the Machine Learning stack. In this article we cover the most frequently used Numpy operartions.",
+  "translation": "此外，Numpy构成了机器学习堆栈的基础。 在本文中，我们介绍了最常用的Numpy操作。"
+}, {
+  "tag": "H2",
+  "text": "1) Creating a Vector",
+  "translation": "1）创建向量"
+}, {
+  "tag": "P",
+  "text": "Here we use Numpy to create a 1-D Array which we then call a vector.",
+  "translation": "在这里，我们使用Numpy创建一维数组，然后将其称为向量。"
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Create a vector as a Rowvector_row = np.array([1,2,3])#Create vector as a Columnvector_column = np.array([[1],[2],[3]])",
+  "translation": "#Load Libraryimport numpy as np＃将向量创建为Rowvector_row = np.array（[1,2,3]）＃将向量创建为Columnvector_column = np.array（[[1]，[2]，[3]] ）"
+}, {
+  "tag": "H2",
+  "text": "2) Creating a Matrix",
+  "translation": "2）建立矩阵"
+}, {
+  "tag": "P",
+  "text": "We Create a 2-D Array in Numpy and call it a Matrix. It contains 2 rows and 3 columns.",
+  "translation": "我们在Numpy中创建一个二维数组，并将其称为矩阵。 它包含2行3列。"
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Create a Matrixmatrix = np.array([[1,2,3],[4,5,6]])print(matrix)",
+  "translation": "#Load Libraryimport numpy as np＃Create a Matrixmatrix = np.array（[[1,2,3]，[4,5,6]]）print（matrix）"
+}, {
+  "tag": "H2",
+  "text": "3) Creating a Sparse Matrix",
+  "translation": "3）创建稀疏矩阵"
+}, {
+  "tag": "P",
+  "text": "Given data with very few non zero values you want to efficiently represent it.",
+  "translation": "给定具有很少非零值的数据，您想有效地表示它。"
+}, {
+  "tag": "P",
+  "text": "A frequent situation in Machine Learning is having a huge amount of Data; however most of the elements in the data are Zeros. For example, lets imagine a Matrix where the columns are all the products on Amazon and the rows signify whether a given user has bought that item before or not. Now as you might have guessed there would be many products which haven't been bought even a single time till now and thus a vast majority of elements would be Zero.",
+  "translation": "机器学习中的一种常见情况是拥有大量数据。 但是数据中的大多数元素都是零。 例如，假设有一个矩阵，其中的列是Amazon上的所有产品，而行则表示给定的用户是否曾经购买过该商品。 就像您可能已经猜到的那样，到现在为止，甚至还有一次都没有购买过许多产品，因此绝大多数元素都为零。"
+}, {
+  "tag": "P",
+  "text": "Sparse Matrices store only non zero elements and assume all other values will be zero, leading to significant computational savings.",
+  "translation": "稀疏矩阵仅存储非零元素，并假定所有其他值将为零，从而节省了大量计算量。"
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Create a Matrixmatrix = np.array([[0,0],[0,1],[3,0]])print(matrix)#Create Compressed Sparse Row(CSR) matrixmatrix_sparse = sparse.csr_matrix(matrix)print(matrix_sparse)",
+  "translation": "#Load Libraryimport numpy as np＃创建Matrixmatrix = np.array（[[[0,0]，[0,1]，[3,0]]）print（matrix）＃创建压缩稀疏行（CSR）matrixmatrix_sparse =稀疏 .csr_matrix（matrix）print（matrix_sparse）"
+}, {
+  "tag": "H2",
+  "text": "4) Selecting Elements",
+  "translation": "4）选择元素"
+}, {
+  "tag": "P",
+  "text": "When you need to select one or more element in a vector or matrix",
+  "translation": "当您需要选择向量或矩阵中的一个或多个元素时"
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Create a vector as a Rowvector_row = np.array([ 1,2,3,4,5,6 ])#Create a Matrixmatrix = np.array([[1,2,3],[4,5,6],[7,8,9]])print(matrix)#Select 3rd element of Vectorprint(vector_row[2])#Select 2nd row 2nd columnprint(matrix[1,1])#Select all elements of a vectorprint(vector_row[:])#Select everything up to and including the 3rd elementprint(vector_row[:3])#Select the everything after the 3rd elementprint(vector_row[3:])#Select the last elementprint(vector[-1])#Select the first 2 rows and all the columns of the matrixprint(matrix[:2,:])#Select all rows and the 2nd column of the matrixprint(matrix[:,1:2])",
+  "translation": "#Load Libraryimport numpy as np＃创建一个向量作为Rowvector_row = np.array（[1,2,3,4,5,6]）＃创建Matrixmatrix = np.array（[[1,2,3]， [4,5,6]，[7,8,9]] print（matrix）＃选择Vectorprint的第3个元素（vector_row [2]）＃选择第2行第2列print（matrix [1,1]）＃选择全部 vectorprint的元素（vector_row [：]）＃选择第3个及以下的所有元素print（vector_row [：3]）＃选择第3个elementprint之后的所有元素（vector_row [3：]）＃选择最后一个elementprint（vector [ -1]）＃选择matrixprint（matrix [：2 ,:]）的前2行和所有列＃选择Matrixprint（matrix [：，1：2]）的所有行和第二列"
+}, {
+  "tag": "H2",
+  "text": "5) Describing a Matrix",
+  "translation": "5）描述矩阵"
+}, {
+  "tag": "P",
+  "text": "When you want to know about the shape size and dimensions of a Matrix.",
+  "translation": "当您想了解矩阵的形状大小和尺寸时。"
+}, {
+  "tag": "PRE",
+  "text": "import numpy as np#Create a Matrixmatrix = np.array([[1,2,3],[4,5,6],[7,8,9]])#View the Number of Rows and Columnsprint(matrix.shape)#View the number of elements (rows*columns)print(matrix.size)#View the number of Dimensions(2 in this case)print(matrix.ndim)",
+  "translation": "import numpy as np＃创建一个Matrixmatrix = np.array（[[1,2,3]，[4,5,6]，[7,8,9]]）＃查看行数和列数print（matrix。 形状）＃查看元素数（行*列）print（matrix.size）＃查看尺寸数（本例为2）print（matrix.ndim）"
+}, {
+  "tag": "H2",
+  "text": "6) Applying operations to elements",
+  "translation": "6）将操作应用于元素"
+}, {
+  "tag": "P",
+  "text": "You want to apply some function to multiple elements in an array.",
+  "translation": "您想将某些函数应用于数组中的多个元素。"
+}, {
+  "tag": "P",
+  "text": "Numpy’s vectorize class converts a function into a function that can apply to multiple elements in an array or slice of an array.",
+  "translation": "Numpy的vectorize类将函数转换为可以应用于数组或数组切片中的多个元素的函数。"
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Create a Matrixmatrix = np.array([[1,2,3],[4,5,6],[7,8,9]])print(matrix)#Create a function that adds 100 to somethingadd_100 =lambda i: i+100#Convert it into a vectorized functionvectorized_add_100= np.vectorize(add_100)#Apply function to all elements in matrixprint(vectorized_add_100(matrix))",
+  "translation": "#Load Libraryimport numpy as np＃创建Matrixmatrix = np.array（[[1,2,3]，[4,5,6]，[7,8,9]]）print（matrix）＃创建一个函数 将100添加到某物上add_100 = lambda i：i + 100＃将其转换为向量化函数vectorized_add_100 = np.vectorize（add_100）＃将函数应用于matrixprint中的所有元素（vectorized_add_100（matrix））"
+}, {
+  "tag": "H2",
+  "text": "7) Finding the max and min values",
+  "translation": "7）找到最大值和最小值"
+}, {
+  "tag": "P",
+  "text": "We use Numpy’s max and min functions:",
+  "translation": "我们使用Numpy的max和min函数："
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Create a Matrixmatrix = np.array([[1,2,3],[4,5,6],[7,8,9]])print(matrix)#Return the max elementprint(np.max(matrix))#Return the min elementprint(np.min(matrix))#To find the max element in each columnprint(np.max(matrix,axis=0))#To find the max element in each rowprint(np.max(matrix,axis=1))",
+  "translation": "#Load Libraryimport numpy as np＃创建Matrixmatrix = np.array（[[1,2,3]，[4,5,6]，[7,8,9]]）print（matrix）＃返回最大元素打印 （np.max（matrix））＃返回最小元素print（np.min（matrix））＃在每个列中找到最大元素print（np.max（matrix，axis = 0））＃在每个列中找到最大元素 行打印（np.max（矩阵，轴= 1））"
+}, {
+  "tag": "H2",
+  "text": "8) Calculating Average, Variance and Standard deviation",
+  "translation": "8）计算平均值，方差和标准偏差"
+}, {
+  "tag": "P",
+  "text": "When you want to calculate some descriptive statistics about an array.",
+  "translation": "当您要计算有关数组的描述性统计信息时。"
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Create a Matrixmatrix = np.array([[1,2,3],[4,5,6],[7,8,9]])print(matrix)#Meanprint(np.mean(matrix))#Standard Dev.print(np.std(matrix))#Varianceprint(np.var(matrix))",
+  "translation": "#Load Libraryimport numpy as np＃创建Matrixmatrix = np.array（[[1,2,3]，[4,5,6]，[7,8,9]] print（matrix）#Meanprint（np。 均值（矩阵））＃标准Dev.print（np.std（矩阵））＃Varianceprint（np.var（矩阵））"
+}, {
+  "tag": "H2",
+  "text": "9) Reshaping Arrays",
+  "translation": "9）重塑数组"
+}, {
+  "tag": "P",
+  "text": "When you want to reshape an array(changing the number of rows and columns) without changing the elements.",
+  "translation": "当您想改变数组的形状（更改行数和列数）而不更改元素时。"
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Create a Matrixmatrix = np.array([[1,2,3],[4,5,6],[7,8,9]])print(matrix)#Reshapeprint(matrix.reshape(9,1))#Here -1 says as many columns as needed and 1 rowprint(matrix.reshape(1,-1))#If we provide only 1 value Reshape would return a 1-d array of that lengthprint(marix.reshape(9))#We can also use the Flatten method to convert a matrix to 1-d arrayprint(matrix.flatten())",
+  "translation": "#Load Libraryimport numpy as np＃创建Matrixmatrix = np.array（[[[1,2,3]，[4,5,6]，[7,8,9]]）print（matrix）#Reshapeprint（matrix。 reshape（9,1））＃这里-1表示需要的列数和1行打印（matrix.reshape（1，-1））＃如果我们仅提供1个值，则Reshape将返回该lengthprint的1维数组（ marix.reshape（9））＃我们还可以使用Flatten方法将矩阵转换为一维arrayprint（matrix.flatten（））"
+}, {
+  "tag": "H2",
+  "text": "10) Transposing a vector or a Matrix",
+  "translation": "10）转置向量或矩阵"
+}, {
+  "tag": "P",
+  "text": "By transposing you interchange the rows and columns of a Matrix",
+  "translation": "通过转置，可以交换矩阵的行和列"
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Create a Matrixmatrix = np.array([[1,2,3],[4,5,6],[7,8,9]])print(matrix)#Transpose the matrixprint(matrix.T)",
+  "translation": "#Load Libraryimport numpy as np＃创建Matrixmatrix = np.array（[[1,2,3]，[4,5,6]，[7,8,9]]）print（matrix）＃转置matrixprint（ 矩阵（T）"
+}, {
+  "tag": "H2",
+  "text": "11) Finding the Determinant and Rank of a Matrix",
+  "translation": "11）查找矩阵的行列式和秩"
+}, {
+  "tag": "P",
+  "text": "The rank of a Matrix is the number of dimensions of the vector space spanned by its rows or columns.",
+  "translation": "矩阵的秩是其行或列所跨越的向量空间的维数。"
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Create a Matrixmatrix = np.array([[1,2,3],[4,5,6],[7,8,9]])print(matrix)#Calculate the Determinantprint(np.linalg.det(matrix))#Calculate the Rankprint(np.linalg.matrix_rank(matrix))",
+  "translation": "#Load Libraryimport numpy as np＃创建Matrixmatrix = np.array（[[[1,2,3]，[4,5,6]，[7,8,9]]）print（matrix）＃计算行列式（ np.linalg.det（matrix））＃计算Rankprint（np.linalg.matrix_rank（matrix））"
+}, {
+  "tag": "H2",
+  "text": "12) Getting the Diagonal of a Matrix",
+  "translation": "12）得到矩阵的对角线"
+}, {
+  "tag": "P",
+  "text": "When you need to extract only the diagonal elements of a matrix",
+  "translation": "当您只需要提取矩阵的对角元素时"
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Create a Matrixmatrix = np.array([[1,2,3],[4,5,6],[7,8,9]])print(matrix)#Print the Principal diagonalprint(matrix.diagonal())#Print the diagonal one above the Principal diagonalprint(matrix.diagonal(offset=1))#Print the diagonal one below Principal diagonalprint(matrix.diagonal(offset=-1))"
+}, {
+  "tag": "H2",
+  "text": "13) Calculating the trace of a Matrix",
+  "translation": "13）计算矩阵的迹线"
+}, {
+  "tag": "P",
+  "text": "Trace of a Matrix is the sum of elements on the Principal Diagonal of the Matrix.",
+  "translation": "矩阵的迹线是矩阵主对角线上元素的总和。"
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Create a Matrixmatrix = np.array([[1,2,3],[4,5,6],[7,8,9]])print(matrix)#Print the Traceprint(matrix.trace())",
+  "translation": "#Load Libraryimport numpy as np＃创建Matrixmatrix = np.array（[[1,2,3]，[4,5,6]，[7,8,9]]）print（matrix）＃打印Traceprint（ matrix.trace（））"
+}, {
+  "tag": "H2",
+  "text": "14) Finding Eigenvalues and Eigenvectors",
+  "translation": "14）查找特征值和特征向量"
+}, {
+  "tag": "P",
+  "text": "Eigenvectors are widely used in Machine Learning libraries. Intutively given a linear transformation represented by a matrix,A, eigenvectors are vectors that when that transformation is applied, change only in scale(not direction).More formally",
+  "translation": "特征向量在机器学习库中被广泛使用。 直观地给定一个由矩阵A表示的线性变换，特征向量是在应用该变换时仅在比例（而不是方向）上发生变化的向量。"
+}, {
+  "tag": "P",
+  "text": "Av=Kv",
+  "translation": "Av = Kv"
+}, {
+  "tag": "P",
+  "text": "Here A is a square matrix, K contains the eigenvalues and v contains the eigenvectors.",
+  "translation": "这里A是一个方矩阵，K包含特征值，v包含特征向量。"
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Create a Matrixmatrix = np.array([[1,2,3],[4,5,6],[7,8,9]])print(matrix)# Calculate the Eigenvalues and Eigenvectors of that Matrixeigenvalues ,eigenvectors=np.linalg.eig(matrix)print(eigenvalues)print(eigenvectors)",
+  "translation": "#Load Libraryimport numpy as np＃创建Matrixmatrix = np.array（[[1,2,3]，[4,5,6]，[7,8,9]]）print（matrix）＃计算特征值并 该矩阵特征值的特征向量，特征向量= np.linalg.eig（矩阵）print（特征值）print（特征向量）"
+}, {
+  "tag": "H2",
+  "text": "15) Calculating Dot Products",
+  "translation": "15）计算点积"
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Create vector-1vector_1 = np.array([ 1,2,3 ])#Create vector-2vector_1 = np.array([ 4,5,6 ])#Calculate Dot Productprint(np.dot(vector_1,vector_2))#Alternatively you can use @ to calculate dot productsprint(vector_1 @ vector_2)",
+  "translation": "＃加载库将numpy导入为np＃创建vector-1vector_1 = np.array（[1,2,3]）＃创建vector-2vector_1 = np.array（[4,5,6]）＃计算点乘积（np.dot （vector_1，vector_2））＃或者，您可以使用@计算点积print（vector_1 @ vector_2）"
+}, {
+  "tag": "H2",
+  "text": "16) Adding, Subtracting and Multiplying Matrices",
+  "translation": "16）加，减和乘矩阵"
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Create Matrix-1matrix_1 = np.array([[1,2,3],[4,5,6],[7,8,9]])#Create Matrix-2matrix_2 = np.array([[7,8,9],[4,5,6],[1,2,3]])#Add the 2 Matricesprint(np.add(matrix_1,matrix_2))#Subtractionprint(np.subtract(matrix_1,matrix_2))#Multiplication(Element wise, not Dot Product)print(matrix_1*matrix_2)",
+  "translation": "#Load Libraryimport numpy as np＃Create Matrix-1matrix_1 = np.array（[[[1,2,3]，[4,5,6]，[7,8,9]]）＃Create Matrix-2matrix_2 = np。 array（[[[7,8,9]，[4,5,6]，[1,2,3]]）＃添加2个矩阵打印（np.add（matrix_1，matrix_2））＃Subtractionprint（np.subtract（ matrix_1，matrix_2））＃Multiplication（明智的元素，不是点积）print（matrix_1 * matrix_2）"
+}, {
+  "tag": "H2",
+  "text": "17) Inverting a Matrix",
+  "translation": "17）求逆矩阵"
+}, {
+  "tag": "P",
+  "text": "This is used when you want to calculate the inverse of a Square Matrix",
+  "translation": "当您要计算平方矩阵的逆时使用"
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Create a Matrixmatrix = np.array([[1,2,3],[4,5,6],[7,8,9]])print(matrix)#Calculate its inverseprint(np.linalg.inv(matrix))",
+  "translation": "#Load Libraryimport numpy as np＃创建Matrixmatrix = np.array（[[1,2,3]，[4,5,6]，[7,8,9]]）print（matrix）＃计算其反印（ np.linalg.inv（matrix））"
+}, {
+  "tag": "H2",
+  "text": "18) Generating Random values",
+  "translation": "18）产生随机值"
+}, {
+  "tag": "P",
+  "text": "Numpy offers a wide variety of means to generate Random Numbers.",
+  "translation": "Numpy提供了多种生成随机数的方法。"
+}, {
+  "tag": "P",
+  "text": "Moreover, It can sometimes be useful to return the same random numbers to get predictable, repeatable results. We can do so by setting the ‘Seed’ (An Integer) of the pseudorandom generator. Random processes with the same seed would always produce the same result.",
+  "translation": "此外，有时返回相同的随机数以得到可预测的，可重复的结果可能会很有用。 我们可以通过设置伪随机数生成器的“种子”（整数）来实现。 具有相同种子的随机过程将始终产生相同的结果。"
+}, {
+  "tag": "PRE",
+  "text": "#Load Libraryimport numpy as np#Set seednp.random.seed(1)#Generate 3 random integers b/w 1 and 10print(np.random.randint(0,11,3))#Draw 3 numbers from a normal distribution with mean 1.0 and std 2.0print(np.random.normal(1.0,2.0,3))"
+}, {
+  "tag": "P",
+  "text": "So this pretty much covers all the standard Numpy Operations which would be required for you to kickstart your Machine Learning journey with Python. For others I hope this was a good refresher to your pre-existing knowledge in the domain.",
+  "translation": "因此，这几乎涵盖了您使用Python启动机器学习之旅所需的所有标准Numpy操作。 对于其他人，我希望这对您在该领域中已有的知识有所帮助。"
+}, {
+  "tag": "H1",
+  "text": "Don’t forget to give us your 👏 !",
+  "translation": "别忘了给我们您的👏！"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*8YFw0BlqLD9cJm5i?q=20",
+  "type": "image",
+  "file": "0!8YFw0BlqLD9cJm5i"
+}, {
+  "tag": "FIGURE",
+  "type": "code"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*2f7OqE2AJK1KSrhkmD9ZMw.png?q=20",
+  "type": "image",
+  "file": "1!2f7OqE2AJK1KSrhkmD9ZMw.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*v-PpfkSWHbvlWWamSVHHWg.png?q=20",
+  "type": "image",
+  "file": "1!v-PpfkSWHbvlWWamSVHHWg.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Wt2auqISiEAOZxJ-I7brDQ.png?q=20",
+  "type": "image",
+  "file": "1!Wt2auqISiEAOZxJ-I7brDQ.png"
+}, {
+  "tag": "H1",
+  "text": "An Essential Guide to Numpy for Machine Learning in Python",
+  "translation": "Python中机器学习的Numpy基本指南"
+}, {
+  "tag": "H2",
+  "text": "The Quintessential Library for ML!",
+  "translation": "ML的精华库！"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Siddharth Dixit的文章《An Essential Guide to Numpy for Machine Learning in Python》，参考：https://becominghuman.ai/an-essential-guide-to-numpy-for-machine-learning-in-python-5615e1758301)",
+  "translation": "（本文翻译自Siddharth Dixit的文章，《 Python机器学习中的numpy基本指南》，参考：https：//becominghuman.ai/an-essential-guide-to-numpy-for-machine-learning-in-python -5615e1758301）"
+}]
