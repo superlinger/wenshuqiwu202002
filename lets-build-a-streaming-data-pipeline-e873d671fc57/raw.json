@@ -1,0 +1,286 @@
+[{
+  "tag": "H2",
+  "text": "Accessing our data in BigQuery",
+  "translation": "在BigQuery中访问我们的数据"
+}, {
+  "tag": "P",
+  "text": "Right we should have our pipeline up and running with data flowing into our table. To confirm this, we can go over to BigQuery and view the data. After using the command below you should see the first few rows of the dataset. Now that we have our data stored in BigQuery we can do further analysis as well as share the data with colleagues and start answering and addressing business questions.",
+  "translation": "正确的是，我们应该建立流水线并在表中运行数据。 为了确认这一点，我们可以转到BigQuery并查看数据。 使用下面的命令后，您应该看到数据集的前几行。 现在我们已经将数据存储在BigQuery中，我们可以进行进一步的分析以及与同事共享数据，并开始回答和解决业务问题。"
+}, {
+  "tag": "PRE",
+  "text": "SELECT * FROM `user-logs-237110.userlogs.logdata` LIMIT 10;",
+  "translation": "SELECT * FROM`user-logs-237110.userlogs.logdata` LIMIT 10;"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*yUlJD8YqkdN-rM5p5GCEog.png?q=20",
+  "caption": "Figure 5: BigQuery",
+  "type": "image",
+  "file": "1!yUlJD8YqkdN-rM5p5GCEog.png"
+}, {
+  "tag": "H1",
+  "text": "Takeaways",
+  "translation": "外卖"
+}, {
+  "tag": "P",
+  "text": "Hopefully, this provides a useful example of creating a streaming data pipeline and also of finding ways of making data more accessible. Having the data in this format provides many benefits to us. We can now start answering useful questions like how many people use our product? Is the user base growing over time? What aspects of the product are people interacting with the most? and are there any errors happening when there shouldn't be? These are the types of questions that an organization will be interested in and based on these insights we can drive improvements to the product and improve user engagement.",
+  "translation": "希望这提供了创建流数据管道以及找到使数据更易于访问的方法的有用示例。 使用这种格式的数据可以为我们带来很多好处。 现在，我们可以开始回答一些有用的问题，例如有多少人使用我们的产品？ 用户群是否随着时间增长？ 人们与产品互动最多的是什么？ 当不应该出现的时候会发生任何错误吗？ 这些是组织会感兴趣的问题类型，根据这些见解，我们可以推动产品改进并提高用户参与度。"
+}, {
+  "tag": "P",
+  "text": "Beam is really useful for this type of exercise and there are a number of other interesting use cases as well. For example, you may want to analyze stock tick data in real-time and make trades based on the analysis, maybe you have sensor data coming in from vehicles and you want to figure out calculate the level of traffic. You could also, for example, be a games company collecting data on users and using this to create dashboards to track key metrics. Ok guys, so that’s it for another post, thanks for reading and for those who want to see the full code, below is a link to my GitHub.",
+  "translation": "Beam对于这种类型的练习非常有用，并且还有许多其他有趣的用例。 例如，您可能想实时分析股票报价数据并基于该分析进行交易，也许您有来自车辆的传感器数据，并希望计算出交通量。 例如，您也可以是一家游戏公司，收集有关用户的数据，并使用它来创建仪表板以跟踪关键指标。 好的，这是另一篇文章，感谢您的阅读和想要查看完整代码的人员，以下是指向我的GitHub的链接。"
+}, {
+  "tag": "H2",
+  "text": "DFoly/User_log_pipeline",
+  "translation": "DFoly / User_log_pipeline"
+}, {
+  "tag": "H3",
+  "text": "Creating a Streaming Pipeline for user log data in Google Cloud Platform - DFoly/User_log_pipeline",
+  "translation": "在Google Cloud Platform中为用户日志数据创建流传输管道-DFoly / User_log_pipeline"
+}, {
+  "tag": "H2",
+  "text": "Running the Pipeline",
+  "translation": "运行管道"
+}, {
+  "tag": "P",
+  "text": "We can execute the pipeline a few different ways. If we wanted to we could just run it locally from the terminal provided we have remotely logged in to GCP.",
+  "translation": "我们可以通过几种不同的方式执行管道。 如果我们愿意，只要我们已远程登录GCP，就可以从终端在本地运行它。"
+}, {
+  "tag": "PRE",
+  "text": "python -m main_pipeline_stream.py \\  --input_topic \"projects/user-logs-237110/topics/userlogs\" \\  --streaming",
+  "translation": "python -m main_pipeline_stream.py \\ --input_topic“项目/用户日志-237110 / topics /用户日志” \\-流"
+}, {
+  "tag": "P",
+  "text": "We are going to be running it using DataFlow, however. We can do this using the command below while also setting the following mandatory options.",
+  "translation": "但是，我们将使用DataFlow运行它。 我们可以使用以下命令来执行此操作，同时还要设置以下必填选项。"
+}, {
+  "tag": "UL",
+  "texts": ["project - The ID of your GCP project.", "runner - The pipeline runner that will parse your program and construct your pipeline. For cloud execution, this must be DataflowRunner.", "staging_location - A Cloud Storage path for Cloud Dataflow to stage code packages needed by workers executing the job.", "temp_location - A Cloud Storage path for Cloud Dataflow to stage temporary job files created during the execution of the pipeline.", "streaming"],
+  "translations": ["project-您的GCP项目的ID。", "Runner-管道运行程序，它将解析您的程序并构建您的管道。 对于云执行，它必须是DataflowRunner。", "staging_location-Cloud Dataflow的Cloud Storage路径，用于暂存执行作业的工作人员所需的代码包。", "temp_location-Cloud Dataflow的Cloud Storage路径，用于暂存在管道执行期间创建的临时作业文件。", "流式"]
+}, {
+  "tag": "PRE",
+  "text": "python main_pipeline_stream.py \\--runner DataFlow \\--project $PROJECT \\--temp_location $BUCKET/tmp \\--staging_location $BUCKET/staging--streaming",
+  "translation": "python main_pipeline_stream.py \\-运行器DataFlow \\-项目$ PROJECT \\-temp_location $ BUCKET / tmp \\-staging_location $ BUCKET / staging--streaming"
+}, {
+  "tag": "P",
+  "text": "While this command is running we can head over to the DataFlow tab in the google console and view our pipeline. When we click into the pipeline we should something like Figure 4. For debugging purposes, it can be quite helpful to go into the logs and then Stackdriver to view detailed logs. This has helped me figure out issues with the pipeline on a number of occasions.",
+  "translation": "在运行此命令时，我们可以转到Google控制台中的“数据流”标签并查看我们的管道。 当我们进入管道时，我们应该如图4所示。出于调试目的，进入日志然后通过Stackdriver查看详细日志可能会很有帮助。 这帮助我在很多情况下找出了管道问题。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Bb4xugcKdD_hClC5Unev0Q.png?q=20",
+  "caption": "Figure 4: Beam Pipeline",
+  "type": "image",
+  "file": "1!Bb4xugcKdD_hClC5Unev0Q.png"
+}, {
+  "tag": "H1",
+  "text": "Coding up our Pipeline",
+  "translation": "编制我们的管道"
+}, {
+  "tag": "P",
+  "text": "Now that we have the initial set up out of the way we can get to the fun stuff and code up our pipeline using Beam and Python. To create a Beam pipeline we need to create a pipeline object (p). Once we have created the pipeline object we can apply multiple functions one after the other using the pipe (|) operator. In general, the workflow looks like the image below.",
+  "translation": "现在，我们已经初步设置好了一些有趣的东西，并使用Beam和Python编写了代码。 要创建Beam管道，我们需要创建管道对象（p）。 创建管道对象后，我们可以使用管道（|）运算符一个接一个地应用多个函数。 通常，工作流程如下图所示。"
+}, {
+  "tag": "PRE",
+  "text": "[Final Output PCollection] = ([Initial Input PCollection] | [First Transform]              | [Second Transform]              | [Third Transform])",
+  "translation": "[最终输出PCollection] =（[[初始输入PCollection] | [第一变换] | [第二变换] | [第三变换]）"
+}, {
+  "tag": "P",
+  "text": "In our code, we create two custom functions. The regex_clean function which searches the data and extracts the appropriate string based on the PATTERNS list using the re.search function. The function returns a comma-separated string. If you are not a regex expert I recommend looking at this tutorial and playing around in a notebook to test the code. After this, we define a custom ParDo function called Split which is a type of Beam transform for doing parallel processing. There is a specific way of doing this in Python where we have to create a class which inherits from the DoFn Beam class. The Split function takes the parsed string from the previous function and returns a list of dictionaries with keys equal to the column names in our BigQuery table. The one thing to note about this function is that I had to import datetime within the function for it to work. I was getting an error when I imported at the top of the file which was odd. This list then gets passed to the WriteToBigQuery function which just appends our data to the table. The code for both the Batch DataFlow job and the Streaming DataFlow job are provided below. The only difference between the batch and streaming code is that in the batch job we are reading a CSV from src_path using the ReadFromText function in Beam.",
+  "translation": "在我们的代码中，我们创建了两个自定义函数。 regex_clean函数，使用re.search函数搜索数据并根据PATTERNS列表提取适当的字符串。该函数返回以逗号分隔的字符串。如果您不是正则表达式专家，我建议您看一下本教程并在笔记本上玩以测试代码。此后，我们定义了一个名为Split的自定义ParDo函数，这是一种用于并行处理的Beam变换。在Python中有一种特定的方法可以执行此操作，我们必须创建一个从DoFn Beam类继承的类。 Split函数从前一个函数中获取已解析的字符串，并返回字典列表，其关键字等于我们BigQuery表中的列名。关于此功能要注意的一件事是，我必须在该功能中导入datetime才能起作用。导入文件顶部时出现错误，这很奇怪。然后，此列表传递到WriteToBigQuery函数，该函数将我们的数据追加到表中。下面提供了Batch DataFlow作业和Streaming DataFlow作业的代码。批处理代码与流处理代码之间的唯一区别是，在批处理作业中，我们使用Beam中的ReadFromText函数从src_path中读取CSV。"
+}, {
+  "tag": "H2",
+  "text": "Batch DataFlow Job",
+  "translation": "批处理DataFlow作业"
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/DFoly/20179e8acbf39c76bf0158ea71d46ed6/raw/7fecf3114afcdbf94fabb4c3c75044cf0c4b1138/main_pipeline_batch.py",
+  "code": "import apache_beam as beam\nfrom apache_beam.options.pipeline_options import PipelineOptions\nfrom google.cloud import bigquery\nimport re\nimport logging\nimport sys\n\nPROJECT='user-logs-237110'\nschema = 'remote_addr:STRING, timelocal:STRING, request_type:STRING, status:STRING, body_bytes_sent:STRING, http_referer:STRING, http_user_agent:STRING'\n\n\nsrc_path = \"user_log_fileC.txt\"\n\ndef regex_clean(data):\n\n    PATTERNS =  [r'(^\\S+\\.[\\S+\\.]+\\S+)\\s',r'(?<=\\[).+?(?=\\])',\n           r'\\\"(\\S+)\\s(\\S+)\\s*(\\S*)\\\"',r'\\s(\\d+)\\s',r\"(?<=\\[).\\d+(?=\\])\",\n           r'\\\"[A-Z][a-z]+', r'\\\"(http|https)://[a-z]+.[a-z]+.[a-z]+']\n    result = []\n    for match in PATTERNS:\n      try:\n        reg_match = re.search(match, data).group()\n        if reg_match:\n          result.append(reg_match)\n        else:\n          result.append(\" \")\n      except:\n        print(\"There was an error with the regex search\")\n    result = [x.strip() for x in result]\n    result = [x.replace('\"', \"\") for x in result]\n    res = ','.join(result)\n    return res\n\n\nclass Split(beam.DoFn):\n\n    def process(self, element):\n        from datetime import datetime\n        element = element.split(\",\")\n        d = datetime.strptime(element[1], \"%d/%b/%Y:%H:%M:%S\")\n        date_string = d.strftime(\"%Y-%m-%d %H:%M:%S\")\n\n        return [{ \n            'remote_addr': element[0],\n            'timelocal': date_string,\n            'request_type': element[2],\n            'status': element[3],\n            'body_bytes_sent': element[4],\n            'http_referer': element[5],\n            'http_user_agent': element[6]\n    \n        }]\n\ndef main():\n\n   p = beam.Pipeline(options=PipelineOptions())\n\n   (p\n      | 'ReadData' >> beam.io.textio.ReadFromText(src_path)\n      | \"clean address\" >> beam.Map(regex_clean)\n      | 'ParseCSV' >> beam.ParDo(Split())\n      | 'WriteToBigQuery' >> beam.io.WriteToBigQuery('{0}:userlogs.logdata'.format(PROJECT), schema=schema,\n        write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND)\n   )\n\n   p.run()\n\nif __name__ == '__main__':\n  logger = logging.getLogger().setLevel(logging.INFO)\n  main()"
+}, {
+  "tag": "H2",
+  "text": "Streaming DataFlow Job",
+  "translation": "流数据流作业"
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/DFoly/4c5e71fbd3c3a8558c4178f734f3f0a7/raw/c81355bb2166e994c3e6bf4ddf3f9dc16533bd02/main_pipeline_stream.py",
+  "code": "from apache_beam.options.pipeline_options import PipelineOptions\nfrom google.cloud import pubsub_v1\nfrom google.cloud import bigquery\nimport apache_beam as beam\nimport logging\nimport argparse\nimport sys\nimport re\n\n\nPROJECT=\"user-logs-237110\"\nschema = 'remote_addr:STRING, timelocal:STRING, request_type:STRING, status:STRING, body_bytes_sent:STRING, http_referer:STRING, http_user_agent:STRING'\nTOPIC = \"projects/user-logs-237110/topics/userlogs\"\n\n\ndef regex_clean(data):\n\n    PATTERNS =  [r'(^\\S+\\.[\\S+\\.]+\\S+)\\s',r'(?<=\\[).+?(?=\\])',\n           r'\\\"(\\S+)\\s(\\S+)\\s*(\\S*)\\\"',r'\\s(\\d+)\\s',r\"(?<=\\[).\\d+(?=\\])\",\n           r'\\\"[A-Z][a-z]+', r'\\\"(http|https)://[a-z]+.[a-z]+.[a-z]+']\n    result = []\n    for match in PATTERNS:\n      try:\n        reg_match = re.search(match, data).group()\n        if reg_match:\n          result.append(reg_match)\n        else:\n          result.append(\" \")\n      except:\n        print(\"There was an error with the regex search\")\n    result = [x.strip() for x in result]\n    result = [x.replace('\"', \"\") for x in result]\n    res = ','.join(result)\n    return res\n\n\nclass Split(beam.DoFn):\n\n    def process(self, element):\n        from datetime import datetime\n        element = element.split(\",\")\n        d = datetime.strptime(element[1], \"%d/%b/%Y:%H:%M:%S\")\n        date_string = d.strftime(\"%Y-%m-%d %H:%M:%S\")\n        \n        return [{ \n            'remote_addr': element[0],\n            'timelocal': date_string,\n            'request_type': element[2],\n            'body_bytes_sent': element[3],\n            'status': element[4],\n            'http_referer': element[5],\n            'http_user_agent': element[6]\n    \n        }]\n\ndef main(argv=None):\n\n   parser = argparse.ArgumentParser()\n   parser.add_argument(\"--input_topic\")\n   parser.add_argument(\"--output\")\n   known_args = parser.parse_known_args(argv)\n\n\n   p = beam.Pipeline(options=PipelineOptions())\n\n   (p\n      | 'ReadData' >> beam.io.ReadFromPubSub(topic=TOPIC).with_output_types(bytes)\n      | \"Decode\" >> beam.Map(lambda x: x.decode('utf-8'))\n      | \"Clean Data\" >> beam.Map(regex_clean)\n      | 'ParseCSV' >> beam.ParDo(Split())\n      | 'WriteToBigQuery' >> beam.io.WriteToBigQuery('{0}:userlogs.logdata'.format(PROJECT), schema=schema,\n        write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND)\n   )\n   result = p.run()\n   result.wait_until_finish()\n\nif __name__ == '__main__':\n  logger = logging.getLogger().setLevel(logging.INFO)\n  main()"
+}, {
+  "tag": "H2",
+  "text": "Publishing our user-log data",
+  "translation": "发布我们的用户日志数据"
+}, {
+  "tag": "P",
+  "text": "Pub/Sub is a vital component of our pipeline as it allows multiple independent applications to interact with each other. In particular, it acts as a middle man allowing us to send and receive messages between applications. The first thing we need to do is create a topic. This is pretty simple to do by going to Pub/Sub in the console and clicking CREATE TOPIC.",
+  "translation": "发布/订阅是我们管道中的重要组成部分，因为它允许多个独立的应用程序相互交互。 特别是，它充当中间人，使我们能够在应用程序之间发送和接收消息。 我们需要做的第一件事是创建一个主题。 通过在控制台中转到“发布/订阅”并单击“创建主题”，这非常简单。"
+}, {
+  "tag": "P",
+  "text": "The code below calls our script to generate log data defined above and then connects to and sends the logs to Pub/Sub. The only things we need to do are create a PublisherClient object, add the path to the topic using the topic_path method and call the publish function while passing the topic_path and data. Notice that we are importing generate_log_line from our stream_logs script so make sure these files are in the same folder or you will get an import error. We can then run this in our google console using:",
+  "translation": "下面的代码调用我们的脚本以生成上面定义的日志数据，然后连接到日志并将日志发送到Pub / Sub。 我们唯一需要做的就是创建一个PublisherClient对象，使用topic_path方法将路径添加到主题，并在传递topic_path和数据的同时调用publish函数。 请注意，我们正在从stream_logs脚本中导入generate_log_line，因此请确保这些文件位于同一文件夹中，否则会出现导入错误。 然后，我们可以在Google控制台中使用以下命令运行它："
+}, {
+  "tag": "PRE",
+  "text": "python publish.py",
+  "translation": "python publish.py"
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/DFoly/b6730ef7edf9a8e712aadadecfcb26d0/raw/09aa498b31f00595acecfd61b7eebd95de94638c/publish_logs.py",
+  "code": "\nfrom stream_logs import generate_log_line\nimport logging\nfrom google.cloud import pubsub_v1\nimport random\nimport time\n\n\nPROJECT_ID=\"user-logs-237110\"\nTOPIC = \"userlogs\"\n\n\npublisher = pubsub_v1.PublisherClient()\ntopic_path = publisher.topic_path(PROJECT_ID, TOPIC)\n\n\n\ndef publish(publisher, topic, message):\n    data = message.encode('utf-8')\n    return publisher.publish(topic_path, data = data)\n\n\n\ndef callback(message_future):\n    # When timeout is unspecified, the exception method waits indefinitely.\n    if message_future.exception(timeout=30):\n        print('Publishing message on {} threw an Exception {}.'.format(\n            topic_name, message_future.exception()))\n    else:\n        print(message_future.result())\n\n\nif __name__ == '__main__':\n\n    while True:\n        line = generate_log_line()\n        print(line)\n        message_future = publish(publisher, topic_path, line)\n        message_future.add_done_callback(callback)\n\n        sleep_time = random.choice(range(1, 3, 1))\n        time.sleep(sleep_time)"
+}, {
+  "tag": "P",
+  "text": "Once the file is running we should be able to see log data printing to the console like the figure below. This script will keep running until we use CTRL+C to kill it.",
+  "translation": "文件运行后，我们应该能够看到将日志数据打印到控制台，如下图所示。 该脚本将一直运行，直到我们使用CTRL + C杀死它为止。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*KBz_cdxcfx05K5UB47sFDw.png?q=20",
+  "caption": "Figure 4: publish_logs.py output",
+  "type": "image",
+  "file": "1!KBz_cdxcfx05K5UB47sFDw.png"
+}, {
+  "tag": "H2",
+  "text": "Creating our database and table",
+  "translation": "创建我们的数据库和表"
+}, {
+  "tag": "P",
+  "text": "After we have completed the set-up steps, the next thing we need to do is create a dataset and a table in BigQuery. There are a few different ways to do this but the easiest is to just use the google cloud console and first create a dataset. You can follow the steps in the following link to create a table and a schema. Our table will have 7 columns corresponding to the components of each user log. For ease, we will define all columns as strings apart from the timelocal variable and name them according to the variables we generated previously. Our table schema should look like figure 3.",
+  "translation": "完成设置步骤后，下一步需要做的是在BigQuery中创建数据集和表格。 有几种不同的方法可以做到这一点，但最简单的方法是只使用Google云控制台并首先创建一个数据集。 您可以按照以下链接中的步骤创建表和架构。 我们的表将有7列对应于每个用户日志的组件。 为简便起见，我们将所有列定义为除timelocal变量之外的字符串，并根据我们先前生成的变量命名它们。 我们的表架构应如图3所示。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*oLQNDo5KxHx8iCMvipfsAQ.png?q=20",
+  "caption": "Figure 3 Table Schema",
+  "type": "image",
+  "file": "1!oLQNDo5KxHx8iCMvipfsAQ.png"
+}, {
+  "tag": "H2",
+  "text": "Setting up Google Cloud.",
+  "translation": "设置Google Cloud。"
+}, {
+  "tag": "P",
+  "text": "Note: To run the pipeline and publish the user log data I used the google cloud shell as I was having problems running the pipeline using Python 3. Google cloud shell uses Python 2 which plays a bit nicer with Apache Beam.",
+  "translation": "注意：要运行管道并发布用户日志数据，我在使用Python 3运行管道时遇到了问题，所以我使用了Google云外壳。"
+}, {
+  "tag": "P",
+  "text": "To be able to run the pipeline we need to do a bit of setup. For those of you who haven't used GCP before you will need to go through the 6 steps outlined on this page.",
+  "translation": "为了能够运行管道，我们需要做一些设置。 对于尚未使用GCP的用户，您需要按照本页概述的6个步骤进行操作。"
+}, {
+  "tag": "P",
+  "text": "After this, we will need to upload our scripts to Google cloud storage and copy them to over to our Google cloud shell. Uploading to cloud storage is pretty straightforward and explained here. To copy our files, we can open up the Google Cloud shell in the toolbar by clicking the first icon on the left in Figure 2 below.",
+  "translation": "之后，我们需要将脚本上传到Google云存储，然后将其复制到Google Cloud Shell中。 上传到云存储非常简单，并在此处进行说明。 要复制文件，我们可以在工具栏中打开Google Cloud shell，方法是单击下面图2左侧的第一个图标。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*H3nARM1xJfUu2nhRYepyGw.png?q=20",
+  "caption": "Figure 2",
+  "type": "image",
+  "file": "1!H3nARM1xJfUu2nhRYepyGw.png"
+}, {
+  "tag": "P",
+  "text": "The commands we need to copy over the files and install the necessary libraries are listed below.",
+  "translation": "下面列出了我们需要复制文件并安装必要的库的命令。"
+}, {
+  "tag": "PRE",
+  "text": "# Copy file from cloud storagegsutil cp gs://<YOUR-BUCKET>/ * .sudo pip install apache-beam[gcp] oauth2client==3.0.0 sudo pip install -U pipsudo pip install Faker==1.0.2# Environment variablesBUCKET=<YOUR-BUCKET>PROJECT=<YOUR-PROJECT>",
+  "translation": "＃从云存储中复制文件gsutil cp gs：// <YOUR-BUCKET> / * .sudo pip install apache-beam [gcp] oauth2client == 3.0.0 sudo pip install -U pipsudo pip install Faker == 1.0.2＃环境 variablesBUCKET = <您的项目> PROJECT = <您的项目>"
+}, {
+  "tag": "H1",
+  "text": "Creating Pseudo data using Faker",
+  "translation": "使用Faker创建伪数据"
+}, {
+  "tag": "P",
+  "text": "As I mentioned before, due to limited access to the data I decided to create fake data that was the same format as the actual data. This was a really useful exercise as I could develop the code and test the pipeline while I waited for the data. I suggest taking a look at the Faker documentation if you want to see what else the library has to offer. Our user data will in general look similar to the example below. Based on this format we can generate data line by line to simulate real-time data. These logs give us information such as the date, the type of request, the response from the server, the IP address, etc.",
+  "translation": "如前所述，由于对数据的访问受限，我决定创建与实际数据格式相同的伪造数据。 这是一个非常有用的练习，因为我可以在等待数据时开发代码并测试管道。 如果您想查看该库还可以提供什么，建议您看一下Faker文档。 我们的用户数据通常看起来类似于以下示例。 基于这种格式，我们可以逐行生成数据以模拟实时数据。 这些日志为我们提供了诸如日期，请求类型，来自服务器的响应，IP地址等信息。"
+}, {
+  "tag": "PRE",
+  "text": "192.52.197.161 - - [30/Apr/2019:21:11:42] \"PUT /tag/category/tag HTTP/1.1\" [401] 155 \"https://harris-lopez.com/categories/about/\" \"Mozilla/5.0 (Macintosh; PPC Mac OS X 10_11_2) AppleWebKit/5312 (KHTML, like Gecko) Chrome/34.0.855.0 Safari/5312\"",
+  "translation": "192.52.197.161--[30 / Apr / 2019：21：11：42]“ PUT / tag / category / tag HTTP / 1.1” [401] 155“ https://harris-lopez.com/categories/about/” “ Mozilla / 5.0（Macintosh； PPC Mac OS X 10_11_2）AppleWebKit / 5312（KHTML，例如Gecko）Chrome / 34.0.855.0 Safari / 5312”"
+}, {
+  "tag": "P",
+  "text": "Based on the line above we want to create our LINE variable using the 7 variables in the curly brackets below. We will also use these as variable names in our table schema a little later as well.",
+  "translation": "基于上面的行，我们要使用下面花括号中的7个变量创建LINE变量。 稍后，我们还将在表模式中将它们用作变量名。"
+}, {
+  "tag": "PRE",
+  "text": "LINE = \"\"\"\\{remote_addr} - - [{time_local}] \"{request_type} {request_path} HTTP/1.1\" [{status}] {body_bytes_sent} \"{http_referer}\" \"{http_user_agent}\"\\\"\"\"",
+  "translation": "LINE =“” \\\\ {remote_addr}--[{time_local}]“ {request_type} {request_path} HTTP / 1.1” [{status}] {body_bytes_sent}“ {http_referer}”“ {http_user_agent}” \\“”"
+}, {
+  "tag": "P",
+  "text": "If we were doing a batch job the code would be quite similar although we would need to create a bunch of samples over some time range. To use faker we just create an object and call the methods we need. In particular, faker was useful for generating IP addresses as well as websites. I used the following methods:",
+  "translation": "如果我们要进行批处理，则代码将非常相似，尽管我们需要在一定时间范围内创建一堆样本。 要使用fakerr，我们只需创建一个对象并调用所需的方法即可。 特别是，伪造者对于生成IP地址和网站很有用。 我使用以下方法："
+}, {
+  "tag": "PRE",
+  "text": "fake.ipv4()fake.uri_path()fake.uri()fake.user_agent()",
+  "translation": "fake.ipv4（）fake.uri_path（）fake.uri（）fake.user_agent（）"
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/DFoly/3ff2e2ce1bbbef721efc6d9ce19b62c0/raw/caa3b703004d5a5118461ff2d6500f830e8a3bfc/stream_logs.py",
+  "code": "from faker import Faker\nimport time\nimport random\nimport os\nimport numpy as np\nfrom datetime import datetime, timedelta\n\n\n\nLINE = \"\"\"\\\n{remote_addr} - - [{time_local}] \"{request_type} {request_path} HTTP/1.1\" [{status}] {body_bytes_sent} \"{http_referer}\" \"{http_user_agent}\"\\\n\"\"\"\n\n\ndef generate_log_line():\n    fake = Faker()\n    now = datetime.now()\n    remote_addr = fake.ipv4()\n    time_local = now.strftime('%d/%b/%Y:%H:%M:%S')\n    request_type = random.choice([\"GET\", \"POST\", \"PUT\"])\n    request_path = \"/\" + fake.uri_path()\n\n    status = np.random.choice([200, 401, 404], p = [0.9, 0.05, 0.05])\n    body_bytes_sent = random.choice(range(5, 1000, 1))\n    http_referer = fake.uri()\n    http_user_agent = fake.user_agent()\n\n    log_line = LINE.format(\n        remote_addr=remote_addr,\n        time_local=time_local,\n        request_type=request_type,\n        request_path=request_path,\n        status=status,\n        body_bytes_sent=body_bytes_sent,\n        http_referer=http_referer,\n        http_user_agent=http_user_agent\n    )\n\n    return log_line\n"
+}, {
+  "tag": "H2",
+  "text": "Visualizing our Pipeline",
+  "translation": "可视化我们的管道"
+}, {
+  "tag": "P",
+  "text": "Let’s visualize the components of our pipeline using figure 1. At a high level, what we want to do is collect the user-generated data in real time, process it and feed it into BigQuery. The logs are generated when users interact with the product sending requests to the server which is then logged. This data can be particularly useful in understanding how users engage with our product and whether things are working correctly. In general, the pipeline will have the following steps:",
+  "translation": "让我们使用图1可视化管道的各个组成部分。从总体上讲，我们想要做的是实时收集用户生成的数据，对其进行处理并将其输入到BigQuery中。 当用户与产品交互将请求发送到服务器，然后记录该日志时，将生成日志。 这些数据对于了解用户如何使用我们的产品以及事情是否正常运行特别有用。 通常，管道将执行以下步骤："
+}, {
+  "tag": "OL",
+  "texts": ["Our user log data is published to a Pub/Sub topic.", "We will connect to Pub/Sub and transform the data into the appropriate format using Python and Beam (step 3 and 4 in Figure 1).", "After transforming the data, Beam will then connect to BigQuery and append the data to our table(step 4 and 5 in Figure 1).", "To carry out analysis we can connect to BigQuery using a variety of tools such as Tableau and Python."],
+  "translations": ["我们的用户日志数据已发布到发布/订阅主题。", "我们将连接到Pub / Sub并使用Python和Beam将数据转换为适当的格式（图1中的第3步和第4步）。", "转换数据后，Beam将连接到BigQuery并将数据附加到我们的表中（图1中的第4步和第5步）。", "为了进行分析，我们可以使用Tableau和Python等各种工具连接到BigQuery。"]
+}, {
+  "tag": "P",
+  "text": "Beam makes this process very easy to do whether we have a streaming data source or if we have a CSV file and want to do a batch job. You will see later that there are only minimal changes to the code required to switch between the two. This is one of the advantages of using Beam.",
+  "translation": "无论我们具有流数据源还是拥有CSV文件并想要执行批处理工作，Beam都非常容易执行此过程。 稍后您将看到，在两者之间切换所需的代码仅进行了最小的更改。 这是使用Beam的优点之一。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*9zCX81ho6hRa4NE5qk1MVg.png?q=20",
+  "caption": "Figure 1: General Data Pipeline: Source:",
+  "type": "image",
+  "file": "1!9zCX81ho6hRa4NE5qk1MVg.png"
+}, {
+  "tag": "H1",
+  "text": "Introduction to GCP and Apache Beam",
+  "translation": "GCP和Apache Beam简介"
+}, {
+  "tag": "P",
+  "text": "Google Cloud Platform provides a bunch of really useful tools for big data processing. Some of the tools I will be using include:",
+  "translation": "Google Cloud Platform为大数据处理提供了一堆非常有用的工具。 我将使用的一些工具包括："
+}, {
+  "tag": "UL",
+  "texts": ["Pub/Sub is a messaging service that uses a Publisher-Subscriber model allowing us to ingest data in real-time.", "DataFlow is a service that simplifies creating data pipelines and automatically handles things like scaling up the infrastructure which means we can just concentrate on writing the code for our pipeline.", "BigQuery is a cloud data warehouse. If you are familiar with other SQL style databases then BigQuery should be pretty straightforward.", "Finally, we will be using Apache Beam and in particular, we will focus on the Python version to create our pipeline. This tool will allow us to create a pipeline for streaming or batch processing that integrates with GCP. It is particularly useful for parallel processing and is suited to Extract, Transform, and Load (ETL) type tasks so if we need to move data from one place to another while performing transformations or calculations Beam is a good choice."],
+  "translations": ["发布/订阅是一种使用发布者-订阅者模型的消息传递服务，使我们可以实时摄取数据。", "DataFlow是一项服务，可简化创建数据管道的过程，并自动处理诸如扩展基础架构之类的事情，这意味着我们可以专注于为管道编写代码。", "BigQuery是一个云数据仓库。 如果您熟悉其他SQL样式数据库，那么BigQuery应该非常简单。", "最后，我们将使用Apache Beam，尤其是，我们将专注于Python版本来创建管道。 该工具将使我们能够创建与GCP集成的流式或批处理管道。 它对并行处理特别有用，并且适合提取，转换和加载（ETL）类型的任务，因此，如果我们需要在执行转换或计算时将数据从一个位置移动到另一个位置，Beam是一个不错的选择。"]
+}, {
+  "tag": "P",
+  "text": "There is a wide variety of tools available on GCP so it can be difficult to keep track of them all and what their purpose is but here is a summary of them for reference.",
+  "translation": "GCP上提供了各种各样的工具，因此很难跟踪所有工具及其用途，但是这里是它们的摘要以供参考。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*7cPpB6RiEl7GeU7So3M_7A.jpeg?q=20",
+  "type": "image",
+  "file": "1!7cPpB6RiEl7GeU7So3M_7A.jpeg"
+}, {
+  "tag": "H1",
+  "text": "Let’s Build a Streaming Data Pipeline",
+  "translation": "让我们建立一个流数据管道"
+}, {
+  "tag": "H2",
+  "text": "Apache Beam and DataFlow for real-time data pipelines",
+  "translation": "Apache Beam和DataFlow用于实时数据管道"
+}, {
+  "tag": "P",
+  "text": "Today's post is based on a project I recently did in work. I was really excited to implement it and to write it up as a blog post as it gave me a chance to do some data engineering and also do something that was quite valuable for my team. Not too long ago, I discovered that we had a relatively large amount of user log data relating to one of our data products stored on our systems. As it turns out nobody was really using this data so I immediately became interested in what we could learn if we started to regularly analyze it. There was a couple of problems, however. The first issue was that the data was stored in many different text files which were not immediately accessible for analysis. The second issue was that it was stored in a locked down system so I couldn't use any of my favorite tools to analyze the data.",
+  "translation": "今天的帖子是基于我最近在工作的一个项目。 我真的很高兴实现它并将其写为博客文章，因为它使我有机会进行一些数据工程，并且做一些对我的团队非常有价值的事情。 不久之前，我发现我们有相对大量的用户日志数据，这些数据与系统中存储的一种数据产品有关。 事实证明，没有人真正使用过这些数据，因此，我立即对如果开始定期进行分析可以学到的东西感兴趣。 但是，有几个问题。 第一个问题是数据存储在许多不同的文本文件中，无法立即进行分析。 第二个问题是它存储在锁定的系统中，因此我无法使用任何我喜欢的工具来分析数据。"
+}, {
+  "tag": "P",
+  "text": "I considered how I could make this easier to access for us and really create some value by building this data source into some of our user engagement work. After thinking about this for a while I decided I would build a pipeline to feed this data into a cloud database so that I and the wider team could access it and start generating some insights. After having recently completed the Data Engineering specialization on Coursera I was keen to start a project using some of the tools in the course.",
+  "translation": "我考虑过如何通过将数据源构建到我们的一些用户参与工作中来使我们更轻松地访问它并真正创造一些价值。 考虑了一段时间后，我决定建立一条管道，将这些数据馈入云数据库，以便我和更广泛的团队可以访问它并开始产生一些见解。 在最近完成Coursera上的数据工程专业之后，我渴望使用课程中的一些工具来开始一个项目。"
+}, {
+  "tag": "P",
+  "text": "Right so putting the data into a cloud database seems like a reasonable way to deal with my first problem but what could I do about problem number 2? Well luckily, there was a way to transfer this data to an environment where I could access tools like Python and Google Cloud Platform (GCP). This was, however going to be a long process so I needed to do something that would allow me to develop while I waited for the data transfer. The solution I arrived at was to create some fake data using the Faker library in Python. I had never used the library before but quickly realized how useful it was. Taking this approach allowed me to start writing code and testing the pipeline without having the actual data.",
+  "translation": "正确，因此将数据放入云数据库似乎是解决第一个问题的合理方法，但是对于第二个问题我该怎么办？ 幸运的是，有一种方法可以将数据传输到可以访问Python和Google Cloud Platform（GCP）等工具的环境。 但是，这将是一个漫长的过程，因此我需要做一些可以让我在等待数据传输时进行开发的东西。 我到达的解决方案是使用Python中的Faker库创建一些虚假数据。 我以前从未使用过该库，但很快就意识到它的用处。 采用这种方法使我可以开始编写代码并测试管道，而无需实际数据。"
+}, {
+  "tag": "P",
+  "text": "With that said, In this post, I will walk through how I built the pipeline described above using some of the technologies available on GCP. In particular, I will be using Apache Beam (python version), Dataflow, Pub/Sub, and Big Query to collect user logs, transform the data and feed it into a database for further analysis. For my use case, I only needed the batch functionality of beam since my data was not coming in real-time so Pub/Sub was not required. I will, however, focus on the streaming version since this is what you might commonly come across in practice.",
+  "translation": "话虽如此，在本文中，我将逐步介绍如何使用GCP上可用的一些技术来构建上述管道。 特别是，我将使用Apache Beam（Python版本），Dataflow，Pub / Sub和Big Query来收集用户日志，转换数据并将其输入数据库以进行进一步分析。 对于我的用例，由于我的数据不是实时输入的，因此只需要beam的批处理功能，因此不需要Pub / Sub。 但是，我将重点介绍流媒体版本，因为这是您在实践中通常会遇到的问题。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Daniel Foley的文章《Let’s Build a Streaming Data Pipeline》，参考：https://towardsdatascience.com/lets-build-a-streaming-data-pipeline-e873d671fc57)",
+  "translation": "（本文翻译自“ Daniel Foley的文章，“让我们构建流数据管道”，参考：https：//towardsdatascience.com/lets-build-a-streaming-data-pipeline-e873d671fc57）"
+}]
