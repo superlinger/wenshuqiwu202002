@@ -1,0 +1,276 @@
+[{
+  "tag": "H1",
+  "text": "Other Great Data Science and Data Engineering Resources",
+  "translation": "其他大数据科学和数据工程资源"
+}, {
+  "tag": "UL",
+  "texts": ["The Interview Study Guide For Software Engineers", "Learning Data Science: Our Top 25 Data Science Courses"],
+  "translations": ["软件工程师面试学习指南", "学习数据科学：我们的25大数据科学课程"]
+}, {
+  "tag": "H1",
+  "text": "10. Format Python However You Like With Black",
+  "translation": "10.格式化Python但您喜欢用黑色"
+}, {
+  "tag": "P",
+  "text": "Learn more about solving common Python problems in our series covering seven PyPI libraries.",
+  "translation": "在我们涵盖七个PyPI库的系列文章中了解有关解决常见Python问题的更多信息。"
+}, {
+  "tag": "P",
+  "text": "By Moshe Zadka (community moderator).",
+  "translation": "由Moshe Zadka（社区主持人）。"
+}, {
+  "tag": "P",
+  "text": "“Python is one of the most popular programming languages in use today — and for good reasons: it’s open-source, it has a wide range of uses (such as web programming, business applications, games, scientific programming, and much more), and it has a vibrant and dedicated community supporting it.",
+  "translation": "“ Python是当今使用的最流行的编程语言之一，并且有充分的理由：它是开源的，它具有广泛的用途（例如Web编程，业务应用程序，游戏，科学编程等等）， 并且它有一个充满活力和敬业精神的社区来支持它。"
+}, {
+  "tag": "P",
+  "text": "This community is the reason we have such a large, diverse range of software packages available in the Python Package Index (PyPI) to extend and improve Python and solve the inevitable glitches that crop up.”",
+  "translation": "这个社区的原因是我们在Python软件包索引（PyPI）中拥有如此众多，种类繁多的软件包，以扩展和改进Python并解决不可避免的小问题。”"
+}, {
+  "tag": "P",
+  "text": "Read the full article.",
+  "translation": "阅读全文。"
+}, {
+  "tag": "H1",
+  "text": "9. Distributed Systems With RabbitMQ",
+  "translation": "9.带有RabbitMQ的分布式系统"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*zTkUuu1St1nFr-uFiHZQRQ.png?q=20",
+  "type": "image",
+  "file": "1!zTkUuu1St1nFr-uFiHZQRQ.png"
+}, {
+  "tag": "P",
+  "text": "“In this article, we’re going to talk about the benefits of distributed systems and how to move to distributed systems using RabbitMQ. Then, we will learn the fundamentals of RabbitMQ and how to interact with it using Python.”",
+  "translation": "“在本文中，我们将讨论分布式系统的优势以及如何使用RabbitMQ迁移到分布式系统。 然后，我们将学习RabbitMQ的基础知识以及如何使用Python与之交互。”"
+}, {
+  "tag": "P",
+  "text": "Read the full article.",
+  "translation": "阅读全文。"
+}, {
+  "tag": "H1",
+  "text": "8. The Next Level of Data Visualization in Python",
+  "translation": "8. Python中数据可视化的新层次"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*3oKPqgBdjGyd3EC3YNvJ0w.png?q=20",
+  "type": "image",
+  "file": "1!3oKPqgBdjGyd3EC3YNvJ0w.png"
+}, {
+  "tag": "P",
+  "text": "How to make great-looking, fully-interactive plots with a single line of Python.",
+  "translation": "如何使用单行Python制作美观，完全交互的图。"
+}, {
+  "tag": "P",
+  "text": "By Will Koehrsen.",
+  "translation": "威尔·科森（Will Koehrsen）。"
+}, {
+  "tag": "P",
+  "text": "“The sunk-cost fallacy is one of many harmful cognitive biases to which humans fall prey. It refers to our tendency to continue to devote time and resources to a lost cause because we have already spent — sunk — so much time in the pursuit.”",
+  "translation": "沉没的谬误是人类沦为猎物的许多有害认知偏见之一。 它是指我们倾向于继续将时间和资源用于失败的事业，因为我们已经花了很多时间去沉没。"
+}, {
+  "tag": "P",
+  "text": "Read the full article.",
+  "translation": "阅读全文。"
+}, {
+  "tag": "H1",
+  "text": "7. Speed Up Your Exploratory Data Analysis With Pandas-Profiling",
+  "translation": "7.使用Pandas分析加速您的探索性数据分析"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*HPiIWRIJXL6daTYUURGPRw.png?q=20",
+  "type": "image",
+  "file": "1!HPiIWRIJXL6daTYUURGPRw.png"
+}, {
+  "tag": "P",
+  "text": "Get an intuition of your data’s structure with just one line of code.",
+  "translation": "只需一行代码，即可直观了解数据的结构。"
+}, {
+  "tag": "P",
+  "text": "By Lukas Frei.",
+  "translation": "卢卡斯·弗赖（Lukas Frei）。"
+}, {
+  "tag": "P",
+  "text": "“When importing a new data set for the very first time, the first thing to do is to get an understanding of the data.",
+  "translation": "“当首次导入新数据集时，要做的第一件事就是了解数据。"
+}, {
+  "tag": "P",
+  "text": "This includes steps like determining the range of specific predictors, identifying each predictor’s data type, as well as computing the number or percentage of missing values for each predictor.”",
+  "translation": "这包括确定特定预测变量的范围，识别每个预测变量的数据类型以及计算每个预测变量的缺失值的数量或百分比之类的步骤。”"
+}, {
+  "tag": "P",
+  "text": "Read the full article.",
+  "translation": "阅读全文。"
+}, {
+  "tag": "H1",
+  "text": "6. If You Like to Travel, Let Python Help You Scrape the Best Cheap Flights!",
+  "translation": "6.如果您喜欢旅行，让Python帮助您刮擦最好的廉价航班！"
+}, {
+  "tag": "P",
+  "text": "By Fábio Neves",
+  "translation": "法比奥·内维斯（FábioNeves）"
+}, {
+  "tag": "P",
+  "text": "“Simply put, the goal of this project is to build a web scraper that will run and perform searches on flight prices with flexible dates (up to three days before and after the dates you select), for a particular destination.",
+  "translation": "简而言之，该项目的目标是构建一个网络刮板，该刮板将针对特定目的地运行并以灵活的日期（您选择的日期前后三天）对航班价格进行搜索。"
+}, {
+  "tag": "P",
+  "text": "It saves an Excel with the results and sends an email with the quick stats. Obviously, the objective is to help us find the best deals!”",
+  "translation": "它保存带有结果的Excel，并发送包含快速统计信息的电子邮件。 显然，目标是帮助我们找到最优惠的价格！”"
+}, {
+  "tag": "P",
+  "text": "Read the full article.",
+  "translation": "阅读全文。"
+}, {
+  "tag": "H1",
+  "text": "5. An Essential Guide to Numpy for Machine Learning in Python",
+  "translation": "5. Python中机器学习的Numpy基本指南"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*6TQBG47ORg92Y25B?q=20",
+  "type": "image",
+  "file": "0!6TQBG47ORg92Y25B"
+}, {
+  "tag": "P",
+  "text": "The quintessential library for ML.",
+  "translation": "ML的典型库。"
+}, {
+  "tag": "P",
+  "text": "By Siddharth Dikshit.",
+  "translation": "由Siddharth Dikshit撰写。"
+}, {
+  "tag": "P",
+  "text": "“Why would this be useful to you?",
+  "translation": "“为什么这对您有用？"
+}, {
+  "tag": "P",
+  "text": "Well, since most of us tend to forget (in case of those who’ve already implemented ML algorithms) the various library functions and end up writing code for pre-existing functions using sheer logic, which is a waste of both time and energy, in such cases, it becomes essential if one understands the nuances of the library being used efficiently.",
+  "translation": "好吧，由于我们大多数人都倾向于忘记（对于那些已经实现了ML算法的人）各种库函数并最终使用纯粹的逻辑为预先存在的函数编写代码，这既浪费时间又浪费精力， 在这种情况下，重要的是要了解有效使用图书馆的细微差别。"
+}, {
+  "tag": "P",
+  "text": "So, Numpy, being one of the essential libraries for machine learning, requires an article of its own.”",
+  "translation": "因此，Numpy作为机器学习的基本库之一，需要有一篇自己的文章。”"
+}, {
+  "tag": "P",
+  "text": "Read the full article.",
+  "translation": "阅读全文。"
+}, {
+  "tag": "H1",
+  "text": "4. Cross-Validation Strategies for Time Series Forecasting",
+  "translation": "4.时间序列预测的交叉验证策略"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*SJOcBMIYHy5WaSo5C9hpRw.png?q=20",
+  "type": "image",
+  "file": "1!SJOcBMIYHy5WaSo5C9hpRw.png"
+}, {
+  "tag": "P",
+  "text": "“Time series modeling and forecasting are tricky and challenging. The i.i.d (identically distributed independence) assumption does not hold well for time series data.",
+  "translation": "“时间序列建模和预测非常棘手且充满挑战。 i.i.d（完全相同的独立性）假设不适用于时间序列数据。"
+}, {
+  "tag": "P",
+  "text": "There is an implicit dependency on previous observations and, at the same time, a data leakage from response variables to lag variables is more likely to occur in addition to inherent non-stationarity in the data space.",
+  "translation": "隐含地依赖于先前的观察，同时，除了数据空间内在的非平稳性之外，还更可能发生从响应变量到滞后变量的数据泄漏。"
+}, {
+  "tag": "P",
+  "text": "By non-stationarity, we mean flickering changes of observed statistics such as mean and variance. It gets even trickier when taking inherent nonlinearity into consideration.”",
+  "translation": "非平稳性是指观察到的统计数据的闪烁变化，例如均值和方差。 考虑到固有的非线性，它变得更加棘手。”"
+}, {
+  "tag": "P",
+  "text": "Read the full article.",
+  "translation": "阅读全文。"
+}, {
+  "tag": "H1",
+  "text": "3. Introducing fklearn: Nubank’s Machine Learning Library (Part 1)",
+  "translation": "3. fklearn简介：Nubank的机器学习库（第1部分）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*P8BNRJRiud_5luF6?q=20",
+  "type": "image",
+  "file": "0!P8BNRJRiud_5luF6"
+}, {
+  "tag": "P",
+  "text": "By Lucas Estevam.",
+  "translation": "卢卡斯·埃斯特瓦姆（Lucas Estevam）。"
+}, {
+  "tag": "P",
+  "text": "“Nubank has just open-sourced fklearn, our machine learning Python library!",
+  "translation": "“ Nubank刚刚开源了fklearn，这是我们的机器学习Python库！"
+}, {
+  "tag": "P",
+  "text": "At Nubank, we rely heavily on machine learning to make scalable data-driven decisions. While there are many other ML libraries out there (we use Xgboost, LGBM, and ScikitLearn extensively, for example), we felt the need for a higher-level abstraction that would help us more easily apply these libraries to the problems we face.",
+  "translation": "在Nubank，我们严重依赖机器学习来制定可扩展的数据驱动型决策。 尽管还有许多其他ML库（例如，我们广泛使用Xgboost，LGBM和ScikitLearn），但我们感到需要更高级别的抽象，这将有助于我们更轻松地将这些库应用于所面临的问题。"
+}, {
+  "tag": "P",
+  "text": "Fklearn effectively wraps these libraries into a format that makes their use in production more effective.”",
+  "translation": "Fklearn有效地将这些库包装成一种格式，使它们在生产中的使用更加有效。”"
+}, {
+  "tag": "P",
+  "text": "Read the full article.",
+  "translation": "阅读全文。"
+}, {
+  "tag": "H1",
+  "text": "2. Learn Blockchains by Building One",
+  "translation": "2.通过构建一个学习区块链"
+}, {
+  "tag": "P",
+  "text": "The fastest way to learn how blockchains work is by building one.",
+  "translation": "学习区块链如何工作的最快方法是构建区块链。"
+}, {
+  "tag": "P",
+  "text": "By Daniel van Flymen.",
+  "translation": "丹尼尔·范·弗莱门（Daniel van Flymen）。"
+}, {
+  "tag": "P",
+  "text": "“Before you get started…",
+  "translation": "“在开始之前..."
+}, {
+  "tag": "P",
+  "text": "Remember that a blockchain is an immutable, sequential chain of records called Blocks. They can contain transactions, files or any data you like, really. But the important thing is that they’re chained together using hashes.”",
+  "translation": "请记住，区块链是一个不变的顺序记录链，称为块。 它们可以包含事务，文件或您真正喜欢的任何数据。 但重要的是，它们使用散列链连接在一起。”"
+}, {
+  "tag": "P",
+  "text": "Read the full article.",
+  "translation": "阅读全文。"
+}, {
+  "tag": "H1",
+  "text": "1. Let’s Build a Streaming Data Pipeline",
+  "translation": "1.让我们建立一个流数据管道"
+}, {
+  "tag": "P",
+  "text": "Apache Beam and Dataflow for real-time data pipelines.",
+  "translation": "用于实时数据管道的Apache Beam和Dataflow。"
+}, {
+  "tag": "P",
+  "text": "By Daniel Foley.",
+  "translation": "丹尼尔·弗利（Daniel Foley）。"
+}, {
+  "tag": "P",
+  "text": "“Today’s post is based on a project I recently did at work. I was really excited to implement it and to write it up as a blog post as it gave me a chance to do some data engineering and also do something that was quite valuable for my team.",
+  "translation": "“今天的帖子基于我最近在工作中所做的一个项目。 我真的很高兴实现它并将其写为博客文章，因为它使我有机会进行一些数据工程，并且做一些对我的团队非常有价值的事情。"
+}, {
+  "tag": "P",
+  "text": "Not too long ago, I discovered that we had a relatively large amount of user log data relating to one of our data products stored on our systems.”",
+  "translation": "不久之前，我发现我们有相对大量的用户日志数据，这些数据与系统中存储的一种数据产品有关。”"
+}, {
+  "tag": "P",
+  "text": "Read the full article.",
+  "translation": "阅读全文。"
+}, {
+  "tag": "H1",
+  "text": "10 Amazing Articles on Python Programming and Machine Learning",
+  "translation": "关于Python编程和机器学习的10篇惊人文章"
+}, {
+  "tag": "H2",
+  "text": "Streaming data pipelines, fklearn, cross-validation, and more",
+  "translation": "流数据管道，fklearn，交叉验证等"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*9zCX81ho6hRa4NE5qk1MVg.png?q=20",
+  "type": "image",
+  "file": "1!9zCX81ho6hRa4NE5qk1MVg.png"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自SeattleDataGuy的文章《10 Amazing Articles on Python Programming and Machine Learning》，参考：https://medium.com/better-programming/10-amazing-articles-on-python-programming-and-machine-learning-week-3-a425a9159bff)",
+  "translation": "（本文翻译自SeattleDataGuy的文章《关于Python编程和机器学习的10篇惊人文章》，参考：https：//medium.com/better-programming/10-amazing-articles-on-python-programming-and-machine-learning -week-3-a425a9159bff）"
+}]
