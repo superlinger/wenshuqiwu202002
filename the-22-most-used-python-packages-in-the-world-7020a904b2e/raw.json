@@ -1,0 +1,703 @@
+[{
+  "tag": "H1",
+  "text": "Final Notes",
+  "translation": "最后说明"
+}, {
+  "tag": "P",
+  "text": "It’s hard to stop writing after 22 packages because many of the ones that follow are some of the most interesting ones for end-users like us. They'll get their chance to shine in another piece I have planned!",
+  "translation": "很难停止编写22个软件包，因为随后的许多软件包都是像我们这样的最终用户最感兴趣的软件包。 他们将有机会在我计划的另一片作品中大放异彩！"
+}, {
+  "tag": "P",
+  "text": "Building this list gave me these insights:",
+  "translation": "建立此列表使我获得了以下见解："
+}, {
+  "tag": "UL",
+  "texts": ["Many of the top-ranking packages offer core functionality of some sort — like working with time, configuration files, encryption, and standardization. They are often a dependency for other projects.", "A common theme is connectivity. Most of these packages allow you to either connect to servers and services or support other packages in doing so.", "The rest are extensions to Python. Tools to create Python packages, tools that help to create documentation, libraries that create compatibility between versions, etc."],
+  "translations": ["许多排名靠前的软件包都提供了某种核心功能，例如处理时间，配置文件，加密和标准化。 它们通常是其他项目的依赖项。", "一个常见的主题是连通性。 这些软件包中的大多数都允许您连接到服务器和服务或支持其他软件包。", "其余的是对Python的扩展。 创建Python包的工具，帮助创建文档的工具，创建版本之间兼容性的库等。"]
+}, {
+  "tag": "P",
+  "text": "I hope you enjoyed this list and perhaps learned something new from it — I sure did!",
+  "translation": "我希望您喜欢这份清单，并且也许从中学到了新的东西-我当然做到了！"
+}, {
+  "tag": "H2",
+  "text": "30 Python Best Practices, Tips, And Tricks",
+  "translation": "30个Python最佳实践，技巧和窍门"
+}, {
+  "tag": "H3",
+  "text": "Improve your Python knowledge and skills",
+  "translation": "提高您的Python知识和技能"
+}, {
+  "tag": "H1",
+  "text": "22. Boto3",
+  "translation": "22. Boto3"
+}, {
+  "tag": "P",
+  "text": "I’ve combined #3, #7, #17 and #22 since they are all so related. See #3!",
+  "translation": "我将＃3，＃7，＃17和＃22结合在一起，因为它们是如此相关。 见＃3！"
+}, {
+  "tag": "H1",
+  "text": "21. Simplejson",
+  "translation": "21. Simplejson"
+}, {
+  "tag": "P",
+  "text": "341M downloads",
+  "translation": "341M下载"
+}, {
+  "tag": "P",
+  "text": "What’s wrong with the native json module in Python that requires this high ranking alternative? Nothing! In fact, Python'sjson is simplejson. But simplejson has some advantages:",
+  "translation": "需要这种高级替代方案的Python本机json模块有什么问题？ 没有！ 实际上，Python的json是simplejson。 但是simplejson具有一些优点："
+}, {
+  "tag": "UL",
+  "texts": ["It works on more Python versions.", "It is updated more frequently than Python.", "It has (optional) parts that are written in C, making it very fast."],
+  "translations": ["它适用于更多Python版本。", "它比Python更新的频率更高。", "它具有用C编写的（可选）部分，因此非常快速。"]
+}, {
+  "tag": "P",
+  "text": "Something you will often see in scripts that work with JSON is this:",
+  "translation": "您经常会在与JSON一起使用的脚本中看到以下内容："
+}, {
+  "tag": "PRE",
+  "text": "try:  import simplejson as jsonexcept ImportError:  import json",
+  "translation": "尝试：将simplejson作为json导入，但ImportError：导入json"
+}, {
+  "tag": "P",
+  "text": "Unless you specifically need something that is not in the standard library, I would just use json. Simplejson can be a lot faster than json, because it has some parts implemented in C. This speed will not be an issue for you, unless you are working with thousands of JSON files. Also check out UltraJSON, which is supposed to be even faster because almost all of it is written in C.",
+  "translation": "除非您特别需要标准库中没有的内容，否则我只会使用json。 Simplejson可以比json快很多，因为它有一些用C实现的部分。除非您正在使用成千上万的JSON文件，否则这种速度对您来说不是问题。 还要检查UltraJSON，它应该更快，因为几乎所有的内容都是用C编写的。"
+}, {
+  "tag": "H1",
+  "text": "20. Colorama",
+  "translation": "20.科罗拉多州"
+}, {
+  "tag": "P",
+  "text": "370M downloads",
+  "translation": "370M下载"
+}, {
+  "tag": "P",
+  "text": "With Colorama, you can add some color to your terminal:",
+  "translation": "使用Colorama，您可以为终端添加一些颜色："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*nc8J3Tff07gsYsvguqT-Fg.png?q=20",
+  "caption": "Screenshot by Jonathan Hartley from Colorama",
+  "type": "image",
+  "file": "1!nc8J3Tff07gsYsvguqT-Fg.png"
+}, {
+  "tag": "P",
+  "text": "To get a feel for how easy this is, here’s some example code:",
+  "translation": "为了了解这有多么容易，请看以下示例代码："
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/eriky/b7447f54db4e0df8dda166a30fa9cefc/raw/29155a62cf309ae13018a10f670fbb45ce1173b8/colorama.py",
+  "code": "from colorama import Fore, Back, Style\n\nprint(Fore.RED + 'some red text')\nprint(Back.GREEN + 'and with a green background')\nprint(Style.DIM + 'and in dim text')\nprint(Style.RESET_ALL)\nprint('back to normal now')"
+}, {
+  "tag": "H1",
+  "text": "19. Futures",
+  "translation": "19.期货"
+}, {
+  "tag": "P",
+  "text": "389M downloads",
+  "translation": "389M下载"
+}, {
+  "tag": "P",
+  "text": "Since Python 3.2, python has offered the concurrent.futures module, which helps you to perform asynchronous execution. The futures packages is a backport of this library, meant for Python 2. It is not meant for Python 3 users since Python 3 offers it natively.",
+  "translation": "从Python 3.2开始，python提供了current.futures模块，可帮助您执行异步执行。 futures软件包是该库的后向端口，适用于Python2。它并不适用于Python 3用户，因为Python 3是本机提供的。"
+}, {
+  "tag": "P",
+  "text": "As I mentioned before, Python 2 is officially not supported as of January 1, 2020. When I revisit this piece next year, I truly hope this package won’t be in the top 22.",
+  "translation": "正如我之前提到的，从2020年1月1日起正式不支持Python2。当我明年再次访问本部分时，我真的希望这个软件包不会出现在前22名中。"
+}, {
+  "tag": "P",
+  "text": "Here’s a basic example of futures in use:"
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/eriky/a311abd2e1433dd7ff2cbe5ed5d95968/raw/d858369f45310920b2436401ce21f18c0dfef85b/futures.py",
+  "code": "from concurrent.futures import ThreadPoolExecutor\nfrom time import sleep\n \ndef return_after_5_secs(message):\n  sleep(5)\n  return message\n \npool = ThreadPoolExecutor(3)\n \nfuture = pool.submit(return_after_5_secs, \n                     (\"Hello world\"))\n\nprint(future.done())\n# False\nsleep(5)\nprint(future.done())\n# True\nprint(future.result())\n# Hello World"
+}, {
+  "tag": "P",
+  "text": "As you can see, you can create a pool of threads and submit a function to be executed by one of these threads. In the meantime, your program will continue running in the main thread. It’s an easy way to parallelize the execution of your program.",
+  "translation": "如您所见，您可以创建线程池并提交要由这些线程之一执行的函数。 同时，您的程序将继续在主线程中运行。 这是并行执行程序的简便方法。"
+}, {
+  "tag": "H1",
+  "text": "18. Pytz",
+  "translation": "18.派兹"
+}, {
+  "tag": "P",
+  "text": "394M downloads",
+  "translation": "394M下载"
+}, {
+  "tag": "P",
+  "text": "Like dateutils (#5), this library helps you to work with dates and times. Working with time zones can be difficult. Luckily, there are packages like these to make it easier.",
+  "translation": "与dateutils（＃5）一样，该库可帮助您处理日期和时间。 使用时区可能很困难。 幸运的是，有这样的软件包可以使它变得更容易。"
+}, {
+  "tag": "P",
+  "text": "My experience with time and computers drills down to this: always use UTC internally. Convert to local time only when generating output to be read by humans.",
+  "translation": "我在时间和计算机方面的经验可追溯到此：始终在内部使用UTC。 仅当生成供人类读取的输出时，才转换为本地时间。"
+}, {
+  "tag": "P",
+  "text": "Here’s an example pytz usage:",
+  "translation": "这是pytz用法的示例："
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/eriky/a2b749c36060c851507ebbb3a8eec0b7/raw/2f1d6c1f780f4c79cfd37d27a2b7aad90493ca3b/pytz.py",
+  "code": "from datetime import datetime\nfrom pytz import timezone\n\namsterdam = timezone('Europe/Amsterdam')\n\nams_time = amsterdam.localize(datetime(2002, 10, 27, 6, 0, 0))\nprint(ams_time)\n# 2002-10-27 06:00:00+01:00\n\n# It will also know when it's Summer Time\n# in Amsterdam (similar to Daylight Savings Time):\nams_time = amsterdam.localize(datetime(2002, 6, 27, 6, 0, 0))\nprint(ams_time)\n# 2002-06-27 06:00:00+02:00"
+}, {
+  "tag": "P",
+  "text": "Check out the PyPI page for more examples and documentation.",
+  "translation": "请查看PyPI页面以获取更多示例和文档。"
+}, {
+  "tag": "H1",
+  "text": "17. Awscli",
+  "translation": "17. Awscli"
+}, {
+  "tag": "P",
+  "text": "I’ve combined #3, #7, #17 and #22 since they are all so related. See #3!",
+  "translation": "我将＃3，＃7，＃17和＃22结合在一起，因为它们是如此相关。 见＃3！"
+}, {
+  "tag": "H1",
+  "text": "16. Setuptools",
+  "translation": "16. Setuptools"
+}, {
+  "tag": "P",
+  "text": "401M downloads",
+  "translation": "401M下载"
+}, {
+  "tag": "P",
+  "text": "Setuptools is what you use to create a Python package.",
+  "translation": "Setuptools是用于创建Python软件包的工具。"
+}, {
+  "tag": "P",
+  "text": "This project is badly documented. It doesn’t describe what it is and it contains dead links in its description. The best source of info is this site: https://packaging.python.org/, and in particular this guide to creating a Python package: https://packaging.python.org/tutorials/packaging-projects/.",
+  "translation": "该项目记录不良。 它没有描述它的含义，并且在其描述中包含无效链接。 最好的信息来源是以下站点：https://packaging.python.org/，特别是创建Python包的指南：https://packaging.python.org/tutorials/packaging-projects/。"
+}, {
+  "tag": "H1",
+  "text": "15. Jmespath",
+  "translation": "15. Jmespath"
+}, {
+  "tag": "P",
+  "text": "473M downloads",
+  "translation": "下载4.73亿"
+}, {
+  "tag": "P",
+  "text": "Using JSON in Python is super easy since JSON maps so well on a Python dictionary. For me, it’s one of its best features.",
+  "translation": "在Python中使用JSON非常容易，因为JSON在Python字典上的映射非常好。 对我来说，这是它最好的功能之一。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*yRnc_8jRsWc6XzeTJupsjg.png?q=20",
+  "caption": "Screenshot by author",
+  "type": "image",
+  "file": "1!yRnc_8jRsWc6XzeTJupsjg.png"
+}, {
+  "tag": "P",
+  "text": "I’ll be honest here — I never heard of this package, even though I’ve worked a lot with JSON. I would just use json.loads() and get data from the dictionary manually, perhaps with a loop here and there.",
+  "translation": "我在这里说老实话-尽管我已经使用JSON进行过很多工作，但我从未听说过该软件包。 我只使用json.loads（）并从字典中手动获取数据，也许在这里和那里都有一个循环。"
+}, {
+  "tag": "P",
+  "text": "JMESPath, pronounced “James path”, makes JSON in Python even easier. It allows you to declaratively specify how to extract elements from a JSON document. Here are some basic examples to give you a feeling for what it can do:",
+  "translation": "JMESPath，发音为“ James path”，使Python中的JSON更加容易。 它允许您声明性地指定如何从JSON文档中提取元素。 以下是一些基本示例，可以使您对它可以做什么有所了解："
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/eriky/efda2e1c87a8db271f7e12ac71258252/raw/b94e3055b9bbca30336db6111cc48fe8f1dd3bd0/jmespath.py",
+  "code": "import jmespath\n\n# Get a specific element\nd = {\"foo\": {\"bar\": \"baz\"}}\nprint(jmespath.search('foo.bar', d))\n# baz\n\n# Using a wildcard to get all names\nd = {\"foo\": {\"bar\": [{\"name\": \"one\"}, {\"name\": \"two\"}]}}\nprint(jmespath.search('foo.bar[*].name', d))\n# [“one”, “two”]"
+}, {
+  "tag": "P",
+  "text": "This is just touching the surface of all its possibilities. See the documentation and the PyPI page for more.",
+  "translation": "这只是触及所有可能性的表面。 有关更多信息，请参见文档和PyPI页面。"
+}, {
+  "tag": "H1",
+  "text": "12. Docutils",
+  "translation": "12. Docutils"
+}, {
+  "tag": "P",
+  "text": "508M downloads",
+  "translation": "508M下载"
+}, {
+  "tag": "P",
+  "text": "Docutils is a modular system for processing plaintext documentation into useful formats, such as HTML, XML, and LaTeX. Docutils is able to read plain text documents in the reStructuredText format — an easy-to-read markup syntax similar to MarkDown.",
+  "translation": "Docutils是一个模块化系统，用于将纯文本文档处理为有用的格式，例如HTML，XML和LaTeX。 Docutils能够读取reStructuredText格式的纯文本文档-类似于MarkDown的易于阅读的标记语法。"
+}, {
+  "tag": "P",
+  "text": "You probably have heard about PEP documents, or even read one. So what is a PEP document? The very first PEP document called PEP-1 explains it well for us:",
+  "translation": "您可能听说过PEP文档，甚至阅读过。 那么什么是PEP文档？ 最早的PEP文件PEP-1为我们很好地说明了这一点："
+}, {
+  "tag": "P",
+  "text": "PEP stands for Python Enhancement Proposal. A PEP is a design document providing information to the Python community, or describing a new feature for Python or its processes or environment. The PEP should provide a concise technical specification of the feature and a rationale for the feature.",
+  "translation": "PEP代表Python增强提案。 PEP是一个设计文档，向Python社区提供信息，或描述Python或其过程或环境的新功能。 PEP应该提供该功能的简明技术规范以及该功能的原理。"
+}, {
+  "tag": "P",
+  "text": "PEP documents are written in a fixed reStructuredText template, and converted using docutils to nicely formatted documents.",
+  "translation": "PEP文档使用固定的reStructuredText模板编写，并使用docutils转换为格式正确的文档。"
+}, {
+  "tag": "P",
+  "text": "Docutils is also at the core of Sphinx. Sphinx is used to create documentation projects. If Docutils is a machine, Sphinx is the factory. It was originally created to build Python documentation but many other projects use it to document their code.",
+  "translation": "Docutils也是Sphinx的核心。 Sphinx用于创建文档项目。 如果Docutils是一台机器，则Sphinx是工厂。 它最初是为了构建Python文档而创建的，但是许多其他项目使用它来记录其代码。"
+}, {
+  "tag": "P",
+  "text": "You’ve probably read documentation on readthedocs.org, right? Most of the documentation on there is created by Sphinx and docutils.",
+  "translation": "您可能已经阅读了readthedocs.org上的文档，对吗？ 那里的大多数文档都是由Sphinx和docutils创建的。"
+}, {
+  "tag": "H1",
+  "text": "13. Chardet",
+  "translation": "13. Chardet"
+}, {
+  "tag": "P",
+  "text": "501M downloads",
+  "translation": "501M下载"
+}, {
+  "tag": "P",
+  "text": "You can use the chardet module to detect the charset of a file or data stream. This can come in useful when analyzing big piles of random text, for example. But it can also be used when working with remotely downloaded data where you don’t know what the charset is.",
+  "translation": "您可以使用chardet模块来检测文件或数据流的字符集。 例如，当分析大量随机文本时，这很有用。 但是，当您不知道字符集是什么时，也可以在处理远程下载的数据时使用它。"
+}, {
+  "tag": "P",
+  "text": "After installing chardet, you also have an extra command-line tool called chardetect, which can be used like this:"
+}, {
+  "tag": "PRE",
+  "text": "chardetect somefile.txtsomefile.txt: ascii with confidence 1.0"
+}, {
+  "tag": "P",
+  "text": "You can also use the library programmatically, check out the docs."
+}, {
+  "tag": "P",
+  "text": "Chardet is a requirement for requests and many other packages. I don’t think many people use chardet on its own, so its popularity must come from these dependencies.",
+  "translation": "Chardet是请求和许多其他程序包的要求。 我认为没有很多人独自使用chardet，因此chardet的流行必须来自于这些依赖性。"
+}, {
+  "tag": "H1",
+  "text": "14. RSA",
+  "translation": "14. RSA"
+}, {
+  "tag": "P",
+  "text": "492M downloads",
+  "translation": "492M下载"
+}, {
+  "tag": "P",
+  "text": "The rsa package is a pure-Python RSA implementation. It supports:",
+  "translation": "rsa软件包是纯Python RSA实现。 它支持："
+}, {
+  "tag": "UL",
+  "texts": ["encryption and decryption,", "signing and verifying signatures,", "key generation according to PKCS#1 version 1.5."],
+  "translations": ["加密和解密", "签名和验证签名，", "根据PKCS＃1 1.5版生成密钥。"]
+}, {
+  "tag": "P",
+  "text": "It can be used as a Python library as well as on the command-line.",
+  "translation": "它既可以用作Python库，也可以在命令行中使用。"
+}, {
+  "tag": "P",
+  "text": "Some facts:",
+  "translation": "一些事实："
+}, {
+  "tag": "UL",
+  "texts": ["The letters in RSA are initial letters of the surnames of Ron Rivest, Adi Shamir, and Leonard Adleman. They described the algorithm in 1977.", "RSA is one of the first public-key cryptosystems and is widely used for secure data transmission. In such a cryptosystem, there are two keys: a public part and a private part. You encrypt data with the public key, which can then only be decrypted with the private key.", "RSA is a slow algorithm. It is less commonly used to directly encrypt user data. Often RSA is used to securely pass a shared key for symmetric key cryptography, which is much faster at encryption and decryption of large amounts of data."],
+  "translations": ["RSA中的字母是Ron Rivest，Adi Shamir和Leonard Adleman姓的首字母。 他们在1977年描述了该算法。", "RSA是最早的公钥密码系统之一，被广泛用于安全数据传输。 在这样的密码系统中，有两个密钥：公共部分和私有部分。 您使用公共密钥加密数据，然后只能使用私有密钥解密数据。", "RSA是一种缓慢的算法。 它很少用于直接加密用户数据。 通常，RSA用于安全地传递对称密钥加密的共享密钥，这在加密和解密大量数据时要快得多。"]
+}, {
+  "tag": "P",
+  "text": "The following code snippet show how RSA can be used for a very simple use-case:",
+  "translation": "以下代码段显示了如何在非常简单的用例中使用RSA："
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/eriky/e691d5c69a74bfb49886699cc4aa2f47/raw/6c7e73038833288c382b4616a23056dc81905755/rsa.py",
+  "code": "import rsa\n\n# Bob creates a key pair:\n(bob_pub, bob_priv) = rsa.newkeys(512)\n\n# Alice ecnrypts a message for Bob\n# with his public key\ncrypto = rsa.encrypt('hello Bob!', bob_pub)\n\n# When Bob gets the message, he\n# decrypts it with his private key:\nmessage = rsa.decrypt(crypto, bob_priv)\nprint(message.decode('utf8'))\n# hello Bob!"
+}, {
+  "tag": "P",
+  "text": "Assuming Bob kept his private key private, Alice can be sure that he is the only one who can read the message.",
+  "translation": "假设鲍勃将他的私钥保密，那么爱丽丝可以确定他是唯一可以阅读该消息的人。"
+}, {
+  "tag": "P",
+  "text": "Bob, however, does not know for sure that it was Alice that sent the message since anyone can get and use his public key. To prove it was her, Alice could have signed the message with her private key. Bob can verify this signature with her public key, ensuring it was really her sending the message.",
+  "translation": "但是，Bob不能确定是爱丽丝发送了该消息，因为任何人都可以获取并使用他的公共密钥。 为了证明是她，爱丽丝可以用她的私钥在邮件上签名。 鲍勃可以用她的公钥验证此签名，确保它确实是她发送的消息。"
+}, {
+  "tag": "P",
+  "text": "Packages like google-auth (#37), oauthlib (#54), awscli (#17) depend on the rsa package. Not many people will be using this one as a stand-alone tool since there are faster, more native alternatives.",
+  "translation": "诸如google-auth（＃37），oauthlib（＃54），awscli（＃17）之类的软件包取决于rsa软件包。 很少有人会将此工具用作独立工具，因为有更快，更本地化的替代方法。"
+}, {
+  "tag": "H1",
+  "text": "11. Pyasn1",
+  "translation": "11. Pyasn1"
+}, {
+  "tag": "P",
+  "text": "512M downloads",
+  "translation": "512M下载"
+}, {
+  "tag": "P",
+  "text": "Like IDNA above, this project also has one of those super helpful descriptions:",
+  "translation": "像上面的IDNA一样，该项目也具有以下超级有用的描述之一："
+}, {
+  "tag": "P",
+  "text": "Pure-Python implementation of ASN.1 types and DER/BER/CER codecs (X.208).",
+  "translation": "ASN.1类型和DER / BER / CER编解码器（X.208）的纯Python实现。"
+}, {
+  "tag": "P",
+  "text": "Fortunately, there’s lots of info to be found on this decades-old standard. ASN.1, short for Abstract Syntax Notation One, is like the godfather of data serialization. It comes from the telecommunications world. Perhaps you know protocol buffers or Apache Thrift? This is, literally, the 1984 version of those.",
+  "translation": "幸运的是，在这个已有数十年历史的标准中可以找到很多信息。 ASN.1是“抽象语法表示法一”的缩写，就像数据序列化的教父一样。 它来自电信界。 也许您知道协议缓冲区或Apache Thrift？ 从字面上看，这是1984年的版本。"
+}, {
+  "tag": "P",
+  "text": "ASN.1 describes the cross-platform interface between systems and the data structures that can be sent through this interface.",
+  "translation": "ASN.1描述了系统之间的跨平台接口以及可以通过该接口发送的数据结构。"
+}, {
+  "tag": "P",
+  "text": "Remember Certifi (see #8)? ASN.1 is used to define the format of certificates used in the HTTPS protocol, and in many other cryptographic systems. It’s also used in SNMP, LDAP, Kerberos, UMTS, LTE, and VOIP protocols.",
+  "translation": "还记得Certifi（请参阅＃8）吗？ ASN.1用于定义HTTPS协议和许多其他密码系统中使用的证书格式。 它也用于SNMP，LDAP，Kerberos，UMTS，LTE和VOIP协议。"
+}, {
+  "tag": "P",
+  "text": "It’s a specification that’s very complex and some implementations have proven to be full of vulnerabilities. You may also like this interesting Reddit thread about ASN.1.",
+  "translation": "这是一个非常复杂的规范，并且已经证明某些实施存在漏洞。 您可能还喜欢关于ASN.1的这个有趣的Reddit线程。"
+}, {
+  "tag": "P",
+  "text": "I recommend staying away unless you really need it. But, since it’s used in so many places, lots of packages are dependent on this one.",
+  "translation": "我建议远离，除非您真的需要。 但是，由于它在很多地方都使用过，因此许多软件包都依赖于此软件包。"
+}, {
+  "tag": "H1",
+  "text": "10. PyYAML",
+  "translation": "10. PyYAML"
+}, {
+  "tag": "P",
+  "text": "525M downloads",
+  "translation": "525M下载"
+}, {
+  "tag": "P",
+  "text": "YAML is a data serialization format. It’s designed for both human and computer readability — it’s easy to read and write for humans but computers can still parse it.",
+  "translation": "YAML是一种数据序列化格式。 它是为人和计算机的可读性而设计的，它对人类来说很容易读写，但计算机仍然可以对其进行解析。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*U20zKclQgUC0SNM8hpT8Gw.png?q=20",
+  "caption": "Example of YAML, image by author",
+  "type": "image",
+  "file": "1!U20zKclQgUC0SNM8hpT8Gw.png"
+}, {
+  "tag": "P",
+  "text": "PyYAML is a YAML parser and emitter for Python, which means it can read and write YAML. It will write any Python object to YAML: lists, dictionaries, and even class instances.",
+  "translation": "PyYAML是Python的YAML解析器和发射器，这意味着它可以读写YAML。 它将把任何Python对象写入YAML：列表，字典，甚至是类实例。"
+}, {
+  "tag": "P",
+  "text": "Python offers its own config parser, but YAML offers a lot more compared to the basic .ini file structure of Python’s ConfigParser.",
+  "translation": "Python提供了自己的配置解析器，但是与Python的ConfigParser的基本.ini文件结构相比，YAML提供了更多功能。"
+}, {
+  "tag": "P",
+  "text": "For example, YAML can store any data type: booleans, lists, floats, et cetera. ConfigParser will store everything as a string internally. If you want to load an integer with ConfigParser, you’ll need to specify that you want to get an int explicitly:",
+  "translation": "例如，YAML可以存储任何数据类型：布尔值，列表，浮点数等等。 ConfigParser会将所有内容存储为内部字符串。 如果要使用ConfigParser加载整数，则需要指定要明确获取int的类型："
+}, {
+  "tag": "P",
+  "text": "config.getint(“section”, “my_int”)",
+  "translation": "config.getint（“ section”，“ my_int”）"
+}, {
+  "tag": "P",
+  "text": "While pyyaml automatically recognizes the type, so this will return your int with PyYAML:",
+  "translation": "虽然pyyaml自动识别类型，所以这将使用PyYAML返回您的int："
+}, {
+  "tag": "P",
+  "text": "config[“section”][“my_int”]",
+  "translation": "config [“ section”] [“ my_int”]"
+}, {
+  "tag": "P",
+  "text": "YAML also allows arbitrary deep trees, not something every project needs, but it can come in handy.",
+  "translation": "YAML还允许任意的深树，不是每个项目都需要的东西，但是它可以派上用场。"
+}, {
+  "tag": "P",
+  "text": "It’s up to you to decide what you prefer, but many projects use YAML for their configuration file(s), hence the popularity of this project.",
+  "translation": "由您决定自己喜欢什么，但是许多项目使用YAML作为配置文件，因此该项目的受欢迎程度。"
+}, {
+  "tag": "P",
+  "text": "Links: PyYAML PyPI page, documentation.",
+  "translation": "链接：PyYAML PyPI页面，文档。"
+}, {
+  "tag": "H1",
+  "text": "9. Idna",
+  "translation": "9. Idna"
+}, {
+  "tag": "P",
+  "text": "527M downloads",
+  "translation": "527M下载"
+}, {
+  "tag": "P",
+  "text": "According to the PyPI page, idna offers “support for the Internationalised Domain Names in Applications (IDNA) protocol as specified in RFC 5891.”",
+  "translation": "根据PyPI页面，idna提供了“对RFC 5891中指定的应用程序中国际化域名（IDNA）协议的支持。”"
+}, {
+  "tag": "P",
+  "text": "If you’re anything like me, you still have no idea what Idna is or does! Lucky for you, yours truly did the grunt work of finding it out!",
+  "translation": "如果您像我一样，您仍然不知道Idna是什么或做什么！ 幸运的是，您的确发现了它的艰巨工作！"
+}, {
+  "tag": "P",
+  "text": "Internationalized Domain Names in Applications (IDNA) is a mechanism for handling domain names containing non-ASCII characters. But the original domain name system already offered support for non-ASCII based domain names. So what’s the problem?",
+  "translation": "应用程序中的国际化域名（IDNA）是一种用于处理包含非ASCII字符的域名的机制。 但是原始域名系统已经提供了对基于非ASCII域名的支持。 所以有什么问题？"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*rgXgGW4nzn2_3NiVnvq3Jw.jpeg?q=20",
+  "caption": "By Adamantios — Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=1630902",
+  "type": "image",
+  "file": "1!rgXgGW4nzn2_3NiVnvq3Jw.jpeg"
+}, {
+  "tag": "P",
+  "text": "The problem is that applications, like e-mail clients and web browsers, do not support non-ASCII characters. Or more specifically, the protocols for email and HTTP don’t support these characters.",
+  "translation": "问题是应用程序（例如电子邮件客户端和Web浏览器）不支持非ASCII字符。 更具体地说，电子邮件和HTTP协议不支持这些字符。"
+}, {
+  "tag": "P",
+  "text": "That was fine for many countries, but a problem for countries like China, Russia, Germany, Greece, Indonesia, etc. So, not entirely coincidentally, a bunch of smart people from these countries came up with IDNA.",
+  "translation": "对于许多国家来说，这很好，但是对于中国，俄罗斯，德国，希腊，印度尼西亚等国家来说是个问题。因此，并非偶然地，来自这些国家的一群聪明人想到了IDNA。"
+}, {
+  "tag": "P",
+  "text": "At the core of IDNA are two functions: ToASCII and ToUnicode. ToASCII will translate an international, Unicode domain into an ASCII string. ToUnicode will reverse that process. In the IDNA package, these functions are called idna.encode() and idna.decode(), as can be seen in the following snippet:",
+  "translation": "IDNA的核心是两个功能：ToASCII和ToUnicode。 ToASCII会将国际Unicode域转换为ASCII字符串。 ToUnicode将逆转该过程。 在IDNA软件包中，这些函数称为idna.encode（）和idna.decode（），如以下代码片段所示："
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/eriky/bc31b2547e6c5af3d87113dae24b64e2/raw/a37d7087a39acec0f5a723444aaed4d64170332d/idna.py",
+  "code": "import idna\nidna.encode('ドメイン.テスト')\n# b'xn--eckwd4c7c.xn--zckzah'\nprint(idna.decode('xn--eckwd4c7c.xn--zckzah'))\n# ドメイン.テスト"
+}, {
+  "tag": "P",
+  "text": "You can read RFC-3490 for the details of this encoding, if you’re a masochist.",
+  "translation": "如果您是受虐狂，则可以阅读RFC-3490了解此编码的详细信息。"
+}, {
+  "tag": "P",
+  "text": "Links: Idna PyPI page, GitHub page",
+  "translation": "链接：Idna PyPI页面，GitHub页面"
+}, {
+  "tag": "H1",
+  "text": "8. Certifi",
+  "translation": "8.认证"
+}, {
+  "tag": "P",
+  "text": "552M downloads",
+  "translation": "552M下载"
+}, {
+  "tag": "P",
+  "text": "In recent years, almost all websites moved to SSL, which can be recognized by the little lock symbol in your address bar. It means communication with that site is secure and encrypted, preventing eavesdropping.",
+  "translation": "近年来，几乎所有网站都转向了SSL，您可以通过地址栏中的小锁符号来识别它。 这意味着与该站点的通信是安全和加密的，从而防止了窃听。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*nVfP89woJWSVC0ptxTz_jA.png?q=20",
+  "caption": "The little lock, telling us this site is secured with SSL. Image by author.",
+  "type": "image",
+  "file": "1!nVfP89woJWSVC0ptxTz_jA.png"
+}, {
+  "tag": "P",
+  "text": "The encryption is based on SSL certificates and these SSL certificates are created by trusted companies or non-profits like LetsEncrypt. These organizations digitally sign the certificate with their (intermediary) certificate.",
+  "translation": "加密基于SSL证书，这些SSL证书由受信任的公司或LetsEncrypt等非营利组织创建。 这些组织使用其（中间）证书对证书进行数字签名。"
+}, {
+  "tag": "P",
+  "text": "By using the publicly available part of these certificates, your browser is able to verify their signature, so you can be sure you’re looking at the real thing and that nobody is snooping on the data.",
+  "translation": "通过使用这些证书的公共可用部分，您的浏览器可以验证其签名，因此可以确保您正在查看真实的东西，并且没有人窥探到数据。"
+}, {
+  "tag": "P",
+  "text": "Python software can do exactly the same. That’s where certifi comes it. It’s not so different from the collection of root certificates that come with web browsers like Chrome, Firefox, and Edge.",
+  "translation": "Python软件可以完全相同。 这就是证明的来源。 与Chrome，Firefox和Edge等网络浏览器随附的根证书集合没有太大不同。"
+}, {
+  "tag": "P",
+  "text": "Certifi is a curated collection of root certificates, so your Python code will be able to verify the trustworthiness of SSL certificates.",
+  "translation": "Certifi是根证书的精选集合，因此您的Python代码将能够验证SSL证书的可信度。"
+}, {
+  "tag": "P",
+  "text": "Many projects trust and depend on certifi, as can be seen here. This is also the reason why this project ranks so high.",
+  "translation": "如此处所示，许多项目信任并依赖认证。 这也是该项目排名如此之高的原因。"
+}, {
+  "tag": "P",
+  "text": "Links: certifi PyPI page, documentation, certifi.io",
+  "translation": "链接：certifi PyPI页面，文档，certifi.io"
+}, {
+  "tag": "H1",
+  "text": "7. S3transfer",
+  "translation": "7. S3transfer"
+}, {
+  "tag": "P",
+  "text": "I’ve combined #3, #7, #17 and #22 since they are all so related. See #3!",
+  "translation": "我将＃3，＃7，＃17和＃22结合在一起，因为它们是如此相关。 见＃3！"
+}, {
+  "tag": "H1",
+  "text": "6. Requests",
+  "translation": "6.要求"
+}, {
+  "tag": "P",
+  "text": "611M downloads",
+  "translation": "6.11亿下载"
+}, {
+  "tag": "P",
+  "text": "Requests is built on our #1 library, urllib3. It makes web requests really simple. Many people prefer it over urllib3 and it’s probably used more by end-users than urllib3 is. The latter is more low-level and is often a dependency for other projects, because of the level of control over the internals.",
+  "translation": "请求建立在我们的＃1库urllib3上。 它使Web请求变得非常简单。 与urllib3相比，许多人更喜欢它，而且最终用户可能会比urllib3使用它更多。 后者是较低级别的，并且由于对内部控件的控制级别，通常是其他项目的依赖项。"
+}, {
+  "tag": "P",
+  "text": "Just to show how easy requests can be:",
+  "translation": "只是为了说明请求有多简单："
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/eriky/3278f7fead9a0054c0012dad7b4349e6/raw/3c2f02ed8ac2c675e962204fb205734db9175c51/requests.py",
+  "code": "import requests\n\nr = requests.get('https://api.github.com/user', auth=('user', 'pass'))\nr.status_code\n# 200\nr.headers['content-type']\n# 'application/json; charset=utf8'\nr.encoding\n# 'utf-8'\nr.text\n# u'{\"type\":\"User\"...'\nr.json()\n# {u'disk_usage': 368627, u'private_gists': 484, ...}"
+}, {
+  "tag": "P",
+  "text": "Links:",
+  "translation": "链接："
+}, {
+  "tag": "UL",
+  "texts": ["PyPI page", "Documentation"],
+  "translations": ["PyPI页面", "文献资料"]
+}, {
+  "tag": "H1",
+  "text": "5. Python-dateutil",
+  "translation": "5. Python-dateutil"
+}, {
+  "tag": "P",
+  "text": "617M downloads",
+  "translation": "6.17亿下载"
+}, {
+  "tag": "P",
+  "text": "The python-dateutil module provides powerful extensions to the standard datetime module. It’s my experience that where regular Python datetime functionality ends, python-dateutil comes in.",
+  "translation": "python-dateutil模块提供了对标准datetime模块的强大扩展。 我的经验是，常规Python日期时间功能在哪里结束，而python-dateutil就出现了。"
+}, {
+  "tag": "P",
+  "text": "You can do so much cool stuff with this library. I’ll limit the examples to just one that I found particularly useful: fuzzy parsing of dates from log files and such:",
+  "translation": "您可以使用此库做很多很棒的事情。 我将这些示例限制为我发现特别有用的示例：模糊分析日志文件中的日期，例如："
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/eriky/1856d6852105549d0fce477542387e48/raw/b96cd80de0065e55e72ca10363f43aa7dcef6d55/dateutil.py",
+  "code": "from dateutil.parser import parse\n\nlogline = 'INFO 2020-01-01T00:00:01 Happy new year, human.'\ntimestamp = parse(log_line, fuzzy=True)\nprint(timestamp)\n# 2020-01-01 00:00:01"
+}, {
+  "tag": "H1",
+  "text": "4. Pip",
+  "translation": "4.点"
+}, {
+  "tag": "P",
+  "text": "627M downloads",
+  "translation": "627M下载"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*Cmk_gbbD9tjNz1W-3XspCA.png?q=20",
+  "caption": "PyPI Screenshot by author",
+  "type": "image",
+  "file": "1!Cmk_gbbD9tjNz1W-3XspCA.png"
+}, {
+  "tag": "P",
+  "text": "I assume most of you know and love pip, the package installer for Python. You can use pip to effortlessly install packages from the Python Package Index and other indexes, like a local mirror or custom index with privately-owned software.",
+  "translation": "我想你们大多数人都知道并且喜欢pip，它是Python的软件包安装程序。 您可以使用pip轻松地从Python软件包索引和其他索引安装软件包，例如本地镜像或带有私有软件的自定义索引。"
+}, {
+  "tag": "P",
+  "text": "Some interesting facts about pip:",
+  "translation": "有关pip的一些有趣事实："
+}, {
+  "tag": "UL",
+  "texts": ["pip is a recursive acronym for “Pip Installs Packages”", "pip is very easy to use. Installing a package is as simple as pip install <package name> and removing it is accomplished with pip uninstall <package name>.", "One of its biggest strengths is that it also takes a list of packages, often in the form of a requirements.txt file. This file may optionally include detailed specifications of the required versions. Most Python projects include such a file.", "Using pip in combination with virtualenv (#57 on the list) allows you to create predictable, isolated environments that won’t interfere with your underlying system and vice versa."],
+  "translations": ["pip是“ Pip Installs软件包”的递归首字母缩写。", "点很容易使用。 安装软件包就像pip install <软件包名称>一样简单，而删除它是通过pip install <软件包名称>完成的。", "它的最大优势之一是，它还可以获取软件包列表，通常以requirements.txt文件的形式出现。 该文件可以选择包括所需版本的详细规范。 大多数Python项目都包含这样的文件。", "通过将pip与virtualenv（清单57）结合使用，可以创建可预测的隔离环境，而不会干扰基础系统，反之亦然。"]
+}, {
+  "tag": "H1",
+  "text": "3. botocore, boto3, s3transfer, awscli",
+  "translation": "3. botocore，boto3，s3transfer，awscli"
+}, {
+  "tag": "P",
+  "text": "I grouped number of related projects here:",
+  "translation": "我在这里对一些相关项目进行了分组："
+}, {
+  "tag": "UL",
+  "texts": ["botocore (#3, 660M downloads)", "s3transfer (#7, 584M downloads)", "awscli (#17 with 394M downloads)", "boto3 (#22 with 329M downloads)"],
+  "translations": ["botocore（＃3，6.6亿下载）", "s3transfer（＃7，584M下载）", "awscli（下载量为394M的＃17）", "boto3（下载量329M排名第22）"]
+}, {
+  "tag": "P",
+  "text": "Botocore is a low-level interface to Amazon Web Services. Botocore serves as the foundation for the Boto3 (#22) library, which allows you to make use of services like Amazon S3 and Amazon EC2.",
+  "translation": "Botocore是Amazon Web Services的低级界面。 Botocore是Boto3（＃22）库的基础，该库使您可以使用Amazon S3和Amazon EC2等服务。"
+}, {
+  "tag": "P",
+  "text": "Botocore is also the foundation of AWS-CLI, which provides a unified command-line interface to Amazon Web Services.",
+  "translation": "Botocore还是AWS-CLI的基础，它为Amazon Web Services提供了统一的命令行界面。"
+}, {
+  "tag": "P",
+  "text": "S3transfer (#7) is a Python library for managing Amazon S3 transfers. It’s under heavy development and its page basically says not to use it, or at least to pin the version down because the API may change, even between minor versions. Boto3, AWS-CLI, and many other projects have a dependency on s3transfer.",
+  "translation": "S3transfer（＃7）是用于管理Amazon S3传输的Python库。 它正在大量开发中，其页面上基本上说不使用它，或者至少将版本固定下来，因为API可能会更改，即使在次要版本之间也是如此。 Boto3，AWS-CLI和许多其他项目都依赖s3transfer。"
+}, {
+  "tag": "P",
+  "text": "It’s fascinating to see that these AWS specific libraries rank this high — it says a lot about how prominent AWS is.",
+  "translation": "令人惊讶的是，这些特定于AWS的库的排名如此之高-这充分说明了AWS的杰出之处。"
+}, {
+  "tag": "P",
+  "text": "Links:",
+  "translation": "链接："
+}, {
+  "tag": "UL",
+  "texts": ["botocore PyPI page and documentation,", "Boto3 PyPI page and documentation", "awscli PyPI page"],
+  "translations": ["botocore PyPI页面和文档，", "Boto3 PyPI页面和文档", "awscli PyPI页面"]
+}, {
+  "tag": "H1",
+  "text": "2. Six",
+  "translation": "2.六"
+}, {
+  "tag": "P",
+  "text": "732M downloads",
+  "translation": "732M下载"
+}, {
+  "tag": "P",
+  "text": "six is a Python 2 and 3 compatibility library. The project is intended to support codebases that work on both Python 2 and 3.",
+  "translation": "六个是Python 2和3兼容性库。 该项目旨在支持可在Python 2和3上运行的代码库。"
+}, {
+  "tag": "P",
+  "text": "If offers a number of functions that smooth the differences in syntax between Python 2 and 3. An easy to grasp examples of this is six.print_(). In Python 3, printing is done with the print() function, while in Python 2, print works without the parentheses. So, by using six.print_(), you can support both languages with one statement.",
+  "translation": "If提供了许多可简化Python 2和3之间语法差异的函数。一个容易理解的示例是six.print_（）。 在Python 3中，打印是通过print（）函数完成的，而在Python 2中，打印可以不带括号。 因此，通过使用six.print_（），您可以使用一条语句来支持两种语言。"
+}, {
+  "tag": "P",
+  "text": "Facts:",
+  "translation": "事实："
+}, {
+  "tag": "UL",
+  "texts": ["The name, six, comes from the fact that two times three equals six.", "For a similar library, also check out the future package", "If you want to convert your code to Python 3 (and stop supporting 2), check out 2to3."],
+  "translations": ["名称“ 6”来自两个三等于六的事实。", "对于类似的库，也请查看将来的软件包", "如果要将代码转换为Python 3（并停止支持2），请查看2to3。"]
+}, {
+  "tag": "P",
+  "text": "Although I understand its popularity, I hope people will start moving away from Python 2 altogether, especially since Python 2 is officially not supported as of January 1, 2020.",
+  "translation": "尽管我了解它的受欢迎程度，但我希望人们将完全放弃使用Python 2，尤其是因为从2020年1月1日起正式不支持Python 2。"
+}, {
+  "tag": "P",
+  "text": "Links: the PyPI page and documentation.",
+  "translation": "链接：PyPI页面和文档。"
+}, {
+  "tag": "H1",
+  "text": "1. Urllib3",
+  "translation": "1. Urllib3"
+}, {
+  "tag": "H2",
+  "text": "893M downloads",
+  "translation": "893M下载"
+}, {
+  "tag": "P",
+  "text": "Urllib3 is an HTTP client for Python that brings many features that are missing from the Python standard libraries:",
+  "translation": "Urllib3是Python的HTTP客户端，带来了Python标准库中缺少的许多功能："
+}, {
+  "tag": "UL",
+  "texts": ["Thread safety.", "Connection pooling.", "Client-side SSL/TLS verification.", "File uploads with multipart encoding.", "Helpers for retrying requests and dealing with HTTP redirects.", "Support for gzip and deflate encoding.", "Proxy support for HTTP and SOCKS."],
+  "translations": ["线程安全。", "连接池。", "客户端SSL / TLS验证。", "使用分段编码上传文件。", "重试请求和处理HTTP重定向的助手。", "支持gzip和deflate编码。", "HTTP和SOCKS的代理支持。"]
+}, {
+  "tag": "P",
+  "text": "Despite its name, Urllib3 is not a successor of urllib2, which is part of Python’s core. If you want to use as many core Python features as possible, perhaps because you’re limited to what you can install, then take a look at urlllib.request.",
+  "translation": "尽管名称如此，Urllib3并不是urllib2的后继者，后者是Python核心的一部分。 如果您想使用尽可能多的Python核心功能，也许是因为您限于可以安装的功能，请查看urlllib.request。"
+}, {
+  "tag": "P",
+  "text": "For end-users, I strongly recommend the requests package (see #6 on this list). This package is #1 because almost 1200 packages depend on urllib3, many of them ranking very high on this list as well.",
+  "translation": "对于最终用户，我强烈推荐请求包（请参阅此列表中的＃6）。 该软件包是＃1，因为几乎有1200个软件包依赖urllib3，其中许多软件包在此列表中的排名也很高。"
+}, {
+  "tag": "H1",
+  "text": "The 22 Most-Used Python Packages in the World",
+  "translation": "世界上22个最常用的Python软件包"
+}, {
+  "tag": "H2",
+  "text": "Educational and surprising insights into how Python is used",
+  "translation": "关于如何使用Python的教育性和令人惊讶的见解"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*JV-liQv_Va530pu6_5Qe4g.jpeg?q=20",
+  "caption": "Photo by NASA on Unsplash",
+  "type": "image",
+  "file": "1!JV-liQv_Va530pu6_5Qe4g.jpeg"
+}, {
+  "tag": "P",
+  "text": "How is Python being used around the globe and across industries?",
+  "translation": "Python在全球和各行各业如何使用？"
+}, {
+  "tag": "P",
+  "text": "This question inspired me to write this piece. I figured a list of the most-used Python packages would give a good indication.",
+  "translation": "这个问题启发了我写这篇文章。 我认为最常用的Python软件包列表可以很好地说明这一点。"
+}, {
+  "tag": "P",
+  "text": "As a starting point, I took a list of the most downloaded Python packages on PyPI over the past 365 days. Let’s dive in and find out what they do, how they’re related, and why they rank so high!",
+  "translation": "首先，我列出了过去365天内PyPI上下载次数最多的Python软件包列表。 让我们深入研究它们的工作，它们之间的关系以及它们为何排名很高的原因！"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Erik-Jan van Baaren的文章《The 22 Most-Used Python Packages in the World》，参考：https://medium.com/better-programming/the-22-most-used-python-packages-in-the-world-7020a904b2e)",
+  "translation": "（本文翻译自Erik-Jan van Baaren的文章《世界上22个最常用的Python软件包》，参考：https：//medium.com/better-programming/the-22-most-used-python-packages- 在世界上7020a904b2e）"
+}]
