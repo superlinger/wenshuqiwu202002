@@ -1,0 +1,167 @@
+[{
+  "tag": "H1",
+  "text": "Google’s Data Science Interview Brain Teasers",
+  "translation": "Google的数据科学访谈脑筋急转弯"
+}, {
+  "tag": "H2",
+  "text": "Simple, intuitive explanations of some of Google’s Problem Solving Questions",
+  "translation": "对Google的一些解决问题的简单，直观的解释"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*p255s58GsC6-JRqCc16Fcw.png?q=20",
+  "caption": "Photo by Mitchell Luo on Unsplash",
+  "type": "image",
+  "file": "1!p255s58GsC6-JRqCc16Fcw.png"
+}, {
+  "tag": "P",
+  "text": "As a part of Google’s Data Science Interview, they like to ask questions that they call “Problem-Solving” questions which are pretty similar to brain teasers. In this article, we’ll look at six questions that Google’s asked and provide the answers below!",
+  "translation": "作为Google数据科学访谈的一部分，他们喜欢问一些被称为“解决问题”的问题，这些问题与脑筋急转弯非常相似。 在本文中，我们将介绍Google提出的六个问题，并在下面提供答案！"
+}, {
+  "tag": "H1",
+  "text": "Questions and Answers",
+  "translation": "问题与解答"
+}, {
+  "tag": "H2",
+  "text": "1. A box has 12 red cards and 12 black cards. Another box has 24 red cards and 24 black cards. You want to draw two cards at random from one of the two boxes, one card at a time. Which box has a higher probability of getting cards of the same color and why?",
+  "translation": "1.一个盒子有12张红牌和12张黑牌。 另一个盒子有24张红牌和24张黑牌。 您想从两个方框之一随机抽取两张牌，一次一张。 哪个盒子更有可能获得相同颜色的卡片，为什么？"
+}, {
+  "tag": "P",
+  "text": "The box with 24 red cards and 24 black cards has a higher probability of getting two cards of the same color. Let’s walk through each step."
+}, {
+  "tag": "P",
+  "text": "Let’s say the first card you draw from each deck is a red Ace.",
+  "translation": "假设您从各副牌中抽出的第一张牌是红色A。"
+}, {
+  "tag": "P",
+  "text": "This means that in the deck with 12 reds and 12 blacks, there’s now 11 reds and 12 blacks. Therefore your odds of drawing another red are equal to 11/(11+12) or 11/23.",
+  "translation": "这意味着在甲板上有12个红色和12个黑色，现在有11个红色和12个黑色。 因此，您另外抽出红色的几率等于11 /（11 + 12）或11/23。"
+}, {
+  "tag": "P",
+  "text": "In the deck with 24 reds and 24 blacks, there would then be 23 reds and 24 blacks. Therefore your odds of drawing another red are equal to 23/(23+24) or 23/47.",
+  "translation": "在甲板上有24个红色和24个黑色，然后会有23个红色和24个黑色。 因此，您再绘制红色的几率等于23 /（23 + 24）或23/47。"
+}, {
+  "tag": "P",
+  "text": "Since 23/47 > 11/23, the second deck with more cards has a higher probability of getting the same two cards.",
+  "translation": "因为23/47> 11/23，所以第二张卡片组拥有更多张牌时，获得相同两张牌的可能性更高。"
+}, {
+  "tag": "H2",
+  "text": "2. You are at a Casino and have two dices to play with. You win $10 every time you roll a 5. If you play till you win and then stop, what is the expected payout?",
+  "translation": "2.您在赌场里，有两个骰子可以玩。 每次投下5杆，您将赢得10美元。如果您玩到赢得然后停止，您的预期支出是多少？"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*d4QXfhHpJkWBNhEclHxGaw.png?q=20",
+  "type": "image",
+  "file": "1!d4QXfhHpJkWBNhEclHxGaw.png"
+}, {
+  "tag": "UL",
+  "texts": ["Let’s assume that it costs $5 every time you want to play.", "There are 36 possible combinations with two dice.", "Of the 36 combinations, there are 4 combinations that result in rolling a five (see blue). This means that there is a 4/36 or 1/9 chance of rolling a 5.", "A 1/9 chance of winning means you’ll lose eight times and win once (theoretically).", "Therefore, your expected payout is equal to $10.00 * 1 - $5.00 * 9= -$35.00."],
+  "translations": ["假设您每次玩游戏的费用为5美元。", "有两个骰子的36种可能组合。", "在这36种组合中，有4种组合导致滚动5种（请参见蓝色）。 这意味着掷出5的几率是4/36或1/9。", "1/9的获胜机会意味着您将输掉8次，从理论上讲，您将赢得一次。", "因此，您的预期支出等于$ 10.00 * 1-$ 5.00 * 9 =-$ 35.00。"]
+}, {
+  "tag": "P",
+  "text": "Edit: Thank you guys for commenting and pointing out that it should be -$35!",
+  "translation": "编辑：谢谢你们的评论并指出它应该是-$ 35！"
+}, {
+  "tag": "H2",
+  "text": "3. How can you tell if a given coin is biased?",
+  "translation": "3.如何判断给定的硬币是否有偏差？"
+}, {
+  "tag": "P",
+  "text": "This isn’t a trick question. The answer is simply to perform a hypothesis test:",
+  "translation": "这不是一个技巧性的问题。 答案只是执行假设检验："
+}, {
+  "tag": "OL",
+  "texts": ["The null hypothesis is that the coin is not biased and the probability of flipping heads should equal 50% (p=0.5). The alternative hypothesis is that the coin is biased and p != 0.5.", "Flip the coin 500 times.", "Calculate Z-score (if the sample is less than 30, you would calculate the t-statistics).", "Compare against alpha (two-tailed test so 0.05/2 = 0.025).", "If p-value > alpha, the null is not rejected and the coin is not biased.If p-value < alpha, the null is rejected and the coin is biased."],
+  "translations": ["零假设是硬币没有偏斜，并且正面朝上的可能性应该等于50％（p = 0.5）。 另一种假设是硬币有偏，p = 0.5。", "翻转硬币500次。", "计算Z分数（如果样本小于30，则将计算t统计量）。", "与alpha比较（两尾测试，所以0.05 / 2 = 0.025）。", "如果p值> alpha，则不拒绝零值并且不对硬币进行偏置;如果p值<alpha，则不拒绝零值并且对硬币进行偏置。"]
+}, {
+  "tag": "P",
+  "text": "Learn more about hypothesis testing here.",
+  "translation": "在此处了解更多关于假设检验的信息。"
+}, {
+  "tag": "H2",
+  "text": "4. Make an unfair coin fair",
+  "translation": "4.使不公平的硬币变得公平"
+}, {
+  "tag": "P",
+  "text": "Since a coin flip is a binary outcome, you can make an unfair coin fair by flipping it twice. If you flip it twice, there are two outcomes that you can bet on: heads followed by tails or tails followed by heads.",
+  "translation": "由于抛硬币是二进制结果，因此可以通过两次抛硬币来使不公平的硬币公平。 如果将其翻转两次，则可以押注两个结果：头跟着尾巴或尾巴跟着头。"
+}, {
+  "tag": "P",
+  "text": "P(heads) * P(tails) = P(tails) * P(heads)",
+  "translation": "P（头）* P（尾）= P（尾）* P（头）"
+}, {
+  "tag": "P",
+  "text": "This makes sense since each coin toss is an independent event. This means that if you get heads → heads or tails → tails, you would need to reflip the coin.",
+  "translation": "这是有道理的，因为每次掷硬币都是独立的事件。 这意味着，如果您遇到正面→正面或反面→背面，则需要重新放置硬币。"
+}, {
+  "tag": "H2",
+  "text": "5. You are about to get on a plane to London, you want to know whether you have to bring an umbrella or not. You call three of your random friends and ask each one of them if it’s raining. The probability that your friend is telling the truth is 2/3 and the probability that they are playing a prank on you by lying is 1/3. If all 3 of them tell that it is raining, then what is the probability that it is actually raining in London.",
+  "translation": "5.您将要乘飞机去伦敦，想知道是否需要带把伞。 您打电话给三个随机朋友，然后问他们每个人是否在下雨。 您的朋友讲真话的可能性是2/3，而他们撒谎对您开玩笑的可能性是1/3。 如果他们三个都说正在下雨，那么伦敦实际上正在下雨的概率是多少？"
+}, {
+  "tag": "P",
+  "text": "You can tell that this question is related to Bayesian theory because of the last statement which essentially follows the structure, “What is the probability A is true given B is true?” Therefore we need to know the probability of it raining in London on a given day. Let’s assume it’s 25%.",
+  "translation": "您可以说这个问题与贝叶斯理论有关，因为最后一个陈述基本上遵循以下结构：“如果B成立，那么A成立的概率是多少？”因此，我们需要知道a在伦敦下雨的概率 给定的一天。 假设它是25％。"
+}, {
+  "tag": "P",
+  "text": "P(A) = probability of it raining = 25%P(B) = probability of all 3 friends say that it’s rainingP(A|B) probability that it’s raining given they’re telling that it is rainingP(B|A) probability that all 3 friends say that it’s raining given it’s raining = (2/3)³ = 8/27",
+  "translation": "P（A）=下雨的概率= 25％P（B）=所有3个朋友说都在下雨的概率P（A | B）告诉他们正在下雨的概率在下雨P（B | A）概率 三个朋友都说正在下雨，因为正在下雨=（2/3）³= 8/27"
+}, {
+  "tag": "P",
+  "text": "Step 1: Solve for P(B)P(A|B) = P(B|A) * P(A) / P(B), can be rewritten asP(B) = P(B|A) * P(A) + P(B|not A) * P(not A)P(B) = (2/3)³ * 0.25 + (1/3)³ * 0.75 = 0.25*8/27 + 0.75*1/27",
+  "translation": "步骤1：求解P（B）P（A | B）= P（B | A）* P（A）/ P（B），可以重写为P（B）= P（B | A）* P（ A）+ P（B |不是A）* P（不是A）P（B）=（2/3）³* 0.25 +（1/3）³* 0.75 = 0.25 * 8/27 + 0.75 * 1/27"
+}, {
+  "tag": "P",
+  "text": "Step 2: Solve for P(A|B)P(A|B) = 0.25 * (8/27) / ( 0.25*8/27 + 0.75*1/27)P(A|B) = 8 / (8 + 3) = 8/11",
+  "translation": "步骤2：求解P（A | B）P（A | B）= 0.25 *（8/27）/（0.25 * 8/27 + 0.75 * 1/27）P（A | B）= 8 /（8 + 3）= 8/11"
+}, {
+  "tag": "P",
+  "text": "Therefore, if all three friends say that it’s raining, then there’s an 8/11 chance that it’s actually raining.",
+  "translation": "因此，如果三个朋友都说正在下雨，那么实际就在下雨的可能性是8/11。"
+}, {
+  "tag": "H2",
+  "text": "6. You are given 40 cards with four different colors- 10 Green cards, 10 Red Cards, 10 Blue cards, and 10 Yellow cards. The cards of each color are numbered from one to ten. Two cards are picked at random. Find out the probability that the cards picked are not of the same number and same color.",
+  "translation": "6.您将获得40张带有四种不同颜色的卡-10张绿卡，10张红卡，10张蓝卡和10张黄卡。 每种颜色的卡从1到10编号。 随机选择两张牌。 找出被挑选的牌不是相同数目和相同颜色的可能性。"
+}, {
+  "tag": "P",
+  "text": "Since these events are not independent, we can use the rule:P(A and B) = P(A) * P(B|A) ,which is also equal toP(not A and not B) = P(not A) * P(not B | not A)",
+  "translation": "由于这些事件不是独立的，因此我们可以使用以下规则：P（A和B）= P（A）* P（B | A），它也等于P（不是A而不是B）= P（不是A） * P（不是B |不是A）"
+}, {
+  "tag": "P",
+  "text": "For example:",
+  "translation": "例如："
+}, {
+  "tag": "P",
+  "text": "P(not 4 and not yellow) = P(not 4) * P(not yellow | not 4)P(not 4 and not yellow) = (36/39) * (27/36)P(not 4 and not yellow) = 0.692",
+  "translation": "P（不是4而不是黄色）= P（不是4）* P（不是黄色|不是4）P（不是4而不是黄色）=（36/39）*（27/36）P（不是4而不是黄色） ）= 0.692"
+}, {
+  "tag": "P",
+  "text": "Therefore, the probability that the cards picked are not the same number and the same color is 69.2%.",
+  "translation": "因此，选择的卡号不同且颜色相同的概率为69.2％。"
+}, {
+  "tag": "P",
+  "text": "And that’s it! Let me if any answer doesn’t make sense and I will do my best to explain it more thoroughly :)",
+  "translation": "就是这样！ 如果没有任何答案，请告诉我，我将尽力更彻底地解释它：)"
+}, {
+  "tag": "H2",
+  "text": "Resources",
+  "translation": "资源资源"
+}, {
+  "tag": "H2",
+  "text": "Google Data Scientist Interview Questions",
+  "translation": "Google数据科学家面试问题"
+}, {
+  "tag": "H3",
+  "text": "38 Google Data Scientist interview questions and 36 interview reviews. Free interview details posted anonymously by…",
+  "translation": "38个Google数据科学家面试问题和36个面试评论。 免费面试者匿名发布的详细信息…"
+}, {
+  "tag": "H2",
+  "text": "Google Data Science Interview Questions to Prepare in 2019 | Edureka",
+  "translation": "Google数据科学面试问题将于2019年准备就绪| 埃杜雷卡"
+}, {
+  "tag": "H3",
+  "text": "Getting hired in a Globally Renowned Company like Google is a Dream Job for a lot of people. They have has some of the…",
+  "translation": "对于很多人来说，在像Google这样的全球知名公司中被录用是梦Dream以求的工作。 他们有一些……"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Terence Shin的文章《Google’s Data Science Interview Brain Teasers》，参考：https://towardsdatascience.com/googles-data-science-interview-brain-teasers-7f3c1dc4ea7f)",
+  "translation": "（本文翻译自Terence Shin的文章《 Google的数据科学访谈脑筋急转弯》，参考：https：//towardsdatascience.com/googles-data-science-interview-brain-teasers-7f3c1dc4ea7f）"
+}]
