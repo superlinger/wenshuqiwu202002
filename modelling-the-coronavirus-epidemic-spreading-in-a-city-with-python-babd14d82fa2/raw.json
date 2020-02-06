@@ -1,0 +1,207 @@
+[{
+  "tag": "H1",
+  "text": "Modelling the coronavirus epidemic in a city with Python",
+  "translation": "使用Python对城市中的冠状病毒流行进行建模"
+}, {
+  "tag": "H2",
+  "text": "Are cities prepared for epidemics?",
+  "translation": "为流行做好准备的城市吗？"
+}, {
+  "tag": "P",
+  "text": "The recent 2019-nCoV Wuhan coronavirus outbreak in China has sent shocks through financial markets and entire economies, and has duly triggered panic among the general population around the world. On 30 January 2020, 2019-nCoV was even designated a global health emergency by the World Health Organization (WHO). At the time of this writing, no specific treatment verified by medical research standards has yet been discovered. Moreover, some key epidemiological metrics such as the basic reproduction number (the average number of people infected by an ill individual) are still unknown. In our times of unprecedented global connectedness and mobility, such epidemics are a major threat on a global scale due to small world network effects. One could conjecture that conditional on a global catastrophic event (loosely defined as > 100mln casualties) happening in 2020, the most likely cause would be precisely some pandemic — not a nuclear disaster, not climate catastrophe, etc. This is further aggravated by worldwide rapid urbanisation, with our densely populated dynamic cities turning into propagation nodes in the disease diffusion network, thus becoming extremely vulnerable and fragile.",
+  "translation": "最近在中国发生的2019-nCoV武汉冠状病毒爆发在金融市场和整个经济体中造成了震惊，并适当地引发了全球普通民众的恐慌。 2020年1月30日，2019-nCoV甚至被世界卫生组织（WHO）指定为全球紧急卫生事件。在撰写本文时，尚未发现经过医学研究标准验证的特定治疗方法。此外，一些关键的流行病学指标，例如基本繁殖数（患病个体感染的平均人数）仍然未知。在我们前所未有的全球联系和机动性时代，由于世界网络的影响小，这种流行病是全球范围的主要威胁。可以猜想，以2020年发生的全球灾难性事件（宽松定义为造成1亿多人员伤亡）为条件，最有可能的原因恰恰是某种大流行病-不是核灾难，不是气候灾难等。全球范围的迅速发展进一步加剧了这一情况。城市化，人口稠密的充满活力的城市变成了疾病传播网络中的传播节点，因此变得极为脆弱和脆弱。"
+}, {
+  "tag": "P",
+  "text": "In this post, we will discuss what can happen when an epidemic strikes a city, what measures should immediately be taken, and what implications this has for urban planning, policy making, and management. We will take the city of Yerevan as our case study and will mathematically model and simulate the spread of the coronavirus in the city, looking at how urban mobility patterns affect the spread of the disease.",
+  "translation": "在这篇文章中，我们将讨论流行病袭击城市时会发生什么，应立即采取什么措施，以及这对城市规划，政策制定和管理有何影响。 我们将以埃里温市为例进行研究，并对城市中冠状病毒的传播进行数学建模和仿真，研究城市流动性模式如何影响该疾病的传播。"
+}, {
+  "tag": "H1",
+  "text": "Urban mobility",
+  "translation": "城市交通"
+}, {
+  "tag": "P",
+  "text": "Effective, efficient, and sustainable urban mobility is of crucial importance for the functioning of modern cities. It has been shown to directly affect livability and economic output (GDP) of cities. However, in the event of an epidemic, it will add fuel to the fire, amplifyig and propagating the disease spread.",
+  "translation": "有效，高效和可持续的城市交通对于现代城市的运转至关重要。 它已经显示出直接影响城市的宜居性和经济产出（GDP）。 但是，一旦发生流行病，它将为火灾增加燃料，放大并传播疾病传播。"
+}, {
+  "tag": "P",
+  "text": "So let’s begin by looking at the network of aggregated origin-destination (OD) flows on a uniform Cartesian grid in Yerevan to get an idea about the spatial structure of mobility patterns in the city:",
+  "translation": "因此，让我们开始研究埃里温（Yerevan）统一的笛卡尔网格上的聚合原点（OD）流网络，以了解城市流动模式的空间结构："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*dNmma8N-FA6SDD92gmq9TQ.jpeg?q=20",
+  "type": "image",
+  "file": "1!dNmma8N-FA6SDD92gmq9TQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "Further, if we look at the total inflow to the grid cells, we see a more or less monocentric spatial organisation with some cells with high daily inflow located off the center:",
+  "translation": "此外，如果我们查看到网格单元的总流入量，我们会发现一个或多或少的单中心空间组织，其中一些单元格的每日大量流入位于中心位置："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*jNvr9yJo7YXQa0hIKyY-6A.jpeg?q=20",
+  "type": "image",
+  "file": "1!jNvr9yJo7YXQa0hIKyY-6A.jpeg"
+}, {
+  "tag": "P",
+  "text": "Now, imagine that an epidemic breaks out at a random location in the city. How will it spread? What can be done to contain it?",
+  "translation": "现在，假设流行病在城市中的任意位置爆发。 它将如何传播？ 可以采取什么措施来遏制它？"
+}, {
+  "tag": "H1",
+  "text": "Modelling the epidemic",
+  "translation": "流行病建模"
+}, {
+  "tag": "P",
+  "text": "To answer these questions, we will build a simple compartmental model to simulate the spread of infectious disease in the city. As an epidemic breaks out, its transmission dynamics varies significantly, depending on the geographical locations of the initial infection and its connectivity with the rest of the city. This is one of the most important insights gained from recent, data-driven studies on epidemics in urban populations. However, as we will see further below, the various outcomes call for similar measures to contain the epidemic and to account for such a possibility in planning and managing cities.",
+  "translation": "为了回答这些问题，我们将建立一个简单的隔间模型来模拟城市中传染病的传播。 随着疫情的爆发，其传播动态会发生很大变化，这取决于最初感染的地理位置及其与城市其他地区的连通性。 这是从最近的数据驱动的城市人口流行病研究中获得的最重要的见解之一。 但是，正如我们将在下面进一步看到的，各种结果要求采取类似措施来遏制该流行病，并考虑到规划和管理城市中的这种可能性。"
+}, {
+  "tag": "P",
+  "text": "Since runnning individual-based epidemic models is challenging, and since our goal is to show general principles of epidemic spread in cities, and not to build a minutely calibrated and accurate epidemic model, we will follow the approach described in this Nature article, modifying the described classical SIR model for our needs.",
+  "translation": "由于运行基于个人的流行病模型具有挑战性，并且由于我们的目标是展示城市流行病的一般原理，而不是建立精细的校准和准确的流行病模型，因此，我们将按照《自然》杂志中所述的方法，修改 描述了我们需要的经典SIR模型。"
+}, {
+  "tag": "P",
+  "text": "The model divides the population into three compartments. For each location i at time t, the three compartments are as follows:",
+  "translation": "该模型将总体分为三个部分。 对于时间t的每个位置i，三个隔室如下："
+}, {
+  "tag": "UL",
+  "texts": ["Si,t: the number of individuals not yet infected or susceptible to the disease.", "Ii,t: the number of individuals infected with the disease and capable of spreading the disease to those in the susceptible group.", "Ri,t: the number of individuals who have been infected and then removed from the infected group, either due to recovery or due to death. Individuals in this group are not capable of contracting the disease again or transmitting the infection to others."],
+  "translations": ["Si，t：尚未感染或不易感染该疾病的人数。", "Ii，t：感染该疾病并能够将疾病传播给易感人群的人数。", "Ri，t：由于恢复或死亡而被感染，然后从感染组中撤出的人数。 该组中的个体无法再次感染该疾病或将感染传播给他人。"]
+}, {
+  "tag": "P",
+  "text": "In our simulations, time will be a discrete variable as the state of the system is modelled at a daily basis. In a fully susceptible population at location j at time t, an outbreak happens with probability:",
+  "translation": "在我们的仿真中，时间将是离散变量，因为系统状态每天都在建模。 在时间t的位置j处完全易感的种群中，爆发的可能性为："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*oUvGq_VwqntntcF-Uvd_zA.jpeg?q=20",
+  "type": "image",
+  "file": "1!oUvGq_VwqntntcF-Uvd_zA.jpeg"
+}, {
+  "tag": "P",
+  "text": "where βt is the transmission rate on day t; mj,k reflects mobility from location k to location j, xk,t and yk,t denote the fraction of the infected and susceptible populations on day t at location k and location j, respectively, given by xk,t = Ik,t / Nk and yj,t = Sj,t / Nj, where Nk and Nj are the population sizes at the locations k and j. Then we go ahead and simulate a stochastic process introducing the disease into locations with entirely susceptible populations, with Ij,t+1 being a Bernoulli random variable with probability h(t,j).",
+  "translation": "其中βt是第t天的传输速率； mj，k反映了从位置k到位置j的迁移率，xk，t和yk，t分别表示第t天在位置k和位置j处感染和易感人群的比例，由xk，t = Ik，t / Nk和yj，t = Sj，t / Nj，其中Nk和Nj是位置k和j的人口规模。 然后，我们继续模拟一个随机过程，将疾病引入具有完全易感种群的位置，其中Ij，t + 1是概率为h（t，j）的伯努利随机变量。"
+}, {
+  "tag": "P",
+  "text": "Once the infections are introduced at random locations, the disease spreads both within those locations and is carried and transmitted in other locations by travelling individuals. This is where the urban mobility patterns characterised by the OD flow matrix play a crucial role.",
+  "translation": "一旦在随机位置引入感染，该疾病就会在那些位置传播，并由旅行个体在其他位置传播和传播。 在这里，以OD流矩阵为特征的城市交通模式发挥了至关重要的作用。"
+}, {
+  "tag": "P",
+  "text": "Further, to formalise how the disease is transmitted by an infected person, we need the basic reproduction number, R0. It is defined as R0 = βt / γ where γ is the recovery rate, and can be thought of as the expected number of secondary infections after an infected individual comes into contact with a susceptible population. At the time of this writing, the basic reproduction number for the Wuhan coronavirus has been estimated to be between 1.4 and 4. Let’s take the worst case and assume it’s 4. However, we should note that it’s actually a random variable and the reported number is but the expected number. To make things a bit more interesting, we will run our simulations with different R0 at each location, drawn from a good candidate distribution, Gamma, with mean 4:",
+  "translation": "此外，为了使感染者如何传播疾病，我们需要基本的繁殖编号R0。 它的定义为R0 =βt/γ，其中γ是恢复率，可以认为是受感染个体与易感人群接触后继发感染的预期数量。 在撰写本文时，武汉冠状病毒的基本繁殖数估计在1.4到4之间。让我们以最坏的情况假设为4。但是，我们应该注意，它实际上是一个随机变量，报告的数字 只是预期的数字。 为了使事情变得更有趣，我们将使用良好的候选分布Gamma（平均值为4）在每个位置使用不同的R0进行模拟："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*42sdZ7BYDFIM56P8FzTjiw.jpeg?q=20",
+  "type": "image",
+  "file": "1!42sdZ7BYDFIM56P8FzTjiw.jpeg"
+}, {
+  "tag": "P",
+  "text": "We can now proceed to the model dynamics:",
+  "translation": "现在，我们可以进行模型动力学："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*8wPjZ95hrdQOno3OhlegWw.jpeg?q=20",
+  "type": "image",
+  "file": "1!8wPjZ95hrdQOno3OhlegWw.jpeg"
+}, {
+  "tag": "P",
+  "text": "where βk,t is the (random) transmission rate at location k on day t, and α is a coefficient denoting the modal share or the intensity of public transport vs. private car travel modes in the city.",
+  "translation": "其中βk，t是第t天在位置k处的（随机）传输率，α是表示城市中公共交通与私家车出行方式的比重或强度的系数。"
+}, {
+  "tag": "P",
+  "text": "The model dynamics described in the above equations are very simple: on day t+1 at location j, we need to subtract from the susceptible population Sj,t the fraction of people infected within location j (the second term in the first equation) as well as the fraction of infected people that have arrived from other locations in the city, weighted by their respective transmission rates βk,t (the third term in the first equation). Since the total population Nj = Sj + Ij + Rj, we need to move the subtracted portion to the infected group, while also moving those recovered to Rj,t+1 (second and third equations).",
+  "translation": "上面等式中描述的模型动力学非常简单：在第j天的t + 1天，我们需要从易感人群Sj，t中减去在第j个位置（第一个等式中的第二项）感染的人群比例。 以及从城市其他地区到达的感染人群所占的比例，由他们各自的传播率βk，t加权（第一个方程式中的第三项）。 由于总人口Nj = Sj + Ij + Rj，我们需要将减去的部分移至受感染的组，同时也将已恢复的部分移至Rj，t + 1（第二和第三个方程）。"
+}, {
+  "tag": "H1",
+  "text": "Simulation setup",
+  "translation": "模拟设置"
+}, {
+  "tag": "P",
+  "text": "For this analysis, we will use the aggregated OD flow matrix of a typical day obtained from GPS data provided by local ride sharing company gg as a proxy for the mobility patterns in Yerevan city. Next, we need the population counts in each 250×250m grid cell, which we approximate by proportionally scaling the extracted flow counts so that the total inflows in different locations sum up to approximately half of Yerevan’s population of 1.1 million. This is actually a bold assumption, but since varying this portion yielded very similar results, we will stick to it.",
+  "translation": "在此分析中，我们将使用从当地乘车共享公司gg提供的GPS数据获得的典型一天的汇总OD流矩阵，作为埃里温市交通方式的代理。 接下来，我们需要每个250×250m网格单元中的人口计数，我们通过按比例缩放提取的流量计数来近似估算，以使不同位置的总流入量总计约等于埃里温110万人口的一半。 这实际上是一个大胆的假设，但是由于更改此部分会产生非常相似的结果，因此我们会坚持下去。"
+}, {
+  "tag": "H1",
+  "text": "Reduce public transport?",
+  "translation": "减少公共交通工具？"
+}, {
+  "tag": "P",
+  "text": "For our first simulation, we will imagine a sustainable public transport-dominated future urban mobility with α=0.9:",
+  "translation": "对于我们的第一个模拟，我们将想象一个可持续的以公共交通为主导的未来城市交通，α= 0.9："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*zyY7iwh16H0wCR1g0nAssw.jpeg?q=20",
+  "type": "image",
+  "file": "1!zyY7iwh16H0wCR1g0nAssw.jpeg"
+}, {
+  "tag": "P",
+  "text": "We see how fast the infected fraction of the population is climbing up immediately, reaching the epidemic’s peak on around day 8–10, with almost 70% of the population infected, while only a small portion (~10%) of the population having recovered from the disease. Towards day 100, when the epidemic has receded, we see the fraction of recovered individuals reach a staggering 90%! Now let’s see if reducing the intensity of public transport travel to something like α = 0.2 has any effect on mitigating the epidemic spread. This can either be interpreted as taking drastic measures to reduce urban mobility (e.g., by issuing a curfew) or as increasing the share of private car travel to reduce chances of infection during the travel.",
+  "translation": "我们看到人口中被感染的部分迅速上升的速度，并在8-10天左右达到流行高峰，几乎70％的人口受到感染，而只有一小部分（〜10％）已康复 从疾病。 在流行病消退的第100天，我们看到已康复个体的比例达到了惊人的90％！ 现在，让我们看看将公共交通出行的强度降低到α= 0.2左右是否对减轻疫情传播有任何影响。 这可以解释为采取严厉措施以减少城市交通（例如，通过实施宵禁），也可以解释为增加私家车出行的比例以减少出行期间的感染机会。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*v_W6ihs-UuGejnxw5RsTOQ.jpeg?q=20",
+  "type": "image",
+  "file": "1!v_W6ihs-UuGejnxw5RsTOQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "We see how the peak of the epidemic comes somewhere between day 16 and 20, with a significantly smaller infected group (~45%) and twice as many recovered (~20%). Towards the end of the epidemic, the fraction of susceptible individuals is also twice as big (~24% vs. ~12%), meaning that more people have escaped the disease. As expected, we see that the introduction of dramatic measures to temporarily bring urban mobility down has a big impact on the disease spreading dynamics.",
+  "translation": "我们看到这种流行病的高峰是如何在第16天到第20天之间出现的，受感染的人群要小得多（〜45％），而康复的人数要多一倍（〜20％）。 在流行病快要结束时，易感人群的比例也增加了一倍（〜24％vs.〜12％），这意味着有更多人逃脱了这种疾病。 不出所料，我们发现采取了一系列措施来暂时降低城市流动性，对疾病传播动态产生了重大影响。"
+}, {
+  "tag": "H1",
+  "text": "Quarantine popular locations?",
+  "translation": "隔离热门地点？"
+}, {
+  "tag": "P",
+  "text": "Now, let’s see whether another intuitive idea of completely cutting off a few key popular locations has the desired effect. To do this, let’s pick the locations associated with the upper 1 percentile of mobility flows,",
+  "translation": "现在，让我们看看完全切断一些关键的热门地点的另一个直观想法是否具有预期的效果。 为此，我们选择与流动流量的上1％相关的位置，"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*jF74LuNVwmptA7MvD2hQkQ.jpeg?q=20",
+  "type": "image",
+  "file": "1!jF74LuNVwmptA7MvD2hQkQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "and completely block all flow to and from those locations, effectively establishing there a quarantine regime. As we can see from the plot, in Yerevan these locations are mostly in the city center, with two other locations being the two largest shopping malls. Choosing a moderate α = 0.5, we obtain:",
+  "translation": "并完全阻止进出这些位置的所有流量，从而有效地建立了隔离区。 从图中可以看出，在埃里温，这些地点大多位于市中心，另外两个地点是两个最大的购物中心。 选择一个中等α= 0.5，我们得到："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*8xxg6Gf7i8U9E1649NnLgQ.jpeg?q=20",
+  "type": "image",
+  "file": "1!8xxg6Gf7i8U9E1649NnLgQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "We see an even smaller fraction of infected individuals at the epidemic’s peak (~35%), and, most importantly, we see that towards the end of the epidemic, around half of the population remains susceptible, effectively escaping from contracting the infection!",
+  "translation": "我们发现，在流行高峰时，感染者的比例甚至更低（约35％），而且最重要的是，我们看到，在流行结束时，大约一半的人口仍然易感，有效地避免了感染！"
+}, {
+  "tag": "P",
+  "text": "Here is a small animation visualising the dynamics of the high public transport share scenario:",
+  "translation": "这是一个小动画，可视化了高公共交通份额场景的动态："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*8X2GLZD-a9gW9oVDMUH7qg.gif?q=20",
+  "type": "image",
+  "file": "1!8X2GLZD-a9gW9oVDMUH7qg.gif"
+}, {
+  "tag": "H1",
+  "text": "Conclusion",
+  "translation": "结论"
+}, {
+  "tag": "P",
+  "text": "By no means claiming accurate epidemic modelling (or even any substantial knowledge in epidemiology beyond the basics), our aim in this post was to get a first insight on how network effects come into play in an urban setting during an infectious disease outbreak. With ever-increasing population densities, mobility, and dynamics, our cities become more exposed to “black swans” and become more fragile. And since you can’t fetch the coffee if you’re dead, smart and sustainable cities will be meaningless without effective and efficient crisis handling capability and mechanisms. For instance, we saw that the introduction of quarantine regimes in key locations, or taking draconian measures to curb mobility, can be instrumental during such a health crisis. However, a further important question would be how to implement such measures while minimizing damage and loss to the functioning of the city and its economy?",
+  "translation": "绝不声称要进行准确的流行病建模（甚至不要求流行病学方面的任何基础知识），本文的目的是对传染病爆发期间网络效应在城市环境中如何发挥作用有一个初步的了解。 随着人口密度，流动性和动态的不断增长，我们的城市变得更容易受到“黑天鹅”的攻击，变得更加脆弱。 而且，如果死了就无法获取咖啡，没有有效的危机处理能力和机制，智慧和可持续的城市将毫无意义。 例如，我们发现，在这样的健康危机期间，在关键地区引入隔离制度或采取严厉措施遏制流动性可能是有帮助的。 但是，另一个重要的问题将是如何实施此类措施，同时最大程度地减少对城市及其经济运作的损害和损失？"
+}, {
+  "tag": "P",
+  "text": "Further yet, the exact epidemic spreading mechanisms of infectious diseases are still an active area of research and the advances in this fields will have to be communicated to and integrated in urban planning, policymaking, and management to make our cities safe and antifragile.",
+  "translation": "此外，确切的传染病流行机制仍是研究的一个活跃领域，必须将这一领域的进展传达给城市规划，政策制定和管理部门，并纳入城市规划，政策制定和管理中，以确保我们的城市安全和抗脆弱。"
+}, {
+  "tag": "P",
+  "text": "P.S. Read the original post here.",
+  "translation": "附言 在这里阅读原始文章。"
+}, {
+  "tag": "P",
+  "text": "The code for the above simulations:",
+  "translation": "以上模拟的代码："
+}, {
+  "tag": "PRE",
+  "text": "import numpy as np  # initialize the population vector from the origin-destination flow matrix  N_k = np.abs(np.diagonal(OD) + OD.sum(axis=0) - OD.sum(axis=1))  locs_len = len(N_k)                 # number of locations  SIR = np.zeros(shape=(locs_len, 3)) # make a numpy array with 3 columns for keeping track of the S, I, R groups  SIR[:,0] = N_k                      # initialize the S group with the respective populations    first_infections = np.where(SIR[:, 0]<=thresh, SIR[:, 0]//20, 0)   # for demo purposes, randomly introduce infections  SIR[:, 0] = SIR[:, 0] - first_infections  SIR[:, 1] = SIR[:, 1] + first_infections                           # move infections to the I group    # row normalize the SIR matrix for keeping track of group proportions  row_sums = SIR.sum(axis=1)  SIR_n = SIR / row_sums[:, np.newaxis]    # initialize parameters  beta = 1.6  gamma = 0.04  public_trans = 0.5                                 # alpha  R0 = beta/gamma  beta_vec = np.random.gamma(1.6, 2, locs_len)  gamma_vec = np.full(locs_len, gamma)  public_trans_vec = np.full(locs_len, public_trans)    # make copy of the SIR matrices   SIR_sim = SIR.copy()  SIR_nsim = SIR_n.copy()    # run model  print(SIR_sim.sum(axis=0).sum() == N_k.sum())  from tqdm import tqdm_notebook  infected_pop_norm = []  susceptible_pop_norm = []  recovered_pop_norm = []  for time_step in tqdm_notebook(range(100)):      infected_mat = np.array([SIR_nsim[:,1],]*locs_len).transpose()      OD_infected = np.round(OD*infected_mat)      inflow_infected = OD_infected.sum(axis=0)      inflow_infected = np.round(inflow_infected*public_trans_vec)      print('total infected inflow: ', inflow_infected.sum())      new_infect = beta_vec*SIR_sim[:, 0]*inflow_infected/(N_k + OD.sum(axis=0))      new_recovered = gamma_vec*SIR_sim[:, 1]      new_infect = np.where(new_infect>SIR_sim[:, 0], SIR_sim[:, 0], new_infect)      SIR_sim[:, 0] = SIR_sim[:, 0] - new_infect      SIR_sim[:, 1] = SIR_sim[:, 1] + new_infect - new_recovered      SIR_sim[:, 2] = SIR_sim[:, 2] + new_recovered      SIR_sim = np.where(SIR_sim<0,0,SIR_sim)      # recompute the normalized SIR matrix      row_sums = SIR_sim.sum(axis=1)      SIR_nsim = SIR_sim / row_sums[:, np.newaxis]      S = SIR_sim[:,0].sum()/N_k.sum()      I = SIR_sim[:,1].sum()/N_k.sum()      R = SIR_sim[:,2].sum()/N_k.sum()      print(S, I, R, (S+I+R)*N_k.sum(), N_k.sum())      print('\\n')      infected_pop_norm.append(I)      susceptible_pop_norm.append(S)      recovered_pop_norm.append(R)",
+  "translation": "import numpy as np＃从原点-目标流矩阵初始化人口矢量N_k = np.abs（np.diagonal（OD）+ OD.sum（axis = 0）-OD.sum（axis = 1））locs_len = len （N_k）＃位置数SIR = np.zeros（shape =（locs_len，3））＃创建一个具有3列的numpy数组，用于跟踪S，I，R组SIR [：，0] = N_k＃初始化具有各自种群的S组first_infections = np.where（SIR [:, 0] <= thresh，SIR [:, 0] // 20，0）＃为演示目的，随机引入感染SIR [:, 0] = SIR [:, 0]-first_infections SIR [:, 1] = SIR [:, 1] + first_infections＃将感染移至I组＃行标准化SIR矩阵以跟踪组比例row_sums = SIR.sum（axis = 1）SIR_n = SIR / row_sums [:, np.newaxis]＃初始化参数beta = 1.6 gamma = 0.04 public_trans = 0.5＃alpha R0 = beta / gamma beta_vec = np.random.gamma（1.6，2，locs _len）gamma_vec = np.full（locs_len，gamma）public_trans_vec = np.full（locs_len，public_trans）＃制作SIR矩阵的副本SIR_sim = SIR.copy（）SIR_nsim = SIR_n.copy（）＃运行模型print（SIR_sim。来自tqdm导入的sum（axis = 0）.sum（）== N_k.sum（））tqdm_notebook（range（100））中的time_step的t_dm_notebook感染的_pop_norm = [] （[SIR_nsim [：，1]，] * locs_len）.transpose（）OD_infected = np.round（OD * infected_mat）inflow_infected = OD_infected.sum（axis = 0）inflow_infected = np.round（inflow_infected * public_trans_vec）print（'已感染的总流入量：'，inflow_infected.sum（））new_infect = beta_vec * SIR_sim [:, 0] * inflow_infected /（N_k + OD.sum（axis = 0））new_recovered = gamma_vec * SIR_sim [:, 1] new_infect = np .where（new_infect> SIR_sim [:, 0]，SIR_sim [:, 0]，new_infect）SIR_sim [:, 0] = SIR_sim [:, 0]-new_infect SIR_sim [:, 1] = SIR_sim [:, 1] + new_infect-new_recovered SIR_sim [:, 2] = SIR_sim [:, 2] + new_recovered SIR_sim = np.where（SIR_sim <0,0，SIR_sim）＃重新计算归一化的SIR矩阵row_sums = SIR_sim.sum（axis = 1）SIR_nsim = SIR_sim / row_sums [：，np.newaxis] S = SIR_sim [：，0] .sum（）/ N_k.sum（）I = SIR_sim [：，1] .sum（）/ N_k.sum（）R = SIR_sim [：，2 ] .sum（）/ N_k.sum（）print（S，I，R，（S + I + R）* N_k.sum（），N_k.sum（））print（'\\ n'）受感染的pop_norm.append（ I）sensitive_pop_norm.append（S）recovery_pop_norm.append（R）"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Gevorg Yeghikyan的文章《Modelling the coronavirus epidemic in a city with Python》，参考：https://towardsdatascience.com/modelling-the-coronavirus-epidemic-spreading-in-a-city-with-python-babd14d82fa2)",
+  "translation": "（本文翻译自Gevorg Yeghikyan的文章，《使用Python对城市中的冠状病毒流行进行建模》，参考：https：//towardsdatascience.com/modelling-the-coronavirus-epidemic-spidemic-spreading-in-a-city-with-python- babd14d82fa2）"
+}]
