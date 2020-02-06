@@ -1,0 +1,675 @@
+[{
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*oOCea5gXoQt2t-dC1hf_YQ.png?q=20",
+  "type": "image",
+  "file": "1!oOCea5gXoQt2t-dC1hf_YQ.png"
+}, {
+  "tag": "H1",
+  "text": "The statistical foundations of machine learning",
+  "translation": "机器学习的统计基础"
+}, {
+  "tag": "H2",
+  "text": "A look beyond function fitting",
+  "translation": "超越功能的外观"
+}, {
+  "tag": "P",
+  "text": "Developing machine learning algorithms is easier than ever. There are several high-level libraries like TensorFlow, PyTorch or scikit-learn to build upon, and thanks to the amazing effort of many talented developers, these are really easy to use and require only a superficial familiarity with the underlying algorithms. However, this comes at a cost of deep understanding. Without proper theoretical foundations, one quickly gets overwhelmed with the complex technical details."
+}, {
+  "tag": "P",
+  "text": "My aim is demonstrate how seemingly obscure and ad-hoc methods in machine learning can be explained with really simple and natural ideas when we have the appropriate perspective. Our mathematical tool for that is going to be probability theory and statistics, which lies at the foundation of predictive models. Using the theory of probability is not just an academic exercise, it can actually provide very deep insight into how machine learning works, giving you the tools to improve on the state of the art.",
+  "translation": "我的目的是证明当我们拥有适当的视角时，如何用真正简单自然的想法来解释机器学习中看似模糊的和即席的方法。 为此，我们的数学工具将是概率理论和统计学，这是预测模型的基础。 使用概率理论不仅是一项学术活动，它实际上还可以提供对机器学习原理的非常深刻的见解，从而为您提供了改进现有技术的工具。"
+}, {
+  "tag": "P",
+  "text": "Before we begin our journey in the theoretical foundations of machine learning, let’s look at a toy problem!",
+  "translation": "在开始学习机器学习的理论基础之前，让我们来看一个玩具问题！"
+}, {
+  "tag": "H1",
+  "text": "Fitting models",
+  "translation": "拟合模型"
+}, {
+  "tag": "P",
+  "text": "Suppose that we have two numerical quantities, say x and y, that are in relation with each other. For instance, x is the the square footage of a real estate and y is its price in the market for a given city. Our goal is to predict y from x. In mathematical terms, we can say that we are looking for a function f(x) such that",
+  "translation": "假设我们有两个相互关联的数值，例如x和y。 例如，x是房地产的平方英尺，y是给定城市在市场上的价格。 我们的目标是从x预测y。 用数学术语来说，我们可以说我们正在寻找一个函数f（x）使得"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*_hdSA9ekf4OD7_dl2mN6DA@2x.png?q=20",
+  "type": "image",
+  "file": "1!_hdSA9ekf4OD7_dl2mN6DA@2x.png"
+}, {
+  "tag": "P",
+  "text": "is as close as possible to the ground truth. The simplest assumption is that the function is linear, that is, f(x) = ax + b for some a and b constants. This model surprisingly fits well to a lot of real-life problems, moreover it is a fundamental building block of more complex models such as neural networks."
+}, {
+  "tag": "P",
+  "text": "Our example dataset looks like the following.",
+  "translation": "我们的示例数据集如下所示。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*3SIZaWiem6xfMFUqeYCwxw.png?q=20",
+  "type": "image",
+  "file": "1!3SIZaWiem6xfMFUqeYCwxw.png"
+}, {
+  "tag": "P",
+  "text": "Suppose that our dataset consists of data points and observations",
+  "translation": "假设我们的数据集由数据点和观测值组成"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*2GWI9eolLp-1foTnIsKsWQ@2x.png?q=20",
+  "type": "image",
+  "file": "1!2GWI9eolLp-1foTnIsKsWQ@2x.png"
+}, {
+  "tag": "P",
+  "text": "Since data is noisy, it is impossible to fit a linear model to our data for which",
+  "translation": "由于数据嘈杂，因此不可能将线性模型拟合到我们的数据中"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*V5hDOfJLX4iGA0hkjA0lGw@2x.png?q=20",
+  "type": "image",
+  "file": "1!V5hDOfJLX4iGA0hkjA0lGw@2x.png"
+}, {
+  "tag": "P",
+  "text": "holds. Instead, we measure how well a particular model fits the data and try to find the best fit possible according to that measurement.",
+  "translation": "持有。 取而代之的是，我们测量特定模型对数据的拟合程度，并尝试根据该度量找到最佳拟合。"
+}, {
+  "tag": "P",
+  "text": "Most frequently, this is is done by calculating the prediction error for each point, then averaging the pointwise error. The lower the error, the better our model is. The simplest way to measure this is to take the square of the differences between prediction and ground truth. This is called the mean square error and it is defined by",
+  "translation": "通常，这是通过计算每个点的预测误差，然后平均逐点误差来完成的。 误差越小，我们的模型越好。 衡量这一点的最简单方法是对预测值与基本事实之间的差异求平方。 这称为均方误差，其定义为"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*jUXrUQh-hM9wwhRTGYYHtw@2x.png?q=20",
+  "type": "image",
+  "file": "1!jUXrUQh-hM9wwhRTGYYHtw@2x.png"
+}, {
+  "tag": "P",
+  "text": "The best fit is the one where the mean square error assumes its minimum, or in mathematical terms,",
+  "translation": "最佳拟合是指均方误差取其最小值，或者用数学术语表示，"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*C40RdcerZZMLDi622I0aXg@2x.png?q=20",
+  "type": "image",
+  "file": "1!C40RdcerZZMLDi622I0aXg@2x.png"
+}, {
+  "tag": "P",
+  "text": "For our concrete dataset, this looks like the following.",
+  "translation": "对于我们的具体数据集，如下所示。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*xTtbpebCFknIzJfM5PPxJQ.png?q=20",
+  "caption": "A fitted regression model",
+  "type": "image",
+  "file": "1!xTtbpebCFknIzJfM5PPxJQ.png"
+}, {
+  "tag": "P",
+  "text": "How to minimize this is not particularly important for our purposes. What matters to us is how can the model be interpreted and what kind of information it conveys. By simply looking at it, one can tell that there are many missing things. Sure, the data clearly follows a linear trend, but can this even be described with our model? A function is deterministic: you plug in x, you get the prediction f(x). However, the data seems to show some noise which is clearly not captured by our linear model properly.",
+  "translation": "对于我们的目的，如何最小化它并不是特别重要。 对我们而言重要的是如何解释模型以及传达什么样的信息。 简单地看一下，就可以知道有很多遗漏的东西。 当然，数据显然遵循线性趋势，但是甚至可以用我们的模型来描述吗？ 函数是确定性的：插入x，即可得到预测f（x）。 但是，数据似乎显示出一些噪声，显然我们的线性模型无法正确捕获这些噪声。"
+}, {
+  "tag": "P",
+  "text": "Where else might we look? One obvious answer would be to look for a more complex function, say a higher degree polynomial. In mathematical terms, we are looking for a function defined by",
+  "translation": "我们还能在哪里看？ 一个明显的答案是寻找一个更复杂的函数，例如一个更高次的多项式。 用数学术语来说，我们正在寻找一个由"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*2tHjgJyOS80BBKTLtSaCmg@2x.png?q=20",
+  "type": "image",
+  "file": "1!2tHjgJyOS80BBKTLtSaCmg@2x.png"
+}, {
+  "tag": "P",
+  "text": "which can hopefully describe the data more precisely. Unfortunately, this is not the case.",
+  "translation": "希望可以更精确地描述数据。 不幸的是，这种情况并非如此。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*paJWx5Evb6yhz_pTD_vLmw.png?q=20",
+  "caption": "Fitting a polynomial of degree 30 to our training data",
+  "type": "image",
+  "file": "1!paJWx5Evb6yhz_pTD_vLmw.png"
+}, {
+  "tag": "P",
+  "text": "When we try to brute force it and excessively increase the expressive power of our model, we see that in a sense, things are even worse: our concerns are not addressed and other issues are introduced, like the wild behavior of the model outside our domain. We have to look in other directions for the solution. Instead of looking for a single value as a prediction, we should aim for a model explaining the probability of certain outcomes! This way, we can make a more informed decision such as calculating risks.",
+  "translation": "当我们尝试强行使用它并过分提高模型的表达能力时，我们会发现，从某种意义上讲，情况甚至更糟：我们的关切没有得到解决，并且引入了其他问题，例如模型在我们领域之外的疯狂行为 。 我们必须在其他方向寻找解决方案。 代替寻找单个值作为预测，我们应该针对一个模型来解释某些结果的可能性！ 这样，我们可以做出更明智的决策，例如计算风险。"
+}, {
+  "tag": "H1",
+  "text": "The language of probability theory",
+  "translation": "概率论的语言"
+}, {
+  "tag": "P",
+  "text": "Suppose that I have a coin, which has 1/2 probability to come up heads and 1/2 probability to come up tails upon a coin toss. If I toss the coin 100 times, how many heads will I get? It might be tempting to quickly answer 50, but the reality is not so simple. See, you can get any number of heads from 0 to 100, but these are not equally probable. In one experiment, you might get 34, in the next, 52, etc. The probability of heads being 1/2 means that if you keep tossing the coins infinitely, the proportion of heads vs all tosses will get closer and closer to 1/2.",
+  "translation": "假设我有一个硬币，投掷硬币时有1/2的正面出现概率和1/2的背面出现概率。 如果我抛硬币100次，我会得到多少个头？ 快速回答50可能很吸引人，但事实并非如此简单。 可以看到，您可以从0到100任意数量的磁头，但是这些磁头的可能性不相等。 在一个实验中，您可能会得到34，在接下来的实验中，您可能会得到52，依此类推。正头的概率为1/2，这意味着如果您无限地掷硬币，则正头与所有抛掷的比例将越来越接近1 / 2。"
+}, {
+  "tag": "P",
+  "text": "Let’s stick to the example of tossing a coin n times! Suppose that X denotes the number of heads. X is a random variable, for which we do not know the exact value, only the probability that it will assume a given value. The probability that X is k is denoted by P(X = k), which is always a number between 0 and 1. Moreover, since we know that we can get either 0, 1, 2, and so on up until n heads, these probabilities sum to 1, that is,",
+  "translation": "让我们以扔硬币n次为例！ 假设X表示头数。 X是一个随机变量，我们不知道确切的值，只是未知的它会取给定值的概率。 X为k的概率由P（X = k）表示，该值始终为0到1之间的数字。此外，由于我们知道可以得到0、1、2等，直到n个头， 这些概率总计为1，即"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*-tO8Qan5OnQaT_viaNGScw@2x.png?q=20",
+  "type": "image",
+  "file": "1!-tO8Qan5OnQaT_viaNGScw@2x.png"
+}, {
+  "tag": "P",
+  "text": "Every experiment can be described with an n-long sequence of H-s and T-s. To calculate the exact probability for a given k, we need to count how many ways can we have k heads among n tosses. This is mathematically equivalent of selecting a subset of k elements from a set of n elements, which can be done in",
+  "translation": "每个实验都可以用H-s和T-s的n个长序列来描述。 为了计算给定k的确切概率，我们需要计算n次抛掷中可以有多少种方法。 从数学上讲，这等效于从一组n个元素中选择k个元素的子集，这可以在"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*jWKHybuqBd7gZ-aa5lA-KQ@2x.png?q=20",
+  "type": "image",
+  "file": "1!jWKHybuqBd7gZ-aa5lA-KQ@2x.png"
+}, {
+  "tag": "P",
+  "text": "ways. Moreover, each configuration has (1/2)^n probability. (For example, consider n = 3. The configuration HTH has probability 1/8, since each particular toss has 1/2 probability in itself and the tosses are independent.) So putting this together, we have",
+  "translation": "方法。 此外，每个配置具有（1/2）^ n个概率。 （例如，考虑n =3。配置HTH的概率为1/8，因为每个特定的抛掷本身具有1/2概率，并且抛掷是独立的。）因此，将其放在一起"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*UzWSv7x4V7IoCjBQ2FJMXg@2x.png?q=20",
+  "type": "image",
+  "file": "1!UzWSv7x4V7IoCjBQ2FJMXg@2x.png"
+}, {
+  "tag": "P",
+  "text": "Together, these numbers are referred to as the probability distribution of the experiment. (Which is tossing n coins and observing the number of heads among them.)",
+  "translation": "这些数字加在一起称为实验的概率分布。 （正在抛n个硬币并观察其中的头数。）"
+}, {
+  "tag": "P",
+  "text": "To summarize, a probability distribution encompasses all information about the outcome of the experiment. Our model in the previous section only gives us a single number, however, we should be looking for a probability distribution instead to make a fully informed decision.",
+  "translation": "总而言之，概率分布包含有关实验结果的所有信息。 上一节中的模型仅给我们一个数字，但是，我们应该寻找概率分布，而不是做出完全明智的决定。"
+}, {
+  "tag": "H2",
+  "text": "The general Bernoulli and Binomial distributions",
+  "translation": "一般伯努利分布和二项分布"
+}, {
+  "tag": "P",
+  "text": "Our two example above can be generalized. First, suppose that we toss an unfair coin, that is, a coin where heads and tails don’t have equal probability. Say, the probability of heads is p and denote the number of heads with X as before. (Which can be zero or one.)",
+  "translation": "上面的两个例子可以概括。 首先，假设我们扔了一个不公平的硬币，即，正面和反面的概率不相等的硬币。 假设正面的概率为p，并表示X的正面数与以前一样。 （可以为零或一。）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*-AfRAURbrC8_bKUzqn_JVw@2x.png?q=20",
+  "type": "image",
+  "file": "1!-AfRAURbrC8_bKUzqn_JVw@2x.png"
+}, {
+  "tag": "P",
+  "text": "is called the Bernoulli distribution with parameter p, or Bernoulli(p) in short. Following this line of thinking, if we toss up this unfair coin n times, we have",
+  "translation": "称为参数为p的伯努利分布，或简称为伯努利（p）。 按照这种思路，如果我们抛弃这个不公平的硬币n次，"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*y_32Ec_s1DzoZwDTicFulw@2x.png?q=20",
+  "type": "image",
+  "file": "1!y_32Ec_s1DzoZwDTicFulw@2x.png"
+}, {
+  "tag": "P",
+  "text": "which is called the binomial distribution with parameters n and p, or b(n, p) in short. Note that the Bernoulli distribution is just the binomial distribution with n = 1.",
+  "translation": "这就是参数n和p或简称b（n，p）的二项式分布。 请注意，伯努利分布只是n = 1的二项式分布。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*QCIFgyOSVk_XEf4PprTp6g.png?q=20",
+  "type": "image",
+  "file": "1!QCIFgyOSVk_XEf4PprTp6g.png"
+}, {
+  "tag": "H2",
+  "text": "Continuous probability distributions",
+  "translation": "连续概率分布"
+}, {
+  "tag": "P",
+  "text": "In the previous coin tossing examples, probability distributions were fully described by the numbers P(X = k) for all feasible k. This particular random variable can only assume integers as its values, of which there are countably many. Such random variables are called discrete. But what about the previous case, where we estimated real estate prices? In general, random variables can also assume all real numbers as its values for instance. In this case they are called continuous. Say X can be any random number between zero and one with equal probability. What is its probability distribution? Intuitively, we can see that",
+  "translation": "在前面的抛硬币示例中，概率分布由所有可行k的数字P（X = k）完整描述。 这个特定的随机变量只能采用整数作为其值，其中有许多是整数。 这种随机变量称为离散变量。 但是，在前面的案例中，我们估计房地产价格会如何呢？ 通常，随机变量还可以假设所有实数作为其值。 在这种情况下，它们被称为连续的。 说X可以是介于0到1之间且具有相等概率的任意随机数。 它的概率分布是多少？ 凭直觉，我们可以看到"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*YihprpSK1etd0xuvBOWVaA@2x.png?q=20",
+  "type": "image",
+  "file": "1!YihprpSK1etd0xuvBOWVaA@2x.png"
+}, {
+  "tag": "P",
+  "text": "for any fixed x in [0, 1]. So, how would we describe this distribution? We use the so-called probability density function (PDF in short), which describes the probability that X falls into a certain range, say a ≤ x ≤ b. The probability itself can be calculated by measuring the area under the curve of the PDF between a and b. In the case of selecting a random number between zero and one, we have",
+  "translation": "对于[0，1]中的任何固定x。 那么，我们将如何描述这种分布？ 我们使用所谓的概率密度函数（简称PDF）来描述X落入某个范围的概率，例如a≤x≤b。 概率本身可以通过测量a和b之间的PDF曲线下的面积来计算。 在选择一个介于零和一之间的随机数的情况下，"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*uaU1LERhR9lxvzaCtYYcog@2x.png?q=20",
+  "type": "image",
+  "file": "1!uaU1LERhR9lxvzaCtYYcog@2x.png"
+}, {
+  "tag": "P",
+  "text": "for the density function. Note that the total area under the graph of a density function is always 1, due to the fact it expresses the probability of all outcomes.",
+  "translation": "用于密度函数。 请注意，密度函数图下的总面积始终为1，因为它表示所有结果的概率。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*vrF_ESg65edauFoJar9yoA.png?q=20",
+  "type": "image",
+  "file": "1!vrF_ESg65edauFoJar9yoA.png"
+}, {
+  "tag": "H2",
+  "text": "The normal distribution",
+  "translation": "正态分布"
+}, {
+  "tag": "P",
+  "text": "A continuous distribution of great importance is the so-called normal distribution. (Or Gaussian in another name.) You have definitely encountered this at some point, even though you may not have known that it was a normal distribution. We say that X is normally distributed with mean μ and variance σ² variance, or N(μ, σ²) in short, if its density function is",
+  "translation": "连续分布非常重要，就是所谓的正态分布。 （或者用高斯命名）。即使您可能还不知道这是正态分布，也确实在某个时候遇到过。 我们说X的正态分布为均值μ和方差σ²方差，如果其密度函数为"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*FP2QErXJwjvBvTW7DblJZQ@2x.png?q=20",
+  "type": "image",
+  "file": "1!FP2QErXJwjvBvTW7DblJZQ@2x.png"
+}, {
+  "tag": "P",
+  "text": "This comes up very frequently in real life, for instance the height of people tend to show this distribution. We will encounter this many times later in our journey. The mean describes the center of the bell curve.",
+  "translation": "这在现实生活中经常出现，例如人的身高倾向于显示这种分布。 我们在旅途中将会遇到很多次。 平均值描述了钟形曲线的中心。"
+}, {
+  "tag": "P",
+  "text": "Notationwise, the PDF of N(μ, σ²) is frequently denoted as N(x | μ, σ²). We will use this later.",
+  "translation": "从符号上来说，N（μ，σ²）的PDF通常表示为N（x |μ，σ²）。 我们将在以后使用。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*CM4EO-knsXa8QtRXXQ-5LQ.png?q=20",
+  "type": "image",
+  "file": "1!CM4EO-knsXa8QtRXXQ-5LQ.png"
+}, {
+  "tag": "H2",
+  "text": "Conditional probability",
+  "translation": "条件概率"
+}, {
+  "tag": "P",
+  "text": "Let’s consider a different example now. Instead of tossing coins, we will throw with a single six-sided dice. If we denote the outcome of the throw with X, it is reasonable to assume that"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Un59HPH54DrvAdYjzvmEng@2x.png?q=20",
+  "type": "image",
+  "file": "1!Un59HPH54DrvAdYjzvmEng@2x.png"
+}, {
+  "tag": "P",
+  "text": "Suppose that you want to make a bet. Your friend throws the dice, and if if the outcome is less or equal than 3, you win. Otherwise, you lose the same amount. It is easy to see that by default, your probability of winning is 1/2. However, your friend tells you after throwing the dice that the outcome is an even number. What about your chances of winning now? Intuitively, it feels like that you have lower chances now, because you can only win with a 2 and you will lose if it is 4 or 6. Thus, additional information on the experiment has changed the underlying probability distribution."
+}, {
+  "tag": "P",
+  "text": "This concept can be formalized mathematically as the conditional probability. Let’s suppose you have two events, A and B. In our concrete example, A is that the outcome of the throw is less or equal than 3, while B is that the outcome of the throw is an even number. The probability of A given that B has happened is called the conditional probability of A given B. It is denoted with P(A | B) and can be calculated as",
+  "translation": "这个概念可以用数学形式化为条件概率。 假设您有两个事件，A和B。在我们的具体示例中，A是抛出的结果小于或等于3，而B是抛出的结果是偶数。 给定B发生的给定A的概率称为给定B的条件概率。用P（A | B）表示，可以计算为"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*y64InW-J-T_OlwOtvlYJpg@2x.png?q=20",
+  "type": "image",
+  "file": "1!y64InW-J-T_OlwOtvlYJpg@2x.png"
+}, {
+  "tag": "P",
+  "text": "In our case, P(A and B) = 1/6, while P(B) = 1/2, so our chance of winning is P(A | B) = 1/3.",
+  "translation": "在我们的情况下，P（A和B）= 1/6，而P（B）= 1/2，所以我们获胜的机会是P（A | B）= 1/3。"
+}, {
+  "tag": "H2",
+  "text": "The statistical foundations of machine learning",
+  "translation": "机器学习的统计基础"
+}, {
+  "tag": "P",
+  "text": "To see how conditional probability fits into our machine learning perspective, we need to take another conceptual jump. Let’s revisit our coin tossing example again! This time however, the coin is not fair, so the probability of heads is not 1/2. Let’s assume that",
+  "translation": "要了解条件概率如何适合我们的机器学习视角，我们需要采取另一种概念上的跳跃。 让我们再次回顾一下掷硬币的例子！ 但是，这次硬币不公平，因此正面出现的可能性不是1/2。 假设"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*2fn4D9IH541tTe_Pxqf6PA@2x.png?q=20",
+  "type": "image",
+  "file": "1!2fn4D9IH541tTe_Pxqf6PA@2x.png"
+}, {
+  "tag": "P",
+  "text": "for some p in [0, 1]. The catch is, we don’t know its exact value, we have to guess from the data. In other words, we want to estimate its probability distribution. p is a parameter in our coin toss experiment. (Just to be clear, we have two distributions here: one describes the outcome of a coin toss, while the second one describes our belief about the probability of heads for our given coin.)",
+  "translation": "对于[0，1]中的一些p。 渔获物是，我们不知道它的确切价值，我们必须从数据中猜测。 换句话说，我们要估计其概率分布。 p是抛硬币实验中的参数。 （请注意，这里有两种分布：一种描述抛硬币的结果，第二种描述我们对给定硬币正面朝上的概率的信念。）"
+}, {
+  "tag": "P",
+  "text": "Suppose that we have the particular coin in our hands and we toss it up in the air ten times, obtaining the result",
+  "translation": "假设我们手中有特定的硬币，然后将它抛向空中十次，得到结果"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*3pIpsHphDqwNOiz3-FtO9g@2x.png?q=20",
+  "type": "image",
+  "file": "1!3pIpsHphDqwNOiz3-FtO9g@2x.png"
+}, {
+  "tag": "P",
+  "text": "that is, three tails and seven heads. In the language of probability, let E describe the event “seven heads out of ten”. So, what we really want, is",
+  "translation": "也就是三尾七头。 用概率的语言，E描述事件“十分之七”。 所以，我们真正想要的是"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*F-4Tl_nfWggeza1GksBjLA@2x.png?q=20",
+  "type": "image",
+  "file": "1!F-4Tl_nfWggeza1GksBjLA@2x.png"
+}, {
+  "tag": "P",
+  "text": "This is called the posterior, since it describes our belief about the coin after observing some data. Note that this is a continuous probability distribution, since p can assume any value between zero and one. How would we calculate this? A fundamental property of conditional probability comes to the rescue here. If A and B are general events, then",
+  "translation": "之所以称为后验，是因为它描述了我们观察到一些数据后对硬币的信念。 请注意，这是一个连续的概率分布，因为p可以假设介于0和1之间的任何值。 我们将如何计算呢？ 条件概率的基本属性在这里可以解决。 如果A和B是一般事件，则"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*g_ShatulOJGrO0oZKNQW4Q@2x.png?q=20",
+  "type": "image",
+  "file": "1!g_ShatulOJGrO0oZKNQW4Q@2x.png"
+}, {
+  "tag": "P",
+  "text": "In other words, the probability of A conditioned on B can be expressed with the probability of B conditioned on A. This is called the Bayes theorem, which holds true for probability density functions as well. How does this help us? Now we have",
+  "translation": "换句话说，以B为条件的A的概率可以用以A为条件的B的概率表示。这被称为贝叶斯定理，它对于概率密度函数也成立。 这对我们有什么帮助？ 现在我们有"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*WB7fCovtohIu5Ut1MjfVaA@2x.png?q=20",
+  "type": "image",
+  "file": "1!WB7fCovtohIu5Ut1MjfVaA@2x.png"
+}, {
+  "tag": "P",
+  "text": "which is great for us! There are three components in play here.",
+  "translation": "这对我们来说很棒！ 这里有三个组成部分。"
+}, {
+  "tag": "P",
+  "text": "i) P(E | p), which is called the likelihood. It is easy to calculate, and we did so in the previous section. In our current case with seven heads, we have",
+  "translation": "i）P（E | p），称为似然度。 它很容易计算，我们在上一节中已经做到了。 在目前的情况下，我们有七个头"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*yzlfKCQGglanm3mDNP-TGA@2x.png?q=20",
+  "type": "image",
+  "file": "1!yzlfKCQGglanm3mDNP-TGA@2x.png"
+}, {
+  "tag": "P",
+  "text": "which means they are proportional to each other, that is, equal up until a multiplicative constant. This constant doesn’t really matter for us for reasons to be explained later.",
+  "translation": "这意味着它们彼此成比例，即直到乘法常数。 这个常数对我们来说并不重要，原因将在后面解释。"
+}, {
+  "tag": "P",
+  "text": "ii) P(p), which is called prior, because expresses our knowledge about the coin before we have observed any data. It is reasonable to assume that every parameter is equally probable, so"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*VIwjsRamNgJH16sD8slm7A@2x.png?q=20",
+  "type": "image",
+  "file": "1!VIwjsRamNgJH16sD8slm7A@2x.png"
+}, {
+  "tag": "P",
+  "text": "which is already familiar for us.",
+  "translation": "这已经为我们所熟悉。"
+}, {
+  "tag": "P",
+  "text": "iii) P(E), which does not need to be calculated, since the area under the function P(p | E) is always one. (In most cases calculating P(E), it is computationally intractable even.) Because of this exact reason we do not really care about the multiplicative constant in the likelihood function.",
+  "translation": "iii）由于函数P（p | E）下的面积始终为1，因此不需要计算P（E）。 （在大多数情况下，计算P（E）甚至在计算上都是难解的。）由于这个确切的原因，我们实际上并不关心似然函数中的乘法常数。"
+}, {
+  "tag": "P",
+  "text": "From these, we can easily give a good estimation on the probability distribution of p, which describes the probability that a single coin toss will result in heads.",
+  "translation": "从这些数据中，我们可以轻松地得出p的概率分布的良好估计，该概率描述了一次抛硬币会导致正面抛掷的概率。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*BgMA_Cbsk6Gs5RvGvzVgfg.png?q=20",
+  "caption": "Posterior distribution for p after tossing the coin ten times, obtaining seven heads and three tails.",
+  "type": "image",
+  "file": "1!BgMA_Cbsk6Gs5RvGvzVgfg.png"
+}, {
+  "tag": "H2",
+  "text": "Maximum likelihood estimation",
+  "translation": "最大似然估计"
+}, {
+  "tag": "P",
+  "text": "Even though we have a probability distribution, it is generally useful to provide a concrete number as our estimate. In this case, we would like to have a parameter estimate for the probability of our coin turning up heads. Although the Bayesian route was easy for coin tossing, it can be impossible to calculate analytically. One may ask the question: given our observed outcome, which parameter is the most likely? If you think about it, this is described by the likelihood function",
+  "translation": "即使我们具有概率分布，但通常也可以提供一个具体的数字作为我们的估计值。 在这种情况下，我们希望有一个参数来估计我们的硬币掉头的概率。 尽管贝叶斯路线易于抛硬币，但可能无法进行分析计算。 可能会问一个问题：鉴于我们观察到的结果，最有可能采用哪个参数？ 如果您考虑一下，这由似然函数来描述"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*yzlfKCQGglanm3mDNP-TGA@2x.png?q=20",
+  "type": "image",
+  "file": "1!yzlfKCQGglanm3mDNP-TGA@2x.png"
+}, {
+  "tag": "P",
+  "text": "where E described the event HHTHTHHHHT. We calculated this by multiplying the probabilities of events we observed together.",
+  "translation": "其中E描述了事件HHTHTHHHHT。 我们通过将观察到的事件的概率相乘来计算得出。"
+}, {
+  "tag": "P",
+  "text": "In general, if we have the observations",
+  "translation": "一般来说，如果我们有观察"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*ZhGPtuG0pku3VALyXVRkAQ@2x.png?q=20",
+  "type": "image",
+  "file": "1!ZhGPtuG0pku3VALyXVRkAQ@2x.png"
+}, {
+  "tag": "P",
+  "text": "with results",
+  "translation": "结果"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*uhq2EfMr8qdd7ELp_A4Fag@2x.png?q=20",
+  "type": "image",
+  "file": "1!uhq2EfMr8qdd7ELp_A4Fag@2x.png"
+}, {
+  "tag": "P",
+  "text": "written in vector form for notational convenience, the likelihood function is defined by",
+  "translation": "为方便起见，以矢量形式编写，似然函数定义为"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*jyqWcRsmyOt4tO-_2QLfdQ@2x.png?q=20",
+  "type": "image",
+  "file": "1!jyqWcRsmyOt4tO-_2QLfdQ@2x.png"
+}, {
+  "tag": "P",
+  "text": "which is a function of the variable θ. θ denotes all parameters of our probability distribution, thus it can be a scalar or a vector variable even. In our repeated coin tossing example, the Y-s denote the i-th coin toss experiment and y denotes the outcome. Here, y is one for heads and zero for tails. Also keep in mind that in general, Y can be discrete but continuous also.",
+  "translation": "这是变量θ的函数。 θ表示概率分布的所有参数，因此它甚至可以是标量或向量变量。 在我们重复的抛硬币示例中，Y表示第i次抛硬币实验，y表示结果。 在这里，y表示头部为1，尾部为0。 还请记住，通常，Y可以是离散的，但也可以是连续的。"
+}, {
+  "tag": "P",
+  "text": "Intuitively (which is a phrase we use quite a lot :) ), the particular θ value where the likelihood function assumes its maximum would be a reasonable choice for our parameter estimation. This method is called the maximum likelihood estimation or MLE in short. In mathematical terms,",
+  "translation": "直观地（这是我们经常使用的短语：）），似然函数假定其最大值的特定θ值将是我们参数估计的合理选择。 此方法简称为最大似然估计或MLE。 用数学术语来说"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*OZHMqQzahZHwigQahs5sww@2x.png?q=20",
+  "type": "image",
+  "file": "1!OZHMqQzahZHwigQahs5sww@2x.png"
+}, {
+  "tag": "P",
+  "text": "In the concrete example above with seven heads and three tails, this is 0.7. Although MLE is not as desirable as the full Bayesian treatment, it is often reasonable. Note that when the prior distribution is uniform, MLE is equivalent to estimating the parameter by maximizing the posterior distribution",
+  "translation": "在上面有七个头和三个尾的具体示例中，该值为0.7。 尽管MLE不如完整的贝叶斯治疗那样理想，但通常是合理的。 注意，当先验分布均匀时，MLE等效于通过最大化后验分布来估计参数"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*ILze9YibNjJh5f5pz_gsaA@2x.png?q=20",
+  "type": "image",
+  "file": "1!ILze9YibNjJh5f5pz_gsaA@2x.png"
+}, {
+  "tag": "P",
+  "text": "This latter is called the maximum a posteriori estimation or MAP in short.",
+  "translation": "后者简称为最大后验估计或MAP。"
+}, {
+  "tag": "P",
+  "text": "With all of these mathematical tools under our belt, we are ready to revisit the original regression example!",
+  "translation": "掌握了所有这些数学工具之后，我们就可以回顾原始的回归示例！"
+}, {
+  "tag": "H2",
+  "text": "Regression revisited",
+  "translation": "重新回归"
+}, {
+  "tag": "P",
+  "text": "To recap, we have the observations",
+  "translation": "回顾一下，我们有观察"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*I2eBj8P4uh9SId_XaS1XQA@2x.png?q=20",
+  "type": "image",
+  "file": "1!I2eBj8P4uh9SId_XaS1XQA@2x.png"
+}, {
+  "tag": "P",
+  "text": "and we would like to predict the y-s from the x-es. Previously, we were looking for a function f(x) = ax + b such that",
+  "translation": "我们想根据x-es来预测y-s 以前，我们在寻找函数f（x）= ax + b"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*mEV0NyQiDEo44iA1hkkxSA@2x.png?q=20",
+  "type": "image",
+  "file": "1!mEV0NyQiDEo44iA1hkkxSA@2x.png"
+}, {
+  "tag": "P",
+  "text": "is reasonably close to the ground truth.",
+  "translation": "相当接近地面真理。"
+}, {
+  "tag": "P",
+  "text": "This time, let’s look from a probabilistic viewpoint! Now we have data points",
+  "translation": "这次，从概率的角度来看！ 现在我们有了数据点"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*2nITFQfkYI-Cgwk0WWF55Q@2x.png?q=20",
+  "type": "image",
+  "file": "1!2nITFQfkYI-Cgwk0WWF55Q@2x.png"
+}, {
+  "tag": "P",
+  "text": "coming from the distributions",
+  "translation": "来自发行版"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*HYoyLUPODnqO8xUaTjTO-Q@2x.png?q=20",
+  "type": "image",
+  "file": "1!HYoyLUPODnqO8xUaTjTO-Q@2x.png"
+}, {
+  "tag": "P",
+  "text": "For each data point, we have ground truth observations",
+  "translation": "对于每个数据点，我们都有地面实况观察"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*3hBSiTU8f-aS8V5g4_v9jQ@2x.png?q=20",
+  "type": "image",
+  "file": "1!3hBSiTU8f-aS8V5g4_v9jQ@2x.png"
+}, {
+  "tag": "P",
+  "text": "coming from the distributions",
+  "translation": "来自发行版"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*cSbTGyU3Vr22xO5z8xDqKg@2x.png?q=20",
+  "type": "image",
+  "file": "1!cSbTGyU3Vr22xO5z8xDqKg@2x.png"
+}, {
+  "tag": "P",
+  "text": "It is reasonable to assume that all Y-s can be modelled as a normal distribution N(μ(x), σ(x)²). For simplicity, we can assume that the variance is constant and that μ(x) = ax + b is a linear function. That is, we are looking to fit a model",
+  "translation": "可以合理假设所有Y-s都可以建模为正态分布N（μ（x），σ（x）²）。 为简单起见，我们可以假设方差是常数，并且μ（x）= ax + b是线性函数。 也就是说，我们正在寻找适合的模型"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*cgcCkYESTIekqNh0HUXTbw@2x.png?q=20",
+  "type": "image",
+  "file": "1!cgcCkYESTIekqNh0HUXTbw@2x.png"
+}, {
+  "tag": "P",
+  "text": "Given all of our observations, the likelihood function can be written as",
+  "translation": "根据我们的所有观察，似然函数可以写成"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*br6W7bXcAY3lpUc829C13A@2x.png?q=20",
+  "type": "image",
+  "file": "1!br6W7bXcAY3lpUc829C13A@2x.png"
+}, {
+  "tag": "P",
+  "text": "We want to maximize this function. It might seem difficult, but there is a standard mathematical trick: maximizing a function is the same as maximizing its logarithm. (As long the logarithm is properly defined, like here.) So, we have",
+  "translation": "我们要最大化此功能。 这似乎很困难，但是有一个标准的数学技巧：最大化一个函数与最大化其对数相同。 （只要对数正确定义，就像这里一样。）因此，我们有"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*10f3jz1Q4HpS4-sD5E9ZdQ@2x.png?q=20",
+  "type": "image",
+  "file": "1!10f3jz1Q4HpS4-sD5E9ZdQ@2x.png"
+}, {
+  "tag": "P",
+  "text": "We see the light at the end of the tunnel here. The first term can be omitted (since it is a constant), while minimizing a function is same as maximizing its negative. Thus,",
+  "translation": "我们在这里看到隧道尽头的光。 可以省略第一项（因为它是一个常数），而最小化功能与最大化其负数相同。 从而，"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*posMrPMf3i60pGdblEQNXQ@2x.png?q=20",
+  "type": "image",
+  "file": "1!posMrPMf3i60pGdblEQNXQ@2x.png"
+}, {
+  "tag": "P",
+  "text": "It is no accident if it seems familiar: the right hand side is the mean square error! This says that the maximum likelihood estimate for fitting a model in the form of",
+  "translation": "如果看起来很熟悉，这绝不是偶然的：右侧是均方误差！ 这表示以以下形式拟合模型的最大似然估计"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*-kmaYbwUPxo22-z_3ubO1A@2x.png?q=20",
+  "type": "image",
+  "file": "1!-kmaYbwUPxo22-z_3ubO1A@2x.png"
+}, {
+  "tag": "P",
+  "text": "is the general case of the linear regression we did earlier. There is one major difference however: the probabilistic model explains much more than a simple linear function. It is only the tip of the iceberg, there are many ways to generalize this simple probabilistic model to obtain more general fit for our data. One obvious method is to account for σ as a parameter and drop the constant assumption.",
+  "translation": "是我们之前做的线性回归的一般情况。 但是，有一个主要区别：概率模型的解释远不只是简单的线性函数。 这只是冰山一角，有很多方法可以推广这种简单的概率模型，从而获得与我们的数据更为通用的拟合。 一种明显的方法是将σ作为参数，并删除常数假设。"
+}, {
+  "tag": "H2",
+  "text": "Classification",
+  "translation": "分类"
+}, {
+  "tag": "P",
+  "text": "Before we finish up, we will take a detailed look at classification, another major class of problems in machine learning. Here, we have a slightly different kind of problem. Our training data is again",
+  "translation": "在结束之前，我们将详细研究分类，这是机器学习中的另一类主要问题。 在这里，我们有一个稍微不同的问题。 我们的训练数据又来了"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*CrVOCAl5_pNZRmcn2qyXrw@2x.png?q=20",
+  "type": "image",
+  "file": "1!CrVOCAl5_pNZRmcn2qyXrw@2x.png"
+}, {
+  "tag": "P",
+  "text": "where this time, the y-s are labels instead of real numbers. Thus, an Y is a discrete probability distribution. Our previous linear regression model is unable to properly capture this problem. In addition, although mean square error can be used when the labels are encoded with integers, it doesn’t really make sense.",
+  "translation": "这次，y-s是标签而不是实数。 因此，Y是离散的概率分布。 我们之前的线性回归模型无法正确捕获此问题。 此外，尽管在将标签编码为整数时可以使用均方误差，但这实际上没有任何意义。"
+}, {
+  "tag": "P",
+  "text": "For illustrative purposes, let’s consider a simple binary classification problem in one dimension with two classes, encoded with 0 and 1.",
+  "translation": "为了说明起见，让我们考虑一维简单的二进制分类问题，该问题具有两个类别，分别用0和1编码。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*nmAYOKhTzgbnA3SDeeHeEw.png?q=20",
+  "type": "image",
+  "file": "1!nmAYOKhTzgbnA3SDeeHeEw.png"
+}, {
+  "tag": "P",
+  "text": "If you are familiar with these type of problems, you probably know that the usual solution is to fit a function of the form",
+  "translation": "如果您熟悉这些类型的问题，则您可能知道通常的解决方案是使表格的功能适合"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*ZvfpmQBkP1qNJ0NfO5vgeg@2x.png?q=20",
+  "type": "image",
+  "file": "1!ZvfpmQBkP1qNJ0NfO5vgeg@2x.png"
+}, {
+  "tag": "P",
+  "text": "where",
+  "translation": "哪里"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*90cgCL2PZ3bFR3eK27eeLg@2x.png?q=20",
+  "type": "image",
+  "file": "1!90cgCL2PZ3bFR3eK27eeLg@2x.png"
+}, {
+  "tag": "P",
+  "text": "is the well-known sigmoid function. This model is called logistic regression. Heuristically, the linear function is fitted such that it assumes positive values for x-es belonging to the first class and negative values for the opposite class. Then, the sigmoid converts these real numbers into probabilities. The higher ax + b is, the closer its sigmoid value is to 1 and similarly, the lower ax + b is, the closer its sigmoid value is to 0. Thus, f(x) effectively models the probability that x belongs to class 1.",
+  "translation": "是众所周知的S型函数。 该模型称为逻辑回归。 启发式地，拟合线性函数，以使其对于属于第一类的x-es假定正值，而对于相反的类假设其值为负值。 然后，S形将这些实数转换为概率。 ax + b越高，其S形值越接近1，类似地，ax + b越低，其S形值越接近0。因此，f（x）有效地模拟了x属于1类的概率。 。"
+}, {
+  "tag": "P",
+  "text": "To fit this model, the so-called cross-entropy loss is minimized, which is defined by",
+  "translation": "为了拟合该模型，最小化了所谓的交叉熵损失，其定义为"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*t9uY1IpF2HhjGZGCBHp6VQ@2x.png?q=20",
+  "type": "image",
+  "file": "1!t9uY1IpF2HhjGZGCBHp6VQ@2x.png"
+}, {
+  "tag": "P",
+  "text": "What does this loss function mean? In the regression example at the very beginning, mean square error was intuitively clear. This is not the case with cross-entropy. Have you ever thought about why cross-entropy loss is defined this way? By looking at this formula only, it is almost impossible to figure out.",
+  "translation": "这个损失函数是什么意思？ 在最开始的回归示例中，均方误差在直观上很明显。 交叉熵不是这种情况。 您是否曾经想过为什么以这种方式定义交叉熵损失？ 仅看这个公式，几乎是不可能的。"
+}, {
+  "tag": "P",
+  "text": "If we look at the classification problem from the perspective we have gained in the previous sections, this binary classification problem can be solved with fitting a Bernoulli distribution to each x, that is, we model our data with",
+  "translation": "如果我们从前面几节中获得的观点来看分类问题，则可以通过对每个x拟合伯努利分布来解决该二元分类问题，也就是说，我们使用"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*wjSCodDyuS2xwhyCoYJjPA@2x.png?q=20",
+  "type": "image",
+  "file": "1!wjSCodDyuS2xwhyCoYJjPA@2x.png"
+}, {
+  "tag": "P",
+  "text": "For the likelihood function, we have",
+  "translation": "对于似然函数，我们有"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*iXJ5I1AXwRqvy0cmVK6cgA@2x.png?q=20",
+  "type": "image",
+  "file": "1!iXJ5I1AXwRqvy0cmVK6cgA@2x.png"
+}, {
+  "tag": "P",
+  "text": "After taking logarithms like before, we obtain",
+  "translation": "在像以前一样取对数之后，我们得到"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*qF-sw-FRMbBh4eicBOCekA@2x.png?q=20",
+  "type": "image",
+  "file": "1!qF-sw-FRMbBh4eicBOCekA@2x.png"
+}, {
+  "tag": "P",
+  "text": "which is the negative of cross-entropy loss! All of a sudden, this mysterious formula filled with logarithms has a clear explanation. Minimizing the cross-entropy loss is simply modelling our data with Bernoulli distributions and taking the maximum likelihood estimate.",
+  "translation": "这是交叉熵损失的负面影响！ 突然之间，这个充满对数的神秘公式有了一个清晰的解释。 最小化交叉熵损失只是使用伯努利分布对我们的数据建模，并采用最大似然估计。"
+}, {
+  "tag": "H1",
+  "text": "Summary",
+  "translation": "摘要"
+}, {
+  "tag": "P",
+  "text": "When working with machine learning algorithms for problems such as classification and regression, we usually formulate questions in our spoken language like “What will be the price of this stock tomorrow?”, “Is this a negative or positive comment?” and so on. Here, my aim was to show that many of these algorithms are actually doing much more: they provide a deep statistical understanding of the underlying problem. Instead of simply estimating the stock price tomorrow, they are capable to provide much more information than a simple prediction. We have seen that the fundamental objects of machine learning such as linear regression, binary classification with logistic regression, mean square error and cross-entropy loss are all arising from very natural ideas in a statistical setting.",
+  "translation": "当使用机器学习算法来解决诸如分类和回归之类的问题时，我们通常以口头语言提出问题，例如“明天该股票的价格是多少？”，“这是负面还是正面的评论？”等等。 在这里，我的目的是表明这些算法中的许多实际上正在做的更多：它们提供了对潜在问题的深刻统计理解。 他们有能力提供比简单的预测更多的信息，而不是简单地估计明天的股价。 我们已经看到，机器学习的基本对象（例如线性回归，具有逻辑回归的二元分类，均方误差和交叉熵损失）都来自统计环境中非常自然的思想。"
+}, {
+  "tag": "P",
+  "text": "This is just the tip of the iceberg. Although we have seen only the most basic models, even the most advanced deep neural networks are built on these foundations. If you have understood these fundamentals, you are now one big step closer to master machine learning.",
+  "translation": "这只是冰山一角。 尽管我们只看到了最基本的模型，但即使是最先进的深度神经网络也都建立在这些基础之上。 如果您了解了这些基础知识，那么您现在距离掌握机器学习又迈了一大步。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Tivadar Danka的文章《The statistical foundations of machine learning》，参考：https://towardsdatascience.com/the-statistical-foundations-of-machine-learning-973c356a95f)",
+  "translation": "（本文翻译自Tivadar Danka的文章，《机器学习的统计基础》，参考：https：//towardsdatascience.com/the-statistical-foundations-of-machine-learning-973c356a95f）"
+}]
