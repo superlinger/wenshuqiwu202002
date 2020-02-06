@@ -1,0 +1,177 @@
+[{
+  "tag": "H1",
+  "text": "Understanding Cantor’s Mathematical Infinity",
+  "translation": "了解康托尔的数学无穷大"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/42/1*Awnlcv86jqIv_syv3XyqTw.jpeg?q=20",
+  "caption": "Illustration of Georg Cantor by Maney Imagination",
+  "type": "image",
+  "file": "1!Awnlcv86jqIv_syv3XyqTw.jpeg"
+}, {
+  "tag": "P",
+  "text": "Galileo is often considered the father of modern science. He was the one who put together the principles of experiment, theory, and mathematics together into a standard framework. Probably more than anyone else Galileo was the person responsible for developing modern science.",
+  "translation": "伽利略通常被认为是现代科学之父。 他是将实验，理论和数学原理整合到一个标准框架中的人。 伽利略是负责发展现代科学的人，可能比任何人都多。"
+}, {
+  "tag": "P",
+  "text": "It said that Galileo dropped two steel balls of different masses, but the same material from the leaning tower of Pisa and they landed at the same time. What is remarkable about this experiment is he ushered a new method of doing science where you conduct an experiment to test a hypothesis. He showed that we have to do more than just thinking something is true, but also we have to prove it.",
+  "translation": "据说伽利略号从比萨斜塔上落下了两个质量不同的钢球，但材料相同，它们同时降落。 该实验的显着之处在于他引入了一种新的科学方法，您可以在其中进行实验以检验假设。 他表明，我们要做的不只是认为某件事是真实的，还需要证明这一点。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*UhQgsRt7z-kAojDaDproBg.jpeg?q=20",
+  "caption": "Most historians agree that Galileo’s famous experiment atop the Leaning Tower of Pisa never took place.",
+  "type": "image",
+  "file": "1!UhQgsRt7z-kAojDaDproBg.jpeg"
+}, {
+  "tag": "P",
+  "text": "Galileo found an interesting paradox while he was the head of the Department of Mathematics at the University of Pisa.",
+  "translation": "伽利略（Galileo）在比萨大学数学系系主任期间发现了一个有趣的悖论。"
+}, {
+  "tag": "P",
+  "text": "Definition: A paradox, also known as an antinomy, is a logically self-contradictory statement or a statement that runs contrary to one’s expectation. (Wikipedia). (Greek: “para” = beyond, “doxa” = belief)",
+  "translation": "定义：悖论，也称为对立，是一种逻辑上自相矛盾的陈述，或者与人的期望背道而驰的陈述。 （维基百科）。 （希腊语：“ para” =超越，“ doxa” =信念）"
+}, {
+  "tag": "P",
+  "text": "Galileo’s paradox was about determining whether two sets containing infinite objects are equivalent to each other. For example, let P is the set of positive integers where P= {0,1,2,3,…} and E is the set of even numbers where E = {0,2,4,6,…}. Galileo claimed that the sizes of these two sets are going to be the same because we can pair off each positive integers from the set P with the even numbers from the set E.",
+  "translation": "伽利略的悖论在于确定包含无限对象的两个集合是否彼此等效。 例如，令P为正整数集合，其中P = {0,1,2,3，…}，E为偶数集合，其中E = {0,2,4,6，…}。 伽利略声称这两个集合的大小将是相同的，因为我们可以将集合P中的每个正整数与集合E中的偶数配对。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*cInoEvBvAJXwuz0b_C051A.png?q=20",
+  "type": "image",
+  "file": "1!cInoEvBvAJXwuz0b_C051A.png"
+}, {
+  "tag": "P",
+  "text": "So how does the size of the two sets be the same when a “fewer” number appears in E? This was called the Galileo paradox and started a new debate about the concept of infinity.",
+  "translation": "那么，当E中出现“更少”的数字时，两组的大小如何相同？ 这被称为伽利略悖论，并引发了有关无限概念的新辩论。"
+}, {
+  "tag": "P",
+  "text": "After Galileo, his student Evangelista Torricelli became the head of the Department of Mathematics at the University of Pisa. You may have heard him because of his works on atmospheric pressure and the invention of the barometer. Since Toricelli is also interested in mathematics, he asks:",
+  "translation": "伽利略之后，他的学生Evangelista Torricelli成为比萨大学数学系主任。 您可能已经听说过他，因为他在大气压力方面的工作以及气压计的发明。 由于Toricelli也对数学感兴趣，因此他问："
+}, {
+  "tag": "P",
+  "text": "Is it possible to have an object with a finite volume and an infinite surface? In the first place, such a thing seems unlikely for most of us. However, mathematics tells us that such a thing could happen. Torricelli answered his question himself and discovered Toricelli’s Trumpet whose surface area is infinite, but whose volume is finite. His discovery seen as an “incredible” paradox.",
+  "translation": "有可能具有有限体积和无限表面的对象吗？ 首先，对于我们大多数人来说，这样的事情似乎不太可能。 但是，数学告诉我们这种事情可能发生。 Torricelli亲自回答了他的问题，并发现了Toricelli的小号，其表面积是无限的，但是体积是有限的。 他的发现被视为“令人难以置信的”悖论。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*a0Jy36-SNPN0XnvmIVeEPA.png?q=20",
+  "caption": "Gabriel’s Horn or Toricelli’s Trumpet",
+  "type": "image",
+  "file": "1!a0Jy36-SNPN0XnvmIVeEPA.png"
+}, {
+  "tag": "P",
+  "text": "By the way, there is an essential rule in mathematics philosophy; Whichever era of philosophy or mathematics you deal with, it is related to the history, culture, and religion of that region. That’s why they call Toricelli’s trumpet also Gabriel’s Horn. A reference is made here to the Bible because Christians believe that the angel, Gabriel, will blow the horn on the Day of Judgment.",
+  "translation": "顺便说一句，数学哲学中有一个基本规则。 无论您处理的是哲学时代还是数学时代，它都与该地区的历史，文化和宗教有关。 这就是为什么他们称Toricelli的喇叭也叫Gabriel的Horn。 这里提到圣经是因为基督徒相信天使加百列会在审判日吹响号角。"
+}, {
+  "tag": "P",
+  "text": "So how does Toricelli’s trumpet form? We all know how to graph y=x. If you graph the equation y=1/x where x is greater or equal to 1 instead, the graph will be like this:",
+  "translation": "那么Torricelli的喇叭形又如何呢？ 我们都知道如何绘制y = x。 如果用等式y = 1 / x绘制图形，其中x大于或等于1，则该图形将如下所示："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/60/1*tPnBxzNTG3sBQWUzeT80Dg.gif?q=20",
+  "caption": "The graph of y=1/x, x>1.",
+  "type": "image",
+  "file": "1!tPnBxzNTG3sBQWUzeT80Dg.gif"
+}, {
+  "tag": "P",
+  "text": "When we take the graph of y=1/x and rotate it around the x-axis, we see Toricelli’s trumpet.",
+  "translation": "当我们拍摄y = 1 / x的图形并将其绕x轴旋转时，我们看到了Toricelli的小号。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/60/1*QhfZlzI9a6u2tgYLcMDG7A.gif?q=20",
+  "type": "image",
+  "file": "1!QhfZlzI9a6u2tgYLcMDG7A.gif"
+}, {
+  "tag": "P",
+  "text": "Fortunately, we have mathematical formulas in our hands to calculate the area and volume of the Toricelli’s trumpet. When we use the integration formula below for the volume of the trumpet, we get a finite amount.",
+  "translation": "幸运的是，我们掌握了一些数学公式，可以计算Toricelli小号的面积和体积。 当我们使用以下积分公式计算小号的体积时，我们得到的是有限的数量。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*cDYUtusO_HIjXUx4R8dVqw.png?q=20",
+  "type": "image",
+  "file": "1!cDYUtusO_HIjXUx4R8dVqw.png"
+}, {
+  "tag": "P",
+  "text": "However, when we apply the integration formula for the surface area of the trumpet, this time, the surface area of it becomes infinite. Isn’t this result interesting?",
+  "translation": "然而，当我们对小号的表面积应用积分公式时，这一次，其表面积变得无限大。 这个结果有趣吗？"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*fvu-6MjTG55plqniNm-MvQ.png?q=20",
+  "type": "image",
+  "file": "1!fvu-6MjTG55plqniNm-MvQ.png"
+}, {
+  "tag": "P",
+  "text": "Since the volume of Toricelli’s trumpet is finite, we can fill it with a finite amount of paint. For instance, let’s assume that the volume of it 100 liters. I go to Home Depot and buy 100 liters of paint and fill it. However, what makes this interesting is that I will have painted the infinite surface with that 100 liters of paint. Today, most people call this paradox, “the painter paradox.”",
+  "translation": "由于Toricelli小号的音量是有限的，因此我们可以用有限的颜料填充它。 例如，假设其容积为100升。 我去Home Depot买了100升油漆，然后加满油漆。 但是，使这一点有趣的是，我将用那100升油漆在无限的表面上绘画。 如今，大多数人将此悖论称为“画家悖论”。"
+}, {
+  "tag": "P",
+  "text": "Houston, we got a problem here! The situation that is impossible in practice becomes possible in mathematics. So, how can Torricelli’s trumpet be real? Or, how can we precisely match all the elements of the sets while one of the sets is a subset of another in Galileo’s example?",
+  "translation": "休斯顿，我们在这里遇到了问题！ 在数学上，在实践中不可能实现的情况成为可能。 那么，托里切利的号角怎么会是真实的呢？ 或者，在Galileo的示例中，其中一个集合是另一个集合的子集时，我们如何精确匹配集合的所有元素？"
+}, {
+  "tag": "P",
+  "text": "The reason for all these conflicts is that the concept of infinity is not similar to other concepts we know, and that confuses many people. Galileo says for his paradox,",
+  "translation": "所有这些冲突的原因在于，无穷大的概念与我们所知道的其他概念并不相似，这使许多人感到困惑。 伽利略说他的悖论，"
+}, {
+  "tag": "P",
+  "text": "“Yes, my friend, there is infinity. It is futile to object to it. The sets I am working on are examples of closed sets that involve infinity. They start at a point and goes on to infinity, and yet, they are still set. However, my comments and concepts about infinity must be different from those I would use for finite magnitudes. If you are dealing with finite magnitudes, you can say that 3 kilos are less than 5 kilos, or 32 meters is longer than 7 meters. But when it comes to infinity, you cannot say this infinity is bigger, smaller, or equal to that.”",
+  "translation": "“是的，我的朋友，存在无限。 反对是徒劳的。 我正在研究的集合是涉及无限的闭合集合的示例。 它们从一个点开始，一直延伸到无穷远，但是它们仍然被设置。 但是，我对无穷大的评论和概念必须与有限数量级所使用的评论和概念有所不同。 如果要处理有限的量值，则可以说3公斤小于5公斤，或者32米大于7米。 但是谈到无限，您不能说这个无限更大，更小或相等。”"
+}, {
+  "tag": "P",
+  "text": "That was Galileo’s solution 1600s.",
+  "translation": "那就是伽利略的解决方案1600年代。"
+}, {
+  "tag": "P",
+  "text": "Unfortunately, Galileo’s solution had started a new debate about infinity. Mathematicians and philosophers couldn’t agree on a specific answer until Cantor shared his “set theory,” which students learn in elementary school today.",
+  "translation": "不幸的是，伽利略的解决方案引发了有关无限性的新辩论。 在坎托分享他的“集合论”之前，数学家和哲学家无法就一个具体的答案达成共识，今天学生在小学学习。"
+}, {
+  "tag": "P",
+  "text": "We can periodically historicize the development of the idea of infinity. It first emerged from the Eleatics, which was a pre-Socratic school of philosophy founded by Parmenides in the early fifth century BC in the ancient town of Elea. There were three great philosophers in this school, such as Zeno, Xenophanes, and Parmenides. In this school, the accepted philosophy was that existence was singular, and there was no plurality. Zeno was famous for his paradoxes on infinity at the Eleatics. Later in the 300s BC., Aristoteles arose and proposed a pair of concepts to explain Zeno’s paradoxes, which were potential infinity and actual infinity.",
+  "translation": "我们可以定期历史化无限概念的发展。 它最初是从Eleatics中学出来的，这是公元前5世纪初期由Parmenides在古镇Elea创办的苏格拉底哲学流派。 这所学校有三位伟大的哲学家，例如芝诺（Zeno），色诺芬（Xenophanes）和帕门尼德（Parmenides）。 在这所学校中，公认的哲学是存在是单数的，没有复数。 芝诺（Zeno）以其在Eleatics上对无限性的悖论而闻名。 公元前300年代后期，亚里士多德（Aristoteles）提出并提出了两个概念来解释芝诺的悖论，即潜在的无限和实际的无限。"
+}, {
+  "tag": "P",
+  "text": "The potential infinite is a group of numbers or group of “things” that continues without terminating, going on or repeating itself over and over again with no recognizable ending point.",
+  "translation": "潜在的无限是一组数字或一组“事物”，它们连续不断而不会终止，继续或重复自身，而没有可识别的终点。"
+}, {
+  "tag": "P",
+  "text": "The actual infinite involves never-ending sets or “things” within a space that has a beginning and end; it is a series that is technically “completed” but consists of an infinite number of members.",
+  "translation": "实际的无限涉及具有起点和终点的空间中的永无止境的集合或“事物”。 从技术上讲，这是一个“完成”的系列，但包含无限数量的成员。"
+}, {
+  "tag": "P",
+  "text": "Aristotle believed that there was no actual infinity. This idea of Aristotle dominated the world of philosophy until the 1600s. Then philosophers like Cusa and Bruno claimed that there exist actual infinity, but we cannot make sense of it. After Cuso and Bruno, the great thinker Spinoza joined into the subject.",
+  "translation": "亚里斯多德相信没有实际的无限。 直到1600年代，亚里士多德的这一思想一直主导着哲学界。 然后像库萨（Cusa）和布鲁诺（Bruno）这样的哲学家声称存在实际的无穷大，但是我们无法理解它。 在库索和布鲁诺之后，伟大的思想家斯宾诺莎加入了这个话题。"
+}, {
+  "tag": "P",
+  "text": "Spinoza said that we could understand the concept of infinity and ranked them in size. However, he also stated that he couldn’t do the math on them. For example, he could add 3 to 5, but he couldn’t add one infinity to another.",
+  "translation": "斯宾诺莎说，我们可以理解无穷大的概念，并对其大小进行排名。 但是，他也表示无法对它们进行数学运算。 例如，他可以加3到5，但不能将一个无穷大加到另一个。"
+}, {
+  "tag": "P",
+  "text": "Finally, to finish those debates, a beautiful man, Georg Cantor showed up and found the set theory, which is still the basis of mathematics. He set the final point in the infinity discussions with his set theory.",
+  "translation": "最后，为完成这些辩论，一个漂亮的人格奥尔格·坎托（Georg Cantor）出现并发现了集合论，而集合论仍然是数学的基础。 他用集合论为无穷大讨论设定了最终点。"
+}, {
+  "tag": "P",
+  "text": "He showed us that an infinity set would be bigger or smaller than another infinity set. Furthermore, Cantor claimed that we could add and multiply infinity sets. Until that time, humans had followed Aristotle’s ideas about infinity. According to Aristotle, if we multiply the number 3 by infinity, it would be infinite again. Infinity would swallow everything. Based on this, he claimed that there would only be potential infinity, not actual infinity.",
+  "translation": "他向我们展示了一个无限集将比另一个无限集更大或更小。 此外，康托尔声称我们可以加和乘无穷集。 在此之前，人类一直遵循亚里士多德关于无限的思想。 根据亚里士多德的说法，如果我们将数字3乘以无穷大，那么它将再次变为无穷大。 无限会吞没一切。 基于此，他声称只会存在潜在的无限，而不是实际的无限。"
+}, {
+  "tag": "P",
+  "text": "However, Cantor proved to us the opposite of Aristotle’s idea with set theory. If we add one to an infinite set, it won’t be the same set anymore. He tried to compare the infinities. For instance, Cantor proved that the set of all functions from (0,1)→ℕ is countable. Thus he defined a one-to-one and onto function from the interval (0,1) to natural numbers.",
+  "translation": "但是，康托尔向我们证明了亚里斯多德的理论与集合论相反。 如果我们将一个添加到无限集合中，那么它将不再是同一集合。 他试图比较无穷大。 例如，康托尔证明（0,1）→ℕ的所有函数的集合都是可数的。 因此，他定义了从区间（0,1）到自然数的一对一函数。"
+}, {
+  "tag": "P",
+  "text": "In other words, he proved that all-natural numbers can fit between 0 and 1 because there were infinite rational numbers between 0–1, and these infinities can be paired off. Then he did something even more dangerous than finding two equal infinities. He compared the infinity of real numbers with the infinity of natural numbers and found that the infinity of real numbers is greater than the other. He even looked at his proof and told his friend Dedekind: “I see it, but even I can’t believe it …”.",
+  "translation": "换句话说，他证明了全自然数可以在0到1之间拟合，因为在0到1之间有无限个有理数，并且这些无限性可以配对。 然后他做了比找到两个相等的无限更危险的事情。 他比较了实数的无穷大和自然数的无穷大，发现实数的无穷大。 他甚至查看了自己的证据，并告诉他的朋友Dedekind：“我看到了，但即使我也不敢相信……”。"
+}, {
+  "tag": "P",
+  "text": "Cantor was also a mathematician with very serious philosophical and religious concerns. While developing the set theory, he said, “God dictated me the set theory”.",
+  "translation": "康托尔还是一位数学家，对哲学和宗教问题非常关注。 他说，在发展集合论的过程中，“上帝决定了集合论。”"
+}, {
+  "tag": "P",
+  "text": "Set theory was not widely accepted when it was first developed. Companies didn’t even hire Cantor for any job. A mathematician, Henri Poincaré, once said, “The ideas of this Cantor are a bad disease that sticks to the collar of mathematics. And mathematics will treat him one day”. Cantor had to go to a mental hospital for a while and died there. But today, we consider him to be a genius.",
+  "translation": "集合论最初发展时并没有被广泛接受。 公司甚至没有雇用Cantor从事任何工作。 数学家亨利·庞加莱（HenriPoincaré）曾经说过：“关于康托尔的想法是一种严重疾病，一直困扰着数学界。 数学将有一天对待他。” 康托尔不得不去精神病院呆了一段时间，然后死在那里。 但是今天，我们认为他是一个天才。"
+}, {
+  "tag": "P",
+  "text": "Cantor was a lonely man on the edge of infinity. He quoted the Bible at the beginning of his article on Transfinite Numbers: “Everything that is concealed will be brought to light.”",
+  "translation": "康托尔是一个孤独的人，处在无限的边缘。 他在有关“无限数”的文章的开头引用了圣经：“所有隐藏的东西都会被发现。”"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Waldo Otis的文章《Understanding Cantor’s Mathematical Infinity》，参考：https://medium.com/however-mathematics/understanding-cantors-mathematical-infinity-bc9ffe7465da)",
+  "translation": "（本文翻译自Waldo Otis的文章，《了解康托尔的数学无限》，参考：https：//medium.com/however-mathematics/understanding-cantors-mathematical-infinity-bc9ffe7465da）"
+}]
