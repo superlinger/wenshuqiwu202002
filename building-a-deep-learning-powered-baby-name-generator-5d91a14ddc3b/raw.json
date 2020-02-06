@@ -1,0 +1,299 @@
+[{
+  "tag": "OL",
+  "texts": ["Probably there isn’t, and this is about as scientific as horoscopes. But still, fun to think about!"],
+  "translations": ["可能没有，这和星座一样科学。 但是，仍然值得考虑！"]
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*NLyVCwtacAs_vjenC-d8uQ.png?q=20",
+  "type": "image",
+  "file": "1!NLyVCwtacAs_vjenC-d8uQ.png"
+}, {
+  "tag": "H1",
+  "text": "Building a Deep-Learning-Powered (Baby) Name Generator",
+  "translation": "构建一个由深度学习驱动的（婴儿）名称生成器"
+}, {
+  "tag": "H2",
+  "text": "What can Wikipedia biographies and Deep Neural Networks tell us about what’s in a name?",
+  "translation": "维基百科的传记和深度神经网络可以告诉我们什么名称？"
+}, {
+  "tag": "P",
+  "text": "When I was young, I always hated being named Dale. This is mostly because my primary image of what Dales looked like was shaped by Dale Gribble from King of the Hill, and also Dale Earnhardt Jr., the NASCAR driver.",
+  "translation": "小时候，我总是讨厌被称为戴尔。 这主要是因为我对Dales外观的最初印象是由Hill of the Hill的Dale Gribble和NASCAR司机Dale Earnhardt Jr.塑造的。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*cLVgP5no2ZdtfGnr8o_azA.png?q=20",
+  "caption": "Dale Gribble image credit , Dale Earnhardt Jr image credit",
+  "type": "image",
+  "file": "1!cLVgP5no2ZdtfGnr8o_azA.png"
+}, {
+  "tag": "P",
+  "text": "Neither of these Dales fit my aspirational self image. On the contrary, I wanted to be named Sailor Moon.",
+  "translation": "这些戴尔都不符合我的理想自我形象。 相反，我想被称为美少女战士。"
+}, {
+  "tag": "P",
+  "text": "I did not like that my name was “androgynous” — 14 male Dales are born for every one female Dale. When I asked my parents about this, their rationale was:",
+  "translation": "我不喜欢我的名字是“雌雄同体”-每一位女戴尔出生14头男性戴尔。 当我问我的父母时，他们的理由是："
+}, {
+  "tag": "P",
+  "text": "A. Women with androgynous names are potentially more successful.",
+  "translation": "答：雌雄同体的女性可能会更成功。"
+}, {
+  "tag": "P",
+  "text": "B. Their hipster friends just named their daughter Dale and it was just so cute!",
+  "translation": "B.他们的时髦朋友刚刚给女儿起名叫戴尔，那真是太可爱了！"
+}, {
+  "tag": "P",
+  "text": "To their credit, as an adult, I sure do feel I’ve benefited from pretending to be a man (or not outright denying it) on my resume, on Github, in my email signature, or even here on Medium.",
+  "translation": "值得赞扬的是，作为成年人，我确实感到自己从简历，Github，电子邮件签名乃至Medium上装扮成一个男人（或不完全否认），从中受益。"
+}, {
+  "tag": "P",
+  "text": "But sexism aside, what if there really is something to nominative determinism — the idea that people tend to take on jobs or lifestyles that fit their names?¹ And if your name does have some impact on the life you lead, what a responsibility it must be to choose a name for a whole human person. I wouldn’t want to leave that responsibility to taste or chance or trends. Of course not — I’d turn to deep learning (duh!).",
+  "translation": "但是撇开性别歧视，如果名义决定论确实存在某些东西-人们倾向于从事与自己名字相称的工作或生活方式的想法呢？¹如果您的名字确实对您的生活产生了影响，那么它必须承担的责任是什么？ 为整个人类选择一个名字。 我不想将这种责任留给品味，机会或趋势。 当然不是，我将转向深度学习（du！）。"
+}, {
+  "tag": "P",
+  "text": "In this post, I’ll show you how I used machine learning to build a baby name generator (or predictor, more accurately) that takes a description of a (future) human and returns a name, i.e.:"
+}, {
+  "tag": "P",
+  "text": "My child will be born in New Jersey. She will grow up to be a software developer at Google who likes biking and coffee runs.",
+  "translation": "我的孩子将在新泽西州出生。 她将成长为Google的软件开发人员，喜欢骑自行车和喝咖啡。"
+}, {
+  "tag": "P",
+  "text": "Given a bio, the model will return a set of names, sorted by probability:",
+  "translation": "给定一个生物，模型将返回一组名称，并按概率排序："
+}, {
+  "tag": "PRE",
+  "text": "Name: linda Score: 0.04895663261413574Name: kathleen Score: 0.0423438735306263Name: suzanne Score: 0.03537878766655922Name: catherine Score: 0.030525485053658485...",
+  "translation": "名称：琳达得分：0.04895663261413574名称：凯瑟琳得分：0.0423438735306263名称：suzanne得分：0.03537878766655922名称：凯瑟琳得分：0.030525485053658485 ..."
+}, {
+  "tag": "P",
+  "text": "So in theory I should’ve been a Linda, but at this point, I’m really quite attached to Dale.",
+  "translation": "因此，从理论上讲，我本应该是琳达，但在这一点上，我真的很喜欢戴尔。"
+}, {
+  "tag": "P",
+  "text": "If you want to try this model out yourself, take a look here. Now you definitely shouldn’t put much weight into these predictions, because a. they’re biased and b. they’re about as scientific as a horoscope. But still — wouldn’t it be cool to have the first baby named by an AI?",
+  "translation": "如果您想亲自尝试该模型，请在此处查看。 现在，您绝对不应该在这些预测中投入太多精力，因为 他们有偏见，并且b。 它们像星座一样科学。 但是，尽管如此-由AI命名第一个婴儿会不会很酷？"
+}, {
+  "tag": "H1",
+  "text": "The Dataset",
+  "translation": "数据集"
+}, {
+  "tag": "P",
+  "text": "Although I wanted to create a name generator, what I really ended up building was a name predictor. I figured I would find a bunch of descriptions of people (biographies), block out their names, and build a model that would predict what those (blocked out) names should be.",
+  "translation": "尽管我想创建一个名称生成器，但我最终构建的实际上是一个名称预测器。 我想我会找到很多人（传记）的描述，屏蔽他们的名字，并建立一个模型来预测那些（屏蔽）的名字。"
+}, {
+  "tag": "P",
+  "text": "Happily, I found just that kind of dataset here, in a Github repo called wikipedia-biography-dataset by David Grangier. The dataset contains the first paragraph of 728,321 biographies from Wikipedia, as well as various metadata.",
+  "translation": "幸运的是，我在David Grangier的Github仓库wikipedia-biography-dataset中找到了这种数据集。 数据集包含来自Wikipedia的728,321份传记的第一段以及各种元数据。"
+}, {
+  "tag": "P",
+  "text": "Naturally, there’s a selection bias when it comes to who gets a biography on Wikipedia (according to The Lily, only 15% of bios on Wikipedia are of women, and I assume the same could be said for non-white people). Plus, the names of people with biographies on Wikipedia will tend to skew older, since many more famous people were born over the past 500 years than over the past 30 years.",
+  "translation": "当然，在谁获得维基百科传记方面会有选择偏见（根据《莉莉》，维基百科上只有15％的个人简介是女性，我认为非白人也可以这么说）。 另外，在Wikipedia上有传记的人的名字倾向于更老，因为在过去500年中出生的名人比过去30年中出生的人多。"
+}, {
+  "tag": "P",
+  "text": "To account for this, and because I wanted my name generator to yield names that are popular today, I downloaded the census’s most popular baby names and cut down my Wikipedia dataset to only include people with census-popular names. I also only considered names for which I had at least 50 biographies. This left me with 764 names, majority male.",
+  "translation": "为了解决这个问题，并且因为我希望我的名字生成器产生今天流行的名字，所以我下载了人口普查中最受欢迎的婴儿名字，并缩减了我的Wikipedia数据集，以仅包括具有人口普查受欢迎名字的人。 我还只考虑了至少有50个传记的名字。 这给我留下了764个名字，多数为男性。"
+}, {
+  "tag": "P",
+  "text": "The most popular name in my dataset was “John,” which corresponded to 10092 Wikipedia bios (shocker!), followed by William, David, James, George, and the rest of the biblical-male-name docket. The least popular names (that I still had 50 examples of) were Clark, Logan, Cedric, and a couple more, with 50 counts each. To account for this massive skew, I downsampled my dataset one more time, randomly selecting 100 biographies for each name."
+}, {
+  "tag": "H1",
+  "text": "Training a Model",
+  "translation": "训练模型"
+}, {
+  "tag": "P",
+  "text": "Once I had my data sample, I decided to train a model that, given the text of the first paragraph of a Wikipedia biography, would predict the name of the person that bio was about.",
+  "translation": "有了数据样本后，我决定训练一个模型，根据Wikipedia传记的第一段文字，该模型可以预测bio即将涉及的人的姓名。"
+}, {
+  "tag": "P",
+  "text": "If it’s been a while since you’ve read a Wikipedia biography, they usually start something like this:"
+}, {
+  "tag": "P",
+  "text": "Dale Alvin Gribble is a fictional character in the Fox animated series King of the Hill,[2] voiced by Johnny Hardwick (Stephen Root, who voices Bill, and actor Daniel Stern had both originally auditioned for the role). He is the creator of the revolutionary “Pocket Sand” defense mechanism, an exterminator, bounty hunter, owner of Daletech, chain smoker, gun fanatic, and paranoid believer of almost all conspiracy theories and urban legends."
+}, {
+  "tag": "P",
+  "text": "Because I didn’t want my model to be able to “cheat,” I replaced all instances of the person’s first and last name with a blank line: “___”. So the bio above becomes:"
+}, {
+  "tag": "P",
+  "text": "___ Alvin ___ is a fictional character in the Fox animated series…",
+  "translation": "___ Alvin ___是福克斯动画系列中的虚构人物。"
+}, {
+  "tag": "P",
+  "text": "This is the input data to my model, and its corresponding output label is “Dale.”",
+  "translation": "这是模型的输入数据，其对应的输出标签为“ Dale”。"
+}, {
+  "tag": "P",
+  "text": "Once I prepared my dataset, I set out to build a deep learning language model. There were lots of different ways I could have done this (here’s one example in Tensorflow), but I opted to use AutoML Natural Language, a code-free way to build deep neural networks that analyze text.",
+  "translation": "准备好数据集后，我便着手建立深度学习语言模型。 我可以通过很多不同的方式来完成此操作（这是Tensorflow中的一个示例），但是我选择使用AutoML Natural Language，这是一种无代码的方式来构建用于分析文本的深度神经网络。"
+}, {
+  "tag": "P",
+  "text": "I uploaded my dataset into AutoML, which automatically split it into 36,497 training examples, 4,570 validation examples, a 4,570 test examples:",
+  "translation": "我将数据集上传到AutoML，然后将其自动拆分为36,497个训练示例，4,570个验证示例，4,570个测试示例："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*qlR6A11y4Zm1RFn8pLT16Q.png?q=20",
+  "caption": "Even though I attempted to remove first and last names, a couple of middle names names slipped in!",
+  "type": "image",
+  "file": "1!qlR6A11y4Zm1RFn8pLT16Q.png"
+}, {
+  "tag": "P",
+  "text": "To train a model, I navigated to the “Train” tab and clicked “Start Training.” Around four hours later, training was done.",
+  "translation": "要训练模型，我导航到“训练”选项卡并单击“开始训练”。大约四个小时后，训练完成。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*AJvgGVrOCR1kvX9UUCVPig.png?q=20",
+  "type": "image",
+  "file": "1!AJvgGVrOCR1kvX9UUCVPig.png"
+}, {
+  "tag": "H2",
+  "text": "Evaluating the Name Generator",
+  "translation": "评估名称生成器"
+}, {
+  "tag": "P",
+  "text": "So how well did the name generator model do?",
+  "translation": "那么名称生成器模型的性能如何？"
+}, {
+  "tag": "P",
+  "text": "If you’ve built models before, you know the go-to metrics for evaluating quality are usually precision and recall (if you’re not familiar with these terms or need a refresher, check out this nice interactive demo my colleague Zack Akil built to explain them!). In this case, my model had a precision of 65.7% and a recall of 2%.",
+  "translation": "如果您以前建立过模型，则知道评估质量的常用指标通常是精度和召回率（如果您不熟悉这些术语或需要复习，请查看我的同事Zack Akil构建的一个不错的交互式演示。 向他们解释！）。 在这种情况下，我的模型的精度为65.7％，召回率为2％。"
+}, {
+  "tag": "P",
+  "text": "But in the case of our name generator model, these metrics aren’t really that telling. Because the data is very noisy — there is no “right answer” to what a person should be named based on his or her life story. Names are largely arbitrary, which means no model can make really excellent predictions.",
+  "translation": "但就我们的名称生成器模型而言，这些指标并不能真正说明问题。 因为数据非常嘈杂，所以根据一个人的生活故事，对一个人的名字没有“正确答案”。 名称在很大程度上是任意的，这意味着没有模型可以做出真正出色的预测。"
+}, {
+  "tag": "P",
+  "text": "My goal was not to build a model that with 100% accuracy could predict a person’s name. I just wanted to build a model that understood something about names and how they work.",
+  "translation": "我的目标不是建立一个可以100％准确预测人名的模型。 我只是想建立一个模型，以了解一些有关名称及其工作方式的知识。"
+}, {
+  "tag": "P",
+  "text": "One way to dig deeper into what a model’s learned is to look at a table called a confusion matrix, which indicates what types of errors a model makes. It’s a useful way to debug or do a quick sanity check.",
+  "translation": "深入研究模型学习内容的一种方法是查看一个称为混淆矩阵的表，该表指示模型所犯的错误类型。 这是调试或进行快速完整性检查的有用方法。"
+}, {
+  "tag": "P",
+  "text": "In the “Evaluate” tab, AutoML provides a confusion matrix. Here’s a tiny corner of it (cut off because I had sooo many names in the dataset):",
+  "translation": "在“评估”选项卡中，AutoML提供了一个混淆矩阵。 这是它的一个小角（由于我在数据集中有太多名字，所以将其删除）："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*aEr9CcmqqvXZuPXfmeo_KA.png?q=20",
+  "type": "image",
+  "file": "1!aEr9CcmqqvXZuPXfmeo_KA.png"
+}, {
+  "tag": "P",
+  "text": "In this table, the row headers are the True labels and the column headers are the Predicted labels. The rows indicate what a person’s name should have been, and the columns indicate what the model predicted the person’s name was.",
+  "translation": "在此表中，行标题是True标签，列标题是Predicted标签。 这些行表示一个人的名字应该是什么，而各列则表示模型预测该人的名字是什么。"
+}, {
+  "tag": "P",
+  "text": "So for example, take a look at the row labeled “ahmad.” You’ll see a light blue box labeled “13%”. This means that, of all the bios of people named Ahmad in our dataset, 13% were labeled “ahmad” by the model. Meanwhile, looking one box over to the right, 25% of bios of peopled named “ahmad” were (incorrectly) labeled “ahmed.” Another 13% of people named Ahmad were incorrectly labeled “alec.”",
+  "translation": "因此，例如，看看标有“ ahmad”的行。您会看到标有“ 13％”的浅蓝色框。 这意味着，在我们的数据集中，所有名为艾哈迈德的人的履历中，有13％被模型标记为“艾哈迈德”。 同时，在右边的盒子上方，被称为“艾哈迈德”的人口中25％的个人资料被（错误地）标记为“艾哈迈德”。另外，名为艾哈迈德的人们中有13％的人被错误地标记为“亚历克”。"
+}, {
+  "tag": "P",
+  "text": "Although these are technically incorrect labels, they tell me that the model has probably learned something about naming, because “ahmed” is very close to “ahmad.” Same thing for people named Alec. The model labeled Alecs as “alexander” 25% of the time, but by my read, “alec” and “alexander” are awfully close names.",
+  "translation": "尽管这些标签在技术上不正确，但它们告诉我，该模型可能已经学到了一些有关命名的信息，因为“ ahmed”与“ ahmad”非常接近。 该模型有25％的时间将Alecs标记为“ alexander”，但据我所读，“ alec”和“ alexander”是非常接近的名字。"
+}, {
+  "tag": "H2",
+  "text": "Running Sanity Checks",
+  "translation": "运行健全性检查"
+}, {
+  "tag": "P",
+  "text": "Next I decided to see if my model understood basic statistical rules about naming. For example, if I described someone as a “she,” would the model predict a female name, versus a male name for “he”?",
+  "translation": "接下来，我决定看看我的模型是否理解有关命名的基本统计规则。 例如，如果我将某人形容为“她”，那么模型会预测一个女性名字，而不是一个“他”男性名字吗？"
+}, {
+  "tag": "P",
+  "text": "For the sentence “She likes to eat,” the top predicted names were “Frances,” “Dorothy,” and “Nina,” followed by a handful of other female names. Seems like a good sign.",
+  "translation": "对于“她喜欢吃饭”一词，预计最多的名字是“弗朗西斯”，“多萝西”和“妮娜”，其后是其他几个女性名字。 似乎是一个好兆头。"
+}, {
+  "tag": "P",
+  "text": "For the sentence “He likes to eat,” the top names were “Gilbert,” “Eugene,” and “Elmer.” So it seems the model understands some concept of gender.",
+  "translation": "对于“他喜欢吃饭”一词，姓氏分别是“吉尔伯特”，“尤金”和“埃尔默”。因此，该模特似乎理解了性别概念。"
+}, {
+  "tag": "P",
+  "text": "Next, I thought I’d test whether it was able to understand how geography played into names. Here are some sentences I tested and the model’s predictions:",
+  "translation": "接下来，我以为我要测试它是否能够理解地理如何成为名字。 这是我测试过的一些句子以及模型的预测："
+}, {
+  "tag": "P",
+  "text": "“He was born in New Jersey” — Gilbert",
+  "translation": "“他出生在新泽西州” —吉尔伯特"
+}, {
+  "tag": "P",
+  "text": "“She was born in New Jersey” — Frances",
+  "translation": "“她出生在新泽西州”-Frances"
+}, {
+  "tag": "P",
+  "text": "“He was born in Mexico.” — Armando",
+  "translation": "“他出生在墨西哥。”-Armando"
+}, {
+  "tag": "P",
+  "text": "“She was born in Mexico” — Irene",
+  "translation": "“她出生在墨西哥”-艾琳"
+}, {
+  "tag": "P",
+  "text": "“He was born in France.” — Gilbert",
+  "translation": "“他出生在法国。”-吉尔伯特"
+}, {
+  "tag": "P",
+  "text": "“She was born in France.” — Edith",
+  "translation": "“她出生于法国。” —伊迪丝"
+}, {
+  "tag": "P",
+  "text": "“He was born in Japan” — Gilbert",
+  "translation": "“他出生于日本”-吉尔伯特"
+}, {
+  "tag": "P",
+  "text": "“She was born in Japan” — Frances",
+  "translation": "“她出生于日本”-Frances"
+}, {
+  "tag": "P",
+  "text": "I was pretty unimpressed with the model’s ability to understand regionally popular names. The model seemed especially bad at understanding what names are popular in Asian countries, and tended in those cases just to return the same small set of names (i.e. Gilbert, Frances). This tells me I didn’t have enough global variety in my training dataset.",
+  "translation": "该模型具有了解当地流行名称的能力，对此我印象很深。 该模型似乎在理解哪些名称在亚洲国家流行时特别糟糕，并且在这些情况下倾向于仅返回相同的少量名称（即Gilbert，Frances）。 这说明我的训练数据集中没有足够的全局多样性。"
+}, {
+  "tag": "H2",
+  "text": "Model Bias",
+  "translation": "模型偏差"
+}, {
+  "tag": "P",
+  "text": "Finally, I thought I’d test for one last thing. If you’ve read at all about Model Fairness, you might have heard that it’s easy to accidentally build a biased, racist, sexist, agest, etc. model, especially if your training dataset isn’t reflective of the population you’re building that model for. I mentioned before there’s a skew in who gets a biography on Wikipedia, so I already expected to have more men than women in my dataset.",
+  "translation": "最后，我以为我会测试最后一件事。 如果您完全了解过模型公平性，那么您可能会听说偶然创建偏见，种族主义，性别歧视，暴躁等现象的模型很容易，尤其是如果您的训练数据集不能反映您正在建立的人群时 该模型。 我之前提到在Wikipedia上获得传记的人是歪斜的，所以我已经期望在我的数据集中男人比女人多。"
+}, {
+  "tag": "P",
+  "text": "I also expected that this model, reflecting the data it was trained on, would have learned gender bias — that computer programmers are male and nurses are female. Let’s see if I’m right:",
+  "translation": "我还期望该模型反映出其接受过培训的数据，会发现性别偏见-计算机程序员是男性，护士是女性。 让我们看看我是否正确："
+}, {
+  "tag": "P",
+  "text": "“They will be a computer programmer.” — Joseph",
+  "translation": "“他们将成为计算机程序员。”-约瑟夫"
+}, {
+  "tag": "P",
+  "text": "“They will be a nurse.” — Frances",
+  "translation": "“他们将成为一名护士。”-Frances"
+}, {
+  "tag": "P",
+  "text": "“They will be a doctor.” — Albert",
+  "translation": "“他们将成为一名医生。”-阿尔伯特"
+}, {
+  "tag": "P",
+  "text": "“They will be an astronaut.” — Raymond",
+  "translation": "“他们将成为一名宇航员。”-雷蒙德"
+}, {
+  "tag": "P",
+  "text": "“They will be a novelist.” — Robert",
+  "translation": "“他们将成为小说家。”-罗伯特"
+}, {
+  "tag": "P",
+  "text": "“They will be a parent.” — Jose",
+  "translation": "“他们将成为父母。”-何塞"
+}, {
+  "tag": "P",
+  "text": "“They will be a model.” — Betty",
+  "translation": "“他们将成为榜样。”-贝蒂"
+}, {
+  "tag": "P",
+  "text": "Well, it seems the model did learn traditional gender roles when it comes to profession, the only surprise (to me, at least) that “parent” was predicted to have a male name (“Jose”) rather than a female one.",
+  "translation": "好吧，似乎该模型在职业上确实学习了传统的性别角色，这（至少对我而言）使“父母”被冠以男性名字（“ Jose”）而不是女性的名字感到惊讶（至少对我而言）。"
+}, {
+  "tag": "P",
+  "text": "So evidently this model has learned something about the way people are named, but not exactly what I’d hoped it would. Guess I’m back to square one when it comes to choosing a name for my future progeny…Dale Jr.?",
+  "translation": "因此，很明显，该模型已经学到了一些有关人的命名方式的知识，但并不完全是我希望的那样。 猜猜我要为我的后代选择一个名字了……Dale Jr.？"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Dale Markowitz的文章《Building a Deep-Learning-Powered (Baby) Name Generator》，参考：https://towardsdatascience.com/building-a-deep-learning-powered-baby-name-generator-5d91a14ddc3b)",
+  "translation": "（本文翻译自：Dale Markowitz的文章，《构建深度学习（婴儿）名称生成器》，参考：https：//towardsdatascience.com/building-a-deep-learning-powered-baby-name-generator-5d91a14ddc3b ）"
+}]
