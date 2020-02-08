@@ -1,0 +1,246 @@
+[{
+  "tag": "P",
+  "text": "I hope that this section was helpful in understanding the working behind Decision tree classifier. Comment down your thoughts, feedback or suggestions if any below. If you liked this post, share it with your friends, subscribe to Machine Learning 101 click the heart(❤) icon. Follow me on Facebook, twitter, LinkedIn. Peace!",
+  "translation": "我希望本节对理解决策树分类器背后的工作有所帮助。 如果您有任何意见，建议或建议，请在下方写下来。 如果您喜欢此帖子，请与您的朋友分享，并订阅Machine Learning 101，单击heart（❤）图标。 在Facebook，Twitter，LinkedIn上关注我。 和平！"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*2WAdtXV2sUeR2rbKmSrsZg.jpeg?q=20",
+  "type": "image",
+  "file": "1!2WAdtXV2sUeR2rbKmSrsZg.jpeg"
+}, {
+  "tag": "H1",
+  "text": "Final Thoughts",
+  "translation": "最后的想法"
+}, {
+  "tag": "P",
+  "text": "Dividing efficiently based on maximum information gain is key to decision tree classifier. However, in real world with millions of data dividing into pure class in practically not feasible (it may take longer training time) and so we stop at points in nodes of tree when fulfilled with certain parameters (for example impurity percentage). We shall see this in coding exercise.",
+  "translation": "基于最大信息增益进行有效划分是决策树分类器的关键。 但是，在现实世界中，将数以百万计的数据划分为纯类实际上是不可行的（可能需要更长的训练时间），因此当满足某些参数（例如杂质百分比）时，我们会停在树节点上的点。 我们将在编码练习中看到这一点。"
+}, {
+  "tag": "P",
+  "text": "In Next part, we shall code a decision tree classifier in Python using sklearn library. We shall tune some parameters to gain more accuracy by tolerating some impurity.",
+  "translation": "在下一部分中，我们将使用sklearn库在Python中编写决策树分类器。 我们将调整一些参数以通过容忍一些杂质来获得更高的精度。"
+}, {
+  "tag": "P",
+  "text": "In following sections we define few terms related to decision tree and then perform those calculation with sample example.",
+  "translation": "在以下各节中，我们定义一些与决策树相关的术语，然后使用示例示例执行这些计算。"
+}, {
+  "tag": "H1",
+  "text": "1. Impurity",
+  "translation": "1.杂质"
+}, {
+  "tag": "P",
+  "text": "In above division, we had clear separation of classes. But what if we had following case?",
+  "translation": "在上面的划分中，我们清楚地划分了班级。 但是，如果我们有以下情况怎么办？"
+}, {
+  "tag": "P",
+  "text": "Impurity is when we have a traces of one class division into other. This can arise due to following reason",
+  "translation": "不纯是指我们有将一类划分为另一类的痕迹。 这可能是由于以下原因引起的"
+}, {
+  "tag": "OL",
+  "texts": ["We run out of available features to divide the class upon.", "We tolerate some percentage of impurity (we stop further division) for faster performance. (There is always trade off between accuracy and performance)."],
+  "translations": ["我们没有可用的功能来划分类。", "我们可以忍受一定百分比的杂质（我们停止进一步的除法），以提高性能。 （在准确性和性能之间总是要取舍）。"]
+}, {
+  "tag": "P",
+  "text": "For example in second case we may stop our division when we have x number of fewer number of elements left. This is also known as gini impurity.",
+  "translation": "例如，在第二种情况下，当我们剩下的元素数量少于x时，我们可以停止除法。 这也称为基尼杂质。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*JLcSfWDgdPFrQuDw8Cvmgw.jpeg?q=20",
+  "caption": "Division based on some features.",
+  "type": "image",
+  "file": "1!JLcSfWDgdPFrQuDw8Cvmgw.jpeg"
+}, {
+  "tag": "H1",
+  "text": "2. Entropy",
+  "translation": "2.熵"
+}, {
+  "tag": "P",
+  "text": "Entropy is degree of randomness of elements or in other words it is measure of impurity. Mathematically, it can be calculated with the help of probability of the items as:",
+  "translation": "熵是元素的随机度，换句话说，它是杂质的量度。 在数学上，可以借助以下几项的概率来计算："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*1XrdEhvwec6A18xuSz45SA.jpeg?q=20",
+  "caption": "p(x) is probability of item x.",
+  "type": "image",
+  "file": "1!1XrdEhvwec6A18xuSz45SA.jpeg"
+}, {
+  "tag": "P",
+  "text": "It is negative summation of probability times the log of probability of item x.",
+  "translation": "它是概率x项x的概率对数的负和。"
+}, {
+  "tag": "PRE",
+  "text": "For example, if we have items as number of dice face occurrence in a throw event as 1123,the entropy is   p(1) = 0.5   p(2) = 0.25   p(3) = 0.25entropy = - (0.5 * log(0.5)) - (0.25 * log(0.25)) -(0.25 * log(0.25)        = 0.45",
+  "translation": "例如，如果我们有项目作为投掷事件中骰子面的出现次数为1123，则熵为p（1）= 0.5 p（2）= 0.25 p（3）= 0.25熵=-（0.5 * log（0.5 ））-（0.25 * log（0.25））-（0.25 * log（0.25）= 0.45"
+}, {
+  "tag": "H1",
+  "text": "3. Information Gain",
+  "translation": "3.信息获取"
+}, {
+  "tag": "P",
+  "text": "Suppose we have multiple features to divide the current working set. What feature should we select for division? Perhaps one that gives us less impurity.",
+  "translation": "假设我们有多个功能来划分当前工作集。 我们应该选择什么功能进行划分？ 也许可以减少我们的杂质。"
+}, {
+  "tag": "P",
+  "text": "Suppose we divide the classes into multiple branches as follows, the information gain at any node is defined as",
+  "translation": "假设我们按如下所示将类划分为多个分支，则任何节点上的信息增益定义为"
+}, {
+  "tag": "PRE",
+  "text": "Information Gain (n) =  Entropy(x) — ([weighted average] * entropy(children for feature))",
+  "translation": "信息增益（n）=熵（x）-（[加权平均值] *熵（特征子项））"
+}, {
+  "tag": "P",
+  "text": "This need a bit explanation!",
+  "translation": "这需要一点解释！"
+}, {
+  "tag": "P",
+  "text": "Suppose we have following class to work with intially",
+  "translation": "假设我们最初有以下课程可以使用"
+}, {
+  "tag": "P",
+  "text": "112234445",
+  "translation": "112234445"
+}, {
+  "tag": "P",
+  "text": "Suppose we divide them based on property: divisible by 2",
+  "translation": "假设我们根据属性对其进行划分：可被2整除"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*5NwW6E6ld_on7Z95Ejl48A.png?q=20",
+  "type": "image",
+  "file": "1!5NwW6E6ld_on7Z95Ejl48A.png"
+}, {
+  "tag": "PRE",
+  "text": "Entropy at root level : 0.66Entropy of left child : 0.45 , weighted value = (4/9) * 0.45 = 0.2Entropy of right child: 0.29 , weighted value = (5/9) * 0.29 = 0.16Information Gain = 0.66 - [0.2 + 0.16] = 0.3",
+  "translation": "根级熵：0.66左子级熵：0.45，加权值=（4/9）* 0.45 = 0.2右子级熵：0.29，加权值=（5/9）* 0.29 = 0.16信息增益= 0.66-[ 0.2 0.16] = 0.3"
+}, {
+  "tag": "P",
+  "text": "Check what information gain we get if we take decision as prime number instead of divide by 2. Which one is better for this case?",
+  "translation": "如果我们将决策作为质数而不是除以2，请检查我们获得了哪些信息增益？在这种情况下，哪种方法更好？"
+}, {
+  "tag": "P",
+  "text": "Decision tree at every stage selects the one that gives best information gain. When information gain is 0 means the feature does not divide the working set at all.",
+  "translation": "每一阶段的决策树都选择提供最佳信息增益的决策树。 当信息增益为0时，表示该功能完全不划分工作集。"
+}, {
+  "tag": "P",
+  "text": "If you are enjoying this, do hit heart(❤ ) icon and spread the word.",
+  "translation": "如果您喜欢此操作，请点击heart（❤）图标并进行宣传。"
+}, {
+  "tag": "H1",
+  "text": "Lets solve an example",
+  "translation": "让我们解决一个例子"
+}, {
+  "tag": "P",
+  "text": "Now that you know basic stuff about decision tree, lets solve example and look how it works.",
+  "translation": "既然您已经了解了决策树的基本知识，就可以解决示例并了解其工作原理。"
+}, {
+  "tag": "P",
+  "text": "Suppose we have a following data for playing a golf on various conditions.",
+  "translation": "假设我们有以下各种条件下打高尔夫球的数据。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*gl0nypT2xqfo7WzTkRReKQ.png?q=20",
+  "type": "image",
+  "file": "1!gl0nypT2xqfo7WzTkRReKQ.png"
+}, {
+  "tag": "P",
+  "text": "Now if the weather condition is given as :",
+  "translation": "现在，如果天气条件为："
+}, {
+  "tag": "P",
+  "text": "Outlook : Rainy, Temperature: Cool, Humidity: High, Windy: False",
+  "translation": "前景：阴雨，温度：凉爽，湿度：高，大风：假"
+}, {
+  "tag": "H2",
+  "text": "Should we play golf?",
+  "translation": "我们应该打高尔夫球吗？"
+}, {
+  "tag": "PRE",
+  "text": "We have outcomes at beginning as NNYYYNYN (Y = Yes and N = No) taken in given order. Entropy at this root node is 0.3Now try to divide on various predictors outlook, temperature, humidity and Windy.Calculate the information gain in each case. Which one has highest information gain?For example, if we divide based on Outlook, we have divisions as Rainy      : NNN      (entropy = 0) Sunny      : YYN      (entropy = 0.041) Overcast   : YY       (entropy = 0)So information gain = 0.3 - [0 + (3/8)*0.041 + 0]                    = 0.28Try out for other cases.The information gain is max when divided based on Outlook.Now the impurity for Rainy and Overcast is 0. We stop for them here.Next we need to separate Sunny,If we divide by Windy, we get max information gain.Sunny YYN  Windy? Yes : N         No  : YYSo decision tree look like something as shown in image below.No the prediction data is Outlook : Rainy, Temperature: Cool, Humidity: High, Windy: FalseFlowing down from tree according to result, we first check Rainy?So answer is No, we don't play golf.",
+  "translation": "开始时我们得到结果，因为NNYYYNYN（Y =是，N =否）按给定顺序进行。现在该根节点的熵为0.3，现在尝试对各种预测变量的前景，温度，湿度和Windy进行划分，并分别计算信息增益。哪一个信息增益最高？例如，如果基于Outlook进行划分，则划分如下：Rainy：NNN（熵= 0）Sunny：YYN（熵= 0.041）阴天：YY（熵= 0）因此信息增益= 0.3 -[0（3/8）* 0.041 0] = 0.28其他情况下尝试。基于Outlook划分时信息增益最大。现在Rainy和Overcast的杂质为0。我们在此停止。接下来我们需要分隔Sunny，如果除以Windy，我们将获得最大的信息增益。Sunny YYN Windy？是：N否：YY因此决策树看起来如下图所示。没有预测数据是Outlook：下雨，温度：凉爽，湿度：高，多风：错误根据结果从树上流下，我们首先检查Rainy？答案是不，我们不打高尔夫球。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*H-pjGIL1a0Vf6FLnAwWMRA.png?q=20",
+  "type": "image",
+  "file": "1!H-pjGIL1a0Vf6FLnAwWMRA.png"
+}, {
+  "tag": "H1",
+  "text": "Chapter 3 : Decision Tree Classifier — Theory",
+  "translation": "第三章：决策树分类器-理论"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*LPNd_EuOb7tLmMWpsuATDw.png?q=20",
+  "caption": "H = Entropy",
+  "type": "image",
+  "file": "1!LPNd_EuOb7tLmMWpsuATDw.png"
+}, {
+  "tag": "P",
+  "text": "Welcome to third basic classification algorithm of supervised learning. Decision Trees. Like previous chapters (Chapter 1: Naive Bayes and Chapter 2: SVM Classifier), this chapter is also divided into two parts: theory and coding exercise.",
+  "translation": "欢迎来到监督学习的第三种基本分类算法。 决策树。 像前面的章节（第1章：朴素贝叶斯和第2章：SVM分类器）一样，本章也分为两部分：理论和编码练习。"
+}, {
+  "tag": "P",
+  "text": "In this part we shall discuss the theory and working behind decision trees. We shall see some mathematical aspects of the algorithm i.e. entropy and information gain. In second part we modify spam classification code for decision tree classifier in sklearn library. We shall compare the accuracy compared to Naive Bayes and SVM.",
+  "translation": "在这一部分中，我们将讨论理论和决策树背后的工作。 我们将看到该算法的一些数学方面，即熵和信息增益。 在第二部分中，我们修改了sklearn库中用于决策树分类器的垃圾邮件分类代码。 我们将比较朴素贝叶斯和SVM的准确性。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/60/1*s4mX6g_2DAeYwrebnX1n2Q.gif?q=20",
+  "caption": "Dark side of rejection and hiring! :D",
+  "type": "image",
+  "file": "1!s4mX6g_2DAeYwrebnX1n2Q.gif"
+}, {
+  "tag": "H1",
+  "text": "0. Motivation",
+  "translation": "0.动机"
+}, {
+  "tag": "P",
+  "text": "Suppose we have following plot for two classes represented by black circle and blue squares. Is it possible to draw a single separation line ? Perhaps no.",
+  "translation": "假设我们有两个用黑色圆圈和蓝色方块表示的类的图。 可以画一条单独的分隔线吗？ 也许没有。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*taLrKkQRXIbL6EHGkUCrSA.png?q=20",
+  "caption": "Can you draw single division line for these classes?",
+  "type": "image",
+  "file": "1!taLrKkQRXIbL6EHGkUCrSA.png"
+}, {
+  "tag": "P",
+  "text": "We will need more than one line, to divide into classes. Something similar to following image:",
+  "translation": "我们将需要多个行来划分类。 与下图类似："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*fLrKiXrSSMUoVRhptECAHA.png?q=20",
+  "caption": "We need two lines one for threshold of x and threshold for y.",
+  "type": "image",
+  "file": "1!fLrKiXrSSMUoVRhptECAHA.png"
+}, {
+  "tag": "P",
+  "text": "We need two lines here one separating according to threshold value of x and other for threshold value of y.",
+  "translation": "我们需要两条线，一条根据x的阈值分开，另一条根据y的阈值分开。"
+}, {
+  "tag": "P",
+  "text": "As you have guessed now what decision tree tries to do.",
+  "translation": "您现在已经猜到了决策树将要做什么。"
+}, {
+  "tag": "P",
+  "text": "Decision Tree Classifier, repetitively divides the working area(plot) into sub part by identifying lines. (repetitively because there may be two distant regions of same class divided by other as shown in image below).",
+  "translation": "决策树分类器通过识别线将工作区域（图）重复地划分为子部分。 （重复，因为如下图所示，可能存在两个相同类别的遥远区域除以另一个）。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*1CchuZc1nLM3B60zS7A1yw.png?q=20",
+  "type": "image",
+  "file": "1!1CchuZc1nLM3B60zS7A1yw.png"
+}, {
+  "tag": "P",
+  "text": "So when does it terminate?",
+  "translation": "那么它何时终止？"
+}, {
+  "tag": "OL",
+  "texts": ["Either it has divided into classes that are pure (only containing members of single class )", "Some criteria of classifier attributes are met."],
+  "translations": ["要么将其划分为纯类（仅包含单个类的成员）", "满足分类器属性的某些条件。"]
+}, {
+  "tag": "P",
+  "text": "We shall see these two points shortly.",
+  "translation": "我们很快将看到这两点。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Savan Patel的文章《Chapter 3 : Decision Tree Classifier — Theory》，参考：https://medium.com/machine-learning-101/chapter-3-decision-trees-theory-e7398adac567)",
+  "translation": "（本文第3章：决策树分类器-理论》，参考：https：//medium.com/machine-learning-101/chapter-3-decision-trees-theory-e7398adac567）"
+}]

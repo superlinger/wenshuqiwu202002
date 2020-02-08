@@ -1,0 +1,221 @@
+[{
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*bKjFMJ3AW9NNfzXc22c0Zg.jpeg?q=20",
+  "type": "image",
+  "file": "1!bKjFMJ3AW9NNfzXc22c0Zg.jpeg"
+}, {
+  "tag": "P",
+  "text": "If you liked this post, share with your interest group, friends and colleagues. Comment down your thoughts, opinions and feedback below. I would love to hear from you. Follow machine-learning-101 for regular updates. Don’t forget to click the heart(❤) icon."
+}, {
+  "tag": "P",
+  "text": "You can write to me at savanpatel3@gmail.com . Peace.",
+  "translation": "您可以通过savanpatel3@gmail.com给我写信。 和平。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*LvrHkDLCP_kOu8FjXiE3Sw.jpeg?q=20",
+  "type": "image",
+  "file": "1!LvrHkDLCP_kOu8FjXiE3Sw.jpeg"
+}, {
+  "tag": "H1",
+  "text": "Final Thoughts",
+  "translation": "最后的想法"
+}, {
+  "tag": "P",
+  "text": "Random Forest Classifier being ensembled algorithm tends to give more accurate result. This is because it works on principle,",
+  "translation": "随机森林分类器集成算法趋于给出更准确的结果。 这是因为它是原则性的，"
+}, {
+  "tag": "P",
+  "text": "Number of weak estimators when combined forms strong estimator.",
+  "translation": "组合时的弱估计量构成强估计量。"
+}, {
+  "tag": "P",
+  "text": "Even if one or few decision trees are prone to a noise, overall result would tend to be correct. Even with small number of estimators = 30 it gave us high accuracy as 97%."
+}, {
+  "tag": "P",
+  "text": "Don’t forget to click the heart(❤) icon.",
+  "translation": "别忘了点击心脏（❤）图标。"
+}, {
+  "tag": "H1",
+  "text": "Random Forest and Sklearn in Python (Coding example).",
+  "translation": "Python中的Random Forest和Sklearn（编码示例）。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*-FHtcdQljtGKQGm77uDIyQ.png?q=20",
+  "type": "image",
+  "file": "1!-FHtcdQljtGKQGm77uDIyQ.png"
+}, {
+  "tag": "P",
+  "text": "Lets try out RandomForestClassifier on our previous code of classifying emails into spam or ham.",
+  "translation": "让我们在之前的将电子邮件分类为垃圾邮件或火腿的代码中尝试使用RandomForestClassifier。"
+}, {
+  "tag": "H2",
+  "text": "0. Download",
+  "translation": "0.下载"
+}, {
+  "tag": "P",
+  "text": "I have created a git repository for the data set and the sample code. You can download it from here (Use chapter 5 folder). Its same data set discussed in this chapter. I would suggest you to follow through the discussion and do the coding yourself. In case it fails, you can use/refer my version to understand working.",
+  "translation": "我已经为数据集和示例代码创建了一个git存储库。 您可以从此处下载（使用第5章文件夹）。 本章讨论了相同的数据集。 我建议您跟随讨论并自己进行编码。 万一它失败了，您可以使用/参考我的版本来了解工作。"
+}, {
+  "tag": "H2",
+  "text": "1. Little bit about cleaning and extracting the features",
+  "translation": "1.关于清洁和提取功能的一点点"
+}, {
+  "tag": "P",
+  "text": "You may skip this part if you have already gone through coding part of Naive Bayes.(this is for readers who have directly jumped here).",
+  "translation": "如果您已经完成Naive Bayes的编码部分，则可以跳过这一部分。（这是针对直接跳到此处的读者的）。"
+}, {
+  "tag": "P",
+  "text": "Before we can apply the sklearn classifiers, we must clean the data. Cleaning involves removal of stop words, extracting most common words from text etc. In the code example concerned we perform following steps:",
+  "translation": "在应用sklearn分类器之前，我们必须清除数据。 清理包括删除停用词，从文本中提取最常用的词等。在相关的代码示例中，我们执行以下步骤："
+}, {
+  "tag": "P",
+  "text": "To understand in detail, once again please refer to chapter 1 coding part here.",
+  "translation": "要详细了解，请再次参考此处的第1章编码部分。"
+}, {
+  "tag": "OL",
+  "texts": ["Build dictionary of words from email documents from training set.", "Consider the most common 3000 words.", "For each document in training set, create a frequency matrix for these words in dictionary and corresponding labels. [spam email file names start with prefix “spmsg”."],
+  "translations": ["从培训集中的电子邮件文档构建单词词典。", "考虑最常见的3000个单词。", "对于训练集中的每个文档，为字典中的这些单词和相应的标签创建一个频率矩阵。 [垃圾邮件的文件名以“ spmsg”开头。"]
+}, {
+  "tag": "PRE",
+  "text": "The code snippet below does this:def make_Dictionary(root_dir):   all_words = []   emails = [os.path.join(root_dir,f) for f in os.listdir(root_dir)]   for mail in emails:        with open(mail) as m:            for line in m:                words = line.split()                all_words += words   dictionary = Counter(all_words)# if you have python version 3.x use commented version.   # list_to_remove = list(dictionary)   list_to_remove = dictionary.keys()for item in list_to_remove:       # remove if numerical.        if item.isalpha() == False:            del dictionary[item]        elif len(item) == 1:            del dictionary[item]    # consider only most 3000 common words in dictionary.dictionary = dictionary.most_common(3000)return dictionarydef extract_features(mail_dir):  files = [os.path.join(mail_dir,fi) for fi in os.listdir(mail_dir)]  features_matrix = np.zeros((len(files),3000))  train_labels = np.zeros(len(files))  count = 0;  docID = 0;  for fil in files:    with open(fil) as fi:      for i,line in enumerate(fi):        if i == 2:          words = line.split()          for word in words:            wordID = 0            for i,d in enumerate(dictionary):              if d[0] == word:                wordID = i                features_matrix[docID,wordID] = words.count(word)      train_labels[docID] = 0;      filepathTokens = fil.split('/')      lastToken = filepathTokens[len(filepathTokens) - 1]      if lastToken.startswith(\"spmsg\"):          train_labels[docID] = 1;          count = count + 1      docID = docID + 1  return features_matrix, train_labels",
+  "translation": "下面的代码段是这样做的：def make_Dictionary（root_dir）：all_words = [] emails = [os.path.join（root_dir，f）for os.listdir（root_dir）中的f]用于电子邮件中的邮件：open（mail） as m：对于m中的行：words = line.split（）all_words =单词字典= Counter（all_words）＃如果您使用的是python 3.x版本，请使用注释版本。 ＃list_to_remove = list（dictionary）list_to_remove = dictionary.keys（）用于list_to_remove中的项目：＃如果为数字则删除。 if item.isalpha（）== False：del dictionary [item] elif len（item）== 1：del dictionary [item]＃仅考虑字典中最多3000个常见单词。dictionary= dictionary.most_common（3000）返回字典def extract_features （mail_dir）：文件= [os.listdir（mail_dir）中fi的os.path.join（mail_dir，fi）] features_matrix = np.zeros（（len（files），3000））train_labels = np.zeros（len（文件））count = 0; docID = 0;对于文件中的fil：使用open（fil）作为fi：对于i，enumerate（fi）中的行：如果i == 2：words = line.split（）对于单词中的单词：wordID = 0对于i，d中的枚举（字典）：如果d [0] ==单词：wordID = i features_matrix [docID，wordID] = words.count（word）train_labels [docID] = 0;如果lastToken.startswith（“ spmsg”）：train_labels [docID] = 1；则filepathTokens = fil.split（'/'）lastToken = filepathTokens [len（filepathTokens）-1]。计数=计数1 docID = docID 1返回features_matrix，train_labels"
+}, {
+  "tag": "H2",
+  "text": "2. Using Random Forest Classifier",
+  "translation": "2.使用随机森林分类器"
+}, {
+  "tag": "P",
+  "text": "The code for using Random Forest Classifier is similar to previous classifiers.",
+  "translation": "使用随机森林分类器的代码与以前的分类器相似。"
+}, {
+  "tag": "OL",
+  "texts": ["Import library", "Create model", "Train", "Predict"],
+  "translations": ["导入库", "建立模型", "培养", "预测"]
+}, {
+  "tag": "PRE",
+  "text": "from sklearn.ensemble import RandomForestClassifierTRAIN_DIR = \"../train-mails\"TEST_DIR = \"../test-mails\"dictionary = make_Dictionary(TRAIN_DIR)print \"reading and processing emails from file.\"features_matrix, labels = extract_features(TRAIN_DIR)test_feature_matrix, test_labels = extract_features(TEST_DIR)model = RandomForestClassifier()print \"Training model.\"#train modelmodel.fit(features_matrix, labels)predicted_labels = model.predict(test_feature_matrix)print \"FINISHED classifying. accuracy score : \"print accuracy_score(test_labels, predicted_labels)",
+  "translation": "从sklearn.ensemble导入RandomForestClassifierTRAIN_DIR =“ ../train-mails\"TEST_DIR =” ../test-mails\"dictionary = make_Dictionary（TRAIN_DIR）print“从文件中读取和处理电子邮件。” features_matrix，标签= extract_features（TRAIN_DIRtestx ，test_labels = extract_features（TEST_DIR）model = RandomForestClassifier（）print“训练模型。”＃train modelmodel.fit（features_matrix，labels）predicted_labels = model.predict（test_feature_matrix）print“ FINISHED分类。”准确性得分： 预测标签）"
+}, {
+  "tag": "P",
+  "text": "Try this out and check what is the accuracy? You will get accuracy around 95.7%. That’s pretty good compared to previous classifiers. Isn’t it?"
+}, {
+  "tag": "H2",
+  "text": "3. Parameters",
+  "translation": "3.参数"
+}, {
+  "tag": "P",
+  "text": "Lets understand and play with some of the tuning parameters.",
+  "translation": "让我们了解并使用一些调整参数。"
+}, {
+  "tag": "P",
+  "text": "n_estimators : Number of trees in forest. Default is 10.",
+  "translation": "n_estimators：森林中的树木数量。 默认值是10。"
+}, {
+  "tag": "P",
+  "text": "criterion: “gini” or “entropy” same as decision tree classifier.",
+  "translation": "准则：“ gini”或“熵”与决策树分类器相同。"
+}, {
+  "tag": "P",
+  "text": "min_samples_split: minimum number of working set size at node required to split. Default is 2.",
+  "translation": "min_samples_split：需要分割的节点上工作集大小的最小数目。 默认值为2。"
+}, {
+  "tag": "P",
+  "text": "You can view full list of tunable parameters here",
+  "translation": "您可以在此处查看可调参数的完整列表"
+}, {
+  "tag": "P",
+  "text": "Play with these parameters by changing values individually and in combination and check if you can improve accuracy.",
+  "translation": "通过单独或组合更改值来使用这些参数，并检查是否可以提高精度。"
+}, {
+  "tag": "P",
+  "text": "I tried following combination and obtained the accuracy as shown in image below.",
+  "translation": "我尝试了以下组合，并获得了如下图所示的精度。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*agWaCVx6h5tiPUTQlcuAPA.jpeg?q=20",
+  "type": "image",
+  "file": "1!agWaCVx6h5tiPUTQlcuAPA.jpeg"
+}, {
+  "tag": "H2",
+  "text": "Alternative implementation for voting",
+  "translation": "投票的替代实施"
+}, {
+  "tag": "P",
+  "text": "Alternatively, the random forest can apply weight concept for considering the impact of result from any decision tree. Tree with high error rate are given low weight value and vise versa. This would increase the decision impact of trees with low error rate.",
+  "translation": "可替代地，随机森林可以应用权重概念来考虑来自任何决策树的结果的影响。 错误率高的树的权重值低，反之亦然。 这将增加错误率低的树的决策影响。"
+}, {
+  "tag": "H1",
+  "text": "Basic Parameters",
+  "translation": "基本参数"
+}, {
+  "tag": "P",
+  "text": "Basic parameters to Random Forest Classifier can be total number of trees to be generated and decision tree related parameters like minimum split, split criteria etc.",
+  "translation": "随机森林分类器的基本参数可以是要生成的树总数以及与决策树相关的参数，例如最小分割，分割标准等。"
+}, {
+  "tag": "P",
+  "text": "Sklearn in python has plenty of tuning parameters that you can explore here.",
+  "translation": "python中的Sklearn具有大量的调整参数，您可以在此处进行探索。"
+}, {
+  "tag": "P",
+  "text": "This works well because a single decision tree may be prone to a noise, but aggregate of many decision trees reduce the effect of noise giving more accurate results.",
+  "translation": "这之所以行之有效，是因为单个决策树可能易于产生噪声，但是许多决策树的集合会降低噪声的影响，从而提供更准确的结果。"
+}, {
+  "tag": "P",
+  "text": "The subsets in different decision trees created may overlap",
+  "translation": "创建的不同决策树中的子集可能重叠"
+}, {
+  "tag": "P",
+  "text": "In this article, we shall see mathematics behind the Random Forest Classifier. Then we shall code a small example to classify emails into spam or ham. We shall check accuracy compared to previous classifiers.",
+  "translation": "在本文中，我们将看到“随机森林分类器”背后的数学。 然后，我们将编写一个小示例，将电子邮件分类为垃圾邮件或火腿。 与以前的分类器相比，我们将检查准确性。"
+}, {
+  "tag": "P",
+  "text": "If you haven’t read already about Decision Tree Classifier, I would suggest you to go through it once here as they are the underlying concept for Random Forest Classifier.",
+  "translation": "如果您尚未阅读《决策树分类器》，我建议您在此进行一次遍历，因为它们是随机森林分类器的基础概念。"
+}, {
+  "tag": "H1",
+  "text": "Random Forest Classifier",
+  "translation": "随机森林分类器"
+}, {
+  "tag": "P",
+  "text": "Random forest classifier creates a set of decision trees from randomly selected subset of training set. It then aggregates the votes from different decision trees to decide the final class of the test object.",
+  "translation": "随机森林分类器从随机选择的训练集子集中创建一组决策树。 然后，它汇总来自不同决策树的投票，以决定测试对象的最终类别。"
+}, {
+  "tag": "H2",
+  "text": "In Laymen’s term,",
+  "translation": "用Layman的说法，"
+}, {
+  "tag": "P",
+  "text": "Suppose training set is given as : [X1, X2, X3, X4] with corresponding labels as [L1, L2, L3, L4], random forest may create three decision trees taking input of subset for example,",
+  "translation": "假设训练集为：[X1，X2，X3，X4]，相应标签为[L1，L2，L3，L4]，随机森林可以创建三个决策树，例如，输入子集，"
+}, {
+  "tag": "OL",
+  "texts": ["[X1, X2, X3]", "[X1, X2, X4]", "[X2, X3, X4]"],
+  "translations": ["[X1，X2，X3]", "[X1，X2，X4]", "[X2，X3，X4]"]
+}, {
+  "tag": "P",
+  "text": "So finally, it predicts based on the majority of votes from each of the decision trees made.",
+  "translation": "因此，最后，它基于做出的每个决策树的大多数投票进行预测。"
+}, {
+  "tag": "H1",
+  "text": "Chapter 5: Random Forest Classifier",
+  "translation": "第5章：随机森林分类器"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*Gb43WdvXpoQa6FcGVtb0AA.png?q=20",
+  "type": "image",
+  "file": "1!Gb43WdvXpoQa6FcGVtb0AA.png"
+}, {
+  "tag": "P",
+  "text": "Random Forest Classifier is ensemble algorithm. In next one or two posts we shall explore such algorithms. Ensembled algorithms are those which combines more than one algorithms of same or different kind for classifying objects. For example, running prediction over Naive Bayes, SVM and Decision Tree and then taking vote for final consideration of class for test object.",
+  "translation": "随机森林分类器是集成算法。 在接下来的一两个帖子中，我们将探讨这种算法。 组合算法是将多个以上相同或不同类型的算法组合在一起以进行对象分类的算法。 例如，在朴素贝叶斯，SVM和决策树上运行预测，然后投票表决最终考虑测试对象的类。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/60/1*3w2OOZbn1jn9QG-p39qEYg.gif?q=20",
+  "caption": "Machine Learning is a reason why data is important asset for company.",
+  "type": "image",
+  "file": "1!3w2OOZbn1jn9QG-p39qEYg.gif"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Savan Patel的文章《Chapter 5: Random Forest Classifier》，参考：https://medium.com/machine-learning-101/chapter-5-random-forest-classifier-56dc7425c3e1)",
+  "translation": "（本文第5章：随机森林分类器，参考：https：//medium.com/machine-learning-101/chapter-5-random-forest-classifier-56dc7425c3e1）"
+}]
