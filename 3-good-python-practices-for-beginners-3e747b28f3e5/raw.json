@@ -1,0 +1,169 @@
+[{
+  "tag": "H2",
+  "text": "Related Articles",
+  "translation": "相关文章"
+}, {
+  "tag": "P",
+  "text": "Thank you for reading! Do you find these Python practices useful? Leave a comment below! You can check out the official style guide for more Python conventions. If you are interested in improving your Python skills, the following articles might be useful:",
+  "translation": "感谢您的阅读！ 您觉得这些Python做法有用吗？ 在下面发表评论！ 您可以查看官方样式指南以了解更多Python约定。 如果您对提高Python技能感兴趣，则以下文章可能会有用："
+}, {
+  "tag": "H2",
+  "text": "5 Python features I wish I had known earlier",
+  "translation": "我希望我早先知道的5个Python功能"
+}, {
+  "tag": "H3",
+  "text": "Python tricks beyond lambda, map, and filter",
+  "translation": "Python技巧超越了lambda，map和filter"
+}, {
+  "tag": "H2",
+  "text": "6 New Features in Python 3.8 for Python Newbies",
+  "translation": "适用于Python新手的Python 3.8中的6个新功能"
+}, {
+  "tag": "H3",
+  "text": "Prepare yourself as Python 2 is no longer supported",
+  "translation": "为自己做准备，因为不再支持Python 2"
+}, {
+  "tag": "H2",
+  "text": "4 Common Mistakes Python Beginners should Avoid",
+  "translation": "Python初学者应避免的4个常见错误"
+}, {
+  "tag": "H3",
+  "text": "I learned them the hard way, but you don’t need to",
+  "translation": "我通过艰辛的方式学习了它们，但是您不需要"
+}, {
+  "tag": "P",
+  "text": "Originally published at edenau.github.io.",
+  "translation": "最初发布于edenau.github.io。"
+}, {
+  "tag": "H1",
+  "text": "3. Naming Convention",
+  "translation": "3.命名约定"
+}, {
+  "tag": "FIGURE",
+  "type": "code"
+}, {
+  "tag": "P",
+  "text": "Naming things is one of the most difficult things in Computer Science. You run out of ideas. You do not know how to name a temporary intermediary variable. You are not alone.",
+  "translation": "命名事物是计算机科学中最困难的事情之一。 您用尽了所有想法。 您不知道如何命名临时中介变量。 你不是一个人。"
+}, {
+  "tag": "P",
+  "text": "Despite all these struggles, there are naming conventions in Python to ‘narrow down’ your choices of naming variables. They help make your codes more consistent, readable, and reusable.",
+  "translation": "尽管进行了所有这些努力，Python中还是有一些命名约定来“缩小”您对变量的命名选择。 它们有助于使您的代码更加一致，可读性和可重用性。"
+}, {
+  "tag": "P",
+  "text": "So you should no longer declare all variables using single lowercase letters like a, x etc. if the letters themselves do not carry meanings. Also, you should use meaningful, easy-to-understand, and easy-to-recognise words to name them, such as user_profile instead of uspr.",
+  "translation": "因此，如果字母本身不带有含义，则不再使用单个小写字母（如a，x等）声明所有变量。 另外，您应该使用有意义，易于理解且易于识别的单词来命名它们，例如使用user_profile而不是uspr。"
+}, {
+  "tag": "P",
+  "text": "Here are 6 extra tips on naming things:",
+  "translation": "以下是有关事物命名的6条提示："
+}, {
+  "tag": "OL",
+  "texts": ["Avoid naming things using single letters such as O, I, l for obvious reasons.", "Variable and function names should all be in lowercase.", "Words in a variable or function name should be separated by an underscore _.", "Private variables (say inside a class) might begin with a single underscore.", "Words in a class name should be concatenated and capitalised, such as MarioKart.", "Constant names should be in uppercase, such as GOLDEN_RATIO."],
+  "translations": ["出于明显的原因，请避免使用单个字母（例如O，I，l）来命名。", "变量和函数名称均应小写。", "变量或函数名称中的单词应用下划线_分隔。", "私有变量（例如在类内部）可能以单个下划线开头。", "类别名称中的单词应连接起来并大写，例如MarioKart。", "常量名称应使用大写字母，例如GOLDEN_RATIO。"]
+}, {
+  "tag": "P",
+  "text": "This list is by no means exhaustive. Naming variables is arguably one of the hardest things to learn in programming. I find it beneficial to read other people’s codes on GitHub and learn their naming styles.",
+  "translation": "此列表绝不是详尽无遗的。 命名变量可以说是编程中最难学习的内容之一。 我发现在GitHub上阅读其他人的代码并学习他们的命名方式会有所帮助。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*TiMfMAsqmFmbQa6l?q=20",
+  "caption": "Photo by Bekky Bekks on Unsplash",
+  "type": "image",
+  "file": "0!TiMfMAsqmFmbQa6l"
+}, {
+  "tag": "H1",
+  "text": "2. f-string",
+  "translation": "2. F弦"
+}, {
+  "tag": "P",
+  "text": "You might be used to formatting strings using % or .format()."
+}, {
+  "tag": "PRE",
+  "text": "name = 'World''Hello %s' % name        # Hello World'Hello {}'.format(name)  # Hello World"
+}, {
+  "tag": "P",
+  "text": "Ditch them. Once you need to print multiple variables in longer strings, the code will soon become messy and less readable. These formatting methods are not straightforward and intuitive anyway.",
+  "translation": "抛弃他们。 一旦您需要在更长的字符串中打印多个变量，该代码将很快变得混乱且难以理解。 这些格式化方法无论如何都不是直接直观的。"
+}, {
+  "tag": "P",
+  "text": "Python f-string is a game-changer introduced in Python 3.6. It is a readable and elegant string formatting syntax that embeds expressions inside strings. This is done by syntax f'{expr}' where an expression is enclosed by curly brackets inside an f-string with an f at the beginning before the single quote.",
+  "translation": "Python f-string是Python 3.6中引入的改变游戏规则的工具。 这是一种可读且优雅的字符串格式语法，该表达式将表达式嵌入到字符串中。 这是通过语法f'{expr}'完成的，其中表达式用f字符串内的大括号括起来，并在单引号之前以f开头。"
+}, {
+  "tag": "PRE",
+  "text": "name = 'World'print(f'Hello {name}')   # Hello World",
+  "translation": "name ='World'print（f'Hello {name}'）＃Hello World"
+}, {
+  "tag": "P",
+  "text": "You can also put any syntactically valid expressions inside the curly brackets and it works just fine, you can even call functions in the expressions!",
+  "translation": "您还可以将任何在语法上有效的表达式放在大括号内，并且效果很好，甚至可以在表达式中调用函数！"
+}, {
+  "tag": "PRE",
+  "text": "a = [1,2.2,3]print(f'Sum of squares of {a} is {sum_of_squares(a)}')# Sum of squares of [1, 2.2, 3] is 14.84",
+  "translation": "a = [1,2.2,3] print（f'{a}的平方和为{sum_of_squares（a）}'）＃[1、2.2、3]的平方和为14.84"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*tkksKDEloJgbaTEr?q=20",
+  "caption": "Photo by Dan Gold on Unsplash",
+  "type": "image",
+  "file": "0!tkksKDEloJgbaTEr"
+}, {
+  "tag": "H1",
+  "text": "1. Docstring",
+  "translation": "1. Docstring"
+}, {
+  "tag": "P",
+  "text": "A Python documentation string, aka docstring, is the first statement in the definition of a module, function, class, or method enclosed by triple double-quotes \"\"\". Here is a minimal example of docstring in a function.",
+  "translation": "Python文档字符串（也称为docstring）是模块，函数，类或方法的定义中的第一个语句，该定义由三重双引号“””引起，这是函数中docstring的最小示例。"
+}, {
+  "tag": "PRE",
+  "text": "def foo():    \"\"\"This function does nothing.\"\"\"    passprint(foo.__doc__) # This function does nothing.",
+  "translation": "def foo（）：“”“此函数不起作用。”“” passprint（foo .__ doc__）＃此函数不起作用。"
+}, {
+  "tag": "P",
+  "text": "The docstring of a function should contain a (one-line) short description of its purpose, followed by paragraphs describing the conventions of calling the function. There are many various styles, but here is one of my favourite templates:",
+  "translation": "函数的文档字符串应包含（单行）其用途的简短描述，后跟描述调用函数约定的段落。 样式多种多样，但这是我最喜欢的模板之一："
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/edenau/a25e86dfa6441351955aef530afbf9f1/raw/234b4a031ddb570081ea692344aa9daea7b3988e/docstring.py",
+  "code": "def sum_of_squares(nums):\n    \"\"\"\n    Compute the sum of squares of a list of numbers.\n\n    Args:\n        nums (`list` of `int` or `float`): A `list` of numbers.\n    Returns:\n        ans (`int` or `float`): Sum of squares of `nums`.\n    Raises:\n        AssertionError: If `nums` contain elements that are not floats nor ints.\n    \"\"\"\n    try:\n        ans = sum([x**2 for x in nums])\n    except:\n        raise AssertionError('Input should be a list of floats or ints.')\n    return ans\n    \n    "
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*-1A4gb34Vrlo4PAR?q=20",
+  "caption": "Photo by Annie Spratt on Unsplash",
+  "type": "image",
+  "file": "0!-1A4gb34Vrlo4PAR"
+}, {
+  "tag": "H1",
+  "text": "3 Good Python Practices for Beginners",
+  "translation": "3个适合初学者的Python最佳实践"
+}, {
+  "tag": "H2",
+  "text": "Start Writing Reusable Codes Today",
+  "translation": "立即开始编写可重用代码"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*W571FfZJTwbOc_HX?q=20",
+  "caption": "Photo by Jeffrey F Lin on Unsplash",
+  "type": "image",
+  "file": "0!W571FfZJTwbOc_HX"
+}, {
+  "tag": "P",
+  "text": "Let’s face it. Coding is hard. You just want to get it done and call it a day. But if you write codes very quickly without refactoring and commenting your barely readable spaghetti codes by the end of the day, it will come back to haunt you. Or someone else picking up your mess.",
+  "translation": "面对现实吧。 编码很难。 您只想完成它，就可以称之为一天。 但是，如果您很快地编写代码，而在一天结束前没有重构和注释几乎不可读的意大利面条代码，它将再次困扰您。 或其他人捡起你的烂摊子。"
+}, {
+  "tag": "P",
+  "text": "It is very important to restructure and document your codes responsibly for the sake of readability and reusability. Here are 3 good Python practices that you should pick up to become a better programmer.",
+  "translation": "为了可读性和可重用性，负责任地重组和记录代码非常重要。 这里有3种Python最佳实践，您应该选择它们以成为更好的程序员。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*iv1MIhtisXgrmo6f.png?q=20",
+  "caption": "Meme by Codementor on Medium",
+  "type": "image",
+  "file": "0!iv1MIhtisXgrmo6f.png"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Eden Au的文章《3 Good Python Practices for Beginners》，参考：https://towardsdatascience.com/3-good-python-practices-for-beginners-3e747b28f3e5)",
+  "translation": "（本文翻译自《 Eden Au的文章《初学者的Python最佳实践3》，参考：https：//towardsdatascience.com/3-good-python-practices-for-beginners-3e747b28f3e5））"
+}]
