@@ -1,0 +1,268 @@
+[{
+  "tag": "P",
+  "text": "I hope that I could teach you something useful.",
+  "translation": "我希望我能教你一些有用的东西。"
+}, {
+  "tag": "P",
+  "text": "Thanks for reading!",
+  "translation": "谢谢阅读！"
+}, {
+  "tag": "P",
+  "text": "If you have any questions, write me on LinkedIn!",
+  "translation": "如有任何疑问，请在LinkedIn上给我写信！"
+}, {
+  "tag": "P",
+  "text": "Also, check out my other articles on graspable machine learning topics.",
+  "translation": "另外，请查看其他有关可掌握的机器学习主题的文章。"
+}, {
+  "tag": "P",
+  "text": "To tackle this problem, we could only use the last k samples to compute the mean and standard deviation, since this breaks the influence of the first measurements. If we set k to infinity, we get our algorithm from before.",
+  "translation": "为了解决这个问题，我们只能使用最后k个样本来计算均值和标准差，因为这会破坏第一次测量的影响。 如果将k设置为无穷大，则可以从之前获得算法。"
+}, {
+  "tag": "P",
+  "text": "The lower we set k, the faster the algorithm will adapt to new data. However, setting k too small might result in discarding outliers, since the algorithm thinks that the new data is just like this. In the extreme case of setting k=1, no element is considered an outlier, since only the latest element is considered.",
+  "translation": "我们将k设置得越低，算法就越快地适应新数据。 但是，将k设置得太小可能会导致丢弃异常值，因为该算法认为新数据就是这样。 在设置k = 1的极端情况下，没有元素被视为离群值，因为仅考虑了最新元素。"
+}, {
+  "tag": "P",
+  "text": "Depending on the use-case, maybe several hundred or thousand should be fine.",
+  "translation": "根据用例，可能几百或几千个就可以了。"
+}, {
+  "tag": "H1",
+  "text": "Conclusion",
+  "translation": "结论"
+}, {
+  "tag": "P",
+  "text": "In this article, we have seen how to build a very simple outlier detection mechanism for data streams. Our algorithm does not need to store all the measurements, making it applicable very easily, also on extremely restricted hardware and with only constant storage. The algorithm even adapts to changes in the data, so manual updates are not necessary.",
+  "translation": "在本文中，我们已经看到了如何为数据流建立一个非常简单的异常检测机制。 我们的算法不需要存储所有测量值，因此非常容易应用，也可以在极其受限制的硬件上使用，并且只需固定存储即可。 该算法甚至可以适应数据更改，因此无需手动更新。"
+}, {
+  "tag": "P",
+  "text": "The only thing to tweak is the adaption rate, which we did not cover in this article, but is an easy thing to do.",
+  "translation": "唯一需要调整的是自适应率，我们在本文中没有介绍，但是很容易做到。"
+}, {
+  "tag": "H1",
+  "text": "Easy Outlier Detection in Data Streams",
+  "translation": "在数据流中轻松检测异常值"
+}, {
+  "tag": "H2",
+  "text": "A simple approach to find unusual values in data streams with an implementation in Python",
+  "translation": "一种简单的方法，可通过Python实现在数据流中查找异常值"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*zH63bvaRgCtSmdi0PX5upg.png?q=20",
+  "type": "image",
+  "file": "1!zH63bvaRgCtSmdi0PX5upg.png"
+}, {
+  "tag": "P",
+  "text": "In my last article, I have explained the concept of Streaming Algorithms and gave numerous examples of how to apply them. One of them was to calculate the rolling mean of a data stream without saving the elements from the stream. Now, I want to extend this example and present to you another use-case of streaming algorithms in the context of Outlier Detection.",
+  "translation": "在上一篇文章中，我解释了流算法的概念，并给出了许多如何应用流算法的示例。 其中之一是在不保存数据流元素的情况下计算数据流的滚动平均值。 现在，我想扩展这个示例，并在异常值检测的背景下向您展示另一种流算法的用例。"
+}, {
+  "tag": "P",
+  "text": "A problem like this can arise when we monitor the power consumption of a machine to detect any unusual behavior. If we see an increase of outliers (unusual observation), it might be an indicator of a default of this machine and might be worth inspecting.",
+  "translation": "当我们监视机器的功耗以检测任何异常行为时，可能会出现类似的问题。 如果我们发现异常值有所增加（异常观察），则可能表明这台机器的默认值，可能值得检查。"
+}, {
+  "tag": "H1",
+  "text": "Definition and Example",
+  "translation": "定义和示例"
+}, {
+  "tag": "P",
+  "text": "Outliers can be defined in various ways. In this article, we will use the following definition:",
+  "translation": "离群值可以通过多种方式定义。 在本文中，我们将使用以下定义："
+}, {
+  "tag": "P",
+  "text": "An element in a data stream of numbers is considered an outlier if it is not within 3 standard deviations from the mean of the elements seen so far.",
+  "translation": "如果数字数据流中的元素与到目前为止所见元素的平均值不在3个标准偏差之内，则该元素被视为离群值。"
+}, {
+  "tag": "P",
+  "text": "This calls for a small example. Let us assume that we get the data 3, 2, 4, 3, 5, 3, 2, 10, 2, 3, 1, in this order. Let us further assume that we start with a mean and variance (and hence standard deviation) of zero, i.e. the first element will always be treated an outlier if unequal zero.",
+  "translation": "这需要一个小例子。 假设我们按顺序获得数据3、2、4、3、5、3、2、10、2、3、1。 让我们进一步假设，我们从零的均值和方差（以及因此的标准差）开始，即，如果不等于零，则始终将第一个元素视为离群值。"
+}, {
+  "tag": "P",
+  "text": "So, 3 is considered an outlier, because 3>0+3*0. Now we update the mean and the variance according to the elements seen so far, which is only the number 3. So the new mean is 3 and the variance is 0.",
+  "translation": "因此，将3视为离群值，因为3> 0 3 * 0。 现在，我们根据到目前为止看到的元素（仅是数字3）更新均值和方差。因此，新均值是3，方差是0。"
+}, {
+  "tag": "P",
+  "text": "Then we see a 2. We have 2>3+3*0, so also 2 is considered an outlier. This makes sense because we have only seen a 3 so far, so any other number does not fit the pattern. The mean gets updated to (3+2)/2=2.5 and the variance to ((3–2.5)²+(2–2.5)²)/2=0.25, which means a standard deviation of 0.5.",
+  "translation": "然后我们看到2。我们有2> 3 3 * 0，所以2也被认为是离群值。 这是有道理的，因为到目前为止我们只看到了3，所以其他任何数字都不适合该模式。 平均值更新为（3 2）/2=2.5，方差更新为（（3-2.5）²（2-2.5）²）/2=0.25，这意味着标准偏差为0.5。"
+}, {
+  "tag": "P",
+  "text": "Now we see a 4. This number is not an outlier (i.e. normal) since 2.5–3*0.5≤4 ≤2.5+3*0.5. The mean gets updated to (3+2+4)/3=3 and the variance to ((3–3)²+(2–3)²+(4–3)²)/3=2/3, hence the standard deviation to about 0.81.",
+  "translation": "现在我们看到4。由于2.5–3 *0.5≤4≤2.53 * 0.5，因此该数字不是异常值（即正常值）。 平均值更新为（3 2 4）/ 3 = 3，方差更新为（（3–3）²（2–3）²（4–3）²）/ 3 = 2/3，因此标准偏差为 约0.81。"
+}, {
+  "tag": "P",
+  "text": "The following numbers 3, 5, 3, 2 are considered normal. Intuitively, we would consider the following number 10 an outlier again. Let us see what the algorithm does. The mean at this point is about 3.1 and the standard deviation about 1. Since 10>3.1+3*1, 10 is considered an outlier, as we hoped for.",
+  "translation": "以下数字3、5、3、2被认为是正常的。 凭直觉，我们将下面的数字10视为离群值。 让我们看看该算法的作用。 此时的平均值约为3.1，标准偏差约为1。由于10> 3.1 3 * 1，因此我们希望将10视为离群值。"
+}, {
+  "tag": "P",
+  "text": "If you continue with the last 3 elements, you will see that they are all normal.",
+  "translation": "如果继续最后三个元素，您将看到它们都是正常的。"
+}, {
+  "tag": "P",
+  "text": "The Problem: To calculate the mean and standard deviation, we have to memorize all elements seen so far. If we have a system that outputs thousands or millions of elements per day, this is not an option.",
+  "translation": "问题：要计算平均值和标准偏差，我们必须记住到目前为止看到的所有元素。 如果我们有一个每天输出成千上万个元素的系统，那么这不是一个选择。"
+}, {
+  "tag": "H1",
+  "text": "Streaming Algorithms to the Rescue",
+  "translation": "救援的流式算法"
+}, {
+  "tag": "P",
+  "text": "One way to solve this problem is to use a Streaming Algorithm that updates its internal state after each scanned element from the data stream. The internal state consists of the mean and the variance of all elements seen so far at any point, starting with a mean and variance of zero before seeing any element. To be precise, let mₙ be the mean and vₙ be the variance after seeing the n-th element of the data stream, with the additional definition m₀=v₀=0.",
+  "translation": "解决此问题的一种方法是使用流算法，该算法在从数据流中每个被扫描元素之后更新其内部状态。 内部状态由到目前为止在任何点看到的所有元素的均值和方差组成，从看到任何元素之前的均值和方差为零开始。 确切地说，在看到数据流的第n个元素之后，令mₙ为平均值，vₙ为方差，并附加定义m₀=v₀= 0。"
+}, {
+  "tag": "H2",
+  "text": "Computing the Mean",
+  "translation": "计算均值"
+}, {
+  "tag": "P",
+  "text": "In my article about Streaming Algorithms, we have seen how to update the mean only using the old mean, the latest element being scanned and the number of elements seen so far. This means that we only have to store two numbers with this approach at any time, not n as with the naive approach. Let me show it again, denoting the i-th incoming elements of the data stream as aᵢ:",
+  "translation": "在我有关流算法的文章中，我们看到了如何仅使用旧的均值，正在扫描的最新元素以及到目前为止看到的元素数量来更新均值。 这意味着我们只需要随时使用这种方法存储两个数字，而不是像幼稚的方法那样存储n。 让我再次显示它，将数据流的第i个传入元素表示为aᵢ："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*a4smjMY9fmqZOnf8dbg7zQ.png?q=20",
+  "type": "image",
+  "file": "1!a4smjMY9fmqZOnf8dbg7zQ.png"
+}, {
+  "tag": "P",
+  "text": "This formula was not difficult to develop, right? With it, we have a baseline of the size of the elements we expect. Now we just need the standard deviation that we can put around the mean to classify out incoming examples into outliers and normal data points. We do this by computing the variance and then just take the square root of it to get to the standard deviation.",
+  "translation": "这个公式不难开发，对吧？ 有了它，我们就有了我们期望的元素大小的基线。 现在，我们只需要可以用均值围绕的标准偏差即可将输入的示例分类为离群值和正常数据点。 我们通过计算方差来做到这一点，然后取其平方根即可达到标准偏差。"
+}, {
+  "tag": "H2",
+  "text": "Computing the Variance",
+  "translation": "计算方差"
+}, {
+  "tag": "P",
+  "text": "We can find a recursive formula without much effort in this case, too. First, the variance after seeing n elements is given as",
+  "translation": "在这种情况下，我们也可以轻松找到递归公式。 首先，看到n个元素后的方差为"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*_G3UBZI8kpTd6C4O_tqCdg.png?q=20",
+  "type": "image",
+  "file": "1!_G3UBZI8kpTd6C4O_tqCdg.png"
+}, {
+  "tag": "P",
+  "text": "Let us try to write this in terms of the n, vₙ and the latest element again. Since the variance depends on the mean, we also want to include mₙ. Before we start, let us rearrange this formula to make things easier:",
+  "translation": "让我们尝试再次根据n，vₙ和最新元素来写。 由于方差取决于均值，因此我们也要包含mₙ。 在开始之前，让我们重新安排这个公式，以使事情变得更容易："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*8jLUxnXkoegQHvLJLy-x4A.png?q=20",
+  "type": "image",
+  "file": "1!8jLUxnXkoegQHvLJLy-x4A.png"
+}, {
+  "tag": "P",
+  "text": "Now, the goal is to get vₙ in there. One way to proceed is starting with the following easy rearrangement to isolate the sum of squares up until index n, which also appears in as a term in vₙ:",
+  "translation": "现在，目标是使vₙ进入那里。 一种进行方式是从以下简单的重新排列开始，以隔离平方和直到索引n，它也以vₙ中的一项出现："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*V6f7iM0nO5Dk2tooEMnlwg.png?q=20",
+  "type": "image",
+  "file": "1!V6f7iM0nO5Dk2tooEMnlwg.png"
+}, {
+  "tag": "P",
+  "text": "This is equivalent to",
+  "translation": "这相当于"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*dSosXLr2kl01AB45ckuisw.png?q=20",
+  "type": "image",
+  "file": "1!dSosXLr2kl01AB45ckuisw.png"
+}, {
+  "tag": "P",
+  "text": "which in turn results in",
+  "translation": "反过来导致"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*kMzzYm2Eym-PJm33mZTiSA.png?q=20",
+  "type": "image",
+  "file": "1!kMzzYm2Eym-PJm33mZTiSA.png"
+}, {
+  "tag": "P",
+  "text": "Now, that we have the formulas, let us see how it works in Python!",
+  "translation": "现在，我们有了公式，让我们看看它在Python中是如何工作的！"
+}, {
+  "tag": "H1",
+  "text": "Implementation in Python",
+  "translation": "用Python实现"
+}, {
+  "tag": "P",
+  "text": "We can implement the above explanations in the following way:",
+  "translation": "我们可以通过以下方式实现上述解释："
+}, {
+  "tag": "PRE",
+  "text": "class StreamingMeanAndVariance:    def __init__(self):        self.mean = 0        self.variance = 0        self.n_elements = 0    def update(self, element):        self.variance = ((self.variance + self.mean ** 2) * self.n_elements + element ** 2) / (self.n_elements + 1)        self.mean = ((self.mean * self.n_elements) + element) / (self.n_elements + 1)        self.variance = self.variance - self.mean ** 2        self.n_elements += 1",
+  "translation": "class StreamingMeanAndVariance：def __init __（self）：self.mean = 0 self.variance = 0 self.n_elements = 0 def update（self，element）：self.variance =（（self.variance self.mean ** 2）* self .n_elements元素** 2）/（self.n_elements 1）self.mean =（（self.mean * self.n_elements）元素）/（self.n_elements 1）self.variance = self.variance-self.mean ** 2个self.n_elements = 1"
+}, {
+  "tag": "P",
+  "text": "A note on this: The first line of the update method computes the variance, but without subtracting the current mean squared. In the second line, the current mean is calculated. In the third line, it is then subtracted from the variance since this was still missing in the first line.",
+  "translation": "关于此的注释：update方法的第一行计算方差，但不减去当前均方根。 在第二行中，计算当前平均值。 在第三行中，然后将其从方差中减去，因为在第一行中仍然缺少此值。"
+}, {
+  "tag": "P",
+  "text": "To use it, we do",
+  "translation": "要使用它，我们会"
+}, {
+  "tag": "PRE",
+  "text": "import numpy as npm = StreamingMeanAndVariance()n = 10000for i, s in enumerate(np.random.randn(n)):    if not - 3 <= (s - m.mean) / np.sqrt(m.variance) <= 3:        print(i, s)    m.update(s)",
+  "translation": "将numpy导入为npm = StreamingMeanAndVariance（）n = 10000 for i，s in enumerate（np.random.randn（n））：如果不是-3 <=（s-m.mean）/ np.sqrt（m.variance）< = 3：print（i，s）m.update（s）"
+}, {
+  "tag": "P",
+  "text": "This will scan the data stream, which consists of 10000 normally distributed numbers in this example (we denote this as N(0,1)), and prints outliers whenever they occur.",
+  "translation": "这将扫描数据流，该数据流在此示例中由10000个正态分布的数字组成（我们将其表示为N（0,1）），并在出现异常时打印异常值。"
+}, {
+  "tag": "P",
+  "text": "If you plot the intervals of normal points together with the mean (in yellow), you get the following picture:",
+  "translation": "如果将法线的间隔和平均值（以黄色表示）作图，则会得到以下图片："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Ii7YjVQmcZGcsz9FMQRmbw.png?q=20",
+  "caption": "In blue, you can see the measurements. The region in green contains the normal points, and measurements outside of it (indicated in red) are considered outliers. In yellow, you can see the expected values (mean).",
+  "type": "image",
+  "file": "1!Ii7YjVQmcZGcsz9FMQRmbw.png"
+}, {
+  "tag": "H1",
+  "text": "Discussion",
+  "translation": "讨论区"
+}, {
+  "tag": "P",
+  "text": "The algorithm does what we expect! However, we did not see how it handles a shift in distribution so far, but only standard normally distributed numbers at all times.",
+  "translation": "该算法可以达到我们的期望！ 但是，到目前为止，我们还没有看到它如何处理分配的变化，而是始终只有标准的正态分布数。"
+}, {
+  "tag": "P",
+  "text": "Let us test how the algorithm behaves when we do the following:",
+  "translation": "让我们测试执行以下操作时算法的行为："
+}, {
+  "tag": "UL",
+  "texts": ["After 10% of observations, we shift the distribution from N(0,1) to N(2,1)", "After another 40%, we shift the distribution from N(2,1) to N(-2,1)"],
+  "translations": []
+}, {
+  "tag": "P",
+  "text": "The result looks like this:",
+  "translation": "结果看起来像这样："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*edQdw_VELnzMiT4zRKJ8qg.png?q=20",
+  "caption": "Everything adapts slowly to the new data.",
+  "type": "image",
+  "file": "1!edQdw_VELnzMiT4zRKJ8qg.png"
+}, {
+  "tag": "H2",
+  "text": "The Good",
+  "translation": "善良"
+}, {
+  "tag": "P",
+  "text": "This looks promising! Everything adapts automatically to the new data. When the mean of the data shifts from 0 to 2, we can see a lot of outliers, which makes sense. The more observations have the new mean 2, the fewer outliers are detected since being around 2 is the new normal.",
+  "translation": "这看起来很有希望！ 一切都会自动适应新数据。 当数据的平均值从0变为2时，我们可以看到很多离群值，这是有道理的。 新平均值2越多，观测到的异常值就越少，因为2左右是新的常态。"
+}, {
+  "tag": "P",
+  "text": "When changing the mean from 2 to -2, we can see even more outliers, since the change is much more severe. So far, so good.",
+  "translation": "当将平均值从2更改为-2时，我们可以看到更多的离群值，因为这种变化要严重得多。 到目前为止，一切都很好。"
+}, {
+  "tag": "H2",
+  "text": "The Bad",
+  "translation": "坏人"
+}, {
+  "tag": "P",
+  "text": "If you look at the right half of the plot, you can see that the adaption to the new data is quite slow. The mean and the standard deviation will go to the correct level again after some time, as you can see since the yellow line (mean) drops and also the green region gets narrower again. But until it levels out, no outliers are detected.",
+  "translation": "如果查看图的右半部分，可以看到对新数据的适应非常慢。 如您所见，平均值和标准偏差将在一段时间后再次达到正确的水平，因为黄线（均值）下降并且绿色区域再次变窄。 但是直到稳定为止，没有发现异常值。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Dr. Robert Kübler的文章《Easy Outlier Detection in Data Streams》，参考：https://towardsdatascience.com/easy-outlier-detection-in-data-streams-3089bfefe528)",
+  "translation": "（本文翻译自RobertKübler博士的文章，《数据流中的异常值易于检测》，参考：https：//towardsdatascience.com/easy-outlier-detection-in-data-streams-3089bfefe528）"
+}]
