@@ -1,0 +1,352 @@
+[{
+  "tag": "H1",
+  "text": "Docker Best Practices for Data Scientists",
+  "translation": "面向数据科学家的Docker最佳实践"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*jXlrmEqm9BjvdS2qhoLrwQ.jpeg?q=20",
+  "caption": "Docker … whale … you get it.",
+  "type": "image",
+  "file": "1!jXlrmEqm9BjvdS2qhoLrwQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "As a data scientist, I grapple with Docker on a daily basis. Creating images, spinning up contains have become as common as writing Python scripts for me. And this journey has its achievements as well as moments, “I wish I knew that before”.",
+  "translation": "作为数据科学家，我每天都在与Docker交战。 创建图像，旋转包含内容已经和为我编写Python脚本一样普遍。 这次旅程有其成就和时刻，“我希望我以前知道这一点”。"
+}, {
+  "tag": "P",
+  "text": "This article discusses some of the best practices while using Docker for your data science projects. By no means this is an exhaustive checklist. But this covers most things I’ve come across as a data scientist.",
+  "translation": "本文讨论了将Docker用于数据科学项目时的一些最佳实践。 绝不是详尽的清单。 但这涵盖了我作为数据科学家遇到的大多数事情。"
+}, {
+  "tag": "P",
+  "text": "This article assumes basic-to-moderate knowledge of Docker. For example, you should know what Docker is used for and should be able to comfortably write a Dockerfile and understand Docker commands like RUN , CMD, etc. If not, have a read-through this article from official Docker site. You can also explore through the collection of articles found there.",
+  "translation": "本文假定您具有Docker的基础知识。 例如，您应该知道Docker的用途，并且应该能够轻松编写Dockerfile并了解Docker命令（如RUN，CMD等）。否则，请从Docker官方网站上通读本文。 您也可以浏览那里找到的文章。"
+}, {
+  "tag": "H1",
+  "text": "Why Docker?",
+  "translation": "为什么选择Docker？"
+}, {
+  "tag": "P",
+  "text": "Since Docker has been released it has taken the world by a storm. Before the era of Docker, virtual machines used to fill that void. But Docker offers so much than virtual machines.",
+  "translation": "自从Docker发布以来，它已席卷全球。 在Docker时代之前，虚拟机曾经填补了这一空白。 但是Docker提供的功能远不止虚拟机。"
+}, {
+  "tag": "H1",
+  "text": "Advantages of docker",
+  "translation": "泊坞窗的优点"
+}, {
+  "tag": "UL",
+  "texts": ["Isolation — isolated environment regardless of the changes in the underlying OS/infrastructure, installed software, updates", "light-weight — shares the OS kernel avoiding having OS kernel for each container", "performance — being lightweight allows many containers to be run simultaneously on the same OS"],
+  "translations": ["隔离-隔离的环境，无论基础操作系统/基础架构，已安装的软件，更新如何变化", "轻量级-共享OS内核，避免每个容器都有OS内核", "性能—轻巧，可以在同一操作系统上同时运行多个容器"]
+}, {
+  "tag": "H1",
+  "text": "Primer on Docker",
+  "translation": "Docker入门"
+}, {
+  "tag": "P",
+  "text": "Docker has three important concepts.",
+  "translation": "Docker具有三个重要概念。"
+}, {
+  "tag": "P",
+  "text": "Images — This is a set of runnable libraries and binaries that represents a development/production/testing environment. You can download/create an image in the following ways.",
+  "translation": "图像—这是一组可运行的库和二进制文件，代表开发/生产/测试环境。 您可以通过以下方式下载/创建图像。"
+}, {
+  "tag": "UL",
+  "texts": ["Pulling from an image registry: e.g. docker pull alpine . What happens here is that Docker will look locally in your computer for an image named alpine , if it’s not found, it looks in Dockerhub", "Building an image locally using a Dockerfile: e.g. docker build . -t <image_name>:<image_version> . Here you’re not trying to download/pull images, rather, you are building your own image. But this is not entirely true, as a Dockerfile contains a line that starts with FROM <base-image> which looks for a base image to start with, which might be pulled from Dockerhub."],
+  "translations": ["从映像注册表中提取：例如 码头工人拉高山。 此处发生的是，Docker将在您的计算机中本地查找名为alpine的映像，如果找不到，它将在Dockerhub中查找", "使用Dockerfile在本地构建映像：例如 码头工人建设。 -t <图像名称>：<图像版本>。 在这里，您并不是要下载/拉取图像，而是要构建自己的图像。 但这并非完全正确，因为Dockerfile包含以FROM <base-image>开头的行，该行查找以其开头的基本映像，该映像可能是从Dockerhub中提取的。"]
+}, {
+  "tag": "P",
+  "text": "Containers- This is a running instance of an image. You can stand up a container using the syntax `docker container run <arguments> <image> <command> , for example to create a container from the alpine image use, docker container run -it alpine /bin/bash command.",
+  "translation": "容器-这是图像的运行实例。 您可以使用语法`docker container run <arguments> <image> <command>来站起来一个容器，例如，使用阿尔卑斯镜像使用docker container run -it alpine / bin / bash命令创建一个容器。"
+}, {
+  "tag": "P",
+  "text": "Volumes — Volumes are used to permanently/temporarily store data (e.g. logs, downloaded data) for containers to use. Additionally, volumes can be shared among multiple containers. You can use volumes in couple of ways.",
+  "translation": "卷-卷用于永久/临时存储数据（例如日志，下载的数据）以供容器使用。 此外，卷可以在多个容器之间共享。 您可以通过两种方式使用卷。"
+}, {
+  "tag": "UL",
+  "texts": ["Creating a volume: You can create a volume using docker volume create <volume_name> command. Note that, information/changes stored here will be lost if that volume is deleted.", "Bind mount a volume: You can also bind mount an existing volume from the host to your container using -v <source>:<target> syntax. For example, if you need to mount the /my_data volume to the container as the /data volume, you can do, docker container run -it -v /my_data:/data alpine /bin/bash command. The changes you do at the mount point will be reflected on the host."],
+  "translations": ["绑定安装卷：您还可以使用-v <source>：<target>语法将主机上的现有卷绑定到容器。 例如，如果您需要将/ my_data卷作为/ data卷装载到容器，则可以执行以下操作：docker container运行-it -v / my_data：/ data alpine / bin / bash命令。 您在安装点所做的更改将反映在主机上。"]
+}, {
+  "tag": "H1",
+  "text": "1. Creating images",
+  "translation": "1.创建图像"
+}, {
+  "tag": "H2",
+  "text": "1. Keep the image small, avoid caching",
+  "translation": "1.缩小图片，避免缓存"
+}, {
+  "tag": "P",
+  "text": "Two common things you’d have to do when building images is,",
+  "translation": "构建图像时必须做的两件事是，"
+}, {
+  "tag": "UL",
+  "texts": ["Install Linux packages", "Install Python libraries"],
+  "translations": ["安装Linux软件包", "安装Python库"]
+}, {
+  "tag": "P",
+  "text": "When installing these packages and libraries the package mangers will cached data so local data will be used if you want to install them again. But this increases the image size unnecessarily. And docker images are supposed to be light-weight as possible.",
+  "translation": "在安装这些软件包和库时，软件包管理器将缓存数据，因此，如果要再次安装它们，将使用本地数据。 但这不必要地增加了图像尺寸。 并且docker镜像应该尽可能轻巧。"
+}, {
+  "tag": "P",
+  "text": "When installing Linux packages remember to remove any cached data by adding the last line to your apt-get install command.",
+  "translation": "在安装Linux软件包时，请记住通过在apt-get install命令中添加最后一行来删除所有缓存的数据。"
+}, {
+  "tag": "PRE",
+  "text": "RUN apt-get update && apt-get install tini && \\ rm -rf /var/lib/apt/lists/*",
+  "translation": "运行apt-get update && apt-get install tini && \\ rm -rf / var / lib / apt / lists / *"
+}, {
+  "tag": "P",
+  "text": "When installing Python packages, to avoid caching, do the following.",
+  "translation": "在安装Python软件包时，为避免缓存，请执行以下操作。"
+}, {
+  "tag": "PRE",
+  "text": "RUN pip3 install <library-1> <library-2> --no-cache-dir`",
+  "translation": "运行pip3 install <library-1> <library-2> --no-cache-dir`"
+}, {
+  "tag": "H2",
+  "text": "2. Separate out Python libraries to a requirements.txt",
+  "translation": "2.将Python库分离到requirements.txt"
+}, {
+  "tag": "P",
+  "text": "The last command you saw brings us to the next point. It is better to separate Python libraries to a requirements.txt file and install libraries using that file using the following syntax.",
+  "translation": "您看到的最后一条命令将我们带到了下一点。 最好将Python库分离到requirements.txt文件，并使用以下语法使用该文件安装库。"
+}, {
+  "tag": "P",
+  "text": "RUN pip3 install -r requirements.txt --no-cache-dir",
+  "translation": "RUN pip3 install -r requirements.txt --no-cache-dir"
+}, {
+  "tag": "P",
+  "text": "This gives a nice separation of Dockerfile doing “Docker stuff” and not (explicitly) worrying about “Python stuff”. Additionally, if you have multiple Dockerfiles (e.g. for production / development / testing) and they all want the same libraries installed, you can reuse this command easily. The requirements.txt file is just a bunch of library names.",
+  "translation": "这样可以很好地区分Dockerfile做“ Docker东西”，而不必（明确地）担心“ Python东西”。 此外，如果您有多个Dockerfile（例如用于生产/开发/测试），并且它们都希望安装相同的库，则可以轻松地重用此命令。 requirements.txt文件只是一堆库名。"
+}, {
+  "tag": "PRE",
+  "text": "numpy==1.18.0scikit-learn==0.20.2pandas==0.25.0",
+  "translation": "numpy == 1.18.0scikit-learn == 0.20.2pandas == 0.25.0"
+}, {
+  "tag": "H2",
+  "text": "3. Fixing library versions",
+  "translation": "3.修复库版本"
+}, {
+  "tag": "P",
+  "text": "Note how in the requirements.txt I am freezing the version I want to install. This is very important. Because otherwise, every time you build your Docker image, you might be installing different versions of different things. “Dependency Hell” is real.",
+  "translation": "请注意，如何在requirements.txt中冻结要安装的版本。 这个非常重要。 因为否则，每次构建Docker映像时，您可能会安装不同版本的不同事物。 “依赖地狱”是真实的。"
+}, {
+  "tag": "H1",
+  "text": "Running containers",
+  "translation": "运行容器"
+}, {
+  "tag": "H2",
+  "text": "1. Embrace the non-root user",
+  "translation": "1.拥抱非root用户"
+}, {
+  "tag": "P",
+  "text": "When you run the containers, if you don’t specify an user to run as, it is going to assume root user. I’m not going to lie. my naive self used to love having the ability to use sudo or being root to get things my way (especially to get around permission). But if I’ve learnt one thing, it’s that having unnecessary privileges than needed is an exacerbation catalyst, leading to even more problems.",
+  "translation": "运行容器时，如果您未指定运行用户身份，则它将假定为root用户。 我不会撒谎。 我的天真自我曾经爱过使用sudo或成为root可以按我的方式做事的能力（尤其是获得许可）。 但是，如果我学到了一件事，那就是拥有不必要的特权会加剧这种情况，从而引发更多的问题。"
+}, {
+  "tag": "FIGURE",
+  "type": "code"
+}, {
+  "tag": "P",
+  "text": "To run a container as a non-root user, simply do",
+  "translation": "要以非root用户身份运行容器，只需执行"
+}, {
+  "tag": "UL",
+  "texts": ["docker run -it -u <user-id>:<group-id> <image-name> <command>"],
+  "translations": []
+}, {
+  "tag": "P",
+  "text": "Or, if you want to jump into an existing container do,",
+  "translation": "或者，如果您想跳到现有容器中，"
+}, {
+  "tag": "UL",
+  "texts": ["docker exec -it -u <user-id>:<group-id> <container-id> <command>"],
+  "translations": ["docker exec -it -u <用户ID>：<组ID> <容器ID> <命令>"]
+}, {
+  "tag": "P",
+  "text": "For example, you can match the user id and group id of the host by assigning <user-id> as $(id -u) and <group-id> as $(id -g) .",
+  "translation": "例如，可以通过将<user-id>分配为$（id -u）和<group-id>分配为$（id -g）来匹配主机的用户ID和组ID。"
+}, {
+  "tag": "P",
+  "text": "Beware of how different operating systems assign user IDs and group IDs. For example your user ID/group ID on a MacOS might be a pre-assigned/reserved user ID / group ID inside an Ubuntu container.",
+  "translation": "注意不同的操作系统如何分配用户ID和组ID。 例如，您在MacOS上的用户ID /组ID可能是Ubuntu容器中的预先分配/保留的用户ID /组ID。"
+}, {
+  "tag": "H2",
+  "text": "2. Creating a non-priviledged user",
+  "translation": "2.创建一个非特权用户"
+}, {
+  "tag": "P",
+  "text": "It is great that we can log in as a non-root user to our host-away from host. But if you login like this, you’re a user without a username. Because, obviously the container has no-clue where that user id came from. And you need to remember and type these user id and group id everytime you want to spin-up a container or exec into one. So for that, you can include this user/group creation as a part of the Dockerfile .",
+  "translation": "能够以非root用户身份从主机登录到我们的主机真是太好了。 但是，如果您以这种方式登录，则您是没有用户名的用户。 因为，很明显，容器不知道该用户ID的来源。 而且，您每次想将一个容器或执行程序合并为一个容器时，都需要记住并键入这些用户ID和组ID。 因此，您可以将此用户/组创建内容作为Dockerfile的一部分包含在内。"
+}, {
+  "tag": "PRE",
+  "text": "ARG UID=1000ARG GID=1000",
+  "translation": "ARG UID = 1000ARG GID = 1000"
+}, {
+  "tag": "UL",
+  "texts": ["First add ARG UID=1000 and ARG GID=1000 to the Dockerfile . UID and GID are environment variables in the container to which you’ll pass the value at docker buildstage (defaults to 1000).", "Then add a Linux group in the image with the group ID GID using, RUN groupadd -g $GID john-group .", "Next add a Linux user in the image with some user ID UID using, useradd -N -l -u $UID -g john-group -G sudo john . You can see that here we are adding john to the sudo group. But this is an optional thing. You can leave it out if you are 100% sure you don’t need sudo permission."],
+  "translations": ["首先将ARG UID = 1000和ARG GID = 1000添加到Dockerfile中。 UID和GID是容器中的环境变量，您将在docker buildstage将该值传递给该容器（默认为1000）。", "然后使用RUN groupadd -g $ GID john-group在映像中添加具有组ID GID的Linux组。", "接下来，使用useradd -N -l -u $ UID -g john-group -G sudo john在映像中添加具有某些用户ID UID的Linux用户。 您可以看到这里我们将john添加到sudo组中。 但这是可选的。 如果您100％确定不需要sudo权限，则可以将其忽略。"]
+}, {
+  "tag": "P",
+  "text": "Then during image build, you can pass values for these arguments like,",
+  "translation": "然后，在映像构建期间，您可以为这些参数传递值，例如，"
+}, {
+  "tag": "UL",
+  "texts": ["docker build <build_dir> -t <image>:<image_tag> --build-arg UID=<uid-value> --build-arg GID=<gid-value>"],
+  "translations": []
+}, {
+  "tag": "P",
+  "text": "For example,",
+  "translation": "例如，"
+}, {
+  "tag": "UL",
+  "texts": ["docker build . -t docker-tut:latest --build-arg UID=$(id -u) --build-arg GID=$(id -g)"],
+  "translations": ["码头工人建设。 -t docker-tut：latest --build-arg UID = $（id -u）--build-arg GID = $（id -g）"]
+}, {
+  "tag": "P",
+  "text": "Having a non-privileged user helps you to run processes that should not have root permission. For example, why run your Python script as root when all it does is reading from a dir (e.g. data) and writing to one (e.g. model). And as an added benefit, if you match the user ID and group ID of the host, within the container, all the files you created will have your host user’s ownership. So if you bind-mount these files (or create new files) they will still look like you created them on the host.",
+  "translation": "拥有非特权用户可以帮助您运行不具有root权限的进程。 例如，为什么要以root身份运行Python脚本，而它所要做的只是从目录中读取数据（例如数据）并写入其中（例如模型）。 另外一个好处是，如果在容器内匹配主机的用户ID和组ID，则您创建的所有文件都将拥有主机用户的所有权。 因此，如果您绑定安装这些文件（或创建新文件），它们看起来仍然像是您在主机上创建的。"
+}, {
+  "tag": "H1",
+  "text": "Creating volumes",
+  "translation": "创建卷"
+}, {
+  "tag": "H2",
+  "text": "1. Separate artifacts using volumes",
+  "translation": "1.使用卷分离工件"
+}, {
+  "tag": "P",
+  "text": "As a data scientist, obviously you’ll be working with various artifacts (e.g. data, models and code). You can have the code in one volume (e.g. /app ) and data in another (e.g. /data ). This will provide a nice structure for your Docker image as well as get rid of any host-level artifact dependencies.",
+  "translation": "作为数据科学家，显然您将处理各种工件（例如数据，模型和代码）。 您可以将代码放在一个卷中（例如/ app），将数据放在另一个卷中（例如/ data）。 这将为您的Docker映像提供一个不错的结构，并摆脱任何主机级工件依赖关系。"
+}, {
+  "tag": "P",
+  "text": "What did I mean by artifact dependencies? Say you have the code at /home/<user>/code/src and the data at /home/<user>/code/data . If you copy/mount /home/<user>/code/src to the volume/app and /home/<user>/code/data to the volume /data . It doesn’t matter if the location of the code and data changes on the host. They will always be available at the same location inside the Docker container as long as you mount those artifacts. So you could fix those paths nicely in your Python script as follows.",
+  "translation": "我所说的工件依赖是什么意思？ 假设您在/ home / <用户> / code / src中有代码，在/ home / <用户> / code / data中有数据。 如果将/ home / <用户> / code / src复制/装入到卷/ app，将/ home / <用户> / code / data复制/装入到卷/ data。 主机上的代码和数据的位置是否更改都没有关系。 只要您安装这些工件，它们将始终在Docker容器内的同一位置可用。 因此，您可以按照以下步骤在Python脚本中很好地修复这些路径。"
+}, {
+  "tag": "PRE",
+  "text": "data_dir = \"/data\"model_dir = \"/models\"src_dir = \"/app\"",
+  "translation": "data_dir =“ / data” model_dir =“ / models” src_dir =“ / app”"
+}, {
+  "tag": "P",
+  "text": "You can COPY the necessary code and data into the image using",
+  "translation": "您可以使用以下方式将必要的代码和数据复制到图像中"
+}, {
+  "tag": "PRE",
+  "text": "COPY test-data /dataCOPY test-code /app",
+  "translation": "COPY测试数据/ dataCOPY测试代码/ app"
+}, {
+  "tag": "P",
+  "text": "Note that test-data and test-code are directories on the host.",
+  "translation": "请注意，测试数据和测试代码是主机上的目录。"
+}, {
+  "tag": "H2",
+  "text": "2. Bind-mount directories during development",
+  "translation": "2.在开发过程中绑定目录"
+}, {
+  "tag": "P",
+  "text": "Great thing about bind-mounting is that, whatever you do in the container is reflected on the host itself. This is great when you’re doing developments and you want to debug your project. Let’s see this through an example.",
+  "translation": "绑定安装的好处在于，您在容器中所做的任何事情都会反映在主机本身上。 当您进行开发并想调试项目时，这非常好。 我们来看一个例子。"
+}, {
+  "tag": "P",
+  "text": "Say you created your docker image by running:",
+  "translation": "假设您通过运行以下命令创建了docker映像："
+}, {
+  "tag": "P",
+  "text": "docker build <build-dir> <image-name>:<image-version>",
+  "translation": "docker build <构建目录> <图像名称>：<图像版本>"
+}, {
+  "tag": "P",
+  "text": "Now you can stand up a container from this image using:",
+  "translation": "现在，您可以使用以下命令从该图像中站起一个容器："
+}, {
+  "tag": "P",
+  "text": "docker run -it <image-name>:<image-version> -v /home/<user>/my_code:/code",
+  "translation": "docker run -it <映像名称>：<映像版本> -v / home / <用户> / my_code：/ code"
+}, {
+  "tag": "P",
+  "text": "Now you can run the code within the container and debug at the same time and the changes to the code will be reflected on the host. And this loops back to the benefit of using the same host user ID and group ID in your container. All changes you do, looks like came from the user on the host.",
+  "translation": "现在，您可以在容器中运行代码并同时进行调试，对代码所做的更改将反映在主机上。 这样就可以回到在容器中使用相同的主机用户ID和组ID的好处。 您所做的所有更改似乎都来自主机上的用户。"
+}, {
+  "tag": "H2",
+  "text": "3. NEVER bind-mount critical directories of the host",
+  "translation": "3.永远不要绑定主机的关键目录"
+}, {
+  "tag": "P",
+  "text": "Funny story! I once mounted the home directory of my machine to a Docker container and managed to change the permission of the home directory. No need to say that I was unable to log into the system afterwards and spent a good couple of hours fixing this. Therefore, mount only what is needed.",
+  "translation": "好笑的故事！ 我曾经将机器的主目录挂载到Docker容器并设法更改了主目录的权限。 不用说我以后无法登录系统，并且花了好几个小时来修复它。 因此，仅安装所需的内容。"
+}, {
+  "tag": "P",
+  "text": "For example, say you have three directories that you want to mount during developments:",
+  "translation": "例如，假设您有三个要在开发期间挂载的目录："
+}, {
+  "tag": "UL",
+  "texts": ["/home/<user>/my_data", "/home/<user>/my_code", "/home/<user>/my_model"],
+  "translations": ["/ home / <用户> / my_data", "/ home / <用户> / my_code", "/ home / <用户> / my_model"]
+}, {
+  "tag": "P",
+  "text": "You might be very tempted to mount /home/<user> with a single line of code. But it is definitely worth writing three lines to mount these individual sub directories separately, as it will save you several painstaking hours (if not days) of your life.",
+  "translation": "您可能很想用单行代码挂载/ home / <user>。 但是绝对值得编写三行代码来分别挂载这些单独的子目录，因为这将为您节省数小时（甚至不是几天）的辛苦工作。"
+}, {
+  "tag": "H1",
+  "text": "Additional tips",
+  "translation": "其他提示"
+}, {
+  "tag": "H2",
+  "text": "1. Know the difference between ADD and COPY",
+  "translation": "1.了解ADD和COPY之间的区别"
+}, {
+  "tag": "P",
+  "text": "You probably know that there are two Docker commands called ADD and COPY . What’s the difference?",
+  "translation": "您可能知道有两个名为ADD和COPY的Docker命令。 有什么不同？"
+}, {
+  "tag": "UL",
+  "texts": ["ADD can be used to download files from URLs when used like, ADD <url>", "ADD when given a compressed file (e.g. tar.gz ) will extract the file to the provided location.", "COPY copies a given file/folder to the specified location in the container."],
+  "translations": ["当使用ADD <url>时，可以使用ADD从URL下载文件", "给定压缩文件（例如tar.gz）时，ADD会将文件提取到提供的位置。", "COPY将给定的文件/文件夹复制到容器中的指定位置。"]
+}, {
+  "tag": "H2",
+  "text": "2. Difference between ENTRYPOINT and CMD",
+  "translation": "2. ENTRYPOINT和CMD之间的区别"
+}, {
+  "tag": "P",
+  "text": "A great analogy that comes to my mind is, think of ENTRYPOINT as a vehicle and CMD as the controls in that vehicle (e.g. accelerator, brakes, steering wheel). ENTRYPOINT it self does nothing, it’s just a vessel for what you want to do within that container. It just stays stand-by for any incoming commands you push to the container.",
+  "translation": "我想到的一个很好的类比是，将ENTRYPOINT视为车辆，将CMD视为该车辆中的控件（例如加速器，制动器，方向盘）。 ENTRYPOINT它本身不会执行任何操作，它只是您要在该容器中执行操作的容器。 对于您推送到容器的任何传入命令，它只是处于备用状态。"
+}, {
+  "tag": "P",
+  "text": "A command CMD is what actually gets executed within a container. For example bash would create a shell in your container so you could work withing the container like you work on a normal terminal on Ubuntu.",
+  "translation": "命令CMD是在容器内实际执行的命令。 例如，bash会在您的容器中创建一个外壳，以便您可以像在Ubuntu的普通终端上一样使用该容器。"
+}, {
+  "tag": "H2",
+  "text": "3. Copying files to existing containers",
+  "translation": "3.将文件复制到现有容器"
+}, {
+  "tag": "P",
+  "text": "Not again! I’ve created this container and forgot to add this file to the image. It takes so long to build the image. Is there any way I could cheat and add this to the existing container?",
+  "translation": "再没有！ 我已经创建了这个容器，却忘记了将此文件添加到图像中。 建立图像需要花费很长时间。 有什么办法可以作弊并将其添加到现有容器中？"
+}, {
+  "tag": "P",
+  "text": "Yes there is, you could use docker cp command for this. Simply do,",
+  "translation": "是的，您可以使用docker cp命令执行此操作。 简单地做，"
+}, {
+  "tag": "P",
+  "text": "docker cp <src> <container>:<dest>",
+  "translation": "泊坞窗cp <src> <容器>：<目标>"
+}, {
+  "tag": "P",
+  "text": "Next time you jump into the container you will see the copied file at <dest> . But remember to actually change the Dockerfile to copy the necessary files at build time."
+}, {
+  "tag": "H1",
+  "text": "3. Conclusion",
+  "translation": "3.结论"
+}, {
+  "tag": "P",
+  "text": "Great! That’s all folks. We discussed,",
+  "translation": "大！ 那就是所有人。 我们讨论过了，"
+}, {
+  "tag": "UL",
+  "texts": ["What Docker images / containers / volumes are?", "How to write a good Dockerfile", "How to spin-up containers as a non-root user", "How to do proper volume mounting in Docker", "And bonus tips such as using docker cp to save the day"],
+  "translations": ["什么是Docker映像/容器/卷？", "如何编写一个好的Dockerfile", "如何以非root用户身份启动容器", "如何在Docker中进行适当的卷挂载", "还有一些奖励技巧，例如使用docker cp来节省一天的时间"]
+}, {
+  "tag": "P",
+  "text": "Now you should have grown your confidence to look at Docker in the eyes and say “You can’t scare me”. Jokes aside, it always pays off to know what you’re doing with Docker. Because if you’re not careful you can bring down a whole server and disrupt the work of everyone else whose working on that same machine.",
+  "translation": "现在，您应该增强信心，可以直视Docker，并说“您不能吓me我”。 除了开玩笑，知道您对Docker所做的一切总是值得的。 因为如果您不小心，可能会导致整个服务器瘫痪，并破坏在同一台计算机上工作的其他所有人的工作。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Thushan Ganegedara的文章《Docker Best Practices for Data Scientists》，参考：https://towardsdatascience.com/docker-best-practices-for-data-scientists-2ed7f6876dff)"
+}]
