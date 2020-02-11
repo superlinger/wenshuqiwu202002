@@ -1,0 +1,866 @@
+[{
+  "tag": "H1",
+  "text": "Getting started with Git and GitHub: the complete beginner’s guide",
+  "translation": "Git和GitHub入门：完整的初学者指南"
+}, {
+  "tag": "H2",
+  "text": "Git and GitHub basics for the curious and completely confused (plus the easiest way to contribute to your first open source project ever!)",
+  "translation": "好奇和完全困惑的Git和GitHub基础（加上为您的第一个开源项目做出贡献的最简单方法！）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*uhGsLrwywakNGtr8?q=20",
+  "caption": "Photo by James Bold on Unsplash",
+  "type": "image",
+  "file": "0!uhGsLrwywakNGtr8"
+}, {
+  "tag": "P",
+  "text": "Looking to get started with Git and GitHub? Do you need to collaborate with a team? Are you working on a project? Have you recently discovered that you pretty much need to be on GitHub if you want anyone to take you seriously in tech?",
+  "translation": "想要开始使用Git和GitHub？ 您需要与团队合作吗？ 您正在从事一个项目吗？ 您最近是否发现过，如果您希望有人认真对待技术，几乎需要使用GitHub？"
+}, {
+  "tag": "P",
+  "text": "…do you really just want to contribute to your first open source project?",
+  "translation": "…您真的只想为您的第一个开源项目做出贡献吗？"
+}, {
+  "tag": "P",
+  "text": "This one’s for you!",
+  "translation": "这个是给你的！"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*aUmNuvyIwOyvRPh7?q=20",
+  "caption": "Photo by Greyson Joralemon on Unsplash",
+  "type": "image",
+  "file": "0!aUmNuvyIwOyvRPh7"
+}, {
+  "tag": "P",
+  "text": "It’s totally easy to get started with Git. If you’re a fast reader (and you don’t take a lot of time with sign up and installation), you can be up and running on GitHub about ten minutes from right now.",
+  "translation": "入门非常简单。 如果您是快速阅读者（并且不需要花费很多时间进行注册和安装），那么现在大约十分钟即可在GitHub上启动并运行。"
+}, {
+  "tag": "P",
+  "text": "If you go all the way through the article, you can practice cloning an existing repository, creating a branch, making changes, and creating a pull request. Along the way, you might also learn how to find your terminal, use terminal commands, and edit a markdown (.md) file!",
+  "translation": "如果您通读本文，可以练习克隆现有存储库，创建分支，进行更改以及创建拉取请求。 在此过程中，您可能还会学习如何找到终端，使用终端命令以及编辑markdown（.md）文件！"
+}, {
+  "tag": "P",
+  "text": "If you do all that, congratulations!",
+  "translation": "如果您做了所有这些，那么恭喜您！"
+}, {
+  "tag": "P",
+  "text": "You will have contributed to your first open source project — the GitHub Welcome Wall! (If you want to go straight to the open source contribution part, scroll down until you hit the section called, “Let’s do this!”)",
+  "translation": "您将为您的第一个开源项目做出贡献-GitHub Welcome Wall！ （如果您想直接进入开放源代码贡献部分，请向下滚动，直到找到名为“让我们这样做！”的部分。）"
+}, {
+  "tag": "P",
+  "text": "This article will get you up and running with the basics. There’s a lot of stuff to learn if you want to use Git and GitHub like a pro, of course. You can go way beyond this introductory information! We’re going to leave the next-level stuff for another time, though.",
+  "translation": "本文将帮助您入门并掌握基础知识。 当然，如果您想像专业人士一样使用Git和GitHub，则需要学习很多东西。 您可以超越此介绍性信息！ 不过，我们将把下一级的内容再留一遍。"
+}, {
+  "tag": "P",
+  "text": "Let’s get started!",
+  "translation": "让我们开始吧！"
+}, {
+  "tag": "H2",
+  "text": "What is Git? What’s GitHub?",
+  "translation": "什么是Git？ 什么是GitHub？"
+}, {
+  "tag": "P",
+  "text": "Git is the version control tech of choice for basically everybody right now, from developers to designers. GitHub is the social code-hosting platform that’s currently used more than any other. It’s a place where you can play and experiment. It’s a place where you can find (and play around with) the most incredible open-source information, emerging technologies, features, and designs. It’s a place to learn and it’s a place to get involved. You can keep code there for work or for school, and you can grab some sweet code that you want to explore further. You can even host websites for free directly from your repository! (If you want to know how to do that, check out this article!)",
+  "translation": "从开发人员到设计人员，Git基本上是现在每个人都选择的版本控制技术。 GitHub是一个社交代码托管平台，目前使用率最高。 在这里您可以玩耍和尝试。 在这里，您可以找到（并体验）最令人难以置信的开源信息，新兴技术，功能和设计。 这是一个学习的地方，也是一个参与的地方。 您可以将代码保存在这里以供工作或上学，还可以获取一些想进一步探索的可爱代码。 您甚至可以直接从您的资源库免费托管网站！ （如果您想知道如何做，请查看本文！）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*fN_p7JZlmDMOJov8?q=20",
+  "caption": "Photo by Jamie Haughton on Unsplash",
+  "type": "image",
+  "file": "0!fN_p7JZlmDMOJov8"
+}, {
+  "tag": "P",
+  "text": "There are a ton of ways to use Git and GitHub, but getting started with GitHub doesn’t have to be overwhelming. You don’t need to be some kind of master coder or anything. You can even do the most important things right on the GitHub website!",
+  "translation": "有很多使用Git和GitHub的方法，但是GitHub入门并不需要太多。 您不需要是某种主编码器或任何其他工具。 您甚至可以直接在GitHub网站上做最重要的事情！"
+}, {
+  "tag": "P",
+  "text": "That being said, it’s a good idea to find your terminal and get just the tiniest bit comfortable with it. Terminal commands make things so much faster! I’ll definitely show you how to get started using the GitHub website. I’ll also show you some terminal commands that you might want to use to make your life just a little bit nicer.",
+  "translation": "话虽这么说，这是一个好主意，找到您的终端并让它变得最舒适。 终端命令使事情变得如此之快！ 我一定会向您展示如何开始使用GitHub网站。 我还将向您展示一些终端命令，您可能希望使用这些命令来使自己的生活更美好。"
+}, {
+  "tag": "P",
+  "text": "Any time you see a command in this article that includes these marks: < > , you want to delete those marks and replace what’s between them with your own information.",
+  "translation": "每当您在本文中看到包含以下标记的命令：<>时，都想删除这些标记，并用自己的信息替换它们之间的内容。"
+}, {
+  "tag": "P",
+  "text": "Let’s say you see something like git add <filename>. That means that you would type, for example, git add hello_world.py if you wanted to add a file named “hello_world.py” to your GitHub repository.",
+  "translation": "假设您看到类似git add <filename>的内容。 这意味着，如果要向GitHub存储库添加名为“ hello_world.py”的文件，则可以输入git add hello_world.py。"
+}, {
+  "tag": "P",
+  "text": "I’m going to give you a lot of explanation here, but these are all the terminal commands that you really need to know to get started:",
+  "translation": "我将在这里给您很多解释，但是这些都是您真正需要入门的终端命令："
+}, {
+  "tag": "PRE",
+  "text": "git clonegit statusgit addgit commit -m “ “git push",
+  "translation": "git clonegit statusgit addgit commit -m“” git push"
+}, {
+  "tag": "P",
+  "text": "That’s it! Those are the big ones! If you have a handle of those, you’re good to go. You can start working on your projects immediately!",
+  "translation": "而已！ 那些是大个子！ 如果您能解决这些问题，那就太好了。 您可以立即开始进行项目！"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*BsszeDXPku8ZUglQ?q=20",
+  "caption": "Photo by Delaney Dawson on Unsplash",
+  "type": "image",
+  "file": "0!BsszeDXPku8ZUglQ"
+}, {
+  "tag": "P",
+  "text": "We’ll also talk about",
+  "translation": "我们还将讨论"
+}, {
+  "tag": "PRE",
+  "text": "git initgit branchgit mergegit checkout",
+  "translation": "git initgit分支git mergegit签出"
+}, {
+  "tag": "P",
+  "text": "You might be working with other people, or you might want to make changes and test them out before you really commit them. The commands above are what you need to get started with collaboration.",
+  "translation": "您可能正在与其他人一起工作，或者您可能想要进行更改并在真正提交之前对其进行测试。 上面的命令是您开始进行协作所需要的。"
+}, {
+  "tag": "P",
+  "text": "git help",
+  "translation": "git帮助"
+}, {
+  "tag": "P",
+  "text": "is also seriously useful if you’re just starting out! We’ll discuss that too.",
+  "translation": "如果您刚刚起步，它也非常有用！ 我们也会对此进行讨论。"
+}, {
+  "tag": "P",
+  "text": "(If you’re on a Mac, you already have a terminal! You can search for it by clicking on the magnifying glass icon in the upper right-hand corner of your screen and searching for the word “terminal.” )",
+  "translation": "（如果您使用的是Mac，则已经有一个终端！您可以通过点击屏幕右上角的放大镜图标并搜索“终端”一词来进行搜索。）"
+}, {
+  "tag": "H2",
+  "text": "Step 1: Sign up and installation!",
+  "translation": "步骤1：注册并安装！"
+}, {
+  "tag": "P",
+  "text": "Go to GitHub and sign up for an account. You could just stop there and GitHub would work just fine. It’s a good idea, though, to install Git if you haven’t already. You can absolutely get started without it, but if you want to work on your local computer, then you want to have Git installed. You can download it or install it via your package manager instead.",
+  "translation": "转到GitHub并注册一个帐户。 您可以就此停止，并且GitHub可以正常工作。 不过，如果尚未安装Git，则是个好主意。 没有它，您绝对可以上手，但是如果您想在本地计算机上工作，那么您需要安装Git。 您可以下载它或通过软件包管理器来安装它。"
+}, {
+  "tag": "P",
+  "text": "Now go to your terminal and introduce yourself to Git! To set your username for every repository on your computer, type",
+  "translation": "现在转到终端，向Git自我介绍！ 要为计算机上的每个存储库设置用户名，请输入"
+}, {
+  "tag": "PRE",
+  "text": "git config --global user.name \"<your_name_here>\"",
+  "translation": "git config --global user.name“ <您的名字在这里>”"
+}, {
+  "tag": "P",
+  "text": "replacing “<your name here>” with your own name in quotations. You can use any name or handle you want. If you want to set your name for just one repository, leave out the word “global.”",
+  "translation": "用引号中的您自己的名字替换“ <您的名字在这里>”。 您可以使用任何名称或所需的名称。 如果您只想为一个存储库设置名称，则省略“全局”一词。"
+}, {
+  "tag": "P",
+  "text": "Now you can tell Git your email, and make sure it’s the same email you used when you signed up for GitHub",
+  "translation": "现在，您可以告诉Git您的电子邮件，并确保它与您注册GitHub时使用的电子邮件相同"
+}, {
+  "tag": "PRE",
+  "text": "git config --global user.email \"<your_email@email.com>\"",
+  "translation": "git config --global user.email“ <您的电子邮件@ email.com>”"
+}, {
+  "tag": "P",
+  "text": "It’s easy to keep your email private, and you can find those instructions in this article. You only need to check two boxes in your GitHub account.",
+  "translation": "将电子邮件设为不公开很容易，您可以在本文中找到这些说明。 您只需要在GitHub帐户中选中两个复选框即可。"
+}, {
+  "tag": "P",
+  "text": "Now you’re ready to start using Git on your computer!",
+  "translation": "现在，您可以开始在计算机上使用Git了！"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*8c8UUki9Yh2yrL9r?q=20",
+  "caption": "Photo by Matty Adame on Unsplash",
+  "type": "image",
+  "file": "0!8c8UUki9Yh2yrL9r"
+}, {
+  "tag": "P",
+  "text": "To get started, you can create a new repository on the GitHub website or perform a git init to create a new repository from your project directory.",
+  "translation": "首先，您可以在GitHub网站上创建新的存储库，或执行git init从项目目录中创建新的存储库。"
+}, {
+  "tag": "P",
+  "text": "The repository consists of three ‘trees.’ First is the working directory, which holds the actual files. The second one is the index or the staging area. Then there’s the head, which points to the last commit you made.",
+  "translation": "该存储库由三个“树”组成。第一个是工作目录，其中包含实际文件。 第二个是索引或暂存区。 然后是头，指向您上一次提交的内容。"
+}, {
+  "tag": "H2",
+  "text": "I’m already comfortable with the terminal (Option 1)",
+  "translation": "我已经对终端满意（选项1）"
+}, {
+  "tag": "P",
+  "text": "Here’s how you can get started right from the terminal:",
+  "translation": "从终端开始的方法如下："
+}, {
+  "tag": "P",
+  "text": "If you have a project directory, just go to your terminal and in your project directory run the command",
+  "translation": "如果您有项目目录，只需转到终端，然后在项目目录中运行以下命令"
+}, {
+  "tag": "PRE",
+  "text": "git init ",
+  "translation": "git初始化"
+}, {
+  "tag": "P",
+  "text": "If you want to initialize your project with all of the files in your project directory, run",
+  "translation": "如果要使用项目目录中的所有文件来初始化项目，请运行"
+}, {
+  "tag": "PRE",
+  "text": "git init .",
+  "translation": "git init。"
+}, {
+  "tag": "P",
+  "text": "to include everything.",
+  "translation": "包括一切。"
+}, {
+  "tag": "P",
+  "text": "Let’s say you have a folder for your project called “new_project.” You could head on over to that folder in your terminal window and add a local repository to it by running",
+  "translation": "假设您有一个名为“ new_project”的项目文件夹。您可以转到终端窗口中的该文件夹，然后通过运行以下命令为其添加本地存储库"
+}, {
+  "tag": "PRE",
+  "text": "cd new_projectgit init",
+  "translation": "cd new_projectgit初始化"
+}, {
+  "tag": "P",
+  "text": "Now you have a new hidden directory called .git in your project directory. This is where Git stores what it needs so that it can track your project. Now you can add files to the staging area one by one with",
+  "translation": "现在，您的项目目录中有一个名为.git的新隐藏目录。 这是Git存储所需内容的地方，以便它可以跟踪您的项目。 现在，您可以使用以下命令将文件一个接一个地添加到登台区域"
+}, {
+  "tag": "PRE",
+  "text": "git add <filename_one>",
+  "translation": "git添加<filename_one>"
+}, {
+  "tag": "P",
+  "text": "or run",
+  "translation": "或跑步"
+}, {
+  "tag": "PRE",
+  "text": "git add .",
+  "translation": "git添加"
+}, {
+  "tag": "P",
+  "text": "to add all of your files to the staging area. You can commit these changes with the command",
+  "translation": "将所有文件添加到暂存区。 您可以使用以下命令来提交这些更改"
+}, {
+  "tag": "PRE",
+  "text": "git commit -m \"<add a commit message here>\"",
+  "translation": "git commit -m“ <在此处添加提交消息>”"
+}, {
+  "tag": "P",
+  "text": "and if you’re happy with your changes, you can run",
+  "translation": "如果您对所做的更改感到满意，则可以运行"
+}, {
+  "tag": "PRE",
+  "text": "git push",
+  "translation": "git推"
+}, {
+  "tag": "P",
+  "text": "to push your changes through. You can check whether or not you have changes to push through any time by running",
+  "translation": "推动您的更改。 您可以通过运行以下命令来检查是否有更改要随时推送"
+}, {
+  "tag": "PRE",
+  "text": "git status",
+  "translation": "git状态"
+}, {
+  "tag": "P",
+  "text": "If you made some changes, you can update your files on at a time with",
+  "translation": "如果进行了一些更改，则可以一次更新文件"
+}, {
+  "tag": "PRE",
+  "text": "git add <filename>",
+  "translation": "git添加<文件名>"
+}, {
+  "tag": "P",
+  "text": "or",
+  "translation": "要么"
+}, {
+  "tag": "PRE",
+  "text": "git add --all",
+  "translation": "git添加--all"
+}, {
+  "tag": "P",
+  "text": "Then commit them with your commit message and push them through.",
+  "translation": "然后用您的提交消息提交它们并推动它们通过。"
+}, {
+  "tag": "P",
+  "text": "That’s it! You can now initialize a repository, commit files, commit changes, and push them through to the master branch.",
+  "translation": "而已！ 现在，您可以初始化存储库，提交文件，提交更改，并将其推送到master分支。"
+}, {
+  "tag": "P",
+  "text": "If you’ve got this, just scroll down to “Learning to work with others” to move on to branching and collaboration!",
+  "translation": "如果您有此知识，只需向下滚动至“学习与他人合作”，即可进行分支和协作！"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*qZzwzvj4kkoU8-UH?q=20",
+  "caption": "Photo by Jonathan Daniels on Unsplash",
+  "type": "image",
+  "file": "0!qZzwzvj4kkoU8-UH"
+}, {
+  "tag": "H2",
+  "text": "I don’t know what you just said (Option 2)",
+  "translation": "我不知道你刚才说了什么（选项2）"
+}, {
+  "tag": "P",
+  "text": "I’m going to assume that anyone who’s interested in option 2 is brand new to all of this and maybe has a folder full of files (or you plan to have one) that you want to put on GitHub and you just don’t know how to do that.",
+  "translation": "我假设所有对选项2感兴趣的人都是新手，可能有一个充满文件的文件夹（或者您打算有一个文件）要放置在GitHub上，而您只是不知道 怎么做。"
+}, {
+  "tag": "P",
+  "text": "Let’s make that happen!",
+  "translation": "让我们做到这一点！"
+}, {
+  "tag": "P",
+  "text": "Say you want to create a new repository. (You probably do! That’s where your project will live. If you aren’t going to create a new repository, you probably want to clone an existing repository. We’ll talk about that next, but that’s how you grab someone else’s project and information that you need for your job or the course you’re taking.)",
+  "translation": "假设您要创建一个新的存储库。 （您可能会这样做的！这就是您的项目的生存地。如果您不打算创建新的存储库，则可能要克隆一个现有的存储库。我们将在接下来的内容中进行讨论，但这就是您如何抓取其他人的项目并 您的工作或所学课程所需的信息。）"
+}, {
+  "tag": "P",
+  "text": "Your repository is where you’ll organize your project. You can keep folders, files, images, videos, spreadsheets, Jupyter notebooks, data sets, and anything else your project needs. Before you can work with Git, you have to initialize a repository for your project and set it up so that Git will manage it. You can do this right on the GitHub website.",
+  "translation": "您的存储库是组织项目的地方。 您可以保留文件夹，文件，图像，视频，电子表格，Jupyter笔记本，数据集以及项目所需的其他任何内容。 在使用Git之前，您必须为项目初始化一个存储库并进行设置，以便Git对其进行管理。 您可以直接在GitHub网站上执行此操作。"
+}, {
+  "tag": "P",
+  "text": "It’s a smart idea to include a README file with information about your project. You can create one at the same time that you create your repository with the click of a checkbox.",
+  "translation": "包含自述文件以及有关您的项目的信息是一个明智的主意。 单击复选框，可以在创建存储库的同时创建一个存储库。"
+}, {
+  "tag": "UL",
+  "texts": ["Go to the GitHub website, look in the upper right corner, and click the + sign and then click “New repository.”", "Name the repository, and add a quick description.", "Decide whether you want this to be a public or a private repository", "Click “Initialize this repository with a README” if you want to include the README file. (I definitely recommend doing this! It’s the first thing people are going to look at when they check out your repository. It’s also a great place to put information that you need to have in order to understand or run the project.)"],
+  "translations": ["转到GitHub网站，单击右上角的，单击标志，然后单击“新建存储库”。", "命名存储库，并添加快速描述。", "确定您是希望将其作为公共存储库还是私有存储库", "如果要包括自述文件，请单击“使用自述文件初始化此存储库”。 （我绝对建议您这样做！这是人们在签出您的存储库时首先要考虑的事情。这也是放置理解或运行项目所需的信息的好地方。）"]
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*uPckYu4PtowF8IgbT11m0g.png?q=20",
+  "caption": "New repository",
+  "type": "image",
+  "file": "1!uPckYu4PtowF8IgbT11m0g.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*acDW3Oav2CgSOQQGraubHg.png?q=20",
+  "caption": "Creating your new repository",
+  "type": "image",
+  "file": "1!acDW3Oav2CgSOQQGraubHg.png"
+}, {
+  "tag": "P",
+  "text": "You can totally start working right from this point if you want to! You can upload files, edit files, and so on right from your repository on the GitHub website. However, you might not be satisfied with only this option.",
+  "translation": "如果您愿意，您完全可以从这一点开始工作！ 您可以直接从GitHub网站上的存储库中上传文件，编辑文件等。 但是，您可能仅对此选项感到不满意。"
+}, {
+  "tag": "P",
+  "text": "There are two ways to make changes to your project. You can make changes in your files/notebooks on your computer and you can also make changes right on GitHub.",
+  "translation": "有两种更改项目的方法。 您可以在计算机上的文件/笔记本中进行更改，也可以直接在GitHub上进行更改。"
+}, {
+  "tag": "P",
+  "text": "Let’s say you want to make some changes to your README file right on GitHub.",
+  "translation": "假设您想直接在GitHub上对自述文件进行一些更改。"
+}, {
+  "tag": "UL",
+  "texts": ["First, go to your repository.", "Click the name of the file to bring up that file (for example, click “README.md” to go to the readme file).", "Click the pencil icon in the upper right corner of the file and make some changes.", "Write a short message in the box that describes the changes you made (and an extended description if you want).", "Click the “Commit changes” button."],
+  "translations": ["首先，转到您的存储库。", "单击文件名以调出该文件（例如，单击“ README.md”转到自述文件）。", "单击文件右上角的铅笔图标，然后进行一些更改。", "在描述您所做更改的框中写一条短消息（如果需要，还可以提供扩展描述）。", "点击“提交更改”按钮。"]
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*-tXPkGTgyFuyuhrRHmZ-1Q.png?q=20",
+  "caption": "Editing your file on GitHub",
+  "type": "image",
+  "file": "1!-tXPkGTgyFuyuhrRHmZ-1Q.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*XVxPR_YYUi2bO782cRzEmA.png?q=20",
+  "caption": "Committing your changes",
+  "type": "image",
+  "file": "1!XVxPR_YYUi2bO782cRzEmA.png"
+}, {
+  "tag": "P",
+  "text": "Now the changes have been made to the README file in your new repository! (I quickly want to draw your attention to the little button you can check in the image above that will let you create a new branch for this commit and start a pull request. We’ll talk about this later!)",
+  "translation": "现在，已对新存储库中的README文件进行了更改！ （我很快想引起您的注意，您可以在上图中查看该小按钮，该按钮将使您可以为此提交创建一个新分支并启动拉取请求。稍后我们将进行讨论！）"
+}, {
+  "tag": "P",
+  "text": "Pretty easy, right?",
+  "translation": "很简单，对不对？"
+}, {
+  "tag": "P",
+  "text": "I prefer to work with files on my local computer rather than try to make everything work from the GitHub website, so let’s set that up now.",
+  "translation": "我更喜欢在本地计算机上处理文件，而不是尝试使GitHub网站上的所有功能正常工作，所以现在就进行设置。"
+}, {
+  "tag": "H2",
+  "text": "Gimmie that project!",
+  "translation": "吉米那个项目！"
+}, {
+  "tag": "P",
+  "text": "You might want to clone your new repository so that you can work on it on your local computer, or you might have an existing repository that you want to clone. (That’s something you might need to do that for a project or course.)",
+  "translation": "您可能想要克隆新的存储库，以便可以在本地计算机上对其进行操作，或者您可能已有要克隆的现有存储库。 （对于项目或课程，您可能需要这样做。）"
+}, {
+  "tag": "P",
+  "text": "In order to clone a repository onto your computer, go to the repository on the GitHub website and click the big green button that says “Clone or download.” (You can definitely download the repository right there and skip the terminal stuff if you just can’t deal with it. But I believe in you, so keep going!) Make sure it says “Clone with HTTPS.” Now click the clipboard icon to copy and paste it to your clipboard (or highlight that link and copy it).",
+  "translation": "为了将存储库克隆到您的计算机上，请访问GitHub网站上的存储库，然后单击显示“克隆或下载”的绿色大按钮。 没关系。但是我相信您，因此继续！）确保其显示“使用HTTPS克隆”。现在单击剪贴板图标将其复制并粘贴到剪贴板（或突出显示该链接并复制）。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Y2KFAmS5eXnSq-E6JpAqfA.png?q=20",
+  "caption": "Clone or download a repository",
+  "type": "image",
+  "file": "1!Y2KFAmS5eXnSq-E6JpAqfA.png"
+}, {
+  "tag": "P",
+  "text": "Now you’ll open up your terminal and get yourself to the place where you want that repository to land. You might be able to, for instance, type",
+  "translation": "现在，您将打开终端，并转到要放置该存储库的位置。 例如，您也许可以输入"
+}, {
+  "tag": "PRE",
+  "text": "cd Desktop ",
+  "translation": "cd桌面"
+}, {
+  "tag": "P",
+  "text": "to get onto the desktop. Then clone your repository right there to make it easy to find. To clone the repository, you type",
+  "translation": "进入桌面。 然后在此处克隆您的存储库，以使其易于查找。 要克隆存储库，请键入"
+}, {
+  "tag": "PRE",
+  "text": "git clone <that_thing_you_just_copied>",
+  "translation": "git clone <that_thing_you_just_copied>"
+}, {
+  "tag": "P",
+  "text": "Simple! (Don’t forget to change the information between the < > marks to that string of letters and numbers you just copied! Also, make sure you delete the < >.)",
+  "translation": "简单！ （不要忘记将<>标记之间的信息更改为刚复制的字母和数字字符串！此外，请确保删除<>。）"
+}, {
+  "tag": "P",
+  "text": "If you haven’t moved around in your terminal before, you can move around slowly with the cd command until you get where you want to go. For example, open up your terminal and type ls to list the choices of where you might go next. You might see “Desktop” listed, and you could just type cd Desktop to get to your desktop. Then you can run the git clone command above to clone your repository right onto your desktop.",
+  "translation": "如果您以前没有在终端中四处走动，则可以使用cd命令缓慢走动，直到到达想要的位置。 例如，打开您的终端并键入ls以列出下一步可能去的选择。 您可能会看到列出了“台式机”，并且只需键入cd Desktop即可进入桌面。 然后，您可以运行上面的git clone命令，将存储库直接克隆到桌面上。"
+}, {
+  "tag": "P",
+  "text": "You might see some user names instead of choices like “Desktop.” In that case, you need to choose a user before you see “Desktop,” so choose the user with cd <user> (replacing <user> with the user name) and then type ls again to see your choices. There’s a very good chance you’ll see “Desktop” now. You’ll type cd Desktop if you see the Desktop listed. Now go ahead with that git clone!",
+  "translation": "您可能会看到一些用户名，而不是诸如“ Desktop”之类的选项。在这种情况下，您需要先选择一个用户，然后再看到“ Desktop”，因此请用cd <user>替换用户（用用户名替换<user>） 然后再次输入ls以查看您的选择。 您现在很可能会看到“桌面”。 如果看到列出的桌面，则将输入cd Desktop。 现在继续进行git克隆！"
+}, {
+  "tag": "P",
+  "text": "If you ever want to move back a step in your terminal, just type cd ..",
+  "translation": "如果您想在终端中后退一步，只需输入cd .."
+}, {
+  "tag": "P",
+  "text": "Now you have a new GitHub repository that you can work with cloned right on your desktop! That command pulled in a complete copy of the repository right to your system where you can work on it, make changes, stage the changes, commit the changes, and then push the changes back to GitHub.",
+  "translation": "现在，您有了一个新的GitHub存储库，可以在桌面上直接使用它进行克隆！ 该命令将存储库的完整副本直接复制到您的系统上，您可以在其中进行操作，进行更改，暂存更改，提交更改，然后将更改推回到GitHub。"
+}, {
+  "tag": "P",
+  "text": "You don’t need to put the repository on your desktop if you don’t want to. You can clone it anywhere. You can even run the git clone command as soon as you open up your terminal. I will say, though, that if you aren’t really comfortable navigating around your computer, it’s not a bad idea to have your project sitting right on your desktop where you can see it…",
+  "translation": "如果您不想这样做，则无需将存储库放在桌面上。 您可以在任何地方克隆它。 打开终端后，您甚至可以运行git clone命令。 不过，我要说的是，如果您不太习惯在计算机上浏览，那么将项目放在桌面上就可以看到它并不是一个坏主意……"
+}, {
+  "tag": "P",
+  "text": "If you ever want to just play with a project on your own, you can fork it on the GitHub website instead of cloning it. Look up near the top right corner of the screen for the “fork” button and click it. This will make a copy of the repository in your repositories for you to play with on your own without doing anything to the original.",
+  "translation": "如果您只想自己玩一个项目，则可以在GitHub网站上创建它，而不用克隆它。 在屏幕的右上角附近查找“ fork”按钮，然后单击它。 这将在您的存储库中复制该存储库的副本，供您自己使用，而无需对原始存储库做任何事情。"
+}, {
+  "tag": "H2",
+  "text": "Now it’s time to add some files to your project!",
+  "translation": "现在是时候向您的项目中添加一些文件了！"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*s9srYHodB0cSLrPd?q=20",
+  "caption": "Photo by Nadim Merrikh on Unsplash",
+  "type": "image",
+  "file": "0!s9srYHodB0cSLrPd"
+}, {
+  "tag": "P",
+  "text": "This is all we’re about to do:",
+  "translation": "这就是我们要做的一切："
+}, {
+  "tag": "PRE",
+  "text": "git statusgit addgit commit -m \" \"git push",
+  "translation": "git statusgit addgit commit -m“” git push"
+}, {
+  "tag": "P",
+  "text": "Nothing to worry about!",
+  "translation": "完全不用担心！"
+}, {
+  "tag": "P",
+  "text": "I’m thinking you probably have some files that you want to put in your new repository. Go ahead and find your files and drag and drop them into the new folder for the repository that you created on your desktop, just like you normally would with any set of files you might want to move into a folder.",
+  "translation": "我认为您可能有一些文件要放入新存储库中。 继续查找文件，然后将其拖放到您在桌面上创建的存储库的新文件夹中，就像通常需要将任何文件集移动到文件夹中一样。"
+}, {
+  "tag": "P",
+  "text": "Now, check out the status of your project!",
+  "translation": "现在，检查您的项目状态！"
+}, {
+  "tag": "P",
+  "text": "Go to your terminal and get yourself into the folder for your repository. Then run",
+  "translation": "转到终端，进入存储库文件夹。 然后跑"
+}, {
+  "tag": "PRE",
+  "text": "git status",
+  "translation": "git状态"
+}, {
+  "tag": "P",
+  "text": "to see if everything is up to date. (If you just dragged some files into your project folder, it definitely isn’t!) To add one of your files to the repository, you would run",
+  "translation": "看看是否一切都是最新的。 （如果您只是将一些文件拖到项目文件夹中，肯定不是！）要将其中一个文件添加到存储库中，请运行"
+}, {
+  "tag": "PRE",
+  "text": "git add <fileneame>",
+  "translation": "git添加<文件名>"
+}, {
+  "tag": "P",
+  "text": "Otherwise, you can add everything with",
+  "translation": "否则，您可以添加所有内容"
+}, {
+  "tag": "PRE",
+  "text": "git add --all",
+  "translation": "git添加--all"
+}, {
+  "tag": "P",
+  "text": "or even",
+  "translation": "甚至"
+}, {
+  "tag": "PRE",
+  "text": "git add .",
+  "translation": "git添加"
+}, {
+  "tag": "P",
+  "text": "These are your proposed changes. You can do this exact same thing with brand new files and with files that are already in there but have some changes. You aren’t actually adding anything just yet. You’re bringing new files and changes to Git’s attention.",
+  "translation": "这些是您建议的更改。 您可以使用全新文件以及已在其中但有一些更改的文件来执行相同的操作。 您实际上尚未添加任何内容。 您正在带来新文件和更改，以引起Git的注意。"
+}, {
+  "tag": "P",
+  "text": "To commit the changes, you will start the process by running",
+  "translation": "要提交更改，您将通过运行以下内容启动该过程"
+}, {
+  "tag": "PRE",
+  "text": "git commit -m “<commit message>”",
+  "translation": "git commit -m“ <提交消息>”"
+}, {
+  "tag": "P",
+  "text": "You’re committing the changes to the HEAD, but not to the remote repository. (Make sure you replace that message in quotes with your own.) After you make a change, you take a “snapshot” of the repository with the “commit” command. You‘ll include a message on that “snapshot” with -m.",
+  "translation": "您是将更改提交给HEAD，而不是远程存储库。 （确保用自己的引号替换该消息。）进行更改后，使用“ commit”命令获取存储库的“快照”。 您将在带有“ -m”的“快照”中包含一条消息。"
+}, {
+  "tag": "P",
+  "text": "When you save a change, that’s called a commit. When you make a commit, you’ll include a message about what you changed and/or why you changed it. This is a great way to let others know what you’ve changed and why.",
+  "translation": "保存更改后，即称为提交。 进行提交时，您会收到一条消息，说明更改的内容和/或更改的原因。 这是让其他人知道您所做的更改以及更改原因的好方法。"
+}, {
+  "tag": "P",
+  "text": "Now your changes are in the head of your local working copy. To send the changes to your remote repository, run",
+  "translation": "现在，您的更改位于本地工作副本的开头。 要将更改发送到远程存储库，请运行"
+}, {
+  "tag": "PRE",
+  "text": "git push",
+  "translation": "git推"
+}, {
+  "tag": "P",
+  "text": "to push your changes right into your repository. If you’re working on your local computer and you want your commits to be visible online too, you would push the changes up to git hub with the git push command.",
+  "translation": "将更改直接推送到存储库中。 如果您在本地计算机上工作，并且希望在线也可以看到提交，则可以使用git push命令将更改推送到git hub。"
+}, {
+  "tag": "P",
+  "text": "You can see if everything is up to date any time by running the git status command!",
+  "translation": "您可以通过运行git status命令随时查看所有内容是否都是最新的！"
+}, {
+  "tag": "P",
+  "text": "So now you have a GitHub repository and you know how to add files and changes to it!",
+  "translation": "因此，现在您有了一个GitHub存储库，并且您知道如何添加文件和对其进行更改！"
+}, {
+  "tag": "P",
+  "text": "Congratulations!!!",
+  "translation": "恭喜！！！"
+}, {
+  "tag": "H1",
+  "text": "Learning to work with others",
+  "translation": "学习与他人合作"
+}, {
+  "tag": "P",
+  "text": "Collaboration is the name of the game on GitHub!",
+  "translation": "协作是GitHub上的游戏名称！"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*Qn_xsXkyf3lzpPrw?q=20",
+  "caption": "Photo by Quinten de Graaf on Unsplash",
+  "type": "image",
+  "file": "0!Qn_xsXkyf3lzpPrw"
+}, {
+  "tag": "H2",
+  "text": "GitHub flow",
+  "translation": "GitHub流程"
+}, {
+  "tag": "P",
+  "text": "Let’s say you have a project going and you maybe have a lot of different ideas and features in mind at any given time. Some features might be ready to go, but some might not. Maybe you’re working with other people who are all kind of doing their own thing. This is where branching comes in!",
+  "translation": "假设您正在进行一个项目，并且在任何给定时间都可能会想到许多不同的想法和功能。 有些功能可能已准备就绪，但有些功能可能尚未准备就绪。 也许您正在与其他都在做自己的事情的人一起工作。 这是分支进来的地方！"
+}, {
+  "tag": "P",
+  "text": "A branch is a separate space where you can try out new ideas. If you change something on a branch, it doesn’t affect the master branch until you want it to. This means that you can do whatever you want to do on that branch until you decide it’s time to merge it.",
+  "translation": "分支是一个单独的空间，您可以在其中尝试新的想法。 如果您更改分支上的某些内容，则在您需要之前不会影响主分支。 这意味着您可以在该分支上做任何想做的事情，直到您决定是时候将其合并为止。"
+}, {
+  "tag": "P",
+  "text": "The only branch that’s going to permanently change things is the master branch. If you don’t want your changes to deploy immediately, then make your changes on a separate branch and merge them into the master branch when you’re ready.",
+  "translation": "唯一可以永久更改的分支是master分支。 如果您不希望更改立即部署，请在单独的分支上进行更改，并在准备好后将其合并到master分支中。"
+}, {
+  "tag": "P",
+  "text": "If you’re working with others and want to make changes on your own, or if you’re working on your own and want to make changes without affecting the master branch, you want a separate branch. You can create a new branch at any time.",
+  "translation": "如果您正在与他人合作，并且希望自己进行更改，或者您在独立工作且希望在不影响master分支的情况下进行更改，则需要一个单独的分支。 您可以随时创建一个新分支。"
+}, {
+  "tag": "P",
+  "text": "It’s also pretty simple to create a branch named “new_feature” in your terminal and switch to it with",
+  "translation": "在您的终端中创建一个名为“ new_feature”的分支并使用"
+}, {
+  "tag": "PRE",
+  "text": "git checkout -b new_feature",
+  "translation": "git checkout -b new_feature"
+}, {
+  "tag": "P",
+  "text": "Once you create a branch, you can make changes on that branch. This makes it easy to see what you’ve changed and why you’ve changed it. Every time you commit your changes, you’ll add a message that you can use to describe what you’ve done.",
+  "translation": "创建分支后，即可在该分支上进行更改。 这样一来，您就可以轻松查看更改的内容以及更改的原因。 每次提交更改时，都会添加一条消息，可用来描述您所做的事情。"
+}, {
+  "tag": "P",
+  "text": "Let’s talk about checkout!",
+  "translation": "让我们来谈谈结帐！"
+}, {
+  "tag": "PRE",
+  "text": "git checkout",
+  "translation": "git checkout"
+}, {
+  "tag": "P",
+  "text": "lets you check out a repository that you’re not currently inside of. You can check out the master branch with",
+  "translation": "可让您检出您当前不在其中的存储库。 您可以使用以下命令检出master分支"
+}, {
+  "tag": "PRE",
+  "text": "git checkout master",
+  "translation": "git checkout主"
+}, {
+  "tag": "P",
+  "text": "or look at the “new_feature” branch with",
+  "translation": "或查看“ new_feature”分支"
+}, {
+  "tag": "PRE",
+  "text": "git checkout new_feature",
+  "translation": "git checkout new_feature"
+}, {
+  "tag": "P",
+  "text": "When you’re done with a branch, you can merge all of your changes back so that they’re visible to everyone.",
+  "translation": "完成分支后，您可以将所有更改合并回去，以便所有人都可以看到。"
+}, {
+  "tag": "PRE",
+  "text": "git merge new_feature",
+  "translation": "git merge new_feature"
+}, {
+  "tag": "P",
+  "text": "will take all of the changes you made to the “new_feature” branch and add them to the master.",
+  "translation": "将采用您对“ new_feature”分支所做的所有更改，并将其添加到主服务器。"
+}, {
+  "tag": "P",
+  "text": "In order to create an upstream branch so that you can push your changes and set the remote branch as upstream, you will push your feature by running",
+  "translation": "为了创建上游分支，以便您可以推送更改并将远程分支设置为上游，您将通过运行来推送功能"
+}, {
+  "tag": "PRE",
+  "text": "git push --set-upstream origin new_feature",
+  "translation": "git push --set-upstream原始new_feature"
+}, {
+  "tag": "P",
+  "text": "After you make some changes and decide you like them, you open a pull request. If you’re on a team, this is when other people on your team can start checking out your changes and discussing them. You can open a pull request at any point, whether it’s to have people look over your final changes or ask for help because you’re stuck on something.",
+  "translation": "做出某些更改并确定喜欢之后，您可以打开拉取请求。 如果您在团队中，则这时团队中的其他人可以开始检查您的更改并进行讨论。 您可以随时打开请求请求，无论是让人们查看您的最终更改，还是因为您遇到麻烦而寻求帮助。"
+}, {
+  "tag": "H2",
+  "text": "Ummmmm…what? Can I do that on the website?",
+  "translation": "嗯...什么？ 我可以在网站上这样做吗？"
+}, {
+  "tag": "P",
+  "text": "You can!",
+  "translation": "您可以！"
+}, {
+  "tag": "FIGURE",
+  "type": "code"
+}, {
+  "tag": "P",
+  "text": "One way to do this is simply by checking that button that we mentioned earlier when we were editing the README file. Super easy!",
+  "translation": "一种方法是简单地检查我们在编辑自述文件时前面提到的那个按钮。 超级容易！"
+}, {
+  "tag": "P",
+  "text": "You can also create a new branch any time right on the website by going to your repository, clicking the drop-down menu near the left-middle side of your screen that says “Branch: master,” typing a branch name, and selecting the “Create branch” link (or hitting enter on your keyboard). Now you have two branches that look the same! This is a great place to make changes and test them out before you want to make them affect the master branch.",
+  "translation": "您也可以随时在网站上随时创建新分支，方法是转到存储库，单击屏幕左中侧附近的下拉菜单，其中显示“ Branch：master”，输入分支名称，然后选择 “创建分支”链接（或点击键盘上的Enter）。 现在您有两个看起来相同的分支！ 这是进行更改并对其进行测试，然后再使它们影响master分支的好地方。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*vZZZaKxwZgcv6nBswMtMJA.png?q=20",
+  "caption": "Creating a branch",
+  "type": "image",
+  "file": "1!vZZZaKxwZgcv6nBswMtMJA.png"
+}, {
+  "tag": "P",
+  "text": "If you’re working on a separate branch, your changes only affect that branch.",
+  "translation": "如果您在另一个分支上工作，则所做的更改只会影响该分支。"
+}, {
+  "tag": "P",
+  "text": "If you’re happy with your changes and you want to merge your changes to the master branch, you can open a pull request. This is how, if you were on a team, you would propose your changes and ask someone to review them or pull in your contribution and merge them into their branch.",
+  "translation": "如果您对更改感到满意，并且希望将更改合并到master分支，则可以打开一个请求请求。 这样，如果您在团队中，则可以提出您的更改并要求某人进行审核，或者请您贡献一些内容并将其合并到其分支机构中。"
+}, {
+  "tag": "P",
+  "text": "You can open a pull request as soon as you make a commit, even if you haven’t finished your code. You can do this right on the website if you’re more comfortable with that. If you’ve made some changes on your branch and you want to merge them, you can",
+  "translation": "即使您尚未完成代码，也可以在提交后立即打开拉取请求。 如果您愿意，可以直接在网站上进行此操作。 如果您在分支机构上进行了某些更改并且想要合并它们，则可以"
+}, {
+  "tag": "UL",
+  "texts": ["Click the pull request tab near the top center of the screen", "Click the green “New pull request” button", "Go to the “Example Comparisons” box and select the branch you made to compare with the original branch.", "Look over your changes to make sure they’re really what you want to commit.", "Then click the big green “Create pull request” button. Give it a title and write a brief description of your changes. Then click “Create Pull Request!”"],
+  "translations": ["点击屏幕顶部中心附近的拉取请求标签", "点击绿色的“新请求请求”按钮", "转到“示例比较”框，然后选择要与原始分支进行比较的分支。", "查看您的更改，以确保它们确实是您要提交的内容。", "然后单击绿色的大“创建请求请求”按钮。 给它起一个标题，并简要描述您的更改。 然后点击“创建请求请求！”"]
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*OWhORW1cXW0SXp4M__SOFA.png?q=20",
+  "caption": "New pull request",
+  "type": "image",
+  "file": "1!OWhORW1cXW0SXp4M__SOFA.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*BFsob2p0Z2iMaJW_nuNtnA.png?q=20",
+  "caption": "Create pull request",
+  "type": "image",
+  "file": "1!BFsob2p0Z2iMaJW_nuNtnA.png"
+}, {
+  "tag": "P",
+  "text": "Now if this is your repository, you can merge your pull request by clicking the green “Merge pull request” button to merge the changes into master. Click “Confirm merge,” then delete the branch after your branch has been incorporated with the “Delete branch” button in the purple box.",
+  "translation": "现在，如果这是您的存储库，则可以通过单击绿色的“合并拉取请求”按钮来合并您的拉取请求，以将更改合并到主数据库中。 单击“确认合并”，然后在分支与紫色框中的“删除分支”按钮合并后删除分支。"
+}, {
+  "tag": "P",
+  "text": "If you’re contributing to a project, people on the team (or the reviewer) might have questions or comments. If you need to change something, this is the time! If everything is good to go, they can deploy the changes right from the branch for final testing before you merge it. And you can deploy your changes to verify them in production.",
+  "translation": "如果您为某个项目做贡献，那么团队（或审阅者）中的人可能会有疑问或意见。 如果您需要更改某些东西，这是时候了！ 如果一切顺利，他们可以在合并之前直接从分支机构部署更改以进行最终测试。 您可以部署更改以在生产中进行验证。"
+}, {
+  "tag": "P",
+  "text": "If your changes have been verified, you can go ahead and merge your code into the master branch. The pull requests will preserve a record of your changes, which means that you can go through them any time to understand the changes and decisions that have been made.",
+  "translation": "如果您的更改已通过验证，则可以继续并将代码合并到master分支中。 拉取请求将保留您的更改记录，这意味着您可以随时查看它们以了解所做的更改和做出的决定。"
+}, {
+  "tag": "H2",
+  "text": "Update and merge",
+  "translation": "更新和合并"
+}, {
+  "tag": "P",
+  "text": "If you’re working on your computer and want the most up-to-date version of a repository, you’d pull the changes down from GitHub with the git pull command. To update your local repository to the newest commit, run",
+  "translation": "如果您使用的是计算机，并且需要最新版本的存储库，则可以使用git pull命令从GitHub进行更改。 要将本地存储库更新为最新的提交，请运行"
+}, {
+  "tag": "PRE",
+  "text": "git pull ",
+  "translation": "git pull"
+}, {
+  "tag": "P",
+  "text": "in your working directory.",
+  "translation": "在您的工作目录中。"
+}, {
+  "tag": "P",
+  "text": "To merge another branch into your active branch, use",
+  "translation": "要将另一个分支合并到活动分支中，请使用"
+}, {
+  "tag": "PRE",
+  "text": "git merge <branch_name>",
+  "translation": "git merge <分支名称>"
+}, {
+  "tag": "P",
+  "text": "Git will try to auto-merge changes, but this isn’t always possible. Conflicts might arise. If they do, you’ll need to merge the conflicts manually. After changing them, you can mark them as merged with git add <filename>. You can preview your changes before you merge them with",
+  "translation": "Git会尝试自动合并更改，但这并不总是可能的。 可能会发生冲突。 如果是这样，则需要手动合并冲突。 更改它们后，您可以将它们标记为与git add <filename>合并。 您可以预览更改，然后再与之合并"
+}, {
+  "tag": "PRE",
+  "text": "git diff <source_branch> <target_branch>",
+  "translation": "git diff <源分支> <目标分支>"
+}, {
+  "tag": "P",
+  "text": "You can switch back to to the master branch with",
+  "translation": "您可以使用切换回主分支"
+}, {
+  "tag": "PRE",
+  "text": "git checkout master",
+  "translation": "git checkout主"
+}, {
+  "tag": "P",
+  "text": "You’ll make your changes and then delete the branch when you’re done with",
+  "translation": "完成后，您将进行更改，然后删除分支"
+}, {
+  "tag": "PRE",
+  "text": "git branch -d new_feature",
+  "translation": "git branch -d new_feature"
+}, {
+  "tag": "P",
+  "text": "This branch isn’t available to anyone else unless you push the branch to your remote repository with",
+  "translation": "除非您使用以下命令将该分支推送到远程存储库，否则其他任何人都无法使用此分支"
+}, {
+  "tag": "PRE",
+  "text": "git push origin <branch>",
+  "translation": "git push origin <分支>"
+}, {
+  "tag": "H2",
+  "text": "Other helpful commands",
+  "translation": "其他有用的命令"
+}, {
+  "tag": "P",
+  "text": "First of all, this is my favorite GitHub cheatsheet. Check it out for all of the most useful Git commands!",
+  "translation": "首先，这是我最喜欢的GitHub速查表。 查看所有最有用的Git命令！"
+}, {
+  "tag": "P",
+  "text": "You can see the commit history of the repository if you run",
+  "translation": "如果运行，则可以查看存储库的提交历史记录"
+}, {
+  "tag": "PRE",
+  "text": "git log ",
+  "translation": "git日志"
+}, {
+  "tag": "P",
+  "text": "You can see one person’s commits with",
+  "translation": "您可以看到一个人的提交"
+}, {
+  "tag": "PRE",
+  "text": "git log --author=<name> ",
+  "translation": "git log --author = <名称>"
+}, {
+  "tag": "P",
+  "text": "You can see what has been changed but not staged yet with",
+  "translation": "您可以看到已更改但尚未上演的内容"
+}, {
+  "tag": "PRE",
+  "text": "git diff",
+  "translation": "git diff"
+}, {
+  "tag": "P",
+  "text": "Need help remembering what command you’re supposed to run? Try",
+  "translation": "需要帮助记住您应该执行的命令吗？ 尝试"
+}, {
+  "tag": "PRE",
+  "text": "git help",
+  "translation": "git帮助"
+}, {
+  "tag": "P",
+  "text": "to see the 21 most common commands. You can also type something like",
+  "translation": "查看21个最常见的命令。 您也可以输入类似"
+}, {
+  "tag": "PRE",
+  "text": "git help clone ",
+  "translation": "git帮助克隆"
+}, {
+  "tag": "P",
+  "text": "to figure out how to use a specific command like “clone.”",
+  "translation": "找出如何使用“克隆”之类的特定命令。"
+}, {
+  "tag": "H2",
+  "text": "Let’s do this!",
+  "translation": "我们开工吧！"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/24/0*PtLPaJPif39ceAtW?q=20",
+  "caption": "Photo by Mervyn Chan on Unsplash",
+  "type": "image",
+  "file": "0!PtLPaJPif39ceAtW"
+}, {
+  "tag": "P",
+  "text": "Why not leave your mark and welcome everyone who’s here to learn about Git and GitHub? We’re going to create a simple welcome wall with notes from everyone who wants to try out Git and GitHub and contribute to their first open-source project.",
+  "translation": "为什么不留下您的印记，欢迎所有来这里学习Git和GitHub的人？ 我们将创建一个简单的欢迎墙，其中包含所有想尝试Git和GitHub并为他们的第一个开源项目做出贡献的人的笔记。"
+}, {
+  "tag": "P",
+  "text": "You can add whatever you want to the welcome wall, as long as you keep it warm and encouraging. Add a note, add an image, whatever. Make our little world better in whatever way makes you happy. (If you’re an overthinker (I see you ❤️), I have a pre-written message in the README file that you can just copy and paste.)",
+  "translation": "您可以在欢迎墙上添加任何想要的东西，只要保持温暖和令人鼓舞即可。 添加注释，添加图像，随便什么。 以任何使您快乐的方式改善我们的小世界。 （如果您太过思索（我看到了❤️），则README文件中预写了一条消息，您可以复制和粘贴该消息。）"
+}, {
+  "tag": "UL",
+  "texts": ["Clone the repository, either on the GitHub website or by running"],
+  "translations": ["通过GitHub网站或通过运行来克隆存储库"]
+}, {
+  "tag": "PRE",
+  "text": "git clone https://github.com/bonn0062/github_welcome_wall.git",
+  "translation": "git clone https://github.com/bonn0062/github_welcome_wall.git"
+}, {
+  "tag": "UL",
+  "texts": ["Create a new branch and add a welcoming and encouraging thought to the “welcome_wall.md” file. You can do this on the website, but I really encourage you to try cloning the repository to your computer, opening the file with your favorite text editor, and adding your message there. It’s just good learning!", "Create a pull request.", "Write a quick note describing your change and click the green button to create your pull request."],
+  "translations": ["创建一个新分支，并在“ welcome_wall.md”文件中添加一个欢迎和鼓励的想法。 您可以在网站上执行此操作，但我真的建议您尝试将存储库克隆到计算机，使用喜欢的文本编辑器打开文件，然后在其中添加消息。 很好的学习！", "创建一个拉取请求。", "写一个简短的说明来描述您的更改，然后单击绿色按钮创建您的拉取请求。"]
+}, {
+  "tag": "P",
+  "text": "That’s it! If it’s a decent message, thought, image, or idea, I’ll merge your request and you will have successfully contributed to an open-source project.",
+  "translation": "而已！ 如果这是一个不错的消息，想法，图像或想法，我将合并您的请求，您将成功地为一个开源项目做出贡献。"
+}, {
+  "tag": "P",
+  "text": "Congratulations!!! You did it!",
+  "translation": "恭喜！！！ 你做到了！"
+}, {
+  "tag": "FIGURE",
+  "type": "code"
+}, {
+  "tag": "P",
+  "text": "As always, if you do anything awesome with this information, I’d love to hear about it! Leave a message in the responses section or reach out any time on Twitter @annebonnerdata.",
+  "translation": "与往常一样，如果您对这些信息做得很出色，我很乐意听到！ 在回复部分留言或随时通过Twitter @annebonnerdata与我们联系。"
+}, {
+  "tag": "P",
+  "text": "Thanks for reading!",
+  "translation": "谢谢阅读！"
+}, {
+  "tag": "P",
+  "text": "If you want to reach out or find more cool articles, please come and join me at Content Simplicity!",
+  "translation": "如果您想接触更多有趣的文章，请来Content Simplicity加入我的行列！"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*1jxYgsOSEUFzbQzgkiTNKg.png?q=20",
+  "type": "image",
+  "file": "1!1jxYgsOSEUFzbQzgkiTNKg.png"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Anne Bonner的文章《Getting started with Git and GitHub: the complete beginner’s guide》，参考：https://towardsdatascience.com/getting-started-with-git-and-github-6fcd0f2d4ac6)",
+  "translation": "（本文翻译自Anne Bonner的文章《 Git和GitHub入门：完整的初学者指南》，参考：https：//towardsdatascience.com/getting-started-with-git-and-github-6fcd0f2d4ac6）"
+}]
