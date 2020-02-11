@@ -1,0 +1,668 @@
+[{
+  "tag": "H1",
+  "text": "Rock the Command Line",
+  "translation": "晃动命令行"
+}, {
+  "tag": "H2",
+  "text": "21 Bash commands to save you time",
+  "translation": "21条Bash命令为您节省时间"
+}, {
+  "tag": "P",
+  "text": "This article is a gentle introduction to Bash commands. Knowing how to move around the command line is an essential skill to save you time. We’ll hit 21 of the most common commands and their key flags. We’ll also cover Bash shortcuts to save you lots of keystrokes. ⌨️",
+  "translation": "本文是对Bash命令的简要介绍。 知道如何在命令行中移动是节省时间的一项基本技能。 我们将点击21个最常见的命令及其键标记。 我们还将介绍Bash快捷方式，以节省大量的击键。 ⌨️"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*hEujMVWgDFSMdc-JphhxgQ.jpeg?q=20",
+  "caption": "A shell",
+  "type": "image",
+  "file": "1!hEujMVWgDFSMdc-JphhxgQ.jpeg"
+}, {
+  "tag": "H2",
+  "text": "Terms",
+  "translation": "条款"
+}, {
+  "tag": "P",
+  "text": "The terms Unix, Linux, Bash, shell, command line, terminal, and shell scripting are distinct things, but they share the commands we’ll discuss. Here’s a quick breakdown of the differences and similarities.",
+  "translation": "Unix，Linux，Bash，shell，命令行，终端和Shell脚本这两个词是不同的东西，但是它们共享我们将讨论的命令。 这是差异和相似之处的快速细分。"
+}, {
+  "tag": "P",
+  "text": "Unix is a popular computer operating system developed by Bell Labs in the 1970s. It wasn’t open source.",
+  "translation": "Unix是由Bell Labs在1970年代开发的流行计算机操作系统。 它不是开源的。"
+}, {
+  "tag": "P",
+  "text": "Linux is the most popular Unix derivative. It runs a huge number of the computer-like devices in the world.",
+  "translation": "Linux是最流行的Unix衍生版本。 它运行着世界上大量的类似计算机的设备。"
+}, {
+  "tag": "P",
+  "text": "Your terminal is the emulator program that gives you access to the operating system. You can have multiple terminal windows open simultaneously.",
+  "translation": "您的终端是仿真器程序，可让您访问操作系统。 您可以同时打开多个终端窗口。"
+}, {
+  "tag": "P",
+  "text": "The shell language is used to send commands to the underlying operating system.",
+  "translation": "Shell语言用于将命令发送到底层操作系统。"
+}, {
+  "tag": "P",
+  "text": "Bash stands for Bourne Again SHell. It’s the most common shell language for communicating with the operating system. It’s also the default shell for macOS. To learn more about the open source foundations that support Linux and Bash, check out this article.",
+  "translation": "Bash代表Bourne Again SHell。 它是与操作系统通信的最常用的外壳语言。 它也是macOS的默认外壳。 要了解有关支持Linux和Bash的开源基础的更多信息，请查看本文。"
+}, {
+  "tag": "P",
+  "text": "The command line interface (CLI) refers to keyboard-input-based interface where you enter commands. Generally, it’s used for real-time information and file manipulation. Contrast the CLI with the graphical user interface (GUI) where the mouse is commonly used. The CLI is often referred to as the command line.",
+  "translation": "命令行界面（CLI）指的是您在其中输入命令的基于键盘输入的界面。 通常，它用于实时信息和文件操作。 将CLI与常用鼠标的图形用户界面（GUI）进行对比。 CLI通常称为命令行。"
+}, {
+  "tag": "P",
+  "text": "A script refers to a small program that contains a sequence of shell commands. Scripts are written to files and can be reused. You can create variables, conditional statements, loops, functions, and more in your scripts.",
+  "translation": "脚本是指包含一系列shell命令的小程序。 脚本被写入文件，并且可以重复使用。 您可以在脚本中创建变量，条件语句，循环，函数等。"
+}, {
+  "tag": "P",
+  "text": "Phew. Got that? The commands we discuss below apply to all the italicized terms above. I’ll use Bash, shell, and command line interchangeably.",
+  "translation": "ew 了解？ 我们下面讨论的命令适用于上面所有斜体字。 我将交替使用Bash，shell和命令行。"
+}, {
+  "tag": "P",
+  "text": "Another note: I use directory and folder interchangeably. Both terms mean the same thing.",
+  "translation": "另一个注意事项：我可以交替使用目录和文件夹。 这两个词是同一件事。"
+}, {
+  "tag": "P",
+  "text": "The standard input/output streams are standard input (stdin), standard output (stdout), and standard error (stderror). They’ll be popping up a bunch. When I use the term print, I mean print to stdout, not to a printer.",
+  "translation": "标准输入/输出流是标准输入（stdin），标准输出（stdout）和标准错误（stderror）。 他们会弹出一堆。 当我使用术语打印时，我的意思是打印到标准输出，而不是打印机。"
+}, {
+  "tag": "P",
+  "text": "Finally, replace the commands below prefixed with my_whatever with your whatever. 😄",
+  "translation": "最后，使用任何内容替换以下以my_whatever开头的命令。 😄"
+}, {
+  "tag": "P",
+  "text": "Without further ado, here’s the list of commands we’ll be covering in this article.",
+  "translation": "事不宜迟，这里是我们将在本文中介绍的命令列表。"
+}, {
+  "tag": "H1",
+  "text": "Top 21 Bash Commands",
+  "translation": "前21个Bash命令"
+}, {
+  "tag": "H2",
+  "text": "Get Info",
+  "translation": "获取信息"
+}, {
+  "tag": "P",
+  "text": "man: print manual (help) for a commandpwd: print working directoryls: list directory contentsps: view running processes",
+  "translation": "man：打印命令的手册（帮助）pwd：打印工作目录ls：列出目录内容ps：查看正在运行的进程"
+}, {
+  "tag": "H2",
+  "text": "Manipulate",
+  "translation": "操纵"
+}, {
+  "tag": "P",
+  "text": "cd: change working directorytouch: create a filemkdir: create a directorycp: copymv: move or renameln: link",
+  "translation": "cd：更改工作目录touch：创建文件mkdir：创建目录cp：copymv：移动或重命名ln：链接"
+}, {
+  "tag": "H2",
+  "text": "Redirect and Pipe",
+  "translation": "重定向和管道"
+}, {
+  "tag": "P",
+  "text": "<: redirect stdin>: redirect stdout|: pipe content of one command to the next command",
+  "translation": "<：重定向标准输入>：重定向标准输出|：将一个命令的内容传递给下一个命令"
+}, {
+  "tag": "H2",
+  "text": "Read",
+  "translation": "读"
+}, {
+  "tag": "P",
+  "text": "head: read the start of the filetail: read the end of the filecat: read a file or concatenate files",
+  "translation": "头：读取文件尾的开头：读取文件尾的结尾：读取文件或连接文件"
+}, {
+  "tag": "H2",
+  "text": "End",
+  "translation": "结束"
+}, {
+  "tag": "P",
+  "text": "rm: removekill: end a process",
+  "translation": "rm：removekill：结束进程"
+}, {
+  "tag": "H2",
+  "text": "Search",
+  "translation": "搜索"
+}, {
+  "tag": "P",
+  "text": "grep: searchag: search",
+  "translation": "grep：searchag：搜索"
+}, {
+  "tag": "H2",
+  "text": "Archive",
+  "translation": "封存"
+}, {
+  "tag": "P",
+  "text": "tar: join multiple files into one file",
+  "translation": "tar：将多个文件合并为一个文件"
+}, {
+  "tag": "P",
+  "text": "Let’s dig in!",
+  "translation": "让我们深入探讨！"
+}, {
+  "tag": "H1",
+  "text": "Top 21 Commands Explained",
+  "translation": "解释的前21条命令"
+}, {
+  "tag": "P",
+  "text": "First let’s look at the commands that return information in the form of stdout — which means standard output. Generally, stdout is written to your terminal.",
+  "translation": "首先，让我们看一下以stdout形式返回信息的命令，即标准输出。 通常，stdout会写入您的终端。"
+}, {
+  "tag": "H2",
+  "text": "Get Info",
+  "translation": "获取信息"
+}, {
+  "tag": "P",
+  "text": "man command_name: print the manual for a command. It’s like help.",
+  "translation": "man command_name：打印命令手册。 就像帮助一样。"
+}, {
+  "tag": "P",
+  "text": "pwd: print file path of the current working directory. You often need to know where you stand in your file system.",
+  "translation": "pwd：显示当前工作目录的文件路径。 您通常需要知道您在文件系统中的位置。"
+}, {
+  "tag": "P",
+  "text": "ls: list directory contents. Another super common command.",
+  "translation": "ls：列出目录内容。 另一个超级通用命令。"
+}, {
+  "tag": "P",
+  "text": "ls -a: also list hidden files with -a.",
+  "translation": "ls -a：还使用-a列出隐藏文件。"
+}, {
+  "tag": "P",
+  "text": "ls -l: see more info about your files with -l.",
+  "translation": "ls -l：使用-l查看有关文件的更多信息。"
+}, {
+  "tag": "P",
+  "text": "Note that flags can be combined like this: ls -al.",
+  "translation": "请注意，标志可以像这样组合：ls -al。"
+}, {
+  "tag": "P",
+  "text": "ps: view running processes.",
+  "translation": "ps：查看正在运行的进程。"
+}, {
+  "tag": "P",
+  "text": "ps -e: print all running processes, not just those associated with the current user’s shell with -e. This is generally what you want.",
+  "translation": "ps -e：使用-e打印所有正在运行的进程，而不仅仅是与当前用户的shell相关联的进程。 这通常是您想要的。"
+}, {
+  "tag": "H1",
+  "text": "Manipulate",
+  "translation": "操纵"
+}, {
+  "tag": "P",
+  "text": "cd my_directory: change working directory to my_directory. Use the relative path ../ for my_directory to move up one level in the directory tree.",
+  "translation": "cd my_directory：将工作目录更改为my_directory。 使用my.directory的相对路径../在目录树中上移一级。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*iVrZOA2PgmS3nGncwHINlg.png?q=20",
+  "caption": "CD",
+  "type": "image",
+  "file": "1!iVrZOA2PgmS3nGncwHINlg.png"
+}, {
+  "tag": "P",
+  "text": "touch my_file: create my_file at the specified path location.",
+  "translation": "触摸my_file：在指定路径位置创建my_file。"
+}, {
+  "tag": "P",
+  "text": "mkdir my_directory: create my_directory at the specified path location.",
+  "translation": "mkdir my_directory：在指定的路径位置创建my_directory。"
+}, {
+  "tag": "P",
+  "text": "mv my_file target_directory: move my_file to target_directory.",
+  "translation": "mv my_file target_directory：将my_file移到target_directory。"
+}, {
+  "tag": "P",
+  "text": "mv an also be used to rename a file or folder like this:",
+  "translation": "mv也可以用来重命名文件或文件夹，如下所示："
+}, {
+  "tag": "P",
+  "text": "mv my_old_file_name.jpg my_new_file_name.jpg",
+  "translation": "mv my_old_file_name.jpg my_new_file_name.jpg"
+}, {
+  "tag": "P",
+  "text": "cp my_source_file target_directory: make a copy of source_file and put it in target_directory.",
+  "translation": "cp my_source_file target_directory：复制source_file并将其放在target_directory中。"
+}, {
+  "tag": "P",
+  "text": "ln -s my_source_file my_target_file: link my_target_file to my_source_file with a symbolic link.",
+  "translation": "ln -s my_source_file my_target_file：使用符号链接将my_target_file链接到my_source_file。"
+}, {
+  "tag": "P",
+  "text": "When my_source_file’s contents are updated, my_target_file’s contents are automatically updated. If my_target_file’s contents are updated, then my_source_file’s contents are updated, too. Cool.",
+  "translation": "更新my_source_file的内容后，my_target_file的内容会自动更新。 如果my_target_file的内容已更新，则my_source_file的内容也将更新。 凉。"
+}, {
+  "tag": "P",
+  "text": "If my_source_file is deleted, then my_target_file’s contents are removed, but the file continues to exist. It’s just an empty file.",
+  "translation": "如果删除了my_source_file，则删除了my_target_file的内容，但该文件继续存在。 这只是一个空文件。"
+}, {
+  "tag": "P",
+  "text": "If my_target_file is deleted, my_source_file continues to exist with its contents intact.",
+  "translation": "如果删除了my_target_file，则my_source_file继续存在，其内容保持不变。"
+}, {
+  "tag": "P",
+  "text": "The -s flag allows you to link directories, too.",
+  "translation": "-s标志还允许您链接目录。"
+}, {
+  "tag": "P",
+  "text": "**Updated Apr. 12, 2019 to correct and clarify ln -s and mv behavior. Thank you to Jason Wallwork.**",
+  "translation": "**于2019年4月12日更新，以更正和阐明ln -s和mv行为。 感谢Jason Wallwork。**"
+}, {
+  "tag": "P",
+  "text": "Now let’s see how output redirects and pipes work.",
+  "translation": "现在，让我们看看输出重定向和管道的工作方式。"
+}, {
+  "tag": "H1",
+  "text": "Redirect and Pipe",
+  "translation": "重定向和管道"
+}, {
+  "tag": "P",
+  "text": "my_command < my_file: redirect stdin to my_file. Useful when my_command needs input from the user to do something.",
+  "translation": "my_command <my_file：将stdin重定向到my_file。 当my_command需要用户输入来执行某些操作时很有用。"
+}, {
+  "tag": "P",
+  "text": "my_text > my_file: redirect stdout to my_file. Creates my_file if it doesn’t exist. Overwrites my_file if it does exist.",
+  "translation": "my_text> my_file：将标准输出重定向到my_file。 创建my_file（如果不存在）。 如果my_file存在，则将其覆盖。"
+}, {
+  "tag": "P",
+  "text": "For example ls > my_folder_contents.txt creates a text file that lists the contents of your working directory.",
+  "translation": "例如，ls> my_folder_contents.txt创建一个列出您工作目录内容的文本文件。"
+}, {
+  "tag": "P",
+  "text": "Make it a double >> to append stdout to my_file instead of overwriting it.",
+  "translation": "将其添加为double >>，以将stdout附加到my_file而不是覆盖它。"
+}, {
+  "tag": "P",
+  "text": "Now let’s look at piping commands.",
+  "translation": "现在让我们看一下管道命令。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*ed7CFcR2MISZZHIMW2bvFg.jpeg?q=20",
+  "caption": "Pipe the result of one command to the other",
+  "type": "image",
+  "file": "1!ed7CFcR2MISZZHIMW2bvFg.jpeg"
+}, {
+  "tag": "P",
+  "text": "first_command | second_command: The pipe character | is used to send the result of one command to another command. The stdout from the command to the left of the pipe gets passed to the stdin of the command to the right of the pipe.",
+  "translation": "first_command | second_command：管道字符| 用于将一个命令的结果发送到另一命令。 管道左侧命令的标准输出传递到管道右侧命令的标准输入。"
+}, {
+  "tag": "P",
+  "text": "“Everything is a pipe” is a mantra in Unix — so most any valid command can be piped.",
+  "translation": "“一切都是管道”是Unix中的口头禅-因此，几乎所有有效命令都可以通过管道传输。"
+}, {
+  "tag": "P",
+  "text": "Chaining commands with pipes creates a pipeline. Multiple pipes can be chained together like this:",
+  "translation": "用管道链接命令可创建管道。 多个管道可以像这样链接在一起："
+}, {
+  "tag": "P",
+  "text": "first_command | second_command | third_command",
+  "translation": "first_command | second_command | third_command"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*ymhQUebmFrSzWiE9H3ny_w.jpeg?q=20",
+  "caption": "Pipeline",
+  "type": "image",
+  "file": "1!ymhQUebmFrSzWiE9H3ny_w.jpeg"
+}, {
+  "tag": "P",
+  "text": "Note that pipes execute all commands in parallel. This behavior occasionally leads to unexpected results. Read more here.",
+  "translation": "注意，管道并行执行所有命令。 此行为有时会导致意外结果。 在这里阅读更多。"
+}, {
+  "tag": "P",
+  "text": "Speaking of reading, let’s see how to do it from the command line.",
+  "translation": "说到阅读，让我们看看如何从命令行中进行阅读。"
+}, {
+  "tag": "H1",
+  "text": "Read",
+  "translation": "读"
+}, {
+  "tag": "P",
+  "text": "head my_file: read the first lines of my_file. Other stdin can be read, also.",
+  "translation": "头my_file：读取my_file的第一行。 其他标准输入也可以阅读。"
+}, {
+  "tag": "P",
+  "text": "tail my_file: read the last lines of my_file. Other stdin can be read, also.",
+  "translation": "tail my_file：读取my_file的最后几行。 其他标准输入也可以阅读。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*syqqB8pPudfiOExIXUX8MQ.jpeg?q=20",
+  "caption": "Head at the front, tail at the back.",
+  "type": "image",
+  "file": "1!syqqB8pPudfiOExIXUX8MQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "If you’re a data scientist who uses pandas, then those last two commands should sound familiar. If not, head and tail are metaphors that map well, so they shouldn’t be too tricky to remember.",
+  "translation": "如果您是使用熊猫的数据科学家，那么后两个命令应该听起来很熟悉。 如果不是这样，头和尾巴就是很好地映射的隐喻，因此它们应该不会太难于记住。"
+}, {
+  "tag": "P",
+  "text": "Let’s see another way to read files.",
+  "translation": "让我们看看另一种读取文件的方法。"
+}, {
+  "tag": "P",
+  "text": "cat either prints a file or concatenates multiple files, depending upon the number of files passed.",
+  "translation": "cat可以打印文件，也可以串联多个文件，具体取决于传递的文件数。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*LdRstbkNE3zag69nCWy1ZA.jpeg?q=20",
+  "caption": "cat",
+  "type": "image",
+  "file": "1!LdRstbkNE3zag69nCWy1ZA.jpeg"
+}, {
+  "tag": "P",
+  "text": "cat my_one_file.txt: with one file, cat prints the contents to stdout.",
+  "translation": "cat my_one_file.txt：cat使用一个文件将内容打印到stdout。"
+}, {
+  "tag": "P",
+  "text": "The cat command acts differently when you give it two or more files.",
+  "translation": "当您给它两个或多个文件时，cat命令的行为有所不同。"
+}, {
+  "tag": "P",
+  "text": "cat my_file1.txt my_file2.txt: with two or more files, cat concatenate the contents of the file together and prints the output to stdout.",
+  "translation": "cat my_file1.txt my_file2.txt：包含两个或更多文件，cat将文件内容串联在一起，并将输出打印到stdout。"
+}, {
+  "tag": "P",
+  "text": "If you want to save the concatenated files as a new file use the > write operator like so:",
+  "translation": "如果要将串联的文件另存为新文件，请使用>写运算符，如下所示："
+}, {
+  "tag": "P",
+  "text": "cat my_file1.txt my_file2.txt > my_new_file.txt",
+  "translation": "猫my_file1.txt my_file2.txt> my_new_file.txt"
+}, {
+  "tag": "P",
+  "text": "Now let’s check out removing and ending things.",
+  "translation": "现在，我们来看看删除和结束内容。"
+}, {
+  "tag": "H1",
+  "text": "End",
+  "translation": "结束"
+}, {
+  "tag": "P",
+  "text": "rm my_file: remove my_file from your file system.",
+  "translation": "rm my_file：从文件系统中删除my_file。"
+}, {
+  "tag": "P",
+  "text": "rm -r my_folder: remove my_folder and all files and subfolders in my_folder. -r is for recursive.",
+  "translation": "rm -r my_folder：删除my_folder以及my_folder中的所有文件和子文件夹。 -r用于递归。"
+}, {
+  "tag": "P",
+  "text": "Add -f if you don’t want a confirmation prompt for each deletion.",
+  "translation": "如果您不想每次删除都提示确认，请添加-f。"
+}, {
+  "tag": "P",
+  "text": "kill 012345: end the specified running process gracefully by giving it time to shut down.",
+  "translation": "杀死012345：通过给其时间关闭来正常结束指定的运行进程。"
+}, {
+  "tag": "P",
+  "text": "kill -9 012345: forcibly end the specified running process right away. -s SIGKILL means that same thing as -9.",
+  "translation": "kill -9 012345：立即结束指定的运行进程。 -s SIGKILL表示与-9相同。"
+}, {
+  "tag": "H1",
+  "text": "Search",
+  "translation": "搜索"
+}, {
+  "tag": "P",
+  "text": "The next few commands — grep, ag, and ack — are for searching. Grep is the old, trusty sibling — reliable but slower and slightly less user-friendly.",
+  "translation": "接下来的几个命令-grep，ag和ack-用于搜索。 Grep是古老的，可信赖的同级产品-可靠，但速度较慢，并且用户友好性稍差。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*flbWVSAFDPTVrD5WdHKb0A.jpeg?q=20",
+  "caption": "Get a grep!",
+  "type": "image",
+  "file": "1!flbWVSAFDPTVrD5WdHKb0A.jpeg"
+}, {
+  "tag": "P",
+  "text": "grep my_regex my_file: search for my_term in my_file. Returns the whole line of the file for each match. my_term is a regular expression by default.",
+  "translation": "grep my_regex my_file：在my_file中搜索my_term。 返回每次匹配文件的整行。 my_term默认为正则表达式。"
+}, {
+  "tag": "P",
+  "text": "grep -i my_regex my_file: -i makes the search case insensitive.",
+  "translation": "grep -i my_regex my_file：-i使搜索不区分大小写。"
+}, {
+  "tag": "P",
+  "text": "grep -v my_regex my_file: return all lines that don’t contain my_term. -v returns the inverse, like not in many languages.",
+  "translation": "grep -v my_regex my_file：返回所有不包含my_term的行。 -v返回反函数，就像许多语言一样。"
+}, {
+  "tag": "P",
+  "text": "grep -c my_regex my_file: return a count of how many times a match is found with -c.",
+  "translation": "grep -c my_regex my_file：返回与-c匹配的次数的计数。"
+}, {
+  "tag": "P",
+  "text": "grep -R my_regex my_folder: recursively search all files in the folder and all subfolders with -R.",
+  "translation": "grep -R my_regex my_folder：用-R递归搜索文件夹中的所有文件和所有子文件夹。"
+}, {
+  "tag": "P",
+  "text": "Now let’s turn to Ag — grep’s younger, faster, better-looking sibling.",
+  "translation": "现在我们来谈谈Ag-grep的年轻，更快，外观更好的兄弟姐妹。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Of3oebtQ-3Gp4-GVEmMLKw.jpeg?q=20",
+  "caption": "Get it?",
+  "type": "image",
+  "file": "1!Of3oebtQ-3Gp4-GVEmMLKw.jpeg"
+}, {
+  "tag": "P",
+  "text": "If you run the commands below and find you don’t have ag on your machine, see installation instructions here. On a Mac with homebrew just run brew install the_silver_searcher. (Updated Aug. 2019).",
+  "translation": "如果您运行以下命令，但发现计算机上没有Ag，请参见此处的安装说明。 在使用自制软件的Mac上，只需运行brew install the_silver_searcher。 （2019年8月更新）。"
+}, {
+  "tag": "P",
+  "text": "ag my_regex my_file: returns the line number and the line with any matches.",
+  "translation": "ag my_regex my_file：返回行号和任何匹配的行。"
+}, {
+  "tag": "P",
+  "text": "ag -i my_regex my_file: -i for case insensitive .",
+  "translation": "ag -i my_regex my_file：-i用于不区分大小写。"
+}, {
+  "tag": "P",
+  "text": "Ag automatically reads your .gitignore file and excludes results from any matching files or folders. Pretty cool!",
+  "translation": "Ag自动读取您的.gitignore文件，并从任何匹配的文件或文件夹中排除结果。 太酷了！"
+}, {
+  "tag": "P",
+  "text": "ag my_regex my_file –skip-vcs-ignores: override the automatic version control system file reading with –skip-vcs-ignores.",
+  "translation": "ag my_regex my_file –skip-vcs-ignores：使用–skip-vcs-ignores覆盖自动版本控制系统文件读取。"
+}, {
+  "tag": "P",
+  "text": "You can also make a .agignore file to exclude file paths from Ag.",
+  "translation": "您还可以制作一个.agignore文件，以从Ag中排除文件路径。"
+}, {
+  "tag": "P",
+  "text": "The third sibling is Ack. Ag and Ack are nearly identical twins — they are 99% interchangeable. Ag is faster, so I’d stick with it."
+}, {
+  "tag": "H1",
+  "text": "Archive",
+  "translation": "封存"
+}, {
+  "tag": "P",
+  "text": "Now let’s look at making tarball archives.",
+  "translation": "现在，让我们看看制作tarball存档。"
+}, {
+  "tag": "P",
+  "text": "tar my_source_directory: join multiple files in a source directory into one tarball file. This command is useful for distributing files that others will download.",
+  "translation": "tar my_source_directory：将源目录中的多个文件合并为一个tarball文件。 此命令对于分发其他人将下载的文件很有用。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*AztHC6gnuBq4nW6P0stmtA.jpeg?q=20",
+  "caption": "tar",
+  "type": "image",
+  "file": "1!AztHC6gnuBq4nW6P0stmtA.jpeg"
+}, {
+  "tag": "P",
+  "text": "A tarball has .tar file extension, which stands for Tape ARchive. Tape tells you something about how old this command is!",
+  "translation": "压缩文件的扩展名为.tar，代表Tape ARchive。 Tape告诉您有关此命令的年龄！"
+}, {
+  "tag": "P",
+  "text": "tar -cf my_file.tar my_source_directory: create a tarball file named my_file.tar with the contents of my_source_directory. -c is for create and -f is for file.",
+  "translation": "tar -cf my_file.tar my_source_directory：使用my_source_directory的内容创建一个名为my_file.tar的tarball文件。 -c用于创建，-f用于文件。"
+}, {
+  "tag": "P",
+  "text": "Extract a tar file with -xf. -x is for extract and -f is for file.",
+  "translation": "使用-xf提取tar文件。 -x用于提取，-f用于文件。"
+}, {
+  "tag": "P",
+  "text": "tar -xf my_file.tar expands the files in my_file.tar into the current working directory.",
+  "translation": "tar -xf my_file.tar将my_file.tar中的文件扩展到当前工作目录。"
+}, {
+  "tag": "P",
+  "text": "Now let’s look at zipping and unzipping .tar files.",
+  "translation": "现在，让我们看一下.tar文件的压缩和解压缩。"
+}, {
+  "tag": "P",
+  "text": "tar -cfz my_file.tar.gz my_source_directory uses gzip to compress the the files. -c for create, -f for file, and -z for zip. Gzip saves space and download time for consumers of your file.",
+  "translation": "tar -cfz my_file.tar.gz my_source_directory使用gzip压缩文件。 -c代表创建，-f代表文件，-z代表zip。 Gzip为文件的使用者节省了空间和下载时间。"
+}, {
+  "tag": "P",
+  "text": "Unzip a .tar.gz file by adding the-z flag to the extraction command we saw earlier.",
+  "translation": "通过将-z标志添加到我们之前看到的提取命令中，解压缩.tar.gz文件。"
+}, {
+  "tag": "P",
+  "text": "tar -xfz my_file.tar.gz. -x for extract, -f for file, -z for zip.",
+  "translation": "tar -xfz my_file.tar.gz。 -x代表解压缩，-f代表文件，-z代表zip。"
+}, {
+  "tag": "P",
+  "text": "tar has many other flags you can use.",
+  "translation": "tar还有许多其他标志可以使用。"
+}, {
+  "tag": "H1",
+  "text": "Bash Aliases",
+  "translation": "重击别名"
+}, {
+  "tag": "P",
+  "text": "Make Bash aliases to save you keystrokes in the terminal. Then you can do things like type bu instead of python setup.py sdist bdist_wheel.",
+  "translation": "设置Bash别名可将您的按键保存在终端中。 然后，您可以执行类似bu而不是python setup.py sdist bdist_wheel的操作。"
+}, {
+  "tag": "P",
+  "text": "Just add the following line to your ~/.bash_profile:",
+  "translation": "只需将以下行添加到您的〜/ .bash_profile中："
+}, {
+  "tag": "P",
+  "text": "alias bu=\"python setup.py sdist bdist_wheel\"",
+  "translation": "别名bu =“ python setup.py sdist bdist_wheel”"
+}, {
+  "tag": "P",
+  "text": "If you don’t have a ~/.bash_profile file you can create one from your command line with the touch command.",
+  "translation": "如果您没有〜/ .bash_profile文件，则可以使用touch命令在命令行中创建一个文件。"
+}, {
+  "tag": "P",
+  "text": "Then restart your terminal and use two keystrokes to build your Python package. Nothing like typing 2 letters instead of 44. 😃",
+  "translation": "然后重新启动终端，并使用两次击键来构建Python包。 就像输入2个字母而不是44个字母一样。"
+}, {
+  "tag": "P",
+  "text": "Add whatever other aliases you like and watch your productivity grow. 🌴",
+  "translation": "添加您喜欢的任何其他别名，并观察您的生产率提高。 🌴"
+}, {
+  "tag": "P",
+  "text": "Let’s review what we’ve covered.",
+  "translation": "让我们回顾一下我们所涵盖的内容。"
+}, {
+  "tag": "H1",
+  "text": "Recap: Top 21 Bash Commands",
+  "translation": "回顾：前21个Bash命令"
+}, {
+  "tag": "H2",
+  "text": "Get Info",
+  "translation": "获取信息"
+}, {
+  "tag": "P",
+  "text": "man: print manual (help) for a commandpwd: print working directoryls: list directory contentsps: view running processes",
+  "translation": "man：为命令打印手册（帮助）pwd：打印工作目录ls：列出目录内容ps：查看正在运行的进程"
+}, {
+  "tag": "H2",
+  "text": "Manipulate",
+  "translation": "操纵"
+}, {
+  "tag": "P",
+  "text": "cd: change working directorytouch: create a filemkdir: create a directorycp: copymv: move or renameln: link",
+  "translation": "cd：更改工作目录touch：创建文件mkdir：创建目录cp：copymv：移动或重命名ln：链接"
+}, {
+  "tag": "H2",
+  "text": "Redirect and Pipe",
+  "translation": "重定向和管道"
+}, {
+  "tag": "P",
+  "text": "<: redirect stdin>: redirect stdout|: pipe content of one command to the next command",
+  "translation": "<：重定向标准输入>：重定向标准输出|：将一个命令的内容传递给下一个命令"
+}, {
+  "tag": "H2",
+  "text": "Read",
+  "translation": "读"
+}, {
+  "tag": "P",
+  "text": "head: read the start of the filetail: read the end of the filecat: read a file or concatenate files",
+  "translation": "头：读取文件尾的开始：读取文件尾的通知：读取文件或连接文件"
+}, {
+  "tag": "H2",
+  "text": "End",
+  "translation": "结束"
+}, {
+  "tag": "P",
+  "text": "rm: removekill: end a process",
+  "translation": "rm：removekill：结束进程"
+}, {
+  "tag": "H2",
+  "text": "Search",
+  "translation": "搜索"
+}, {
+  "tag": "P",
+  "text": "grep: searchag: search",
+  "translation": "grep：searchag：搜索"
+}, {
+  "tag": "H2",
+  "text": "Archive",
+  "translation": "封存"
+}, {
+  "tag": "P",
+  "text": "tar: join multiple files into one file",
+  "translation": "tar：将多个文件合并为一个文件"
+}, {
+  "tag": "H1",
+  "text": "Wrap",
+  "translation": "包裹"
+}, {
+  "tag": "P",
+  "text": "In this article you’ve seen 21 of the most common shell commands. If you have another one you think should make the list, let me know on Twitter @discdiver.",
+  "translation": "在本文中，您已经看到了21种最常见的Shell命令。 如果您认为应该列出另一个列表，请在Twitter @discdiver上告诉我。"
+}, {
+  "tag": "P",
+  "text": "You’ve also seen how to create Bash aliases to save you time.",
+  "translation": "您还了解了如何创建Bash别名以节省时间。"
+}, {
+  "tag": "P",
+  "text": "Here are a few resources if you want to go deeper:",
+  "translation": "如果您想进一步了解以下资源："
+}, {
+  "tag": "UL",
+  "texts": ["Conquering the Command Line is a great free e-book by Mark Bates."],
+  "translations": ["征服命令行是Mark Bates撰写的一本很棒的免费电子书。"]
+}, {
+  "tag": "H2",
+  "text": "Conquering the Command Line",
+  "translation": "征服命令行"
+}, {
+  "tag": "H3",
+  "text": "Learn to master and conquer the most valuable and useful command line tools for Unix and Linux based systems. In this…",
+  "translation": "学习掌握和征服基于Unix和Linux的系统中最有价值和最有用的命令行工具。 在这…"
+}, {
+  "tag": "UL",
+  "texts": ["The official Bash docs from gnu.org are here.", "Sed and Awk sound like two brothers, but they are actually text processing utilities that often seen in Bash. Learn more about them here.", "cURL — pronounce “curl” — is used to transfer data with URLs and test servers. Learn more here.", "If you want to learn how to put these commands and other Bash code into scripts, here’s a good guide.", "Here’s a big cheat sheet for Bash scripting."],
+  "translations": ["来自gnu.org的官方Bash文档在这里。", "Sed和Awk听起来像两个兄弟，但实际上它们是文本处理实用程序，经常在Bash中看到。 在此处了解有关它们的更多信息。", "cURL（发音为“ curl”）用于通过URL和测试服务器传输数据。 在这里了解更多。", "这是Bash脚本编写的重要备忘单。"]
+}, {
+  "tag": "P",
+  "text": "Like any language, learning Bash takes practice. Use it to increase your productivity and have fun teaching it to someone else. 😄",
+  "translation": "像任何一种语言一样，学习Bash需要实践。 使用它可以提高您的生产力，并乐于将其教给其他人。 😄"
+}, {
+  "tag": "P",
+  "text": "I write about how to use programming and data science tools like Docker, Git, and Python. If that’s of interest to you, read more here and follow me on Medium. 👏",
+  "translation": "我写了有关如何使用编程和数据科学工具（如Docker，Git和Python）的文章。 如果您对此感兴趣，请在此处阅读更多内容，并在Medium上关注我。 👏"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/proxy/1*oPkqiu1rrt-hC_lDMK-jQg.png",
+  "type": "image",
+  "file": "909c4f98-4252-4de3-b9fa-81942c295aca"
+}, {
+  "tag": "P",
+  "text": "Happy shelling!",
+  "translation": "炮击快乐！"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*vSTJnIUXTfjYp_FTdV6AKA.jpeg?q=20",
+  "type": "image",
+  "file": "1!vSTJnIUXTfjYp_FTdV6AKA.jpeg"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Jeff Hale的文章《Rock the Command Line》，参考：https://towardsdatascience.com/rock-the-command-line-52c4b2ea34b7)",
+  "translation": "（本文翻译自Jeff Hale的文章《 Rock the Command Line》，参考：https：//towardsdatascience.com/rock-the-command-line-52c4b2ea34b7）"
+}]
