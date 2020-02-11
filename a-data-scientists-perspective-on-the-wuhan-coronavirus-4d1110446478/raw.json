@@ -1,0 +1,316 @@
+[{
+  "tag": "H1",
+  "text": "A Data Scientist’s Perspective on the Coronavirus Outbreak",
+  "translation": "数据科学家对冠状病毒爆发的看法"
+}, {
+  "tag": "H2",
+  "text": "An EDA on the coronavirus dataset by John Hopkins University.",
+  "translation": "John Hopkins University对冠状病毒数据集的EDA。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/23/1*O0ui7s0zQ1RrINMc5iZfmw.jpeg?q=20",
+  "caption": "Photo by CDC on Unsplash",
+  "type": "image",
+  "file": "1!O0ui7s0zQ1RrINMc5iZfmw.jpeg"
+}, {
+  "tag": "P",
+  "text": "A virus that was first reported in the Chinese city of Wuhan, has now spread to more than a dozen countries across the world, sparking an unprecedented health and economic crisis.",
+  "translation": "该病毒最早在中国武汉市被报道，现已传播到全球十几个国家，引发了前所未有的健康和经济危机。"
+}, {
+  "tag": "P",
+  "text": "The World Health Organization (WHO) has declared the outbreak of the Wuhan coronavirus “a public health emergency of international concern”.",
+  "translation": "世界卫生组织（WHO）宣布武汉冠状病毒的爆发是“国际关注的突发公共卫生事件”。"
+}, {
+  "tag": "P",
+  "text": "In this article, we shall take a brief look at the current crisis and then dive deeper into Kaggle’s “Novel Corona Virus 2019 Dataset”. I also have created a GitHub repository for anyone who would like to recreate the steps and add their own insights.",
+  "translation": "在本文中，我们将简要介绍当前的危机，然后更深入地了解Kaggle的“新型Corona病毒2019数据集”。 我还为想要重新创建步骤并添加自己的见解的任何人创建了GitHub存储库。"
+}, {
+  "tag": "H1",
+  "text": "What is a coronavirus?",
+  "translation": "什么是冠状病毒？"
+}, {
+  "tag": "P",
+  "text": "According to the WHO, coronaviruses (CoV) are a large family of viruses that cause illness ranging from the common cold to more severe diseases such as Middle East Respiratory Syndrome (MERS-CoV) and Severe Acute Respiratory Syndrome (SARS-CoV).",
+  "translation": "根据WHO的说法，冠状病毒（CoV）是一大类病毒，其致病范围从普通感冒到更严重的疾病，例如中东呼吸综合症（MERS-CoV）和严重急性呼吸系统综合症（SARS-CoV）。"
+}, {
+  "tag": "P",
+  "text": "A novel coronavirus (nCoV) is a new strain that has not been previously identified in humans. The virus identified as the cause of the recent outbreak is being referred to as 2019-nCoV or Wuhan coronavirus.",
+  "translation": "新型冠状病毒（nCoV）是一种以前在人类中尚未发现的新菌株。 被确定为近期爆发原因的病毒被称为2019-nCoV或武汉冠状病毒。"
+}, {
+  "tag": "H1",
+  "text": "The crisis, as of today",
+  "translation": "截至今天的危机"
+}, {
+  "tag": "P",
+  "text": "According to the latest report by the New York Times, “the number of confirmed infections rose to 37,198” and “death toll in China has risen to 811, surpassing the death toll from the SARS epidemic.”",
+  "translation": "根据《纽约时报》的最新报道，“已确诊的感染人数上升到37,198人，并且”中国的死亡人数已经上升到811人，超过了SARS流行造成的死亡人数。”"
+}, {
+  "tag": "P",
+  "text": "Sixteen cities in China, with a combined population of more than 50 million people, are on lockdown. Airlines across the globe have cancelled flights to and from China. Some countries are evacuating their citizens on special flights and further putting them under strict quarantine.",
+  "translation": "中国共有16个城市，总人口超过5000万人，目前处于封锁状态。 全球各地的航空公司都取消了往返中国的航班。 一些国家正在通过特殊航班撤离其公民，并进一步对其进行严格检疫。"
+}, {
+  "tag": "P",
+  "text": "To make matters worse, stock markets have plunged in China and markets across the world are feeling the effects. Some analysts predict that the outbreak presents a threat to the global economy and it has the potential to trigger far-reaching geopolitical consequences.",
+  "translation": "更糟的是，中国的股市暴跌，世界各地的市场都在感受到这种影响。 一些分析家预测，疫情对全球经济构成威胁，并有可能引发深远的地缘政治后果。"
+}, {
+  "tag": "H1",
+  "text": "An introduction to the dataset",
+  "translation": "数据集简介"
+}, {
+  "tag": "P",
+  "text": "The “Novel Corona Virus 2019 Dataset”, published on Kaggle, has been collected by the John Hopkins University. The team has collected the data from various sources like WHO, local CDC and media outlets. They have also created a real-time dashboard to monitor the spread of the virus.`",
+  "translation": "由约翰·霍普金斯大学（John Hopkins University）收集了在Kaggle上发布的“ Novel Corona Virus 2019 Dataset”。 该小组已从世界卫生组织，地方疾病预防控制中心和媒体等各种来源收集了数据。 他们还创建了一个实时仪表板来监视病毒的传播。"
+}, {
+  "tag": "P",
+  "text": "Disclaimer : Please note that the dataset is not being updated, so observations recorded below might not be a true reflection of the current scenario.",
+  "translation": "免责声明：请注意，数据集尚未更新，因此下面记录的观察结果可能无法真实反映当前情况。"
+}, {
+  "tag": "H1",
+  "text": "Importing libraries and loading the data",
+  "translation": "导入库并加载数据"
+}, {
+  "tag": "PRE",
+  "text": "import numpy as npimport pandas as pdimport matplotlib.pyplot as pltimport seaborn as sns#reading data from the csv filedata= pd.read_csv(\"/kaggle/input/novel-corona-virus-2019-dataset/2019_nCoV_data.csv\")",
+  "translation": "导入numpy作为np导入熊猫作为pd导入matplotlib.pyplot作为plt导入seaborn作为sns＃从csv filedata = pd.read_csv（“ / kaggle / input / novel-corona-virus-2019-dataset / 2019_nCoV_data.csv”）读取数据"
+}, {
+  "tag": "H1",
+  "text": "Understanding the dataset",
+  "translation": "了解数据集"
+}, {
+  "tag": "P",
+  "text": "Let us first get a basic understanding of the dataset and perform data cleaning operations, if necessary.",
+  "translation": "首先让我们对数据集有一个基本的了解，并在必要时执行数据清理操作。"
+}, {
+  "tag": "PRE",
+  "text": "#checking the number of rows and columnsdata.shape",
+  "translation": "＃检查行数和列数data.shape"
+}, {
+  "tag": "P",
+  "text": "Output: (770, 8). There are 770 observations and 8 columns in the dataset.",
+  "translation": "输出：（770，8）。 数据集中有770个观测值和8列。"
+}, {
+  "tag": "PRE",
+  "text": "#checking the top 5 rowsdata.head()",
+  "translation": "＃检查前5行data.head（）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*SQX8rKnjSTWoFNW7HbGlsA.png?q=20",
+  "type": "image",
+  "file": "1!SQX8rKnjSTWoFNW7HbGlsA.png"
+}, {
+  "tag": "P",
+  "text": "The names of the columns are self-explanatory. The first column ‘Sno’ looks like a row number and doesn’t add any value to the analysis. The fifth column ‘Last Update’ shows the same value as the ‘Date’ column except for a few cases where the numbers were updated later. Let’s remove these two columns before proceeding.",
+  "translation": "列的名称不言自明。 第一列“ Sno”看起来像行号，不会为分析添加任何值。 第五列“最新更新”显示的值与“日期”列相同，但少数情况下数字会在以后更新。 让我们在继续操作之前删除这两列。"
+}, {
+  "tag": "PRE",
+  "text": "#dropping the 1st and 5th columndata.drop(\"Sno\", axis=1, inplace=True)data.drop(\"Last Update\", axis=1, inplace=True)#getting a summary of the columnsdata.info()",
+  "translation": "＃删除第一个和第五个columndata.drop（“ Sno”，axis = 1，inplace = True）data.drop（“ Last Update”，axis = 1，inplace = True）＃获取columndata.info（）的摘要"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*H57HbIoicg4_PjGq-_F4Yg.png?q=20",
+  "type": "image",
+  "file": "1!H57HbIoicg4_PjGq-_F4Yg.png"
+}, {
+  "tag": "P",
+  "text": "Except for ‘Province/State’, none of the columns have null values. Further analysis shows that names of provinces are missing for countries like the UK, France and India. In this case, we cannot assume or fill missing values from any master list. Let’s move on to the numeric columns.",
+  "translation": "除“省/州”外，所有列均没有空值。 进一步的分析表明，英国，法国和印度等国家/地区缺少省名。 在这种情况下，我们无法假设或填充任何主列表中的缺失值。 让我们继续到数字列。"
+}, {
+  "tag": "PRE",
+  "text": "data.describe()",
+  "translation": "data.describe（）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*I-3-TB_BTLZw7oOFDYzwhA.png?q=20",
+  "type": "image",
+  "file": "1!I-3-TB_BTLZw7oOFDYzwhA.png"
+}, {
+  "tag": "P",
+  "text": "The describe() method returns the general stats of the numeric columns in the dataframe.",
+  "translation": "describe（）方法返回数据框中数字列的常规状态。"
+}, {
+  "tag": "P",
+  "text": "An immediate conclusion from the output is that the data has been reported cumulatively, i.e. the number of cases reported on any particular day includes the cases reported previously. The ‘max’ value for deaths is 479 which is consistent with media reports a few days ago (when this data was published).",
+  "translation": "从输出中直接得出的结论是，该数据已被累计报告，即在任何特定日期报告的病例数都包括先前报告的病例。 死亡的“最大值”值为479，与几天前的媒体报道（该数据发布时）一致。"
+}, {
+  "tag": "PRE",
+  "text": "#checking for duplicate rowsduplicate_rows=data.duplicated(['Country','Province/State','Date'])data[duplicate_rows]",
+  "translation": "＃检查重复的行duplicate_rows = data.duplicated（['Country'，'Province / State'，'Date']）data [duplicate_rows]"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*LaCNhVTBh52N8NzViFIFEQ.png?q=20",
+  "type": "image",
+  "file": "1!LaCNhVTBh52N8NzViFIFEQ.png"
+}, {
+  "tag": "P",
+  "text": "The duplicated() method returns a boolean series which is then used as a mask on the original dataframe. The output shows that no two records have the same country, state and date. So we can conclude that all observations in the dataset are unique.",
+  "translation": "plicated（）方法返回一个布尔序列，然后将其用作原始数据帧上的掩码。 输出显示没有两个记录具有相同的国家，州和日期。 因此，我们可以得出结论，数据集中的所有观测值都是唯一的。"
+}, {
+  "tag": "PRE",
+  "text": "#listing all the countries where the virus has spread tocountry_list=list(data['Country'].unique())print(country_list)print(len(country_list))",
+  "translation": "＃列出病毒已传播到的所有国家/地区country_list = list（data ['Country']。unique（））print（country_list）print（len（country_list））"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*_UqnyjUeHXtaSQyIo6hqlw.png?q=20",
+  "type": "image",
+  "file": "1!_UqnyjUeHXtaSQyIo6hqlw.png"
+}, {
+  "tag": "P",
+  "text": "The data shows that the virus has spread to 32 countries across Asia, Europe and America. For the purpose of this analysis, we can merge data for ‘China’ and ‘Mainland China’.",
+  "translation": "数据显示，该病毒已传播到亚洲，欧洲和美洲的32个国家。 为了进行分析，我们可以合并“中国”和“中国内地”的数据。"
+}, {
+  "tag": "PRE",
+  "text": "#merging China and Mainland Chinadata.loc[data['Country']=='Mainland China','Country']='China'",
+  "translation": "#merging中国和中国内地data.loc [data ['Country'] =='Mainland China'，'Country'] ='China'"
+}, {
+  "tag": "P",
+  "text": "Before moving ahead, let us check the dates in the ‘Date’ column.",
+  "translation": "在继续之前，让我们检查“日期”列中的日期。"
+}, {
+  "tag": "PRE",
+  "text": "print(list(data['Date'].unique()))print(len(list(data['Date'].unique())))",
+  "translation": "print（list（data（'Date']。unique（）））print（len（list（data ['Date']。unique（））））"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*5gO7fwYlax9J7UF9twV_eg.png?q=20",
+  "type": "image",
+  "file": "1!5gO7fwYlax9J7UF9twV_eg.png"
+}, {
+  "tag": "P",
+  "text": "It looks like the data has been updated at different times each day. We can extract the dates from the timestamp and use them for further analysis. This will help us to keep the dates uniform.",
+  "translation": "数据似乎每天都在不同的时间进行更新。 我们可以从时间戳中提取日期，并将其用于进一步分析。 这将有助于我们保持日期一致。"
+}, {
+  "tag": "PRE",
+  "text": "#converting 'Date' column to datetime objectdata['Date'] = pd.to_datetime(data['Date'])#extracting dates from timestampsdata['Date_date']=data['Date'].apply(lambda x:x.date())",
+  "translation": "＃将'Date'列转换为datetime objectdata ['Date'] = pd.to_datetime（data ['Date']）＃从timestampsdata ['Date_date'] = data ['Date']中提取日期。apply（lambda x：x 。日期（））"
+}, {
+  "tag": "P",
+  "text": "Let’s get a sense of the impact of the outbreak on each country.",
+  "translation": "让我们大致了解一下这次爆发对每个国家/地区的影响。"
+}, {
+  "tag": "PRE",
+  "text": "#getting the total number of confirmed cases for each countrydf_country=data.groupby(['Country']).max().reset_index(drop=None)print(df_country[['Country','Confirmed','Deaths','Recovered']])",
+  "translation": "＃获取每个国家/地区的确诊病例总数df_country = data.groupby（['Country']）。max（）。reset_index（drop = None）print（df_country [['Country'，'Confirmed'，'Deaths'， '已恢复']]）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/22/1*AW6KiFS0DXFxNxaGTRJbAw.png?q=20",
+  "type": "image",
+  "file": "1!AW6KiFS0DXFxNxaGTRJbAw.png"
+}, {
+  "tag": "P",
+  "text": "Since the data is cumulative, we need to use the max() function with groupby() in order to get the maximum number of reported cases for each country. If we use sum(), we will be double counting.",
+  "translation": "由于数据是累积数据，因此我们需要将max（）函数与groupby（）结合使用，以获取每个国家/地区报告的最大病例数。 如果使用sum（），我们将进行重复计数。"
+}, {
+  "tag": "P",
+  "text": "The data confirms that China has the most number of reported cases and nearly all of the 481 deaths so far. On a more positive note, China also has 522 recoveries, followed by Thailand which has 7.",
+  "translation": "数据证实，迄今为止，中国报告的病例数最多，几乎所有481人死亡。 较为积极的一点是，中国也有522次回收，其次是泰国，有7次。"
+}, {
+  "tag": "PRE",
+  "text": "#preparing data for a time-series analysisdf_by_date=data.groupby(['Date_date']).sum().reset_index(drop=None)df_by_date['daily_cases']=df_by_date.Confirmed.diff()df_by_date['daily_deaths']=df_by_date.Deaths.diff()df_by_date['daily_recoveries']=df_by_date.Recovered.diff()print(df_by_date)",
+  "translation": "＃准备时间序列分析的数据 ] = df_by_date.Deaths.diff（）df_by_date ['daily_recoveries'] = df_by_date.Recovered.diff（）print（df_by_date）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*aCYwQ-qdgLzzbFcNsJdKQA.png?q=20",
+  "type": "image",
+  "file": "1!aCYwQ-qdgLzzbFcNsJdKQA.png"
+}, {
+  "tag": "P",
+  "text": "We have completed the data preparation steps so let's move on to visualise the data to look for any emerging trends and patterns.",
+  "translation": "我们已经完成了数据准备步骤，因此让我们继续可视化数据以查找任何新兴趋势和模式。"
+}, {
+  "tag": "H1",
+  "text": "Plotting the data",
+  "translation": "绘制数据"
+}, {
+  "tag": "P",
+  "text": "For data visualisation, we will be using two powerful python libraries — Matplotlib and Seaborn. Matplotlib is the default 2D visualisation library used by most data scientists. Seaborn, built on top of matplotlib, helps to build better looking and more complex visualisations like heatmaps.",
+  "translation": "为了实现数据可视化，我们将使用两个强大的python库-Matplotlib和Seaborn。 Matplotlib是大多数数据科学家使用的默认2D可视化库。 基于matplotlib构建的Seaborn，有助于构建外观更好，更复杂的可视化效果（如热图）。"
+}, {
+  "tag": "P",
+  "text": "Let’s create five visualisations based on different aspects of the data.",
+  "translation": "让我们根据数据的不同方面创建五种可视化效果。"
+}, {
+  "tag": "OL",
+  "texts": ["Number of confirmed cases over time"],
+  "translations": ["经过一段时间的确诊病例数"]
+}, {
+  "tag": "PRE",
+  "text": "#plotting a bar chart of confirmed cases over timesns.axes_style(\"whitegrid\")sns.barplot(x=\"Date_date\", y=\"Confirmed\", data=data.groupby(['Date_date']).sum().reset_index(drop=None))plt.xticks(rotation=60)plt.ylabel('Number of confirmed cases',fontsize=15)plt.xlabel('Dates',fontsize=15)",
+  "translation": "＃在时间上绘制已确认病例的条形图。nsns.axes_style（“ whitegrid”）sns.barplot（x =“ Date_date”，y =“ Confirmed”，data = data.groupby（['Date_date']）。sum（）。 reset_index（drop = None））plt.xticks（旋转= 60）plt.ylabel（'确诊病例数'，fontsize = 15）plt.xlabel（'Dates'，fontsize = 15）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*ZIhgN1VZznx6Zr9_h1fucQ.png?q=20",
+  "type": "image",
+  "file": "1!ZIhgN1VZznx6Zr9_h1fucQ.png"
+}, {
+  "tag": "P",
+  "text": "2. Rate of death vs rate of recovery",
+  "translation": "2.死亡率与恢复率"
+}, {
+  "tag": "PRE",
+  "text": "#plotting two line plots for deaths and recoveries respectivelyplt.plot('date_updated', 'Deaths', data=data.groupby(['date_updated']).sum().reset_index(drop=None), color='red')plt.plot('date_updated', 'Recovered', data=data.groupby(['date_updated']).sum().reset_index(drop=None), color='green')plt.xticks(rotation=60)plt.ylabel('Number of cases',fontsize=15)plt.xlabel('Dates',fontsize=15)plt.legend()plt.show()",
+  "translation": "＃分别绘制两个折线图来确定死亡和恢复情况plt.plot（'date_updated'，'Deaths，data = data.groupby（['date_updated']）。sum（）。reset_index（drop = None），color ='red' ）plt.plot（'date_updated'，'Recovered'，data = data.groupby（[''date_updated']）。sum（）。reset_index（drop = None），color ='green'）plt.xticks（rotation = 60 ）plt.ylabel（'案件数'，字体大小= 15）plt.xlabel（'日期'，字体大小= 15）plt.legend（）plt.show（）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*8cgUwwVljmSWb_j4_e_vhg.png?q=20",
+  "type": "image",
+  "file": "1!8cgUwwVljmSWb_j4_e_vhg.png"
+}, {
+  "tag": "P",
+  "text": "3. 10 most affected countries, besides China",
+  "translation": "3.除中国外，十个受影响最大的国家"
+}, {
+  "tag": "PRE",
+  "text": "#We know that China is the most affected country by a large margin, #so lets create a bar plot to compare countries other than China#increasing the figure sizeplt.rcParams['figure.figsize']=(15,7)sns.barplot(x=\"Country\",y=\"Confirmed\",data=df_country[df_country.Country!='China'].nlargest(10,'Confirmed'),palette=sns.cubehelix_palette(15, reverse=True))plt.ylabel('Number of cases',fontsize=15)plt.xlabel('Countries',fontsize=15)plt.xticks(fontsize=13)plt.yticks(fontsize=13)",
+  "translation": "＃我们知道中国是受影响最大的国家，＃因此让我们创建条形图以比较中国以外的国家＃增加数字sizeplt.rcParams ['figure.figsize'] =（15,7）sns。 barplot（x =“ Country”，y =“ Confirmed”，data = df_country [df_country.Country！='China']。nlargest（10，'Confirmed'），palette = sns.cubehelix_palette（15，reverse = True）） plt.ylabel（'案件数'，字体大小= 15）plt.xlabel（'国家/地区，字体大小= 15）plt.xticks（字体大小= 13）plt.yticks（字体大小= 13）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*kjogWQl8YwfeFjJVP3LtzQ.png?q=20",
+  "type": "image",
+  "file": "1!kjogWQl8YwfeFjJVP3LtzQ.png"
+}, {
+  "tag": "P",
+  "text": "4. Mortality rate over time",
+  "translation": "4.随着时间的死亡率"
+}, {
+  "tag": "PRE",
+  "text": "#The mortality rate, at any point in time, can be roughly calculated #by dividing the number of deaths by the number of confirmed casesdf_by_date['mrate']=df_by_date.apply(lambda x: x['Deaths']*100/(x['Confirmed']), axis=1)plt.plot('Date_date','mrate',data=df_by_date, color='red')plt.show()",
+  "translation": "＃通过将死亡人数除以确诊病例数，可以粗略计算出任何时间的死亡率。df_by_date['mrate'] = df_by_date.apply（lambda x：x ['Deaths]] * 100 / [x ['Confirmed']），axis = 1）plt.plot（'Date_date'，'mrate'，data = df_by_date，color ='red'）plt.show（）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*NjuVDGlmv8KRKWwzt0-G_g.png?q=20",
+  "type": "image",
+  "file": "1!NjuVDGlmv8KRKWwzt0-G_g.png"
+}, {
+  "tag": "P",
+  "text": "5. A closer look at the 10 most affected provinces in China",
+  "translation": "5.仔细研究中国十个受影响最大的省"
+}, {
+  "tag": "PRE",
+  "text": "#creating a separate dataframe for provincesdf_province=data[data['Country']=='China'].groupby(['Province/State']).max().reset_index(drop=None)#selecting 10 most affected provincesdf_province=df_province.nlargest(10,'Confirmed')df_province=df_province[['Province/State','Deaths','Recovered']]#for multi-bar plots in seaborn, we need to melt the dataframe so #that the the deaths and recovered values are in the same columndf_province= df_province.melt(id_vars=['Province/State'])sns.barplot(x='Province/State', y='value', hue='variable', data=df_province)plt.xlabel('Provinces',fontsize=15)plt.ylabel('Number of cases',fontsize=15)",
+  "translation": "＃为省份创建一个单独的数据框df_province = data [data ['Country'] =='China']。groupby（['Province / State']）。max（）。reset_index（drop = None）＃选择受灾最严重的10个省份 = df_province.nlargest（10，'Confirmed'）df_province = df_province [['Province / State'，'Deaths，'Recovered']]＃对于seaborn中的多条图，我们需要融化数据框，以便＃ 死亡和恢复值位于同一列中df_province = df_province.melt（id_vars = ['Province / State']）sns.barplot（x ='Province / State'，y ='value'，hue ='variable'，data = df_province）plt.xlabel（'省'，字体大小= 15）plt.ylabel（'案件数'，fontsize = 15）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*8mCKdZpFW_-iLHKxzW0wrw.png?q=20",
+  "type": "image",
+  "file": "1!8mCKdZpFW_-iLHKxzW0wrw.png"
+}, {
+  "tag": "H1",
+  "text": "Observations",
+  "translation": "观察结果"
+}, {
+  "tag": "OL",
+  "texts": ["The number of cases reported daily has increased by nearly 250% since the 28th of January. The number of cases reported on the 4th of February was 3915. This shows that the virus is highly contagious and is spreading rapidly.", "During the first week, the rate of deaths was more than that of recoveries. Since the 31st of January, the rate of recovery has shot up and is showing a positive trend. There were 255 recoveries on the 4th of February compared to 66 deaths. The recovery rate will continue to increase as more people get to know the symptoms and are prompt in seeking medication.", "Countries geographically close to China, like Thailand, Japan and Singapore, have reported more cases than other Asian and European countries. Germany is an exception and has the highest number of cases in Europe.", "The mortality rate has never crossed 3% and is gradually reducing to 2%. More recoveries in the coming weeks might reduce this further.", "The Chinese province of Hubei is the epicentre of the outbreak. It has significantly more reported cases than all the other provinces combined. There are some provinces where there have been no deaths and all affected patients have recovered."],
+  "translations": ["在第一周内，死亡率高于康复率。 自1月31日以来，复苏速度飞涨，并呈现出积极的趋势。 2月4日，有255人被发现，而66人死亡。 随着越来越多的人了解症状并迅速寻求药物治疗，康复率将继续提高。", "在地理上靠近中国的国家，例如泰国，日本和新加坡，报告的病例比其他亚洲和欧洲国家多。 德国是个例外，在欧洲有最多的案件。", "中国湖北省是暴发的中心。 报告的病例比其他所有省的总数要多得多。 在有些省没有死亡病例，所有受影响的患者都已康复。"]
+}, {
+  "tag": "H1",
+  "text": "Conclusion",
+  "translation": "结论"
+}, {
+  "tag": "P",
+  "text": "The analysis shows the alarming rate at which the Wuhan coronavirus is spreading. At least 811 people have now died during the current epidemic, exceeding the 774 fatalities reported during the SARS outbreak seven years ago. I pray and hope that the virus is contained as soon as possible.",
+  "translation": "分析显示武汉冠状病毒正在以惊人的速度传播。 目前，至少有811人在当前的流行中死亡，超过了7年前SARS爆发时报告的774人死亡。 我祈祷并希望尽快遏制该病毒。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Kamran Ahmad的文章《A Data Scientist’s Perspective on the Coronavirus Outbreak》，参考：https://towardsdatascience.com/a-data-scientists-perspective-on-the-wuhan-coronavirus-4d1110446478)",
+  "translation": "（本文翻译自Kamran Ahmad的文章，《数据科学家对冠状病毒爆发的看法》，参考：https：//towardsdatascience.com/a-data-scientists-perspective-on-the-wuhan-coronavirus-4d1110446478）"
+}]
