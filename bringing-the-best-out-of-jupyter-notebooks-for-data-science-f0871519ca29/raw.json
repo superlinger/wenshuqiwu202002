@@ -1,0 +1,607 @@
+[{
+  "tag": "H1",
+  "text": "Conclusion",
+  "translation": "结论"
+}, {
+  "tag": "P",
+  "text": "These were some of the features of the Jupyter Notebooks that I found useful and worth sharing. Some of them would be obvious to you while some may be new. So, go ahead and experiment with them. Hopefully, they will be able to save you some time and give you a better UI experience. Also feel free to suggest other useful features in the comments.",
+  "translation": "这些是Jupyter笔记本电脑的一些功能，我发现它们很有用，值得分享。 其中一些对您来说很明显，而另一些则是新的。 因此，继续进行试验。 希望他们能够为您节省一些时间，并为您提供更好的UI体验。 也可以随时在评论中建议其他有用的功能。"
+}, {
+  "tag": "H1",
+  "text": "6. Embedding URLs, PDFs, and Youtube Videos",
+  "translation": "6.嵌入URL，PDF和Youtube视频"
+}, {
+  "tag": "P",
+  "text": "Display it right there!",
+  "translation": "显示在那里！"
+}, {
+  "tag": "P",
+  "text": "Why go with mere links when you can easily embed an URL, pdf, and videos into your Jupyter Notebooks using IPython’s display module.",
+  "translation": "当您使用IPython的显示模块将URL，pdf和视频轻松地嵌入Jupyter笔记本时，为什么只使用链接。"
+}, {
+  "tag": "H2",
+  "text": "URLs",
+  "translation": "网址"
+}, {
+  "tag": "PRE",
+  "text": "#Note that http urls will not be displayed. Only https are allowed inside the Iframefrom IPython.display import IFrameIFrame('https://en.wikipedia.org/wiki/HTTPS', width=800, height=450)",
+  "translation": "＃注意，不会显示http网址。 从IPython.display import IFrameIFrame（'https://en.wikipedia.org/wiki/HTTPS'，width = 800，height = 450）在Iframe中仅允许https"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*hKNCLc-0g8HubqRZWdWr5Q.gif?q=20",
+  "type": "image",
+  "file": "1!hKNCLc-0g8HubqRZWdWr5Q.gif"
+}, {
+  "tag": "H2",
+  "text": "PDFs",
+  "translation": "PDF文件"
+}, {
+  "tag": "PRE",
+  "text": "from IPython.display import IFrameIFrame('https://arxiv.org/pdf/1406.2661.pdf', width=800, height=450)",
+  "translation": "从IPython.display导入IFrameIFrame（'https://arxiv.org/pdf/1406.2661.pdf'，宽度= 800，高度= 450）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Trjh8qyP9i0o4Z1LJYp8mg.png?q=20",
+  "type": "image",
+  "file": "1!Trjh8qyP9i0o4Z1LJYp8mg.png"
+}, {
+  "tag": "H2",
+  "text": "Youtube Videos",
+  "translation": "YouTube视频"
+}, {
+  "tag": "PRE",
+  "text": "from IPython.display import YouTubeVideoYouTubeVideo('mJeNghZXtMo', width=800, height=300)",
+  "translation": "从IPython.display导入YouTubeVideoYouTubeVideo（'mJeNghZXtMo'，宽度= 800，高度= 300）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*AlTOcoi4NiCaqvpBdp8-9w.png?q=20",
+  "type": "image",
+  "file": "1!AlTOcoi4NiCaqvpBdp8-9w.png"
+}, {
+  "tag": "H1",
+  "text": "6. Slideshow",
+  "translation": "6.幻灯片放映"
+}, {
+  "tag": "P",
+  "text": "Code is great when communicated.",
+  "translation": "交流时代码很棒。"
+}, {
+  "tag": "P",
+  "text": "Notebooks are an effective tool for teaching and writing explainable codes. However, when we want to present our work either we display our entire notebook(with all the codes) or we take the help of powerpoint. Not any more. Jupyter Notebooks can be easily converted to slides and we can easily choose what to show and what to hide from the notebooks.",
+  "translation": "笔记本是教授和编写可解释代码的有效工具。 但是，当我们要展示我们的作品时，我们会显示整个笔记本（带有所有代码），或者我们会使用Powerpoint。 不再。 Jupyter笔记本可以轻松转换为幻灯片，我们可以轻松地选择从笔记本中显示或隐藏内容。"
+}, {
+  "tag": "P",
+  "text": "There are two ways to convert the notebooks into slides:",
+  "translation": "有两种方法可以将笔记本转换为幻灯片："
+}, {
+  "tag": "H2",
+  "text": "1. Jupyter Notebook’s built-in Slide option",
+  "translation": "1. Jupyter Notebook的内置幻灯片选项"
+}, {
+  "tag": "P",
+  "text": "Open a new notebook and navigate to View → Cell Toolbar → Slideshow. A light grey bar appears on top of each cell, and you can customize the slides.",
+  "translation": "打开一个新笔记本，然后导航到“视图”→“单元格工具栏”→“幻灯片放映”。 浅灰色的条形出现在每个单元格的顶部，您可以自定义幻灯片。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*XGQFs1HAJGJwwDAjBioBTA.png?q=20",
+  "type": "image",
+  "file": "1!XGQFs1HAJGJwwDAjBioBTA.png"
+}, {
+  "tag": "P",
+  "text": "Now go to the directory where the notebook is present and enter the following code:",
+  "translation": "现在转到笔记本所在的目录并输入以下代码："
+}, {
+  "tag": "PRE",
+  "text": "jupyter nbconvert *.ipynb --to slides --post serve# insert your notebook name instead of *.ipynb",
+  "translation": "jupyter nbconvert * .ipynb-滑动--post serve＃插入笔记本名称而不是* .ipynb"
+}, {
+  "tag": "P",
+  "text": "The slides get displayed at port 8000. Also, a .html file will be generated in the directory, and you can also access the slides from there.",
+  "translation": "幻灯片显示在端口8000处。此外，目录中还将生成一个.html文件，您也可以从该目录访问幻灯片。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*LLTlslENnI4T8PzQgfvQCw.gif?q=20",
+  "type": "image",
+  "file": "1!LLTlslENnI4T8PzQgfvQCw.gif"
+}, {
+  "tag": "P",
+  "text": "This would look even more classy with a themed background. Let us apply the theme ’onedork’ to the notebook and then convert it into a slideshow.",
+  "translation": "在主题背景下，这看起来会更加优雅。 让我们将主题“ onedork”应用于笔记本，然后将其转换为幻灯片。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*zQHnS6zAMseailHR3fxVng.gif?q=20",
+  "type": "image",
+  "file": "1!zQHnS6zAMseailHR3fxVng.gif"
+}, {
+  "tag": "P",
+  "text": "These slides have a drawback i.e. you can see the code but cannot edit it. RISE plugin offers a solution.",
+  "translation": "这些幻灯片有一个缺点，即您可以看到代码但不能对其进行编辑。 RISE插件提供了解决方案。"
+}, {
+  "tag": "H2",
+  "text": "2. Using the RISE plugin",
+  "translation": "2.使用RISE插件"
+}, {
+  "tag": "P",
+  "text": "RISE is an acronym for Reveal.js — Jupyter/IPython Slideshow Extension. It utilized the reveal.js to run the slideshow. This is super useful since it also gives the ability to run the code without having to exit the slideshow.",
+  "translation": "RISE是Reveal.js（Jupyter / IPython幻灯片扩展）的首字母缩写。 它利用了Reveal.js来运行幻灯片。 这非常有用，因为它还提供了无需退出幻灯片即可运行代码的功能。"
+}, {
+  "tag": "P",
+  "text": "Installation",
+  "translation": "安装"
+}, {
+  "tag": "P",
+  "text": "1 — Using conda (recommended):",
+  "translation": "1-使用conda（推荐）："
+}, {
+  "tag": "PRE",
+  "text": "conda install -c damianavila82 rise",
+  "translation": "康达安装-c damianavila82上升"
+}, {
+  "tag": "P",
+  "text": "2 — Using pip (less recommended):",
+  "translation": "2-使用点子（不建议使用）："
+}, {
+  "tag": "PRE",
+  "text": "pip install RISE",
+  "translation": "点安装RISE"
+}, {
+  "tag": "P",
+  "text": "and then two more steps to install the JS and CSS in the proper places:",
+  "translation": "然后再执行两个步骤，在适当的位置安装JS和CSS："
+}, {
+  "tag": "PRE",
+  "text": "jupyter-nbextension install rise --py --sys-prefix#enable the nbextension:jupyter-nbextension enable rise --py --sys-prefix",
+  "translation": "jupyter-nbextension安装上升--py --sys-prefix＃启用nbextension：jupyter-nbextension启用上升--py --sys-prefix"
+}, {
+  "tag": "P",
+  "text": "Let us now use RISE for the interactive slideshow. We shall re-open the Jupyter Notebook we created earlier. Now we notice a new extension that says “Enter/Exit RISE Slideshow.”",
+  "translation": "现在让我们使用RISE进行交互式幻灯片演示。 我们将重新打开我们之前创建的Jupyter Notebook。 现在，我们注意到一个新的扩展名为“ Enter / Exit RISE Slideshow”。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Qk2uM_31dZDwBokBidXwcQ.png?q=20",
+  "type": "image",
+  "file": "1!Qk2uM_31dZDwBokBidXwcQ.png"
+}, {
+  "tag": "P",
+  "text": "Click on it, and you are good to go. Welcome to the world of interactive slides.",
+  "translation": "单击它，就可以了。 欢迎来到互动幻灯片的世界。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*7SQXN0n_H9NNOGQ3GNgTAw.gif?q=20",
+  "type": "image",
+  "file": "1!7SQXN0n_H9NNOGQ3GNgTAw.gif"
+}, {
+  "tag": "P",
+  "text": "Refer to the documentation for more information.",
+  "translation": "有关更多信息，请参考文档。"
+}, {
+  "tag": "H1",
+  "text": "5. Qgrid",
+  "translation": "5. Qgrid"
+}, {
+  "tag": "P",
+  "text": "Make Data frames intuitive",
+  "translation": "使数据框架直观"
+}, {
+  "tag": "P",
+  "text": "Qgrid is also a Jupyter notebook widget but mainly focussed at dataframes. It uses SlickGrid to render pandas DataFrames within a Jupyter notebook. This allows you to explore your DataFrames with intuitive scrolling, sorting and filtering controls, as well as edit your DataFrames by double-clicking cells. The Github Repository contains more details and examples.",
+  "translation": "Qgrid还是Jupyter笔记本小部件，但主要侧重于数据帧。 它使用SlickGrid在Jupyter笔记本中渲染熊猫DataFrame。 这使您可以使用直观的滚动，排序和过滤控件来浏览DataFrame，以及通过双击单元格来编辑DataFrame。 Github存储库包含更多详细信息和示例。"
+}, {
+  "tag": "H1",
+  "text": "Installation",
+  "translation": "安装"
+}, {
+  "tag": "P",
+  "text": "Installing with pip:",
+  "translation": "用pip安装："
+}, {
+  "tag": "PRE",
+  "text": "pip install qgridjupyter nbextension enable --py --sys-prefix qgrid# only required if you have not enabled the ipywidgets nbextension yetjupyter nbextension enable --py --sys-prefix widgetsnbextension",
+  "translation": "pip install qgridjupyter nbextension enable --py --sys-prefix qgrid＃仅在尚未启用ipywidgets nbextension yetjupyter nbextension enable --py --sys-prefix小部件时才需要"
+}, {
+  "tag": "P",
+  "text": "Installing with conda:",
+  "translation": "使用conda安装："
+}, {
+  "tag": "PRE",
+  "text": "# only required if you have not added conda-forge to your channels yetconda config --add channels conda-forgeconda install qgrid",
+  "translation": "＃仅在尚未将conda-forge添加到您的通道中时才需要conda-config-添加通道conda-forgeconda安装qgrid"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*xGvLi1RhdIdSbCA9cPsS2A.gif?q=20",
+  "type": "image",
+  "file": "1!xGvLi1RhdIdSbCA9cPsS2A.gif"
+}, {
+  "tag": "H1",
+  "text": "4. Jupyter Widgets",
+  "translation": "4. Jupyter小部件"
+}, {
+  "tag": "P",
+  "text": "Make notebooks interactive",
+  "translation": "使笔记本互动"
+}, {
+  "tag": "P",
+  "text": "Widgets are eventful python objects that have a representation in the browser, often as a control like a slider, textbox, etc. Widgets can be used to build interactive GUIs for the notebooks.",
+  "translation": "小部件是事件性的python对象，在浏览器中具有表示形式，通常作为控件（如滑块，文本框等）使用。小部件可用于构建笔记本的交互式GUI。"
+}, {
+  "tag": "H2",
+  "text": "Installation",
+  "translation": "安装"
+}, {
+  "tag": "PRE",
+  "text": "# pippip install ipywidgetsjupyter nbextension enable --py widgetsnbextension# Condaconda install -c conda-forge ipywidgets#Installing ipywidgets with conda automatically enables the extension",
+  "translation": "＃pippip install ipywidgetsjupyter nbextension enable --py widgetsnbextension＃Condaconda install -c conda-forge ipywidgets＃使用conda安装ipywidgets会自动启用扩展"
+}, {
+  "tag": "P",
+  "text": "Let us have a look at some of the widgets. For complete details, you can visit their Github repository.",
+  "translation": "让我们看一些小部件。 有关完整的详细信息，您可以访问其Github存储库。"
+}, {
+  "tag": "P",
+  "text": "Interact",
+  "translation": "相互作用"
+}, {
+  "tag": "P",
+  "text": "The interact function (ipywidgets.interact) automatically creates a user interface (UI) controls for exploring code and data interactively. It is the easiest way to get started using IPython's widgets.",
+  "translation": "交互功能（ipywidgets.interact）自动创建用于交互浏览代码和数据的用户界面（UI）控件。 这是开始使用IPython小部件的最简单方法。"
+}, {
+  "tag": "PRE",
+  "text": "# Start with some imports!from ipywidgets import interactimport ipywidgets as widgets",
+  "translation": "＃从ipywidgets开始一些导入！从import import import ipywidgets作为小部件"
+}, {
+  "tag": "H2",
+  "text": "1. Basic Widgets",
+  "translation": "1.基本小部件"
+}, {
+  "tag": "PRE",
+  "text": "def f(x):    return x# Generate a slider interact(f, x=10,);",
+  "translation": "def f（x）：返回x＃生成滑块interact（f，x = 10，）;"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*gz2FzhNT6_ySfvZDXCa2wQ.png?q=20",
+  "type": "image",
+  "file": "1!gz2FzhNT6_ySfvZDXCa2wQ.png"
+}, {
+  "tag": "PRE",
+  "text": "# Booleans generate check-boxesinteract(f, x=True);",
+  "translation": "＃布尔值生成checkboxboxinteract（f，x = True）;"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*7lXuQEUFOZuSQ7-Sih_BDw.png?q=20",
+  "type": "image",
+  "file": "1!7lXuQEUFOZuSQ7-Sih_BDw.png"
+}, {
+  "tag": "PRE",
+  "text": "# Strings generate text areasinteract(f, x='Hi there!');",
+  "translation": "＃字符串生成文本区域interact（f，x ='Hi there！'）;"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*2qNbaMWA_32Eq-TUjjIY0A.png?q=20",
+  "type": "image",
+  "file": "1!2qNbaMWA_32Eq-TUjjIY0A.png"
+}, {
+  "tag": "H2",
+  "text": "2. Advanced Widgets",
+  "translation": "2.高级小部件"
+}, {
+  "tag": "P",
+  "text": "Here is a list of some of the useful advanced widgets.",
+  "translation": "这是一些有用的高级小部件的列表。"
+}, {
+  "tag": "H2",
+  "text": "Play Widget",
+  "translation": "播放小工具"
+}, {
+  "tag": "P",
+  "text": "The Play widget is useful to perform animations by iterating on a sequence of integers at a certain speed. The value of the slider below is linked to the player.",
+  "translation": "“播放”小部件可用于通过以一定速度迭代整数序列来执行动画。 下面滑块的值链接到播放器。"
+}, {
+  "tag": "PRE",
+  "text": "play = widgets.Play(    # interval=10,    value=50,    min=0,    max=100,    step=1,    description=\"Press play\",    disabled=False)slider = widgets.IntSlider()widgets.jslink((play, 'value'), (slider, 'value'))widgets.HBox([play, slider])",
+  "translation": "播放= widgets.Play（＃interval = 10，value = 50，min = 0，max = 100，step = 1，description =“ Press play”，disable = False）slider = widgets.IntSlider（）widgets.jslink（（（ play，'value'），（slider，'value'））widgets.HBox（[play，Slider]）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*wsaNdJVbocku5-RHOVpy3g.png?q=20",
+  "type": "image",
+  "file": "1!wsaNdJVbocku5-RHOVpy3g.png"
+}, {
+  "tag": "H2",
+  "text": "Date picker",
+  "translation": "日期选择器"
+}, {
+  "tag": "P",
+  "text": "The date picker widget works in Chrome and IE Edge but does not currently work in Firefox or Safari because they do not support the HTML date input field.",
+  "translation": "日期选择器小部件可在Chrome和IE Edge中使用，但当前在Firefox或Safari中不可用，因为它们不支持HTML日期输入字段。"
+}, {
+  "tag": "PRE",
+  "text": "widgets.DatePicker(    description='Pick a Date',    disabled=False)",
+  "translation": "widgets.DatePicker（description ='选择日期'，disable = False）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*CW12uTxU1CjAZsoCgr2h5A.png?q=20",
+  "type": "image",
+  "file": "1!CW12uTxU1CjAZsoCgr2h5A.png"
+}, {
+  "tag": "H2",
+  "text": "Color picker",
+  "translation": "颜色选择器"
+}, {
+  "tag": "PRE",
+  "text": "widgets.ColorPicker(    concise=False,    description='Pick a color',    value='blue',    disabled=False)",
+  "translation": "widgets.ColorPicker（concise = False，description ='Pick a color'，value ='blue'，disabled = False）"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*u04LW528YZEnA46B6oFFRA.png?q=20",
+  "type": "image",
+  "file": "1!u04LW528YZEnA46B6oFFRA.png"
+}, {
+  "tag": "H2",
+  "text": "Tabs",
+  "translation": "标签"
+}, {
+  "tag": "PRE",
+  "text": "tab_contents = ['P0', 'P1', 'P2', 'P3', 'P4']children = [widgets.Text(description=name) for name in tab_contents]tab = widgets.Tab()tab.children = childrenfor i in range(len(children)):    tab.set_title(i, str(i))tab",
+  "translation": "tab_contents = ['P0'，'P1'，'P2'，'P3'，'P4'] children = [tab.contents中的名称的widgets.Text（description = name）] tab = widgets.Tab（）tab.children = 适用于范围（len（children））中的i的children：tab.set_title（i，str（i））tab"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*tljdzY71CFLUl8k_5GdGHQ.png?q=20",
+  "type": "image",
+  "file": "1!tljdzY71CFLUl8k_5GdGHQ.png"
+}, {
+  "tag": "H1",
+  "text": "3. Notebook Extensions",
+  "translation": "3.笔记本扩展"
+}, {
+  "tag": "P",
+  "text": "Extend the possibilities",
+  "translation": "扩展可能性"
+}, {
+  "tag": "P",
+  "text": "Notebook extensions let you move beyond the general vanilla way of using the Jupyter Notebooks. Notebook extensions (or nbextensions) are JavaScript modules that you can load on most of the views in your Notebook’s frontend. These extensions modify the user experience and interface.",
+  "translation": "笔记本扩展可以让您超越使用Jupyter笔记本的常规方式。 笔记本扩展名（或nbextensions）是JavaScript模块，您可以在笔记本前端的大多数视图中加载这些模块。 这些扩展修改了用户体验和界面。"
+}, {
+  "tag": "H2",
+  "text": "Installation",
+  "translation": "安装"
+}, {
+  "tag": "P",
+  "text": "Installation with conda:",
+  "translation": "使用conda安装："
+}, {
+  "tag": "PRE",
+  "text": "conda install -c conda-forge jupyter_nbextensions_configurator",
+  "translation": "conda安装-c conda-forge jupyter_nbextensions_configurator"
+}, {
+  "tag": "P",
+  "text": "Or with pip:",
+  "translation": "或使用点子："
+}, {
+  "tag": "PRE",
+  "text": "pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install#incase you get permission errors on MacOS,pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install --user",
+  "translation": "pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install＃以防万一您在MacOS上出现权限错误，pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install --user"
+}, {
+  "tag": "P",
+  "text": "Start a Jupyter notebook now, and you should be able to see an NBextensions Tab with a lot of options. Click the ones you want and see the magic happen.",
+  "translation": "立即启动Jupyter笔记本，您应该能够看到带有很多选项的NBextensions选项卡。 单击您想要的，然后看到魔术发生了。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*pbcwhHZKLgMGE8bKreMtLw.png?q=20",
+  "type": "image",
+  "file": "1!pbcwhHZKLgMGE8bKreMtLw.png"
+}, {
+  "tag": "P",
+  "text": "In case you couldn’t find the tab, a second small nbextension, can be located under the menuEdit.",
+  "translation": "如果您找不到该标签，则可以在menuEdit下找到第二个小的nbextension。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/12/1*f492CPTHY8yyrpPg1-7n9A.png?q=20",
+  "type": "image",
+  "file": "1!f492CPTHY8yyrpPg1-7n9A.png"
+}, {
+  "tag": "P",
+  "text": "Let us discuss some of the useful extensions.",
+  "translation": "让我们讨论一些有用的扩展。"
+}, {
+  "tag": "H2",
+  "text": "1. Hinterland",
+  "translation": "1.腹地"
+}, {
+  "tag": "P",
+  "text": "Hinterland enables code autocompletion menu for every keypress in a code cell, instead of only calling it with the tab. This makes Jupyter notebook’s autocompletion behave like other popular IDEs such as PyCharm.",
+  "translation": "Hinterland为代码单元中的每个按键启用代码自动完成菜单，而不仅仅是使用选项卡调用它。 这使得Jupyter笔记本的自动完成功能像其他流行的IDE（例如PyCharm）一样。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*pOEq37eIbKH3AwKgyfDB2w.gif?q=20",
+  "type": "image",
+  "file": "1!pOEq37eIbKH3AwKgyfDB2w.gif"
+}, {
+  "tag": "H2",
+  "text": "2. Snippets",
+  "translation": "2.片段"
+}, {
+  "tag": "P",
+  "text": "This extension adds a drop-down menu to the Notebook toolbar that allows easy insertion of code snippet cells into the current notebook.",
+  "translation": "此扩展程序在笔记本工具栏上添加了一个下拉菜单，该菜单可轻松将代码片段单元格插入当前笔记本。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*uoxIUbG6m6YiJbjVu77rGQ.gif?q=20",
+  "type": "image",
+  "file": "1!uoxIUbG6m6YiJbjVu77rGQ.gif"
+}, {
+  "tag": "H2",
+  "text": "3. Split Cells Notebook",
+  "translation": "3.分裂细胞笔记本"
+}, {
+  "tag": "P",
+  "text": "This extension splits the cells of the notebook and places then adjacent to each other.",
+  "translation": "此扩展程序拆分笔记本的单元格，然后彼此相邻放置。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*hfWP9Ew62s9VqyITn4eOlQ.gif?q=20",
+  "type": "image",
+  "file": "1!hfWP9Ew62s9VqyITn4eOlQ.gif"
+}, {
+  "tag": "H2",
+  "text": "4. Table of Contents"
+}, {
+  "tag": "P",
+  "text": "This extension enables to collect all running headers and display them in a floating window, as a sidebar or with a navigation menu. The extension is also draggable, resizable, collapsible and dockable.",
+  "translation": "通过此扩展程序，可以收集所有正在运行的标头，并将其显示在浮动窗口中，作为侧边栏或带有导航菜单。 该扩展名也可拖动，调整大小，可折叠和停靠。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*eL1m_b937rVRH2RBquSEEQ.gif?q=20",
+  "type": "image",
+  "file": "1!eL1m_b937rVRH2RBquSEEQ.gif"
+}, {
+  "tag": "H2",
+  "text": "5. Collapsible Headings",
+  "translation": "5.可折叠的标题"
+}, {
+  "tag": "P",
+  "text": "Collapsible Headings allows the notebook to have collapsible sections, separated by headings. So in case you have a lot of dirty code in your notebook, you can simply collapse it to avoid scrolling it again and again.",
+  "translation": "可折叠的标题允许笔记本计算机具有可折叠的部分，各标题之间分开。 因此，如果您的笔记本中有很多脏代码，则可以将其折叠起来以避免重复滚动。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*dl5-xcEdfu3FoX3ttoE3Vw.gif?q=20",
+  "type": "image",
+  "file": "1!dl5-xcEdfu3FoX3ttoE3Vw.gif"
+}, {
+  "tag": "H2",
+  "text": "6. Autopep8",
+  "translation": "6. Autopep8"
+}, {
+  "tag": "P",
+  "text": "Autopep8 helps to reformat/prettify the contents of code cells with just a click. If you are tired of hitting the spacebar again and again to format the code, autopep8 is your savior.",
+  "translation": "Autopep8只需单击一下，即可帮助重新格式化/修饰代码单元的内容。 如果您厌倦了一次又一次地按空格键来格式化代码的格式，则autopep8是您的救星。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*hO8tQavKgqiyj0ZKFOVSPg.gif?q=20",
+  "type": "image",
+  "file": "1!hO8tQavKgqiyj0ZKFOVSPg.gif"
+}, {
+  "tag": "H1",
+  "text": "2. Jupyter Themes",
+  "translation": "2. Jupyter主题"
+}, {
+  "tag": "P",
+  "text": "Theme-ify your Jupyter Notebooks!",
+  "translation": "主题化您的Jupyter笔记本！"
+}, {
+  "tag": "P",
+  "text": "If you are a person who gets bored while staring at the white background of the Jupyter notebook, themes are just for you. The themes also enhance the presentation of the code. You can find more about Jupyter themes here. Let’s get to the working part.",
+  "translation": "如果您是一个盯着Jupyter笔记本的白色背景而感到无聊的人，那么主题就是给您的。 主题还增强了代码的呈现方式。 您可以在此处找到有关Jupyter主题的更多信息。 让我们开始工作。"
+}, {
+  "tag": "P",
+  "text": "Installation",
+  "translation": "安装"
+}, {
+  "tag": "PRE",
+  "text": "pip install jupyterthemes",
+  "translation": "点安装jupyterthemes"
+}, {
+  "tag": "P",
+  "text": "List of available themes",
+  "translation": "可用主题列表"
+}, {
+  "tag": "PRE",
+  "text": "jt -l",
+  "translation": "t"
+}, {
+  "tag": "P",
+  "text": "Currently, the available themes are chesterish, grade3, gruvboxd, gruvboxl monokai, oceans16, onedork, solarizedd ,solarizedl.",
+  "translation": "目前，可用的主题是chesterish，3级，gruvboxd，gruvboxl monokai，oceans16，onedork，solarized，solarizedl。"
+}, {
+  "tag": "PRE",
+  "text": "# selecting a particular themejt -t <name of the theme># reverting to original Themejt -r",
+  "translation": "＃选择特定的themejt -t <主题名称>＃恢复为原始Themejt -r"
+}, {
+  "tag": "UL",
+  "texts": ["You will have to reload the jupyter notebook everytime you change the theme, to see the effect take place.", "The same commands can also be run from within the Jupyter Notebook by placing ‘!’ before the command."],
+  "translations": ["每次更改主题时，都必须重新加载jupyter笔记本，才能看到效果。", "也可以在Jupyter Notebook中运行相同的命令，方法是在命令前放置“！”。"]
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/29/1*rQazHGqaa4Pg9MXCf7LYlg.png?q=20",
+  "type": "image",
+  "file": "1!rQazHGqaa4Pg9MXCf7LYlg.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/26/1*GwhzTXPE1M_1zGcaEkS_bg.png?q=20",
+  "type": "image",
+  "file": "1!GwhzTXPE1M_1zGcaEkS_bg.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/26/1*IkMsWpE3dcBKJTnYXjGtHA.png?q=20",
+  "caption": "Left: original | Middle: Chesterish Theme | Right: solarizedl theme",
+  "type": "image",
+  "file": "1!IkMsWpE3dcBKJTnYXjGtHA.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/freeze/max/30/1*o5TDo77SCUiqj7TlSnB0Jg.gif?q=20",
+  "type": "image",
+  "file": "1!o5TDo77SCUiqj7TlSnB0Jg.gif"
+}, {
+  "tag": "H1",
+  "text": "1. Executing Shell Commands",
+  "translation": "1.执行Shell命令"
+}, {
+  "tag": "P",
+  "text": "The notebook is the new shell",
+  "translation": "笔记本是新外壳"
+}, {
+  "tag": "P",
+  "text": "The shell is a way to interact textually with the computer. The most popular Unix shell is Bash(Bourne Again SHell ). Bash is the default shell on most modern implementations of Unix and in most packages that provide Unix-like tools for Windows.",
+  "translation": "外壳程序是与计算机进行文本交互的一种方式。 最受欢迎的Unix shell是Bash（Bourne Again SHell）。 Bash是Unix的大多数现代实现以及大多数为Windows提供类Unix工具的软件包中的默认Shell。"
+}, {
+  "tag": "P",
+  "text": "Now, when we work with any Python interpreter, we need to regularly switch between the shell and the IDLE, in case we need to use the command line tools. However, the Jupyter Notebook gives us the ease to execute shell commands from within the notebook by placing an extra !before the commands. Any command that works at the command-line can be used in IPython by prefixing it with the ! character.",
+  "translation": "现在，当我们使用任何Python解释器时，我们需要定期在shell和IDLE之间切换，以防需要使用命令行工具。 但是，Jupyter Notebook通过在命令之前放置一个额外的！，使我们可以轻松地从笔记本中执行Shell命令。 在命令行中可以使用的任何命令都可以在IPython中使用，只要在命令前面加上！就可以了。 字符。"
+}, {
+  "tag": "PRE",
+  "text": "In [1]: !lsexample.jpeg list tmpIn [2]: !pwd/home/Parul/Desktop/Hello World Folder'In [3]: !echo \"Hello World\"Hello World",
+  "translation": "在[1]中：！lsexample.jpeg列表tmpIn在[2]中：！pwd / home / Parul / Desktop / Hello World Folder'在[3]中：！echo“ Hello World” Hello World"
+}, {
+  "tag": "P",
+  "text": "We can even pass values to and from the shell as follows:",
+  "translation": "我们甚至可以按如下方式将值传递到外壳和从外壳传递："
+}, {
+  "tag": "PRE",
+  "text": "In [4]: files= !lsIn [5]: print(files)['example.jpeg', 'list', 'tmp']In [6]: directory = !pwdIn [7]: print(directory)['/Users/Parul/Desktop/Hello World Folder']In [8]: type(directory)IPython.utils.text.SList",
+  "translation": "在[4]中：files =！lsIn在[5]：print（files）['example.jpeg'，'list'，'tmp']在[6]：directory =！pwdIn [7]：print（directory）[ '/ Users / Parul / Desktop / Hello World文件夹']在[8]中：type（directory）IPython.utils.text.SList"
+}, {
+  "tag": "P",
+  "text": "Notice, the data type of the returned results is not a list.",
+  "translation": "注意，返回结果的数据类型不是列表。"
+}, {
+  "tag": "H1",
+  "text": "Table of Contents",
+  "translation": "目录"
+}, {
+  "tag": "OL",
+  "texts": ["Executing Shell Commands", "Jupyter Themes", "Notebook Extensions", "Jupyter Widgets", "Qgrid", "Slideshow", "Embedding URLs, PDFs, and Youtube Videos"],
+  "translations": ["执行Shell命令", "Jupyter主题", "笔记本扩展", "Jupyter小部件", "Qgrid", "幻灯片放映", "嵌入URL，PDF和Youtube视频"]
+}, {
+  "tag": "H1",
+  "text": "Bringing the best out of Jupyter Notebooks for Data Science",
+  "translation": "充分利用Jupyter笔记本电脑的数据科学优势"
+}, {
+  "tag": "H2",
+  "text": "Enhance Jupyter Notebook’s productivity with these Tips & Tricks.",
+  "translation": "这些提示和技巧可提高Jupyter Notebook的生产力。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*kFimvWp5vJtxn4ws?q=20",
+  "caption": "Photo by Aaron Burden on Unsplash",
+  "type": "image",
+  "file": "0!kFimvWp5vJtxn4ws"
+}, {
+  "tag": "P",
+  "text": "Reimagining what a Jupyter notebook can be and what can be done with it.",
+  "translation": "重新想象Jupyter笔记本可以是什么以及可以用它做什么。"
+}, {
+  "tag": "P",
+  "text": "Netflix aims to provide personalized content to their 130 million viewers. One of the significant ways by which data scientists and engineers at Netflix interact with their data is through Jupyter notebooks. Notebooks leverage the use of collaborative, extensible, scalable, and reproducible data science. For many of us, Jupyter Notebooks is the de facto platform when it comes to quick prototyping and exploratory analysis. However, there’s more to this than meets the eye. A lot of Jupyter functionalities sometimes lies under the hood and is not adequately explored. Let us try and explore Jupyter Notebooks’ features which can enhance our productivity while working with them.",
+  "translation": "Netflix旨在向其1.3亿观众提供个性化内容。 Netflix的数据科学家和工程师与数据进行交互的一种重要方式是通过Jupyter笔记本。 笔记本利用协作，可扩展，可扩展和可再现的数据科学的使用。 对于我们许多人来说，Jupyter Notebooks是进行快速原型设计和探索性分析时的事实平台。 但是，这不只是眼球。 Jupyter的许多功能有时会隐藏在后台，并且没有得到充分的探索。 让我们尝试探索Jupyter Notebook的功能，这些功能可以在与他们合作时提高我们的生产力。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Parul Pandey的文章《Bringing the best out of Jupyter Notebooks for Data Science》，参考：https://towardsdatascience.com/bringing-the-best-out-of-jupyter-notebooks-for-data-science-f0871519ca29)",
+  "translation": "（本文翻译自Parul Pandey的文章，《充分利用Jupyter笔记本进行数据科学》，参考：https：//towardsdatascience.com/bringing-the-best-out-of-jupyter-notebooks-for-data-science -f0871519ca29）"
+}]
