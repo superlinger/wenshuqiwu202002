@@ -1,0 +1,99 @@
+[{
+  "tag": "P",
+  "text": "Artificial Intelligence is already used in the field of epidemiology to prevent, control, surveil and predict the spread of diseases. With new outbreaks such as the current outbreak of coronavirus, new opportunities can be identified where AI can make the most impact in the process. With increased use of AI in public health, we will hopefully see better coordination between countries to control these epidemics.",
+  "translation": "人工智能已在流行病学领域用于预防，控制，监视和预测疾病的传播。 通过新的爆发（例如当前的冠状病毒爆发），可以确定新的机会，使AI在此过程中发挥最大的作用。 随着在公共卫生中对AI的更多使用，我们有望看到各国之间进行更好的协调以控制这些流行病。"
+}, {
+  "tag": "H1",
+  "text": "AI Can Help Us Manage Infectious Disease Outbreaks",
+  "translation": "人工智能可以帮助我们管理传染病暴发"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Yo1Pe9lDUl8ZKSmklFIrtQ.png?q=20",
+  "caption": "@cdc unsplash.com",
+  "type": "image",
+  "file": "1!Yo1Pe9lDUl8ZKSmklFIrtQ.png"
+}, {
+  "tag": "P",
+  "text": "This week is the lunar new year for Chinese people all over the world. Unfortunately, Coronavirus has been the center of conversation instead of the various celebrations that are going on in Chinatowns all over the world. Coronavirus is a contagious virus that affects the respiratory tract of mammals including humans. There’s currently no treatment or cure available. The virus can also mutate. The mutation can make the virus more transmittable. This can lead to difficulties in managing the epidemic.",
+  "translation": "这一周是全世界华人的农历新年。 不幸的是，冠状病毒一直是谈话的中心，而不是全世界唐人街正在举行的各种庆祝活动。 冠状病毒是一种传染性病毒，会影响包括人类在内的哺乳动物的呼吸道。 目前尚无治疗方法。 病毒也可能变异。 突变可使病毒更易传播。 这可能导致难以控制该流行病。"
+}, {
+  "tag": "P",
+  "text": "Currently, in China, 41 people died from contracting this virus. Pneumonia and other complications are often triggered by the virus.",
+  "translation": "目前，在中国，有41人死于感染该病毒。 肺炎和其他并发症通常是由病毒引起的。"
+}, {
+  "tag": "P",
+  "text": "The initial outbreak started in a food market in the city of Wuhan in China. Then, it traveled to cities of China including Hong Kong. Cases of the virus have already been reported in the US. The CDC is currently monitoring 63 cases of the virus across 22 states in the US.",
+  "translation": "最初的暴发始于中国武汉市的食品市场。 然后，它旅行到了包括香港在内的中国城市。 在美国已经有该病毒的病例报道。 疾病预防控制中心目前正在美国22个州监视63例病毒病例。"
+}, {
+  "tag": "P",
+  "text": "The virus is spreading rapidly despite many efforts to control, monitor, and lock down the city of Wuhan. We’ve experienced this type of Infectious Disease outbreak in recent years. In the US, the CDC monitors diseases such as Influenza, SARS, MERS, Zika, and Ebola to ensure that adequate controls can be put in place to ensure that an epidemic doesn’t proliferate throughout the world.",
+  "translation": "尽管进行了许多控制，监视和锁定武汉市的工作，但该病毒仍在迅速传播。 近年来，我们经历了这种类型的传染病暴发。 在美国，疾病预防控制中心对流感，SARS，MERS，寨卡和埃博拉等疾病进行监控，以确保采取适当的控制措施，以确保这种流行病不会在世界范围内扩散。"
+}, {
+  "tag": "P",
+  "text": "In the age of artificial intelligence, there’s a huge opportunity for technology to step in to assist us in monitoring and controlling these type of epidemics.",
+  "translation": "在人工智能时代，技术提供了巨大的机会来协助我们监视和控制这类流行病。"
+}, {
+  "tag": "H1",
+  "text": "AI-Assisted Technology is Especially Useful in Time-Sensitive Conditions",
+  "translation": "AI辅助技术在时间敏感的情况下特别有用"
+}, {
+  "tag": "P",
+  "text": "One of the best uses of artificial intelligence is often seen in life-threatening and time-sensitive conditions. In these situations, AI can help us diagnose problems quickly so that we can act. More critically, AI can augment our judgment in these scenarios so that our judgments can be more accurate under time-sensitive conditions.",
+  "translation": "人工智能的最佳用途之一经常出现在威胁生命和时间敏感的情况下。 在这种情况下，人工智能可以帮助我们快速诊断问题，以便我们采取行动。 更关键的是，AI可以在这些情况下增强我们的判断力，以便在时间敏感的条件下我们的判断力更加准确。"
+}, {
+  "tag": "P",
+  "text": "In Emergency Medicine, AI can help Physicians to put in place early warning systems for cardiac instability, sepsis, seizures, stroke, aneurysm, and other serious conditions.",
+  "translation": "在急诊医学中，人工智能可以帮助医师建立针对心脏不稳定，败血症，癫痫发作，中风，动脉瘤和其他严重状况的预警系统。"
+}, {
+  "tag": "P",
+  "text": "In Emergency Management, AI-enabled drones, robots, and sensors can help to detect landslide, earthquakes, droughts, fires, floods, storms, etc.. to help to alert emergency management personnel. AI-enabled maps can enable firefighters and emergency management personnel to see where rescue is needed the most.",
+  "translation": "在紧急情况管理中，具有AI功能的无人机，机器人和传感器可以帮助检测滑坡，地震，干旱，火灾，洪水，暴风雨等，从而帮助紧急情况管理人员警惕。 具有AI功能的地图可以使消防员和应急管理人员看到最需要救援的地方。"
+}, {
+  "tag": "P",
+  "text": "In this case, in Wuhan, China where the disease originated, AI-enabled systems can help to detect the rapid spread of the disease as local hospitals received new patients. AI can also predict where the disease might be traveling to. This enables global efforts to be put into place in hospitals and at traveling checkpoints to control the epidemic.",
+  "translation": "在这种情况下，在疾病起源的中国武汉，当当地医院接收到新患者时，支持AI的系统可以帮助检测疾病的迅速蔓延。 AI还可以预测疾病可能会传播到哪里。 这使得在医院和旅行检查站进行全球控制流行病的努力成为可能。"
+}, {
+  "tag": "P",
+  "text": "Currently, Sherlock biosciences’ diagnostics platforms that use CRISPR will enable rapid detection of the disease. With rapid detection, continuous sequencing of the genome to detect possible mutations can help with the continued spread of the disease.",
+  "translation": "目前，使用CRISPR的Sherlock biosciences的诊断平台将能够快速检测该疾病。 通过快速检测，对基因组进行连续测序以检测可能的突变可以帮助疾病继续传播。"
+}, {
+  "tag": "P",
+  "text": "Simulations of the outbreak such as the one conducted by Dr. Toner from Johns Hopkins Center for Health Security can be helpful to understand the potential impact in economic and societal terms. It can also predict whether current efforts will be effective.",
+  "translation": "约翰霍普金斯大学健康安全中心的Toner博士进行的疫情模拟可以帮助您了解经济和社会方面的潜在影响。 它还可以预测当前的努力是否有效。"
+}, {
+  "tag": "H1",
+  "text": "AI-Assisted Research Can Help With Rapid Development of Treatment and Vaccines",
+  "translation": "人工智能辅助的研究可以帮助快速开发治疗和疫苗"
+}, {
+  "tag": "P",
+  "text": "In the last few years, AI-Assisted medical research has enabled researchers to find cures, treatment, and understanding for complex diseases such as cancer, AIDS, heart disease, and more. Just in the last few days, researchers are all scrutinizing the coronavirus genome to look for answers. Because the virus can mutate, understanding the origins of these mutations can unlock the key to the virus.",
+  "translation": "在过去的几年中，人工智能辅助医学研究使研究人员能够找到治疗，治疗和了解复杂疾病的方法，例如癌症，艾滋病，心脏病等。 就在最近几天，研究人员都在仔细研究冠状病毒基因组以寻找答案。 因为病毒可以变异，所以了解这些变异的起源可以解锁病毒的密钥。"
+}, {
+  "tag": "P",
+  "text": "The development of vaccines also starts with the ability to be able to identify and neutralize the spread of the virus inside the body. In the days to come, researchers will be adding more genome sequences to their collection.",
+  "translation": "疫苗的开发还始于能够识别和中和病毒在人体内传播的能力。 在未来的日子里，研究人员将向他们的收藏物中添加更多的基因组序列。"
+}, {
+  "tag": "H1",
+  "text": "AI-Assisted Rapid Response",
+  "translation": "人工智能辅助的快速响应"
+}, {
+  "tag": "P",
+  "text": "So far, China has tried to contain the virus with a rapid response. The city of Wuhan has “shut down”. People are advised to not move around the city or to travel to other cities. A second hospital is being constructed to deal with coronavirus patients. The city of Hong Kong is helping to put up measures to contain the virus before it is spread internationally.",
+  "translation": "到目前为止，中国已经试图迅速遏制这种病毒。 武汉市已经“关闭”。 建议人们不要在城市周围移动或前往其他城市。 正在建设第二家医院来治疗冠状病毒患者。 香港市正在帮助采取措施遏制该病毒，使其在国际上传播。"
+}, {
+  "tag": "P",
+  "text": "In Chinese airports, travelers are wearing masks. At checkpoints, thermometers are used to check each traveler for fever as possibly evidence of an infection. The difficulty of identifying the travelers who might be carrying the virus makes these types of viruses hard to contain.",
+  "translation": "在中国机场，旅客戴着口罩。 在检查站，使用温度计检查每个旅行者的发烧情况，以作为可能感染的证据。 识别可能携带该病毒的旅行者的困难使这些类型的病毒难以控制。"
+}, {
+  "tag": "P",
+  "text": "With increased biometric authentication in Chinese airports, AI systems that can detect viruses on each traveler can potentially be extremely useful in these types of situations. At hospitals where cases of the disease are reported, having a rapid diagnosis of the disease can often lead to rapid quarantine so that the virus does not spread throughout the hospital, staff, and to other patients.",
+  "translation": "随着中国机场越来越多的生物特征认证，可以在每个旅客身上检测到病毒的AI系统在这种情况下可能会非常有用。 在报告有疾病病例的医院中，对疾病进行快速诊断通常会导致快速隔离，因此该病毒不会在整个医院，员工和其他患者中传播。"
+}, {
+  "tag": "P",
+  "text": "In the years to come, we will likely see AI-assisted diagnosis be used at airport checkpoints and in hospital emergency rooms.",
+  "translation": "在未来的几年中，我们很可能会在机场检查站和医院急诊室中使用AI辅助诊断。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Jun Wu的文章《AI Can Help Us Manage Infectious Disease Outbreaks》，参考：https://towardsdatascience.com/ai-can-help-us-manage-infectious-disease-outbreaks-822fca0f67cd)",
+  "translation": "（本文翻译自Jun Wu的文章《 AI可以帮助我们管理传染病暴发》，参考：https：//towardsdatascience.com/ai-can-help-us-manage-infectious-disease-outbreaks-822fca0f67cd）"
+}]
