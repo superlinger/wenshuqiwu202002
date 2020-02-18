@@ -1,0 +1,131 @@
+[{
+  "tag": "H1",
+  "text": "The Idea of SMOTE",
+  "translation": "SMOTE的想法"
+}, {
+  "tag": "P",
+  "text": "SMOTE, also know as Synthetic Minority Over-sampling Technique, is just as its name sound, a technique to oversample the minority class. It follows the steps:",
+  "translation": "SMOTE，也称为合成少数族裔过采样技术，正如其名称听起来一样，是对少数族裔类进行过度采样的技术。 它遵循以下步骤："
+}, {
+  "tag": "OL",
+  "texts": ["For each minority class, find its k-nearest neighbour", "Select from one of its neighbours and draw a line between the neighbour and the original point", "Randomly select a point on the line(which equals selecting a ratio parameter between 0 and 1, and apply the ratio to get a point between the points)", "Repeat until reaching the expected number of samples"],
+  "translations": ["对于每个少数族裔类别，找到其k最近邻", "从其邻居中选择一个，并在邻居和原始点之间画一条线", "随机选择直线上的一个点（等于选择一个介于0和1之间的比率参数，然后应用该比率来获得这些点之间的点）", "重复直到达到预期的样本数量"]
+}, {
+  "tag": "P",
+  "text": "So the logic is basically linear, and all generated samples are, in fact, linear combinations of existing samples.",
+  "translation": "因此，逻辑基本上是线性的，实际上所有生成的样本都是现有样本的线性组合。"
+}, {
+  "tag": "H1",
+  "text": "Demonstration",
+  "translation": "示范"
+}, {
+  "tag": "P",
+  "text": "To get a clear view of how these points are generated, let’s get into an example to visualise the process.",
+  "translation": "为了清楚地了解这些点是如何产生的，我们来看一个示例以直观地显示该过程。"
+}, {
+  "tag": "P",
+  "text": "Firstly, let’s create an unbalanced dataset:",
+  "translation": "首先，让我们创建一个不平衡的数据集："
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/MJeremy2017/a26ab6dfe83e133c41a40183c0adea58/raw/c9fa6075bbe9a3b2a59e241029a410a2d8c28909/smote.py",
+  "code": "from collections import Counter\nfrom sklearn.datasets import make_classification\nfrom imblearn.over_sampling import SMOTE\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nX, y = make_classification(n_classes=2, class_sep=1, weights=[0.1, 0.9], n_informative=2, n_redundant=0,\n                           flip_y=0, n_features=2, n_clusters_per_class=1, n_samples=100, random_state=10)\n\nprint('Original dataset shape %s' % Counter(y))\n# Original dataset shape Counter({1: 90, 0: 10})\n\nlabel_c = {0: 'red', 1: 'green'}\n\nplt.figure(figsize=[10, 6])\nfor label in np.unique(y):\n    ind = np.where(y == label)\n    plt.scatter(X[ind][:, 0], X[ind][:, 1], c=label_c[label], label=label)\nplt.legend()"
+}, {
+  "tag": "P",
+  "text": "which looks like:",
+  "translation": "看起来像："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*3L0Eo1AAMBUvqe8mO9JkwA.png?q=20",
+  "caption": "unbalanced dataset",
+  "type": "image",
+  "file": "1!3L0Eo1AAMBUvqe8mO9JkwA.png"
+}, {
+  "tag": "P",
+  "text": "where the red dots of label 0 are the minority.",
+  "translation": "标签0的红点占少数。"
+}, {
+  "tag": "P",
+  "text": "To upsample with SMOTE, we can use an existing python package here:",
+  "translation": "要使用SMOTE进行升采样，我们可以在此处使用现有的python包："
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/MJeremy2017/f8b34141444c205ba6f7d7a347539b7f/raw/03c083270311e823852c23748400a0264768179c/smote2.py",
+  "code": "sm = SMOTE(k_neighbors=3, sampling_strategy=0.2, random_state=11)\nX_res, y_res = sm.fit_resample(X, y)\n\nprint('Resampled dataset shape %s' % Counter(y_res))\n# Resampled dataset shape Counter({1: 90, 0: 18})"
+}, {
+  "tag": "P",
+  "text": "where k_neighbors is the number of neighbours to choose described above, and sampling_strategy = 0.2 is telling the algorithm to sample the minority label to 0.2 x 90 = 18 .",
+  "translation": "其中k_neighbors是上述要选择的邻居数，而sample_strategy = 0.2告诉算法将少数标签采样到0.2 x 90 = 18。"
+}, {
+  "tag": "P",
+  "text": "Let’s visualise the generated points,",
+  "translation": "让我们可视化生成的点，"
+}, {
+  "tag": "FIGURE",
+  "type": "code",
+  "raw": "https://gist.github.com/MJeremy2017/74005d7f1be38fdb47c61982ff2d190a/raw/ead1166418e007e8dacb4935036f4d071146ab81/smote3.py",
+  "code": "label_c = {0: 'red', 1: 'green'}\n\nplt.figure(figsize=[10, 6])\nfor label in np.unique(y_res):\n    ind = np.where(y_res == label)\n    if label == 0:\n        plt.scatter(X_res[ind][-8:, 0], X_res[ind][-8:, 1], c='orange', label='0_new')\n        plt.scatter(X_res[ind][:-8, 0], X_res[ind][:-8, 1], c=label_c[label], label=label)\n    else:\n        plt.scatter(X_res[ind][:, 0], X_res[ind][:, 1], c=label_c[label], label=label)\nplt.legend()"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*0-6PCs6lsXc6NKmnCJcuNg.png?q=20",
+  "type": "image",
+  "file": "1!0-6PCs6lsXc6NKmnCJcuNg.png"
+}, {
+  "tag": "P",
+  "text": "Where points of orange colour are synthetic. You can notice that all these points are actually lying in between the lines of the original points. A clearer demonstration can be like:",
+  "translation": "橙色的点是合成的。 您会注意到所有这些点实际上都位于原始点的线之间。 更清晰的演示可以像："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*m1pmL4jkEzdv4dw_cZPxjw.png?q=20",
+  "caption": "source: http://rikunert.com/SMOTE_explained",
+  "type": "image",
+  "file": "1!m1pmL4jkEzdv4dw_cZPxjw.png"
+}, {
+  "tag": "P",
+  "text": "The image above shows that all synthetic instances are linear combination of existing ones(code here).",
+  "translation": "上图显示所有合成实例都是现有实例的线性组合（此处为代码）。"
+}, {
+  "tag": "P",
+  "text": "Lastly, let’s talk about some disadvantages of SMOTE. First, the original SMOTE does not support categorical features. As you can see, the synthetic data is generated by linear combination of original data, thus categorical feature does not fit in this case. A similar Q&A is discussed here. Second, the minor class may not be simple linear combination, in such scenario, SMOTE would not help in prediction.",
+  "translation": "最后，让我们谈谈SMOTE的一些缺点。 首先，原始的SMOTE不支持分类功能。 如您所见，合成数据是通过原始数据的线性组合生成的，因此分类功能在这种情况下不适合。 这里讨论了类似的问答。 其次，次要类别可能不是简单的线性组合，在这种情况下，SMOTE将无助于预测。"
+}, {
+  "tag": "P",
+  "text": "Reference:",
+  "translation": "参考："
+}, {
+  "tag": "P",
+  "text": "[1]http://rikunert.com/SMOTE_explained",
+  "translation": "[1] http://rikunert.com/SMOTE_explained"
+}, {
+  "tag": "P",
+  "text": "[2]https://en.wikipedia.org/wiki/Oversampling_and_undersampling_in_data_analysis#SMOTE",
+  "translation": "[2] https://zh.wikipedia.org/wiki/Oversampling_and_undersampling_in_data_analysis#SMOTE"
+}, {
+  "tag": "H1",
+  "text": "Working with Unbalanced Dataset",
+  "translation": "处理不平衡数据集"
+}, {
+  "tag": "H2",
+  "text": "Introduction of SMOTE",
+  "translation": "SMOTE介绍"
+}, {
+  "tag": "P",
+  "text": "A typical problem one would encounter in building machine learning models is dealing with an unbalanced dataset where the label of interest is super less, i.e fraud detection. Directly applying a machine learning model on a biased dataset likely would get bad results in terms of prediction of the minority label. The reason can be straight forward, as the model rarely see the training samples of minor class, certainly, it can be hard for it to distinguish them when unseen data points show up.",
+  "translation": "建立机器学习模型时会遇到的一个典型问题是处理不平衡的数据集，其中关注的标签极少，即欺诈检测。 在偏见数据集上直接应用机器学习模型可能会在预测少数族裔标签方面获得不良结果。 原因很简单，因为模型很少看到小班级的训练样本，当然，当出现看不见的数据点时，很难区分它们。"
+}, {
+  "tag": "P",
+  "text": "To solve the problem introduced by unbalanced dataset, one would need more data points of the minor class. Besides the general methods, like upsampling and downsampling, SMOTE is probably a smarter option, as it is generating data points by simply repeat the existing ones. In this post, let’s go into the logic of SMOTE and have a better understanding by visually see the sample generation.",
+  "translation": "为了解决不平衡数据集带来的问题，将需要更多次要类的数据点。 除了上采样和下采样之类的常规方法外，SMOTE可能是一个更明智的选择，因为它只需重复现有数据即可生成数据点。 在本文中，我们将深入探讨SMOTE的逻辑，并通过直观地查看示例生成来更好地理解。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*hBGFqMcg_VoViuuvgCIngw.jpeg?q=20",
+  "caption": "source: https://www.nexsoftsys.com/articles/what-is-imbalanced-data.html",
+  "type": "image",
+  "file": "1!hBGFqMcg_VoViuuvgCIngw.jpeg"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Jeremy Zhang的文章《Working with Unbalanced Dataset》，参考：https://towardsdatascience.com/working-with-unbalanced-dataset-8405465630d7)",
+  "translation": "（本文翻译自Jeremy Zhang的文章《使用不平衡数据集》，参考：https：//towardsdatascience.com/working-with-unbalanced-dataset-8405465630d7）"
+}]
