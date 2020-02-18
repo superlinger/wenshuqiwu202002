@@ -1,0 +1,242 @@
+[{
+  "tag": "P",
+  "text": "Thank you for reading. Please let me know if you have any feedback.",
+  "translation": "感谢您的阅读。 如果您有任何反馈意见，请告诉我。"
+}, {
+  "tag": "H1",
+  "text": "References",
+  "translation": "参考文献"
+}, {
+  "tag": "UL",
+  "texts": ["https://datafreakankur.com/machine-learning-kernel-functions-3d-visualization/", "https://www.sciencedirect.com/science/article/pii/B9780128113189000272", "https://datatuts.com/svm-parameter-tuning/", "https://jakevdp.github.io/PythonDataScienceHandbook/05.07-support-vector-machines.html"],
+  "translations": ["https://datafreakankur.com/machine-learning-kernel-functions-3d-visualization/", "https://www.sciencedirect.com/science/article/pii/B9780128113189000272", "https://datatuts.com/svm-parameter-tuning/", "https://jakevdp.github.io/PythonDataScienceHandbook/05.07-support-vector-machines.html"]
+}, {
+  "tag": "H1",
+  "text": "Support Vector Machine — Explained",
+  "translation": "支持向量机—解释"
+}, {
+  "tag": "H2",
+  "text": "Detailed explanation with theory and examples with code",
+  "translation": "理论上的详细解释和代码上的示例"
+}, {
+  "tag": "P",
+  "text": "Support Vector Machine (SVM) is a supervised machine learning algorithm which is mostly used for classification tasks. It is suitable for regression tasks as well.",
+  "translation": "支持向量机（SVM）是一种受监督的机器学习算法，主要用于分类任务。 它也适用于回归任务。"
+}, {
+  "tag": "P",
+  "text": "Supervised learning algorithms try to predict a target (dependent variable) using features (independent variables). Depending on the characteristics of target variable, it can be a classification (discrete target variable) or a regression (continuous target variable) task. Prediction is done with a mapping function which maps independent variables to dependent variable. The mapping function for SVM is a decision boundary which makes the distinction between two or more classes. How to draw or determine the decision boundary is the most critical part in SVM algorithms.",
+  "translation": "监督学习算法尝试使用特征（独立变量）预测目标（独立变量）。 根据目标变量的特性，它可以是分类（离散目标变量）或回归（连续目标变量）任务。 预测是通过将自变量映射到因变量的映射函数完成的。 SVM的映射功能是一个决策边界，可在两个或多个类之间进行区分。 如何绘制或确定决策边界是SVM算法中最关键的部分。"
+}, {
+  "tag": "P",
+  "text": "Before creating the decision boundary, each observation (or data point) is plotted in n-dimensional space. “n” is the number of features used. For instance, if we use “length” and “width” to classify different “cells”, observations are plotted in a 2-dimensional space and decision boundary is a line.",
+  "translation": "在创建决策边界之前，将每个观察值（或数据点）绘制在n维空间中。 “ n”是所使用功能的数量。 例如，如果我们使用“长度”和“宽度”对不同的“单元格”进行分类，则观察结果将绘制在二维空间中，并且决策边界为一条线。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*mRPaFRxCP67yGqhvCMpJvA.png?q=20",
+  "caption": "SVM in a 2-dimensional space",
+  "type": "image",
+  "file": "1!mRPaFRxCP67yGqhvCMpJvA.png"
+}, {
+  "tag": "P",
+  "text": "This is a very simple case just to illustrate the idea of SVM. It is highly unlikely that you will encounter a task like this one in real life. Decision boundary is a line in this case. If we use 3 features, decision boundary is a plane in 3-dimensional space. If we use more than 3 features, decision boundary becomes a hyperplane which is really hard to visualize.",
+  "translation": "这是一个非常简单的案例，仅用于说明SVM的概念。 在现实生活中，您极不可能遇到这样的任务。 在这种情况下，决策边界是一条线。 如果使用3个要素，则决策边界是3维空间中的平面。 如果我们使用3个以上的特征，则决策边界将变成超平面，这真的很难形象化。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*ajzQdrfBYtYrENIMf8qb1Q.png?q=20",
+  "caption": "Support Vectors",
+  "type": "image",
+  "file": "1!ajzQdrfBYtYrENIMf8qb1Q.png"
+}, {
+  "tag": "P",
+  "text": "The main motivation is to draw a decision boundary that maximizes the distance to support vectors. If the decision boundary is too close to a support vector, it will be highly sensitive to noises and not generalize well. Even very small changes in independent variables may cause a misclassification.",
+  "translation": "主要动机是绘制一个决策边界，以最大化支持向量的距离。 如果决策边界距离支持向量太近，它将对噪声高度敏感并且不能很好地泛化。 即使自变量的很小变化也可能导致分类错误。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*ZcyhQZpO3FYczlni_jR3Qw.png?q=20",
+  "caption": "Bad choices for Decision Boundary",
+  "type": "image",
+  "file": "1!ZcyhQZpO3FYczlni_jR3Qw.png"
+}, {
+  "tag": "P",
+  "text": "The data points are not always linearly separable like in the figure above. In these cases, SVM uses kernel trick which measures the similarity (or closeness) of data points in a higher dimensional space in order to make them linearly separable. It is easier to understand with the figures below. As you can see, two different classes in 2-dimensional space cannot be separated with a line. Using a kernel trick makes them linearly separable:",
+  "translation": "数据点并非总是如上图所示线性分离。 在这些情况下，SVM使用内核技巧来测量较高维空间中数据点的相似性（或相似性），以使它们线性可分离。 下图更容易理解。 如您所见，二维空间中的两个不同类不能用线分隔。 使用内核技巧可以使它们线性分离："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*D5jKvmphgJ8xdYujPTBWZw.png?q=20",
+  "caption": "Figure source",
+  "type": "image",
+  "file": "1!D5jKvmphgJ8xdYujPTBWZw.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*PpNDcodi5QOZ2FZi3wUL-A.png?q=20",
+  "caption": "Figure source",
+  "type": "image",
+  "file": "1!PpNDcodi5QOZ2FZi3wUL-A.png"
+}, {
+  "tag": "P",
+  "text": "Before I go in detail about kernel trick, I would like to mention c parameter and a concept called “soft margin”.",
+  "translation": "在详细介绍内核技巧之前，我想提及一下c参数和一个称为“软边距”的概念。"
+}, {
+  "tag": "H1",
+  "text": "Soft margin SVM and C parameter",
+  "translation": "软边距SVM和C参数"
+}, {
+  "tag": "P",
+  "text": "Real data is noisy and not linearly separable in most cases. A standard SVM tries to separate all positive and negative examples (i.e. two different classes) and does not allow any points to be misclassified. This results in an overfit model or, in some cases, a decision boundary cannot be find with a standard SVM. An overfit SVM achieves a high accuracy with training set but will not perform well on new, previously unseen examples. To overcome this issue, in 1995, Cortes and Vapnik, came up with the idea of “soft margin” SVM which allows some examples to be misclassified or be on the wrong side of decision boundary. Soft margin SVM often result in a better generalized model. When determining the decision boundary, a soft margin SVM tries to solve an optimization problem with following goals:",
+  "translation": "实际数据在大多数情况下都是嘈杂的并且不是线性可分离的。 标准SVM尝试将所有正例和负例（即两个不同的类）分开，并且不允许将任何点分类错误。 这导致模型过度拟合，或者在某些情况下，标准SVM无法找到决策边界。 过度拟合的SVM通过训练集可以达到很高的精度，但是在新的，以前看不见的示例中效果不佳。 为了克服这个问题，在1995年，Cortes和Vapnik提出了“软边际” SVM的思想，该思想允许将某些示例分类错误或置于决策边界的错误一边。 软边距SVM通常会导致更好的通用模型。 在确定决策边界时，软裕度SVM尝试解决具有以下目标的优化问题："
+}, {
+  "tag": "UL",
+  "texts": ["Increase the distance of decision boundary to classes (or support vectors)", "Maximize the number of points that are correctly classified in training set"],
+  "translations": ["增加决策边界与类（或支持向量）的距离", "最大化在训练集中正确分类的点数"]
+}, {
+  "tag": "P",
+  "text": "There is obviously a trade-off between these two goals. Decision boundary might have to be very close to one particular class to correctly label all data points in training set. However, in this case, accuracy on test dataset might be lower because decision boundary is too sensitive to noise and to small changes in the independent variables. On the other hand, a decision boundary might be placed as far as possible to each class with the expense of some misclassified exceptions. This trade-off is controlled by c parameter.",
+  "translation": "这两个目标之间显然需要权衡取舍。 决策边界可能必须非常接近某一特定类别，才能正确标记训练集中的所有数据点。 但是，在这种情况下，测试数据集的准确性可能会降低，因为决策边界对噪声和自变量的微小变化过于敏感。 另一方面，可能会为每个类别设置尽可能大的决策边界，但要付出一些错误分类的例外的代价。 这种权衡由c参数控制。"
+}, {
+  "tag": "P",
+  "text": "C parameter adds a penalty for each misclassified data point. If c is small, penalty for misclassified points is low so a decision boundary with a large margin is chosen at the expense of a greater number of misclassifications. If c is large, SVM tries to minimize the number of misclassified examples due to high penalty which results in a decision boundary with a smaller margin. Penalty is not same for all misclassified examples. It is directly proportional to the distance to decision boundary.",
+  "translation": "C参数为每个错误分类的数据点增加了惩罚。 如果c小，则对错误分类的点的惩罚较低，因此以较大数量的错误分类为代价选择了具有较大余量的决策边界。 如果c大，由于高惩罚，SVM会尝试最大程度地减少误分类示例的数量，从而导致决策边界的边距较小。 对于所有错误分类的示例，惩罚都不相同。 它与到决策边界的距离成正比。"
+}, {
+  "tag": "H1",
+  "text": "Kernel functions",
+  "translation": "内核功能"
+}, {
+  "tag": "P",
+  "text": "Kernel function is kind of a similarity measure. The inputs are original features and the output is a similarity measure in the new feature space. Similarity here means a degree of closeness. It is a costly operation to actually transform data points to a high-dimensional feature space. The algorithm does not actually transform the data points to a new, high dimensional feature space. Kernelized SVM compute decision boundaries in terms of similarity measures in a high-dimensional feature space without actually doing a transformation. I think this is why it is also called kernel trick.",
+  "translation": "内核功能是一种相似性度量。 输入是原始要素，输出是新要素空间中的相似性度量。 这里的相似度表示紧密度。 将数据点实际转换为高维特征空间是一项昂贵的操作。 该算法实际上并未将数据点转换为新的高维特征空间。 内核化的SVM根据高维特征空间中的相似性度量计算决策边界，而无需实际进行转换。 我认为这就是为什么它也称为内核技巧。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*csskyAwn88skWHNeQnXWTA.png?q=20",
+  "caption": "Figure source",
+  "type": "image",
+  "file": "1!csskyAwn88skWHNeQnXWTA.png"
+}, {
+  "tag": "P",
+  "text": "Kernel functions available in scikit-learn are linear, polynomial, radial basis function (RBF), and sigmoid.",
+  "translation": "scikit-learn中可用的内核函数是线性，多项式，径向基函数（RBF）和S形。"
+}, {
+  "tag": "P",
+  "text": "RBF (or Gaussian RBF) is a widely-used kernel function. It is defined by gamma parameter which basically controls the distance of influence of a single training point. Low values of gamma indicates a large similarity radius which results in more points being grouped together. For high values of gamma, the points need to be very close to each other in order to be considered in the same group (or class). Therefore, models with very large gamma values tend to overfit. Following visualizations explain the concept better:",
+  "translation": "RBF（或高斯RBF）是一种广泛使用的内核函数。 它由伽玛参数定义，该参数基本上控制单个训练点的影响距离。 较低的gamma值表示相似半径较大，这导致将更多点组合在一起。 对于较高的伽玛值，这些点必须彼此非常接近，以便在同一组（或类）中考虑。 因此，具有非常大的伽玛值的模型往往会过拟合。 以下可视化效果更好地解释了该概念："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*_CTmTq36YUixhA-QrmQ3aA.png?q=20",
+  "type": "image",
+  "file": "1!_CTmTq36YUixhA-QrmQ3aA.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*jK9NgyBwO_Qjpb6dysZi3w.png?q=20",
+  "type": "image",
+  "file": "1!jK9NgyBwO_Qjpb6dysZi3w.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*cigGKvA3tTqK8STuLyor7A.png?q=20",
+  "type": "image",
+  "file": "1!cigGKvA3tTqK8STuLyor7A.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*7M_wHiZiZA6BhxqWQGXwMw.png?q=20",
+  "caption": "Figures source",
+  "type": "image",
+  "file": "1!7M_wHiZiZA6BhxqWQGXwMw.png"
+}, {
+  "tag": "P",
+  "text": "As the gamma decreases, the regions separating different classes get more generalized. Very large gamma values result in too specific class regions (overfitting).",
+  "translation": "随着伽玛值的减小，分隔不同类别的区域将变得更加普遍。 很大的伽玛值会导致特定的类区域（过度拟合）。"
+}, {
+  "tag": "H1",
+  "text": "Gamma vs C parameter",
+  "translation": "伽玛vs C参数"
+}, {
+  "tag": "P",
+  "text": "For a linear kernel, we just need to optimize the c parameter. However, if we want to use an RBF kernel, both c and gamma parameter need to optimized simultaneously. If gamma is large, effect of c becomes negligible. If gamma is small, c effects the model just like how it effects a linear model. Typical values for c and gamma are as follows. However, specific optimal values may exist depending on the application:",
+  "translation": "对于线性内核，我们只需要优化c参数即可。 但是，如果要使用RBF内核，则必须同时优化c和gamma参数。 如果γ大，则c的影响可忽略不计。 如果gamma很小，则c会像影响线性模型一样影响模型。 c和gamma的典型值如下。 但是，取决于应用程序，可能存在特定的最佳值："
+}, {
+  "tag": "P",
+  "text": "0.0001 < gamma < 10",
+  "translation": "0.0001 <伽玛<10"
+}, {
+  "tag": "P",
+  "text": "0.1 < c < 100",
+  "translation": "0.1 <c <100"
+}, {
+  "tag": "P",
+  "text": "It is very significant to remember for SVM that the input data need to be normalized so that features are on the same scale and compatible.",
+  "translation": "对于SVM而言，记住输入数据需要进行标准化以使功能具有相同的比例和兼容是非常重要的。"
+}, {
+  "tag": "H1",
+  "text": "Pros and Cons of SVM",
+  "translation": "SVM的优缺点"
+}, {
+  "tag": "P",
+  "text": "Pros:",
+  "translation": "优点："
+}, {
+  "tag": "UL",
+  "texts": ["Effective in cases where number of dimensions are more than the number of samples", "When finding the decision boundary, it uses a subset of training points rather than all points so it is memory efficient", "Versatile, it provides different type of kernel functions and also possible to create custom kernel functions"],
+  "translations": ["在维数大于样本数的情况下有效", "查找决策边界时，它使用训练点的子集而不是所有点，因此具有存储效率", "用途广泛，它提供了不同类型的内核功能，还可以创建自定义内核功能"]
+}, {
+  "tag": "P",
+  "text": "Cons:",
+  "translation": "缺点："
+}, {
+  "tag": "UL",
+  "texts": ["Requires careful normalization", "Difficult to understand the logic behind the predictions", "When we have a large dataset, training time increases which negativelys effects the performance"],
+  "translations": ["需要仔细规范化", "难以理解预测背后的逻辑", "当我们有一个大数据集时，训练时间会增加，这会对性能产生负面影响"]
+}, {
+  "tag": "H1",
+  "text": "Scikit-learn Example",
+  "translation": "Scikit学习示例"
+}, {
+  "tag": "P",
+  "text": "I want to go over a simple case just to show the syntax and steps to follow. Let’s start with importing the libraries we need:",
+  "translation": "我想看一个简单的案例，只是为了显示语法和要遵循的步骤。 让我们从导入所需的库开始："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*iySJZ4r8biQ7HDjRm_xt9A.png?q=20",
+  "type": "image",
+  "file": "1!iySJZ4r8biQ7HDjRm_xt9A.png"
+}, {
+  "tag": "P",
+  "text": "Scikit-learn also provides datasets for practice. Breast cancer dataset is suitable for our task:",
+  "translation": "Scikit-learn还提供实践数据集。 乳腺癌数据集适合我们的任务："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*LmfukOFNxaacvabQWxs2-Q.png?q=20",
+  "type": "image",
+  "file": "1!LmfukOFNxaacvabQWxs2-Q.png"
+}, {
+  "tag": "P",
+  "text": "We need to split the dataset for trainin and testing using train_test_split function of scikit-learn. Then I create a support vector machine object for classification with linear kernel and train it using train dataset:",
+  "translation": "我们需要使用scikit-learn的train_test_split函数对数据集进行训练和测试。 然后，我创建一个用于对线性核进行分类的支持向量机对象，并使用训练数据集对其进行训练："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*rk5D2mUhd09ArcRrKGxfog.png?q=20",
+  "type": "image",
+  "file": "1!rk5D2mUhd09ArcRrKGxfog.png"
+}, {
+  "tag": "P",
+  "text": "Using our trained model, we can predict target variable in the test dataset and measure the accuracy of the model:",
+  "translation": "使用我们训练有素的模型，我们可以预测测试数据集中的目标变量并测量模型的准确性："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*indAeiqF48_MUh3LrrctUw.png?q=20",
+  "type": "image",
+  "file": "1!indAeiqF48_MUh3LrrctUw.png"
+}, {
+  "tag": "P",
+  "text": "95% is a pretty good accuracy but, for classification tasks, there are two other measures: precision and recall. These terms are so important that they can be a topic of whole another post. In fact, they are clearly explained in Google’s machine learning crash course."
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*tD1ZduQFkLwxMolVTSOesw.png?q=20",
+  "type": "image",
+  "file": "1!tD1ZduQFkLwxMolVTSOesw.png"
+}, {
+  "tag": "P",
+  "text": "This was a simple linearly separable task. For cases that are not linearly separable, we can use kernels using the kernel parameter of SVC (i.e. kernel = ‘rbf’ ). I did not specify the c parameter so default value (c=1) was used. In order to find best parameters, we can use GridSearchCV() function of scikit-learn.",
+  "translation": "这是一个简单的线性可分离任务。 对于无法线性分离的情况，我们可以使用带有SVC内核参数的内核（即kernel ='rbf'）。 我没有指定c参数，所以使用了默认值（c = 1）。 为了找到最佳参数，我们可以使用scikit-learn的GridSearchCV（）函数。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Soner Yildirim的文章《Support Vector Machine — Explained》，参考：https://towardsdatascience.com/support-vector-machine-explained-8d75fe8738fd)",
+  "translation": "（本文翻译自Soner Yildirim的文章，《 Support Vector Machine —解释》，参考：https：//towardsdatascience.com/support-vector-machine-explained-8d75fe8738fd）"
+}]
