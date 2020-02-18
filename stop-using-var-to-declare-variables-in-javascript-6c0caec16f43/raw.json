@@ -1,0 +1,169 @@
+[{
+  "tag": "P",
+  "text": "Do you still find yourself using var? What’s stopping you from switching over to using const and let? Share your experiences below!",
+  "translation": "您是否仍在使用var？ 是什么阻止您切换到使用const和let？ 在下面分享您的经验！"
+}, {
+  "tag": "H1",
+  "text": "Stop Using ‘var’ to Declare Variables in JavaScript",
+  "translation": "停止使用“ var”声明JavaScript中的变量"
+}, {
+  "tag": "H2",
+  "text": "An introduction to `const` and `let`",
+  "translation": "const和let的介绍"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*lBV-Mwzgk19GL36A1geEnA.jpeg?q=20",
+  "type": "image",
+  "file": "1!lBV-Mwzgk19GL36A1geEnA.jpeg"
+}, {
+  "tag": "P",
+  "text": "We all start somewhere. I learned JavaScript declaring variables with the var keyword. It was simple and it worked, but I’ve changed.",
+  "translation": "我们都从某个地方开始。 我学习了使用var关键字声明变量的JavaScript。 它很简单而且有效，但是我已经改变了。"
+}, {
+  "tag": "P",
+  "text": "If you write code like var x = 5 you need to stop. Well, I’ll be honest, you don’t have to, but you should.",
+  "translation": "如果您编写类似var x = 5的代码，则需要停止。 好吧，老实说，您不必这样做，但您应该这样做。"
+}, {
+  "tag": "P",
+  "text": "We often think of programming languages as a set of rules etched in stone. The reality is that a programming language — like any spoken language — is ever-evolving.",
+  "translation": "我们经常将编程语言视为刻板的一组规则。 现实情况是，与任何口头语言一样，编程语言也在不断发展。"
+}, {
+  "tag": "P",
+  "text": "I now use the keywords const and let to declare all my variables in JavaScript and so should you.",
+  "translation": "现在，我使用关键字const并让我们在JavaScript中声明所有变量，所以您也应该这样做。"
+}, {
+  "tag": "P",
+  "text": "Let’s learn how and why.",
+  "translation": "让我们学习如何以及为什么。"
+}, {
+  "tag": "H1",
+  "text": "Declaring True Constants",
+  "translation": "声明真实常数"
+}, {
+  "tag": "P",
+  "text": "A variable, by name, intimates a changing value. While there’s not necessarily anything wrong with declaring and not touching a variable, if we’re trying to write code that makes semantic sense then we should distinguish between variables and constants.",
+  "translation": "顾名思义，变量表示变化的值。 尽管声明和不接触变量并不一定有什么问题，但是如果我们试图编写具有语义意义的代码，则应该区分变量和常量。"
+}, {
+  "tag": "P",
+  "text": "A constant is the opposite of a variable, a declared value that does not change. Historically, to define a constant we used all capital letters, like the bright coloring on a toxic animal.",
+  "translation": "常量与变量相反，变量的声明值不变。 从历史上看，为定义一个常量，我们使用所有大写字母，例如有毒动物的鲜艳颜色。"
+}, {
+  "tag": "P",
+  "text": "Instead of relying on convention, the introduction of the const keyword gives us an explicit option for declaring that which does not change.",
+  "translation": "不用依赖约定，引入const关键字为我们提供了一个明确的选项，用于声明哪些内容不会更改。"
+}, {
+  "tag": "P",
+  "text": "To use the const keyword, simply swap it out with var and now that value cannot be modified.",
+  "translation": "要使用const关键字，只需将其替换为var即可，现在无法修改该值。"
+}, {
+  "tag": "PRE",
+  "text": "// the old way// var sales_tax = 0.06;// the new wayconst sales_tax = 0.06;sales_tax = 0.08; // \"TypeError: Assignment to constant variable.",
+  "translation": "//旧方法// var sales_tax = 0.06; //新方法const sales_tax = 0.06; sales_tax = 0.08; //“ TypeError：分配给常量变量。"
+}, {
+  "tag": "P",
+  "text": "The implementation is simple, the rationale is simple. Using const is a no-brainer. But when is this appropriate?",
+  "translation": "实现简单，原理简单。 使用const是理所当然的。 但是什么时候合适呢？"
+}, {
+  "tag": "P",
+  "text": "Numeric ratios such as a tax rate or a conversion between units are easy pickings. The other place you’ll see const being used is declaring functions using arrow notation.",
+  "translation": "诸如税率或单位之间的转换之类的数字比率很容易选择。 您将看到使用const的另一个地方是使用箭头符号声明函数。"
+}, {
+  "tag": "PRE",
+  "text": "const myFunction = (x,y) => {  // Do stuff}myFunction(1,2)",
+  "translation": "const myFunction =（x，y）=> {//做东西} myFunction（1,2）"
+}, {
+  "tag": "P",
+  "text": "Now your function cannot be overwritten.",
+  "translation": "现在，您的函数无法覆盖。"
+}, {
+  "tag": "H1",
+  "text": "Fixing JavaScript’s Quirky Scope",
+  "translation": "修正JavaScript的古怪范围"
+}, {
+  "tag": "P",
+  "text": "JavaScript suffered from a lack of scope clarity that often led to frustrations with development and troubleshooting. Here is a summary of the JS scope oddities:",
+  "translation": "JavaScript缺乏范围清晰性，这常常导致开发和故障排除的失败。 以下是JS范围异常的摘要："
+}, {
+  "tag": "UL",
+  "texts": ["could use var twice with a variable (redeclaration)", "top-level variables were global by default (global object)", "variables could be used before being declared (hoisting)", "variables in loops reused the same reference (closures)"],
+  "translations": ["可以对变量使用两次var（重新声明）", "默认情况下，顶级变量是全局变量（全局对象）", "变量可以在声明（吊装）之前使用", "循环中的变量重用了相同的引用（闭包）"]
+}, {
+  "tag": "P",
+  "text": "Using let clarifies and solves many of these oddities. Let’s take a closer look.",
+  "translation": "使用let可以澄清并解决许多这些奇怪的问题。 让我们仔细看看。"
+}, {
+  "tag": "H2",
+  "text": "Redeclaration",
+  "translation": "重新声明"
+}, {
+  "tag": "P",
+  "text": "This one’s simple, you cannot redeclare a variable that was made with let.",
+  "translation": "这很简单，您无法重新声明使用let制作的变量。"
+}, {
+  "tag": "PRE",
+  "text": "var x = 0;let y = 0;var x = 1;let y = 1; // \"SyntaxError: Identifier 'y' has already been declared",
+  "translation": "var x = 0; let y = 0; var x = 1; let y = 1; //“ SyntaxError：标识符“ y”已被声明"
+}, {
+  "tag": "H2",
+  "text": "Global Object",
+  "translation": "全局对象"
+}, {
+  "tag": "P",
+  "text": "At the top level, variables declared with var are added to the global object as a property whereas let variables are not.",
+  "translation": "在顶层，用var声明的变量作为属性添加到全局对象，而let变量则不。"
+}, {
+  "tag": "PRE",
+  "text": "var x = 0;let y = 0;console.log(window.x); // 0console.log(window.y); // undefined",
+  "translation": "var x = 0; let y = 0; console.log（window.x）; // 0console.log（window.y）; //未定义"
+}, {
+  "tag": "H2",
+  "text": "Hoisting",
+  "translation": "吊装"
+}, {
+  "tag": "P",
+  "text": "Variables defined with let are only accessible inside their block-scope while var variables are hoisted to the function level.",
+  "translation": "用let定义的变量只能在其块范围内访问，而var变量将提升到功能级别。"
+}, {
+  "tag": "PRE",
+  "text": "// Using varconsole.log(i);  // undefinedfor(var i=0; i<4; i++) {  console.log(i);}console.log(i); // 4// Using letconsole.log(j); // \"ReferenceError: j is not definedfor(let j=0; j<4; j++) {  console.log(j);}console.log(j); // \"ReferenceError: j is not defined",
+  "translation": "//使用varconsole.log（i）; // undefinedfor（var i = 0; i <4; i）{console.log（i）;} console.log（i）; // 4 //使用letconsole.log（j）; //“ ReferenceError：未定义for（让j = 0； j <4; j）{console.log（j）;} console.log（j）; //” ReferenceError：未定义"
+}, {
+  "tag": "H2",
+  "text": "Closures",
+  "translation": "关闭"
+}, {
+  "tag": "P",
+  "text": "This one’s hard to understand if it’s a new concept, but a closure is a function that references a free variable.",
+  "translation": "这是一个新概念很难理解，但是闭包是引用自由变量的函数。"
+}, {
+  "tag": "P",
+  "text": "When we have a closure with a var variable, the reference is remembered, which can be troublesome when inside a loop where that variable changes.",
+  "translation": "当我们有一个带有var变量的闭包时，会记住该引用，当在该变量更改的循环内时，这可能会很麻烦。"
+}, {
+  "tag": "PRE",
+  "text": "var functions = [];for (var i = 0; i < 3; i++) {  functions[i] = () => { console.log(i); };}for (var j = 0; j < 3; j++) {  functions[j]();}// 3 3 3",
+  "translation": "var functions = []; for（var i = 0; i <3; i）{functions [i] =（）=> {console.log（i）; };} for（var j = 0; j <3; j）{函数[j]（）;} // 3 3 3"
+}, {
+  "tag": "P",
+  "text": "Using let, a new reference is created each time.",
+  "translation": "使用let每次都会创建一个新引用。"
+}, {
+  "tag": "PRE",
+  "text": "var functions = [];for (let i = 0; i < 3; i++) {  functions[i] = () => { console.log(i); };}for (var j = 0; j < 3; j++) {  functions[j]();}// 0 1 2",
+  "translation": "var functions = []; for（let i = 0; i <3; i）{functions [i] =（）=> {console.log（i）; };} for（var j = 0; j <3; j）{函数[j]（）;} // 0 1 2"
+}, {
+  "tag": "P",
+  "text": "Ultimately even if you aren’t 100% on these reasons and why they work the way they do, switching over to let will result in more explicit code that behaves consistently and will be easier to troubleshoot/maintain."
+}, {
+  "tag": "H1",
+  "text": "A Word of Caution",
+  "translation": "告诫"
+}, {
+  "tag": "P",
+  "text": "Although let and const should effectively replace the var keyword, life isn’t always so simple. Since these keywords were introduced in ECMAScript 2015 (ES6), if the platform you work on does not allow it then you’re out of luck. Additionally, you’ll want to make sure you take steps to ensure your code works across the browsers of your target audience.",
+  "translation": "尽管let和const应该有效地替换var关键字，但生活并不总是那么简单。 由于这些关键字是在ECMAScript 2015（ES6）中引入的，因此，如果您使用的平台不允许使用该关键字，那么您就不走运了。 此外，您需要确保采取措施以确保代码可在目标受众的浏览器中正常运行。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Jonathan Hsu的文章《Stop Using ‘var’ to Declare Variables in JavaScript》，参考：https://levelup.gitconnected.com/stop-using-var-to-declare-variables-in-javascript-6c0caec16f43)",
+  "translation": "（本文翻译自Jonathan Hsu的文章，《停止使用'var'声明JavaScript中的变量》，参考：https：//levelup.gitconnected.com/stop-using-var-to-declare-variables-in-javascript-6c0caec16f43 ）"
+}]
