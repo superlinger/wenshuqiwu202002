@@ -1,0 +1,383 @@
+[{
+  "tag": "H1",
+  "text": "A Gentle Intro to Probability and Statistics for Data Science",
+  "translation": "数据科学概率统计的温和介绍"
+}, {
+  "tag": "H2",
+  "text": "Deep and easy dive into the world of Statistics.",
+  "translation": "轻松而深入地了解统计领域。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*nWsiZqLa3z9dLeY_.jpg?q=20",
+  "caption": "Photo Creds: https://unsplash.com/",
+  "type": "image",
+  "file": "0!nWsiZqLa3z9dLeY_.jpg"
+}, {
+  "tag": "P",
+  "text": "Data Science is impossible without a solid knowledge of probability and statistics. But often we just lose our interest in this because of boring and complicated statistic terms. Yes, probability and statistics are boring, but today I want to change your attitude to this and show a little bit more convenient way to learn all the important concepts.",
+  "translation": "没有扎实的概率和统计知识，数据科学是不可能的。 但是由于无聊和复杂的统计术语，我们常常对此失去兴趣。 是的，概率和统计数据很无聊，但是今天我想改变您对此的态度，并展示一些更方便的方法来学习所有重要概念。"
+}, {
+  "tag": "P",
+  "text": "This article is a detailed set of all the necessary statics steps you need to take before jumping into data science. Let’s go!",
+  "translation": "本文详细介绍了在进入数据科学之前需要采取的所有必要的静态步骤。 我们走吧！"
+}, {
+  "tag": "H1",
+  "text": "Step # 1 Statistics for Data Science — What’s the relation between them?",
+  "translation": "步骤＃1数据科学的统计-它们之间有什么关系？"
+}, {
+  "tag": "P",
+  "text": "First off, it is necessary to clarify the question — why do we actually need to learn statistics and probability? If you know the purpose, you will have much more desire and motivation to learn everything — it’s logical. So, Data Science is about probing questions and making decisions, right?",
+  "translation": "首先，有必要澄清这个问题-为什么我们实际上需要学习统计数据和概率？ 如果您知道目的，那么您将有更多的欲望和动力去学习一切，这是合乎逻辑的。 因此，数据科学是关于探究问题和制定决策的，对吗？"
+}, {
+  "tag": "P",
+  "text": "Statistics is the art of connecting numbers to these questions so that the “answers” evolve! To establish quantitative connections to largely qualitative questions is the heart of statistics.",
+  "translation": "统计是将数字与这些问题联系在一起的艺术，以便“答案”不断发展！ 建立与主要定性问题的定量联系是统计的核心。"
+}, {
+  "tag": "P",
+  "text": "A Data Scientist is one who knows more statistics than a programmer and more programming than a statistician.",
+  "translation": "数据科学家是一个比程序员了解更多统计信息，比统计学家了解更多编程知识的人。"
+}, {
+  "tag": "P",
+  "text": "Data Science is that sweet spot that sits perfectly amidst computer programming, statistics and the domain on which the analysis is performed. Let us see how.",
+  "translation": "数据科学恰好位于计算机编程，统计数据和执行分析的领域之中。 让我们看看如何。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*WKqj-dfmVyELeOxh?q=20",
+  "caption": "Data Science Explained",
+  "type": "image",
+  "file": "0!WKqj-dfmVyELeOxh"
+}, {
+  "tag": "P",
+  "text": "So, statistics is a collection of principles and parameters for gaining information in order to make decisions when faced with uncertainty. It is actually the “art” of unraveling the secrets hidden inside the dataset",
+  "translation": "因此，统计信息是用于获取信息以便在面对不确定性时做出决策的原则和参数的集合。 实际上，这是揭开隐藏在数据集中的秘密的“艺术”"
+}, {
+  "tag": "P",
+  "text": "As a Data Scientist, we are solving a problem or helping someone to take a decision, based on the available data. So what do we do as Data Scientists to achieve this?",
+  "translation": "作为数据科学家，我们正在根据可用数据解决问题或帮助某人做出决定。 那么，作为数据科学家，我们该怎么做呢？"
+}, {
+  "tag": "UL",
+  "texts": ["We define a problem statement (By asking the right questions)", "We then collect the right kind of data to perform our analysis", "We try to explore the data to see what it tells us", "We employ various techniques to derive inferences from the data or to predict some answers for the problem statement.", "Finally, we confirm that our inferences/predictions are fairly accurate (of course by scientific methods!)"],
+  "translations": ["我们定义问题陈述（通过提出正确的问题）", "然后，我们收集正确的数据来执行分析", "我们尝试探索数据，看看它能告诉我们什么", "我们采用各种技术从数据中得出推论或预测问题陈述的答案。", "最后，我们确认我们的推论/预测是相当准确的（当然是通过科学方法！）"]
+}, {
+  "tag": "P",
+  "text": "Let’s take a look as some examples of real analyses or applications you might need to implement as a data scientist:",
+  "translation": "让我们看一些您可能需要作为数据科学家实施的实际分析或应用程序的示例："
+}, {
+  "tag": "P",
+  "text": "Experimental design: Your company is rolling out a new product line, but it sells through offline retail stores. You need to design an A/B test that controls for differences across geographies. You also need to estimate how many stores to pilot in for statistically significant results.",
+  "translation": "实验性设计：您的公司正在推出新的产品线，但通过线下零售商店进行销售。 您需要设计一个A / B测试，以控制不同地区之间的差异。 您还需要估计要试行多少家商店以获得具有统计意义的结果。"
+}, {
+  "tag": "P",
+  "text": "Regression modeling: Your company needs to better predict the demand of individual product lines in its stores. Under-stocking and over-stocking are both expensive. You consider building a series of regularized regression models.",
+  "translation": "回归建模：您的公司需要更好地预测其商店中各个产品线的需求。 库存不足和库存过多都是昂贵的。 您考虑构建一系列正则化回归模型。"
+}, {
+  "tag": "P",
+  "text": "Data transformation: You have multiple machine learning model candidates you’re testing. Several of them assume specific probability distributions of input data, and you need to be able to identify them and either transform the input data appropriately or know when underlying assumptions can be relaxed.",
+  "translation": "数据转换：您正在测试多个机器学习模型候选者。 其中一些假设输入数据的特定概率分布，您需要能够识别它们并适当地转换输入数据，或者知道何时可以放松基础假设。"
+}, {
+  "tag": "P",
+  "text": "A data scientist makes hundreds of decisions every day. They range from small ones like how to tune a model all the way up big ones like the team’s R&D strategy.",
+  "translation": "数据科学家每天都会做出数百个决定。 它们的范围从小到像团队的R＆D策略那样一直到大模型一样。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/24/0*5n46VjFA9-QP-Zff?q=20",
+  "caption": "https://twitter.com/wizzardrace/status/511245506131939329?lang=en",
+  "type": "image",
+  "file": "0!5n46VjFA9-QP-Zff"
+}, {
+  "tag": "P",
+  "text": "Probability and statistics are used for many machine learning algorithms, data analysis and adequate a / b tests. Why do we need to use it? It helps to evaluate how much you can rely on the available data, how to work with outliers in the data, which can ruin the reliability of the information, and so on.",
+  "translation": "概率和统计用于许多机器学习算法，数据分析和足够的a / b测试。 我们为什么需要使用它？ 它有助于评估您可以在多大程度上依赖可用数据，如何使用数据中的异常值，这可能会破坏信息的可靠性，等等。"
+}, {
+  "tag": "P",
+  "text": "I hope I described the importance of statistics for data science well, so you are ready now to move forward to other steps of our learning journey!",
+  "translation": "我希望我很好地描述了统计学对数据科学的重要性，因此您现在就可以继续进行学习过程的其他步骤了！"
+}, {
+  "tag": "H1",
+  "text": "Step #2: What is a “Bayesian approach to data science”?",
+  "translation": "步骤2：什么是“贝叶斯数据科学方法”？"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*TFz8DuH65Q1zvXfe?q=20",
+  "caption": "Photo Creds: https://unsplash.com/",
+  "type": "image",
+  "file": "0!TFz8DuH65Q1zvXfe"
+}, {
+  "tag": "P",
+  "text": "One of the philosophical debates in statistics is between Bayesians and frequentists. The Bayesian side is more relevant when learning statistics for data science.",
+  "translation": "关于统计的哲学争论之一是在贝叶斯主义者和常客之间。 在学习数据科学的统计信息时，贝叶斯方面更为重要。"
+}, {
+  "tag": "P",
+  "text": "In a nutshell, frequentists use probability only to model sampling processes. This means they only assign probabilities to describe data they’ve already collected.",
+  "translation": "简而言之，常客只使用概率来建模采样过程。 这意味着他们只分配概率来描述他们已经收集的数据。"
+}, {
+  "tag": "P",
+  "text": "Bayesianism is an approach to statistics, not data science. Statistics is generally concerned with “how to make decisions”, estimation/prediction (of models), or “what is the right way to validate ideas”, and there are a few others that don’t come to mind right now. Data science is more concerned with aggregating data (how to compute stuff from data), meta-analysis, and more recently how to visualize data.",
+  "translation": "贝叶斯主义是一种统计方法，而不是数据科学。 统计数据通常与“如何做出决定”，（模型的）估计/预测或“验证想法的正确方法是什么”有关，目前还没有其他一些想法。 数据科学更加关注聚合数据（如何从数据中计算内容），元分析以及最近如何可视化数据。"
+}, {
+  "tag": "P",
+  "text": "There is a strong connection though, Bayesians use meta-analysis quite often in order to get some hints for their prior. And just to be clear, for those who see the slight ambiguity, I am not necessarily suggesting that meta-analysis implies the reuse of data. My favorite book on the subject is “Bayesian Data Analysis” by Gelman et al. It has some great meta-analysis examples.",
+  "translation": "但是，两者之间存在很强的联系，贝叶斯主义者经常使用荟萃分析来获得一些关于其先验的提示。 需要明确指出的是，对于那些看到了些许歧义的人，我并不一定要建议荟萃分析意味着数据的重用。 关于该主题，我最喜欢的书是Gelman等人的“贝叶斯数据分析”。 它有一些很棒的荟萃分析实例。"
+}, {
+  "tag": "P",
+  "text": "In Bayesian thinking, the level of uncertainty before collecting data is called the prior probability. It’s then updated to a posterior probability after data is collected. This is a central concept to many machine learning models, so it’s important to master.",
+  "translation": "在贝叶斯思想中，收集数据之前的不确定性水平称为先验概率。 在收集数据之后，它会更新为后验概率。 这是许多机器学习模型的中心概念，因此掌握这一点很重要。"
+}, {
+  "tag": "P",
+  "text": "Again, all of these concepts will make sense once you implement them.",
+  "translation": "同样，一旦实现它们，所有这些概念将变得有意义。"
+}, {
+  "tag": "P",
+  "text": "Great references to dive more deeply into the subject:",
+  "translation": "深入探讨该主题的出色参考："
+}, {
+  "tag": "UL",
+  "texts": ["Think Stats is an excellent book (with free PDF version) introducing all the key concepts. The premise of the book? If you know how to program, then you can use that skill to teach yourself statistics. We’ve found this approach to be very effective, even for those with formal math backgrounds.", "Introduction to Statistical Learning (R focus): Page on usc.edu", "Think Bayes is the follow-up book (with free PDF version) of Think Stats. It’s all about Bayesian thinking, and it uses the same approach of using programming to teach yourself statistics. This approach is fun and intuitive, and you’ll learn each concept’s underlying mechanics well since you’ll be implementing them."],
+  "translations": ["Think Stats是一本很棒的书（提供免费的PDF版本），介绍了所有关键概念。 书的前提？ 如果您知道如何编程，则可以使用该技能自学统计。 我们发现这种方法非常有效，即使对于具有正规数学背景的人也是如此。", "统计学习简介（R集中）：usc.edu上的页面", "Think Bayes是Think Stats的后续书籍（带有免费PDF版本）。 一切都与贝叶斯思维有关，并且使用与编程相同的方法来教自己统计。 这种方法既有趣又直观，您将可以很好地学习每个概念的基本机制。"]
+}, {
+  "tag": "H1",
+  "text": "Step #3: Central Limit Theorem",
+  "translation": "步骤＃3：中心极限定理"
+}, {
+  "tag": "P",
+  "text": "It is said to be the most important theorem of Statistics as well as Mathematics. It can be very powerful when assessing problems and world situations! The Central Limit Theorem states that — the sampling distribution will look like a normal distribution regardless of the population you are analyzing.",
+  "translation": "据说它是统计学和数学最重要的定理。 在评估问题和世界形势时，它可能非常强大！ 中心极限定理指出-无论您要分析的总体如何，采样分布都将看起来像正态分布。"
+}, {
+  "tag": "P",
+  "text": "The first step of every statistical analysis you will perform is to determine whether the dataset you are dealing with is a population or a sample. As you might recall, a population is a collection of all items of interest in your study whereas a sample is a subset of data points from that population. Let’s take a short refresher!",
+  "translation": "您将执行的每个统计分析的第一步是确定您要处理的数据集是总体还是样本。 您可能还记得，总体是研究中所有感兴趣的项目的集合，而样本是该总体中数据点的子集。 让我们来回顾一下！"
+}, {
+  "tag": "P",
+  "text": "Populations and Samples",
+  "translation": "人口与样本"
+}, {
+  "tag": "P",
+  "text": "Population: it’s a number of something we are observing, humans, events, animals, etc. It has some parameters such as the mean, median, mode, standard deviation, among others.",
+  "translation": "人口：这是我们正在观察的许多事物，包括人类，事件，动物等。它具有一些参数，例如平均值，中位数，众数，标准差等。"
+}, {
+  "tag": "P",
+  "text": "Sample: it is a random subset from the population. Usually, you use samples when the population is big enough to difficult the analysis of the whole set. In a sample, you don’t have parameters you have statistics.",
+  "translation": "样本：它是总体中的随机子集。 通常，在总体足够大而难以分析整个集合时使用样本。 在一个示例中，您没有参数，也没有统计信息。"
+}, {
+  "tag": "P",
+  "text": "Sampling Distribution: As we’ve seen you take a sample to estimate the parameters of the whole population. However, not always only by sampling are you to retrieve the correct estimate of the population’s real parameters.",
+  "translation": "抽样分布：如我们所见，您采取了一个抽样来估算整个总体的参数。 但是，不仅总是通过抽样来获取人口真实参数的正确估计值。"
+}, {
+  "tag": "P",
+  "text": "Instead of taking a single sample, what about if we take several samples from our population? For each sample, we’ll calculate the mean. So, in the end, we’ll have several values of mean estimation and then we can plot them on a chart.",
+  "translation": "如果不从一个样本中抽取样本，那么从人口中抽取多个样本怎么办？ 对于每个样本，我们将计算平均值。 因此，最后，我们将获得多个均值估算值，然后将它们绘制在图表上。"
+}, {
+  "tag": "P",
+  "text": "Central Limit Theorem — Intuition",
+  "translation": "中心极限定理-直觉"
+}, {
+  "tag": "P",
+  "text": "Let’s learn by looking at an example. Imagine we wanted to see the distribution of the heights in every male in the Portuguese population.",
+  "translation": "让我们通过看一个例子来学习。 想象一下，我们想了解葡萄牙人口中每个男性的身高分布情况。"
+}, {
+  "tag": "P",
+  "text": "First we take several samples (heights of different man) from our population and for each sample group we calculate the respective mean. For example, we can have groups where the height is 176 cm, others with 182cm, others with 172cm, and so on. We then plot this sample mean distribution. The following picture depicts the distribution of our several samples with the x mark, in each, referring to the mean value.",
+  "translation": "首先，我们从人口中抽取几个样本（不同人的身高），并针对每个样本组计算各自的均值。 例如，我们可以具有高度为176 cm，其他高度为182cm，其他高度为172cm的组，依此类推。 然后，我们绘制该样本均值分布。 下图描述了带有x标记的几个样本的分布，每个样本均指平均值。"
+}, {
+  "tag": "FIGURE",
+  "type": "code"
+}, {
+  "tag": "H1",
+  "text": "Step #4: Probability",
+  "translation": "步骤4：概率"
+}, {
+  "tag": "P",
+  "text": "Probability is the foundation and language needed for most of statistics.",
+  "translation": "概率是大多数统计信息所需的基础和语言。"
+}, {
+  "tag": "P",
+  "text": "Understanding the methods and models (both parametric and nonparametric) needed for data science (such as regression models and Bayesian hierarchical models), the randomization in A/B testing and experimental design, the sampling if the data are a random sample from a population, the underlying assumptions and justifications for causal inference, and quantifying the uncertainty of one’s conclusions all require a good foundation in probability.",
+  "translation": "了解数据科学所需的方法和模型（参数化和非参数化）（例如回归模型和贝叶斯层次模型），A / B测试和实验设计中的随机化，如果数据是来自总体的随机样本则进行采样， 因果推理的基本假设和理由，以及量化结论的不确定性，都需要具备良好的概率基础。"
+}, {
+  "tag": "P",
+  "text": "Probability requires to know about inferences of certain conclusion. It is the occurrence of a particular outcome by measuring its significance in daily problems. Without probability, you cannot do data science problems easily.",
+  "translation": "概率要求知道某些结论的推论。 通过衡量其在日常问题中的重要性，它是特定结果的发生。 没有概率，您就无法轻松解决数据科学问题。"
+}, {
+  "tag": "P",
+  "text": "Probability is the determining factor in Predictive Analytics.",
+  "translation": "概率是预测分析的决定因素。"
+}, {
+  "tag": "P",
+  "text": "There are basically two hypotheses.",
+  "translation": "基本上有两个假设。"
+}, {
+  "tag": "P",
+  "text": "Null Hypothesis: There is no significant difference between the specified population",
+  "translation": "零假设：指定人群之间没有显着差异"
+}, {
+  "tag": "P",
+  "text": "Alternative Hypothesis: There is a significant difference",
+  "translation": "替代假设：存在显着差异"
+}, {
+  "tag": "P",
+  "text": "How do we determine which hypothesis to accept?",
+  "translation": "我们如何确定接受哪个假设？"
+}, {
+  "tag": "P",
+  "text": "If p <= 0.05 we reject Null Hypothesis",
+  "translation": "如果p <= 0.05，我们拒绝零假设"
+}, {
+  "tag": "P",
+  "text": "If p > 0.05 we accept Null Hypothesis",
+  "translation": "如果p> 0.05，我们接受零假设"
+}, {
+  "tag": "P",
+  "text": "So, what does accepting or rejecting a hypothesis mean?",
+  "translation": "那么，接受或拒绝假设是什么意思呢？"
+}, {
+  "tag": "P",
+  "text": "If we accept Null Hypothesis, it means the value or the feature or independent variable, doesn’t help us in predicting the dependent or target variable.",
+  "translation": "如果我们接受零假设，则表示值或特征或自变量不会帮助我们预测因变量或目标变量。"
+}, {
+  "tag": "P",
+  "text": "If we reject Null Hypothesis, it means that a particular feature will help us in predicting the dependent or target variable a.k.a label.",
+  "translation": "如果我们拒绝零假设，则意味着特定功能将帮助我们预测因变量或目标变量（也称为标签）。"
+}, {
+  "tag": "P",
+  "text": "So, how do we calculate the p-value?",
+  "translation": "那么，我们如何计算p值呢？"
+}, {
+  "tag": "P",
+  "text": "We get the p-value by analyzing the summary of linear relation formed between the features(independent variable (Xs)) and target(dependent variable(y)).",
+  "translation": "我们通过分析特征（独立变量（Xs））和目标（独立变量（y））之间形成的线性关系的汇总来获得p值。"
+}, {
+  "tag": "P",
+  "text": "The linear regression will try to form a relation between these variables through a straight line, using the formula:",
+  "translation": "线性回归将尝试使用以下公式通过直线在这些变量之间形成关系："
+}, {
+  "tag": "P",
+  "text": "y = m*X +B",
+  "translation": "y = m * X B"
+}, {
+  "tag": "P",
+  "text": "The points that are nearer to the regression line or on the regression line are most significant and they have the p <=0.05 so we consider them as features that are required to predict y.",
+  "translation": "靠近回归线或回归线上的点最为显着，它们的p <= 0.05，因此我们将其视为预测y所需的特征。"
+}, {
+  "tag": "P",
+  "text": "The points that are further away from the regression line are the non-significant one, with p>0.05 so these values are not required to predict target variable y.",
+  "translation": "距离回归线较远的点是不重要的点，p> 0.05，因此不需要使用这些值来预测目标变量y。"
+}, {
+  "tag": "P",
+  "text": "Useful materials to learn probability:",
+  "translation": "学习概率的有用材料："
+}, {
+  "tag": "UL",
+  "texts": ["Statistics for Machine Learning: Introduction to Statistical Learning and data mining, inference, and prediction. 2nd Edition.", "Probability via Intuition and Storytelling: Statistics 110: Probability and Where can I find a good quick reference guide or cheatsheet for probability?"],
+  "translations": ["机器学习统计：统计学习和数据挖掘，推理和预测的简介。 第二版。", "通过直觉和讲故事的概率：统计110：概率，在哪里可以找到关于概率的快速参考指南或备忘单？"]
+}, {
+  "tag": "H1",
+  "text": "Step #5: Regression — Linear and Non-Linear Regression",
+  "translation": "步骤＃5：回归-线性和非线性回归"
+}, {
+  "tag": "P",
+  "text": "If you want to learn statistics for data science, there’s no better way than playing with statistical machine learning models after you’ve learned core concepts and Bayesian thinking. The statistics and machine learning fields are closely linked, and “statistical” machine learning is the main approach to modern machine learning.",
+  "translation": "如果您想学习数据科学的统计信息，那么，在学习了核心概念和贝叶斯思想之后，没有比使用统计机器学习模型更好的方法了。 统计和机器学习领域紧密相连，“统计”机器学习是现代机器学习的主要方法。"
+}, {
+  "tag": "P",
+  "text": "Linear Regression Equations",
+  "translation": "线性回归方程"
+}, {
+  "tag": "P",
+  "text": "A linear regression model follows a very particular form. In statistics, a regression model is linear when all terms in the model are one of the following:",
+  "translation": "线性回归模型遵循非常特殊的形式。 在统计数据中，当模型中的所有术语均为以下项之一时，回归模型是线性的："
+}, {
+  "tag": "P",
+  "text": "The constant",
+  "translation": "常数"
+}, {
+  "tag": "P",
+  "text": "A parameter multiplied by an independent variable (IV)",
+  "translation": "参数乘以自变量（IV）"
+}, {
+  "tag": "P",
+  "text": "Then, you build the equation by only adding the terms together. These rules limit the form to just one type:",
+  "translation": "然后，通过仅将项加在一起来构建方程式。 这些规则将表格限制为一种类型："
+}, {
+  "tag": "P",
+  "text": "Dependent variable = constant + parameter * IV + … + parameter * IV",
+  "translation": "因变量=常数参数* IV…参数* IV"
+}, {
+  "tag": "P",
+  "text": "Y =\\beta _{0} + \\beta _{1}X_{1} + \\beta _{2}X_{2} + \\cdots + \\beta _{k}X_{k}",
+  "translation": "Y = \\ beta _ {0} \\ beta _ {1} X_ {1} \\ beta _ {2} X_ {2} \\ cdots \\ beta _ {k} X_ {k}"
+}, {
+  "tag": "P",
+  "text": "Statisticians say that this type of regression equation is linear in the parameters. However, it is possible to model curvature with this type of model. While the function must be linear in the parameters, you can raise an independent variable by an exponent to fit a curve. For example, if you square an independent variable, the model can follow a U-shaped curve.",
+  "translation": "统计学家说，这种回归方程的参数是线性的。 但是，可以使用这种类型的模型对曲率进行建模。 尽管函数的参数必须是线性的，但您可以通过指数增加自变量以拟合曲线。 例如，如果平方自变量，则模型可以遵循U形曲线。"
+}, {
+  "tag": "P",
+  "text": "Y =\\beta _{0} + \\beta _{1}X_{1} + \\beta _{2}X_{1}²",
+  "translation": "Y = \\ beta _ {0} \\ beta _ {1} X_ {1} \\ beta _ {2} X_ {1}²"
+}, {
+  "tag": "P",
+  "text": "While the independent variable is squared, the model is still linear in the parameters. Linear models can also contain log terms and inverse terms to follow different kinds of curves and yet continue to be linear in the parameters.",
+  "translation": "尽管自变量是平方的，但是模型的参数仍然是线性的。 线性模型还可以包含对数项和逆项，以遵循不同类型的曲线，但参数仍保持线性。"
+}, {
+  "tag": "P",
+  "text": "The regression example below models the relationship between body mass index (BMI) and body fat percent. In a different blog post, I use this model to show how to make predictions with regression analysis. It is a linear model that uses a quadratic (squared) term to model the curved relationship.",
+  "translation": "下面的回归示例对体重指数（BMI）和体脂百分比之间的关系进行建模。 在另一篇博客文章中，我使用此模型来演示如何使用回归分析进行预测。 它是一个线性模型，使用二次（平方）项对弯曲关系进行建模。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*QQOTKrBiPYp3GqYH?q=20",
+  "caption": "https://www.datasciencecentral.com/profiles/blogs/standard-error-of-the-regression-vs-r-squared",
+  "type": "image",
+  "file": "0!QQOTKrBiPYp3GqYH"
+}, {
+  "tag": "P",
+  "text": "Nonlinear Regression Equations",
+  "translation": "非线性回归方程"
+}, {
+  "tag": "P",
+  "text": "I showed how linear regression models have one basic configuration. Now, we’ll focus on the “non” in nonlinear! If a regression equation doesn’t follow the rules for a linear model, then it must be a nonlinear model. It’s that simple! A nonlinear model is literally not linear.",
+  "translation": "我展示了线性回归模型如何具有一种基本配置。 现在，我们将重点讨论非线性中的“非”！ 如果回归方程不遵循线性模型的规则，则它必须是非线性模型。 就这么简单！ 非线性模型实际上是非线性的。"
+}, {
+  "tag": "P",
+  "text": "The added flexibility opens the door to a huge number of possible forms. Consequently, nonlinear regression can fit an enormous variety of curves. However, because there are so many candidates, you may need to conduct some research to determine which functional form provides the best fit for your data.",
+  "translation": "更高的灵活性为众多可能的形式打开了大门。 因此，非线性回归可以拟合各种曲线。 但是，由于候选人太多，您可能需要进行一些研究，以确定哪种功能形式最适合您的数据。"
+}, {
+  "tag": "P",
+  "text": "Below, I present a handful of examples that illustrate the diversity of nonlinear regression models. Keep in mind that each function can fit a variety of shapes, and there are many nonlinear functions. Also, notice how nonlinear regression equations are not comprised of only addition and multiplication! In the table, thetas are the parameters, and Xs are the independent variables.",
+  "translation": "下面，我提供一些示例，这些示例说明了非线性回归模型的多样性。 请记住，每个函数都可以适合各种形状，并且有许多非线性函数。 另外，请注意非线性回归方程如何不仅仅由加法和乘法组成！ 在表中，θ是参数，Xs是自变量。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*3fV_Nc1fCUEypJ0u?q=20",
+  "type": "image",
+  "file": "0!3fV_Nc1fCUEypJ0u"
+}, {
+  "tag": "P",
+  "text": "The nonlinear equation is so long it that it doesn’t fit on the graph:",
+  "translation": "非线性方程是如此之长，以至于它不适合图表："
+}, {
+  "tag": "P",
+  "text": "Mobility = (1288.14 + 1491.08 * Density Ln + 583.238 * Density Ln² + 75.4167 * Density Ln³) / (1 + 0.966295 * Density Ln + 0.397973 * Density Ln² + 0.0497273 * Density Ln³)",
+  "translation": "迁移率=（1288.14 1491.08 *密度Ln 583.238 *密度Ln²75.4167 *密度Ln³）/（1 0.966295 *密度Ln 0.397973 *密度Ln²0.0497273 *密度Ln³）"
+}, {
+  "tag": "P",
+  "text": "Linear and nonlinear regression are actually named after the functional form of the models that each analysis accepts. I hope the distinction between linear and nonlinear equations is clearer and that you understand how it’s possible for linear regression to model curves! It also explains why you’ll see R-squared displayed for some curvilinear models even though it’s impossible to calculate R-squared for nonlinear regression.",
+  "translation": "线性和非线性回归实际上是根据每个分析接受的模型的功能形式来命名的。 希望线性方程和非线性方程之间的区别更加清晰，并希望您了解线性回归对曲线进行建模的可能性！ 它还说明了为什么即使无法为非线性回归计算R平方，您也会看到某些曲线模型显示R平方的原因。"
+}, {
+  "tag": "H1",
+  "text": "Final Word: Learn Statistics and be Data Science Hero!",
+  "translation": "最后一句话：学习统计学并成为数据科学英雄！"
+}, {
+  "tag": "P",
+  "text": "If you’re interested in learning statistics specifically to become a data scientist, I would recommend seeking as many coding applications as you can. Specifically, I’d recommend the following three books, all available online for free and containing applications in Python or R.",
+  "translation": "如果您有兴趣专门学习统计资料以成为一名数据科学家，建议您尽可能多地寻找编码应用程序。 具体来说，我建议您阅读以下三本书，它们都可以在线免费获得，并且包含Python或R中的应用程序。"
+}, {
+  "tag": "P",
+  "text": "………………………",
+  "translation": "…………………………"
+}, {
+  "tag": "P",
+  "text": "If you do anything cool with this information, leave a response in the comments below or reach out at any time on my Instagram and Medium blog. Also welcome to visit my Linkedin.",
+  "translation": "如果您对此信息有任何意见或建议，请在下面的评论中留下回复，或者随时在我的Instagram和Medium博客上与我们联系。 也欢迎访问我的Linkedin。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Oleksii Kharkovyna的文章《A Gentle Intro to Probability and Statistics for Data Science》，参考：https://towardsdatascience.com/a-gentle-intro-to-probability-and-statistics-for-data-science-95d3980e19da)",
+  "translation": "（本文翻译自Oleksii Kharkovyna的文章《数据科学概率统计的温和介绍》，参考：https：//towardsdatascience.com/a-gentle-intro-to-probability-and-statistics-for-data-science -95d3980e19da）"
+}]
