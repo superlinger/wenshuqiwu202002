@@ -1,0 +1,284 @@
+[{
+  "tag": "H1",
+  "text": "How to overcome Coder’s Block",
+  "translation": "如何克服编码器的障碍"
+}, {
+  "tag": "H2",
+  "text": "When you’re scared of your console",
+  "translation": "当您害怕控制台时"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*ULdTORCY_4DsNsQTezH2FA.jpeg?q=20",
+  "caption": "Consoles can be downright intimidating. Photo by Patrick Amoy on Unsplash",
+  "type": "image",
+  "file": "1!ULdTORCY_4DsNsQTezH2FA.jpeg"
+}, {
+  "tag": "P",
+  "text": "Have you ever felt completely blocked? Have you ever been staring at your blank screen for hours, unable to jot anything down? Welcome to the club.",
+  "translation": "您是否曾经感到完全受阻？ 您是否曾经盯着黑屏看了几个小时，无法记下任何东西？ 欢迎来到俱乐部。"
+}, {
+  "tag": "P",
+  "text": "You’re pouring over your computer science assignment as I enter the room. Your desk is covered in scripts and term sheets. Your computer screen is a big black void except for the little white pointer that is blinking in the upper left corner. The whole room seems to be screaming out your desperation.",
+  "translation": "当我进入教室时，您正在为计算机科学工作忙碌。 您的办公桌上满是脚本和条款表。 您的计算机屏幕是一个黑色的大空白，除了在左上角闪烁的白色小指针之外。 整个房间似乎在尖叫着您的绝望。"
+}, {
+  "tag": "P",
+  "text": "‘Is everything okay?’",
+  "translation": "'一切都好吗？'"
+}, {
+  "tag": "P",
+  "text": "‘No — this assignment from my computer science class is driving me nuts. It’s due tomorrow and I haven’t even coded a single line!’",
+  "translation": "‘不，我计算机科学课上的这项作业让我发疯。 明天到期，我什至没有写过一行！’"
+}, {
+  "tag": "P",
+  "text": "‘How long have you been working on it now?’",
+  "translation": "‘您现在已经从事多久了？’"
+}, {
+  "tag": "P",
+  "text": "‘Three hours.’",
+  "translation": "'三个小时。'"
+}, {
+  "tag": "P",
+  "text": "‘Okay, time to take a break. Do you want a cup of tea?’",
+  "translation": "‘好吧，时间休息一下。 你想来一杯茶吗？'"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*vPNFn7zIaTURY7mV9mvdvQ.jpeg?q=20",
+  "caption": "Coding is tough. A warm drink can help. Photo by Goran Ivos on Unsplash",
+  "type": "image",
+  "file": "1!vPNFn7zIaTURY7mV9mvdvQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "‘Yes, but — ’",
+  "translation": "'对，但是 - '"
+}, {
+  "tag": "P",
+  "text": "‘You can get back to your assignment after that.’",
+  "translation": "‘之后，您可以返回作业。’"
+}, {
+  "tag": "P",
+  "text": "You follow me downstairs and I flip the kettle on. Once our tea is poured, we go back up to your room.",
+  "translation": "你在楼下跟着我，我把水壶翻开。 倒茶后，我们回到您的房间。"
+}, {
+  "tag": "P",
+  "text": "‘It’s just — I understand nothing. I’m sitting there, thinking and thinking, and I just can’t do it.’",
+  "translation": "‘只是-我什么都不懂。 我坐在那里，想着想着，但我做不到。’"
+}, {
+  "tag": "P",
+  "text": "‘What’s the problem? Do you understand what you’re expected to do?’",
+  "translation": "'有什么问题？ 您了解您的期望吗？’"
+}, {
+  "tag": "P",
+  "text": "‘In principle, yes. But I don’t have a clue how to tell the computer what it’s supposed to do. How do I even begin with this?’",
+  "translation": "‘原则上是。 但是我不知道如何告诉计算机应该做什么。 我什至如何开始呢？’"
+}, {
+  "tag": "P",
+  "text": "‘You’re scared of the console.’",
+  "translation": "‘您害怕控制台。’"
+}, {
+  "tag": "P",
+  "text": "‘Errrm. Yeah, I guess so.’",
+  "translation": "‘嗯。 我猜就是这样。'"
+}, {
+  "tag": "P",
+  "text": "‘It’s like writer’s block. Sometimes when you write, you’ll be sitting in front of a blank sheet of paper for hours, unable to jot down a single word. At some point, you get scared of the piece of paper because you’ve looked at it for so long.",
+  "translation": "‘就像作家的障碍。 有时，当您书写时，您会坐在一张空白的纸上数小时，无法记一个字。 在某个时候，您会因为这张纸已经看了很久而感到害怕。"
+}, {
+  "tag": "P",
+  "text": "‘And the same happens with coder’s block. You stare at your console, unable to do anything, until the console scares you.’",
+  "translation": "‘编码块也是如此。 您凝视控制台，无法做任何事情，直到控制台吓到您。’"
+}, {
+  "tag": "P",
+  "text": "‘Yeah that… sounds familiar.’",
+  "translation": "“是的……听起来很熟悉。”"
+}, {
+  "tag": "P",
+  "text": "A complex piece of code is made of lots of simple subroutines",
+  "translation": "一段复杂的代码由许多简单的子例程组成"
+}, {
+  "tag": "P",
+  "text": "‘Let’s take it step by step. We’ll begin by writing a Hello-World-program.’",
+  "translation": "‘逐步进行吧。 我们将从编写“ Hello-World”程序开始。’"
+}, {
+  "tag": "P",
+  "text": "‘But that’s easy, we did that five weeks ago!’",
+  "translation": "‘但这很容易，我们五个星期前就做到了！’"
+}, {
+  "tag": "P",
+  "text": "‘That’s exactly the reason why we’re doing it again. It’s simple, so you won’t get blocked.’",
+  "translation": "‘这正是我们再次执行此操作的原因。 这很简单，因此您不会受到阻碍。’"
+}, {
+  "tag": "P",
+  "text": "‘Okay, wait…’",
+  "translation": "'好的，等一下…'"
+}, {
+  "tag": "P",
+  "text": "You open a new text file.",
+  "translation": "您打开一个新的文本文件。"
+}, {
+  "tag": "P",
+  "text": "‘Do I have to include some package before printing the Hello-World-message?’",
+  "translation": "‘在打印Hello-World消息之前，我是否必须包括一些包装？”"
+}, {
+  "tag": "P",
+  "text": "‘You sure do. What kind of object is the Hello-World-message?’",
+  "translation": "‘你确定。 Hello World消息是哪种对象？’"
+}, {
+  "tag": "P",
+  "text": "‘A string? Ah, wait! I need to include the string package… Okay, got it.’",
+  "translation": "‘一串？ 啊，等等！ 我需要包括字符串包……好吧，知道了。’"
+}, {
+  "tag": "P",
+  "text": "‘Alright, now type the message and execute.’",
+  "translation": "“好吧，现在输入消息并执行。”"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/20/1*Ls0DNJtzXg1KEpDnPLgHMA.jpeg?q=20",
+  "caption": "Start with simple things. You can always nerd out later… Photo by Annie Spratt on Unsplash",
+  "type": "image",
+  "file": "1!Ls0DNJtzXg1KEpDnPLgHMA.jpeg"
+}, {
+  "tag": "P",
+  "text": "‘Yippie, it works!’",
+  "translation": "‘Yippie，有效！’"
+}, {
+  "tag": "P",
+  "text": "‘Great! In your assignment you also have to print something on the screen. How about writing that part first?’",
+  "translation": "'大！ 在作业中，您还必须在屏幕上打印一些内容。 首先写那部分怎么样？’"
+}, {
+  "tag": "P",
+  "text": "‘Okay, but that’s more complicated.’",
+  "translation": "‘好吧，但是更复杂。’"
+}, {
+  "tag": "P",
+  "text": "‘We’ll do it step by step. What do you need to print?’",
+  "translation": "‘我们将逐步进行。 您需要打印什么？’"
+}, {
+  "tag": "P",
+  "text": "‘The values of some variables. But I haven’t calculated them yet. So how can I print them?’",
+  "translation": "‘某些变量的值。 但是我还没有计算出来。 那我怎么打印它们呢？’"
+}, {
+  "tag": "P",
+  "text": "‘You can put in dummy values for now. Just make sure you leave a comment to mark the dummies. This way we’ll remember to replace them by the real value later on.’",
+  "translation": "‘您现在可以输入虚拟值。 只要确保您留下评论以标记假人即可。 这样一来，我们会记住以后将其替换为实际价值。’"
+}, {
+  "tag": "P",
+  "text": "‘Okay, wait… I think I’ve done it.’",
+  "translation": "‘好的，等等...我想我已经做到了。’"
+}, {
+  "tag": "P",
+  "text": "‘Let’s check! Execute the program, please.",
+  "translation": "'让我们检查！ 请执行程序。"
+}, {
+  "tag": "P",
+  "text": "‘Whoops, the output isn’t as we’d expected. Let’s fix the bugs.’",
+  "translation": "‘糟糕，输出结果并非我们预期的那样。 让我们修复错误。’"
+}, {
+  "tag": "P",
+  "text": "‘But I can’t see anything wrong in the code!’",
+  "translation": "‘但是我看不到代码中有任何错误！’"
+}, {
+  "tag": "P",
+  "text": "‘You did a little typo over there…’",
+  "translation": "‘你在那边打了个错字...’"
+}, {
+  "tag": "P",
+  "text": "‘Oh damnit! Okay, now it’s working correctly.’",
+  "translation": "‘该死！ 好的，现在可以正常工作了。’"
+}, {
+  "tag": "P",
+  "text": "‘Awesome! Now what else do we need to do?’",
+  "translation": "‘太棒了！ 现在我们还需要做什么？’"
+}, {
+  "tag": "P",
+  "text": "‘Calculate the value of the variables.’",
+  "translation": "“计算变量的值。”"
+}, {
+  "tag": "P",
+  "text": "‘Alright, let’s do that!’",
+  "translation": "‘好吧，那样做！’"
+}, {
+  "tag": "P",
+  "text": "Half an hour later, the program is up and running.",
+  "translation": "半小时后，程序启动并运行。"
+}, {
+  "tag": "P",
+  "text": "Never forget to do test runs and debug",
+  "translation": "永远不要忘记进行测试运行和调试"
+}, {
+  "tag": "P",
+  "text": "‘Wow, thank you! You saved my life.’",
+  "translation": "'哇谢谢你！ 你救了我的命。'"
+}, {
+  "tag": "P",
+  "text": "‘Well, basically you wrote the code all by yourself. I just gave you some guidance. You can delete the Hello-World-program, by the way.’",
+  "translation": "‘好吧，基本上，您自己编写了代码。 我只是给你一些指导。 您可以顺便删除Hello-World程序。’"
+}, {
+  "tag": "P",
+  "text": "‘Oh, sure, I forgot about that part. But seriously — I was sitting there for hours. Then you come in and it’s solved in a few minutes. You’re a genius!’",
+  "translation": "‘哦，当然，我忘记了那部分。 但认真的说-我坐在那里待了几个小时。 然后您进来，几分钟后便解决了。 你真是个天才！’"
+}, {
+  "tag": "P",
+  "text": "‘Well, spending hours over a problem is often not the way to go.",
+  "translation": "‘好吧，花很多时间解决问题往往不是解决之道。"
+}, {
+  "tag": "P",
+  "text": "‘When I started coding, I was often too shy to ask people for help because I thought I’d seem stupid. So I’d be sitting in front of my screen for hours, unable to solve the problem, getting more and more anxious about it.",
+  "translation": "‘当我开始编码时，我常常很害羞，无法向别人求助，因为我认为自己看起来很愚蠢。 因此，我要坐在屏幕前几个小时，无法解决问题，对此越来越焦虑。"
+}, {
+  "tag": "P",
+  "text": "‘When I finally went and asked for help, the issue usually turned out to be a little typo or another minor mistake.’",
+  "translation": "‘当我终于去寻求帮助时，问题通常是一个小错字或另一个小错误。’"
+}, {
+  "tag": "P",
+  "text": "‘So that taught you to ask for help when you’re stuck?’",
+  "translation": "‘如此一来，您就可以在被困时教您寻求帮助？’"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/21/1*6tLel2ytpzcAdtdegvivjg.jpeg?q=20",
+  "type": "image",
+  "file": "1!6tLel2ytpzcAdtdegvivjg.jpeg"
+}, {
+  "tag": "P",
+  "text": "‘Yes, you should always ask for help. And don’t wait for hours before asking. Try to figure out the problem in a reasonable time. And if that time has passed without a lot of progress, ask.’",
+  "translation": "‘是的，您应该始终寻求帮助。 而且不要等几个小时再问。 尝试在合理的时间内找出问题所在。 如果那段时间过去了，没有太多进展，那就问。’"
+}, {
+  "tag": "P",
+  "text": "‘In my case, I’d figured out the problem but I couldn’t tell the computer what to do.’",
+  "translation": "‘就我而言，我已经解决了问题，但是我无法告诉计算机该怎么办。’"
+}, {
+  "tag": "P",
+  "text": "‘In that case, do something stupid. Nothing completely senseless, but something very simple — like a Hello-World-program. You know how to make a computer do things. But a certain level of complexity can be quite intimidating at the start.",
+  "translation": "‘在那种情况下，做些愚蠢的事。 没有什么完全没有意义的，而是非常简单的事情-例如Hello-World程序。 您知道如何使计算机做事。 但是从一开始，某种程度的复杂性就可能令人生畏。"
+}, {
+  "tag": "P",
+  "text": "‘You can use this simple code to build your program up. Start with the easiest part, then move on to the harder ones.’",
+  "translation": "‘您可以使用此简单的代码来构建程序。 从最简单的部分开始，然后再转到较难的部分。’"
+}, {
+  "tag": "H2",
+  "text": "On Coder’s Block",
+  "translation": "在编码器区"
+}, {
+  "tag": "H3",
+  "text": "Coding is hard. And sometimes it feels like you’re not making any progress at all. Neil Khosla has some uplifting words for anyone struggling with coder’s block.",
+  "translation": "编码很难。 有时候，您感觉自己根本没有进步。 尼尔·科斯拉（Neil Khosla）为那些在编码器方面苦苦挣扎的人说了一些令人振奋的话。"
+}, {
+  "tag": "P",
+  "text": "‘So the next time I don’t know how to start, I’ll do something really simple — even if it seems unrelated to the task at hand. And then do the simplest parts of my task first.’",
+  "translation": "‘因此，下次我不知道如何开始时，我将做一些非常简单的事情-即使它似乎与当前的任务无关。 然后先完成我任务中最简单的部分。’"
+}, {
+  "tag": "P",
+  "text": "‘Exactly. And if you’ve thought about the problem for hours before writing any code, take a break! Get a cup of tea or coffee, or go for a quick walk. After all, it’s unlikely that you’re going to be productive after hours of coder’s block.’",
+  "translation": "'究竟。 而且，如果您在编写任何代码之前已经考虑了好几个小时的问题，请休息一下！ 喝杯茶或咖啡，或散步。 毕竟，经过数小时的编码器封锁后，您不太可能会变得富有成效。’"
+}, {
+  "tag": "P",
+  "text": "‘Oh man, I think I need to put all that on a poster. Thank you so much!’",
+  "translation": "‘哦，我想我需要把所有这些都贴在海报上。 非常感谢！'"
+}, {
+  "tag": "P",
+  "text": "‘You’re welcome! Let me know if you have problems with your next assignment.’",
+  "translation": "'别客气！ 如果您在下一次作业时遇到问题，请告诉我。’"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Rhea Moutafis的文章《How to overcome Coder’s Block》，参考：https://towardsdatascience.com/how-to-overcome-coders-block-51ece9dafe00)",
+  "translation": "（本文翻译自Rhea Moutafis的文章，《如何克服编码器的障碍》，参考：https：//towardsdatascience.com/how-to-overcome-coders-block-51ece9dafe00）"
+}]
