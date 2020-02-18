@@ -1,0 +1,1346 @@
+[{
+  "tag": "H1",
+  "text": "1. Python",
+  "translation": "1. Python"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*s9R3hxtekDfvfTeSC_QDFg.png?q=20",
+  "type": "image",
+  "file": "1!s9R3hxtekDfvfTeSC_QDFg.png"
+}, {
+  "tag": "P",
+  "text": "When Guido van Rossum developed Python in the 1990s as his side project, nobody has thought it would be the most popular programming language one day. Considering all well-recognized rankings and industry trends, I put Python as the number one programming language overall.",
+  "translation": "当Guido van Rossum在1990年代开发Python作为他的副项目时，没有人认为这是有一天最流行的编程语言。 考虑到所有公认的排名和行业趋势，我将Python视为整体上排名第一的编程语言。"
+}, {
+  "tag": "P",
+  "text": "Python has not seen a meteoric rise in popularity like Java or C/C++. Also, Python is not a disruptive programming language. But from the very beginning, Python has focused on developer experience and tried to lower the barrier to programming so that school kids can also write production-grade code.",
+  "translation": "Python尚未像Java或C / C那样迅速普及。 而且，Python并不是一种破坏性的编程语言。 但是从一开始，Python就专注于开发人员的经验，并试图降低编程的障碍，以便学童也可以编写生产级代码。"
+}, {
+  "tag": "P",
+  "text": "In 2008, Python went through a massive overhaul and improvement with the cost of introducing significant breaking changes by introducing Python 3.",
+  "translation": "在2008年，Python进行了大修和改进，以引入Python 3引入重大突破性变化为代价。"
+}, {
+  "tag": "P",
+  "text": "Today, Python is omnipresent and used in many areas of software development, with no sign of slowing down.",
+  "translation": "如今，Python无处不在，并已用于软件开发的许多领域，并且丝毫没有放缓的迹象。"
+}, {
+  "tag": "P",
+  "text": "3 Key Features:",
+  "translation": "3个主要功能："
+}, {
+  "tag": "UL",
+  "texts": ["The USP of Python is its language design. It is highly productive, elegant, simple, yet powerful. Python has set the gold standard in terms of developer experience and heavily influenced modern languages like Go, Julia.", "Python has first-class integration with C/C++ and can seamlessly offload the CPU heavy tasks to C/C++. Also, Python gives powerful toolset for Mathematics, Statistics, and Computational Science with various libraries like NumPy, Pandas, SciPy, Scikit-Learn. As a result, Python dominates the Machine Learning/Deep Learning/Data Science landscape and other Scientific domain.", "Python has a very active community and support. You can always find enough Python libraries and frameworks, no matter whether you are working on Enterprise Applications, Data Science, or Artificial Intelligence."],
+  "translations": ["Python的USP是其语言设计。 它是高效的，优雅的，简单的但功能强大的。 Python已在开发人员经验和深受影响的现代语言（如Go，Julia）方面树立了黄金标准。", "Python与C / C具有一流的集成，可以无缝地将CPU繁重的任务卸载到C / C中。 此外，Python还为NumPy，Pandas，SciPy，Scikit-Learn等各种库提供了强大的数学，统计和计算科学工具集。 因此，Python主导了机器学习/深度学习/数据科学领域和其他科学领域。", "Python具有非常活跃的社区和支持。 无论您从事的是企业应用程序，数据科学还是人工智能，您始终可以找到足够的Python库和框架。"]
+}, {
+  "tag": "P",
+  "text": "Popularity:",
+  "translation": "人气："
+}, {
+  "tag": "P",
+  "text": "In the last several years, Python has seen enormous growth in demand with no sign of slowing down. The programming language ranking site PYPL has ranked Python as the number one programming language with a considerable popularity gain in 2019:",
+  "translation": "在过去的几年中，Python的需求出现了巨大的增长，并且没有放缓的迹象。 编程语言排名网站PYPL将Python评为排名第一的编程语言，在2019年获得了可观的普及度："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*hN6A-3AGLFsBelCEO7NqOg.jpeg?q=20",
+  "caption": "Source: PYPL",
+  "type": "image",
+  "file": "1!hN6A-3AGLFsBelCEO7NqOg.jpeg"
+}, {
+  "tag": "P",
+  "text": "Also, Python has surpassed Java and became the 2nd most popular language according to GitHub repositories contributions:",
+  "translation": "此外，根据GitHub存储库的贡献，Python已超越Java，成为第二大最受欢迎的语言："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*WPu2ummQpcFItDRlPqX79A.jpeg?q=20",
+  "caption": "Source: Octoverse",
+  "type": "image",
+  "file": "1!WPu2ummQpcFItDRlPqX79A.jpeg"
+}, {
+  "tag": "P",
+  "text": "Also, StackOverflow developer survey has ranked Python as the 2nd most popular programming language (4th most popular Technology):",
+  "translation": "此外，StackOverflow开发人员调查将Python列为第二受欢迎的编程语言（第四受欢迎的技术）："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*HbpxooExwK4W7lAP7Vwt3w.jpeg?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!HbpxooExwK4W7lAP7Vwt3w.jpeg"
+}, {
+  "tag": "P",
+  "text": "Another programming language ranking site TIOBE has ranked Python the 3rd most popular language with a massive gain in last year:",
+  "translation": "另一个编程语言排名网站TIOBE在去年将Python排名第三，并获得了可观的增长："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*d0ShC9nxltrWR2ASSgcFRA.png?q=20",
+  "caption": "Source: TIOBE",
+  "type": "image",
+  "file": "1!d0ShC9nxltrWR2ASSgcFRA.png"
+}, {
+  "tag": "P",
+  "text": "Python still has the chance to go further up in ranking this year as Python saw a 50% growth last year according to GitHub Octoverse:"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*rMY15fawMTuY5hzIptTm8Q.jpeg?q=20",
+  "caption": "Source: Octoverse",
+  "type": "image",
+  "file": "1!rMY15fawMTuY5hzIptTm8Q.jpeg"
+}, {
+  "tag": "P",
+  "text": "StackOverflow developer survey has listed Python as the second most loved programming language:",
+  "translation": "StackOverflow开发人员调查将Python列为第二受欢迎的编程语言："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*LxcHgDMIcroLzqz1LYrV1w.jpeg?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!LxcHgDMIcroLzqz1LYrV1w.jpeg"
+}, {
+  "tag": "P",
+  "text": "Most of the older and mainstream programming languages have stable or downward traction. Also, Python is an exception here and has an increasingly upward trending during the last five years as clear from Google trends:",
+  "translation": "大多数较旧的主流编程语言都具有稳定或下降的吸引力。 此外，Python在这里是个例外，并且在最近五年中呈上升趋势，从Google趋势可以明显看出："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*tT0-DPqAYf90hqP3N63zTA.jpeg?q=20",
+  "caption": "Source: Google Trends",
+  "type": "image",
+  "file": "1!tT0-DPqAYf90hqP3N63zTA.jpeg"
+}, {
+  "tag": "P",
+  "text": "Job Market:",
+  "translation": "人才市场："
+}, {
+  "tag": "P",
+  "text": "According to Indeed, Python is the most demanding programming language in the USA job market with the highest 74 K job posting in January 2020. Also, Python ranked third with a $120 K yearly salary.",
+  "translation": "根据Indeed的说法，Python是美国就业市场上要求最严格的编程语言，在2020年1月发布的最高职位为74K。Python的年薪为12万美元，排名第三。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*bq68zagsXp5TM2ab2lMGlQ.png?q=20",
+  "caption": "Source: Indeed",
+  "type": "image",
+  "file": "1!bq68zagsXp5TM2ab2lMGlQ.png"
+}, {
+  "tag": "P",
+  "text": "Also, StackOverflow developer survey has shown that Python developers earn a high salary with relatively low experience compared to other mainstream programming languages:",
+  "translation": "此外，StackOverflow开发人员调查还显示，与其他主流编程语言相比，Python开发人员的薪水较高，但经验相对较低："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*FibPcKdEsKhti22Se5WALQ.png?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!FibPcKdEsKhti22Se5WALQ.png"
+}, {
+  "tag": "P",
+  "text": "Main Use Cases:",
+  "translation": "主要用例："
+}, {
+  "tag": "UL",
+  "texts": ["Data Science", "Data Analytics", "Artificial Intelligence, Deep Learning", "Enterprise Application", "Web Development"],
+  "translations": ["数据科学", "数据分析", "人工智能，深度学习", "企业应用", "Web开发"]
+}, {
+  "tag": "H1",
+  "text": "2. JavaScript",
+  "translation": "2. JavaScript"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Ajt4AQgGP21RRt4nwQXi_g.png?q=20",
+  "type": "image",
+  "file": "1!Ajt4AQgGP21RRt4nwQXi_g.png"
+}, {
+  "tag": "P",
+  "text": "During the first browser war, Netscape had assigned Brendan Eich to develop a new programming language for its Browser. Brendan Eich had developed the initial prototype in only ten days, and the rest is history. Software developers often ridiculed JavaScript in its early days because of its poor language design and lack of features.",
+  "translation": "在第一次浏览器大战中，Netscape指派了Brendan Eich为其浏览器开发一种新的编程语言。 布伦丹·艾希（Brendan Eich）仅用了十天就开发出了最初的原型，剩下的就是历史了。 由于语言设计欠佳且缺乏功能，软件开发人员常常在早期嘲笑JavaScript。"
+}, {
+  "tag": "P",
+  "text": "Over the years, JavaScript has evolved into a multi-paradigm, high-level, dynamic programming language. The first significant breakthrough of JavaScript came in 2009 when Ryan Dahl has released cross-platform JavaScript runtime Node.js and enabled JavaScript to run on Server Side.",
+  "translation": "多年来，JavaScript已发展成为一种多范例，高级，动态编程语言。 JavaScript的第一个重大突破是在2009年，当时Ryan Dahl发布了跨平台JavaScript运行时Node.js，并使JavaScript可以在服务器端运行。"
+}, {
+  "tag": "P",
+  "text": "The other enormous breakthrough of JavaScript came around 2010 when Google has released a JavaScript based Web development framework AngularJS.",
+  "translation": "JavaScript的另一项重大突破出现在2010年左右，当时Google发布了基于JavaScript的Web开发框架AngularJS。"
+}, {
+  "tag": "P",
+  "text": "Today, JavaScript is one of the most widely used programming languages in the world and runs on virtually everywhere: Browsers, Servers, Mobile Devices, Cloud, Containers, Micro-controllers.",
+  "translation": "如今，JavaScript是世界上使用最广泛的编程语言之一，几乎可以在任何地方运行：浏览器，服务器，移动设备，云，容器，微控制器。"
+}, {
+  "tag": "P",
+  "text": "3 Key Features:",
+  "translation": "3个主要功能："
+}, {
+  "tag": "UL",
+  "texts": ["JavaScript is the undisputed king in Browser programming. Today, Web development is dominated mainly by JavaScript based SPA frameworks like React, Vue.js, Angular.", "Thanks to Node.js, JavaScript offers event-driven programming, which is especially suitable for I/O heavy tasks. Today, JavaScript and Node.js run on almost all Platforms, including Servers and Mobile devices.", "JavaScript has gone through massive modernization and overhaul in the last several years, especially in 2015, 2016, and later. The major JavaScript releases like ES5, ES6 has added many modern features, and JavaScript of today is entirely different from JavaScript of the last decade."],
+  "translations": ["JavaScript是浏览器编程中无可争议的王者。 如今，Web开发主要由基于JavaScript的SPA框架（例如React，Vue.js，Angular）主导。", "感谢Node.js，JavaScript提供了事件驱动的编程，特别适合I / O繁重的任务。 如今，JavaScript和Node.js几乎可以在所有平台上运行，包括服务器和移动设备。", "在过去的几年中，JavaScript经历了大规模的现代化和大修，尤其是在2015年，2016年及以后。 像ES5，ES6这样的主要JavaScript版本都增加了许多现代功能，而今天的JavaScript与过去十年的JavaScript完全不同。"]
+}, {
+  "tag": "P",
+  "text": "Popularity:",
+  "translation": "人气："
+}, {
+  "tag": "P",
+  "text": "JavaScript is one of the most top-ranked programming languages because of its ubiquitous use in all platforms and mass adoption.",
+  "translation": "JavaScript是所有平台上的普遍使用和大规模采用的最高级编程语言之一。"
+}, {
+  "tag": "P",
+  "text": "Octoverse has put JavaScript as the number one programming language for five consecutive years by GitHub repositories contributions:",
+  "translation": "Octoverse在GitHub存储库贡献中连续五年将JavaScript列为编程语言的第一名："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*eL-VPJp0KAHJE7oPvCIiIg.jpeg?q=20",
+  "caption": "Source: Octoverse",
+  "type": "image",
+  "file": "1!eL-VPJp0KAHJE7oPvCIiIg.jpeg"
+}, {
+  "tag": "P",
+  "text": "Also, StackOverflow developer survey 2019 has ranked JavaScript as the most popular programming language and Technology:",
+  "translation": "此外，2019年StackOverflow开发人员调查将JavaScript列为最受欢迎的编程语言和技术："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*mzSLmHTkdNdnqYqEhEYpSA.jpeg?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!mzSLmHTkdNdnqYqEhEYpSA.jpeg"
+}, {
+  "tag": "P",
+  "text": "Another programming language popularity site PYPL has ranked JavaScript as the 3rd most popular programming language:",
+  "translation": "另一个编程语言受欢迎的站点PYPL将JavaScript排名为第三大最受欢迎的编程语言："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*C7FRKZiE5WuslmefNqelog.jpeg?q=20",
+  "caption": "Source: PYPL",
+  "type": "image",
+  "file": "1!C7FRKZiE5WuslmefNqelog.jpeg"
+}, {
+  "tag": "P",
+  "text": "The programming language popularity site TIOBE has ranked JavaScript as the 7th most popular programming language:",
+  "translation": "编程语言流行网站TIOBE将JavaScript排名为第七大流行编程语言："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*dB-DGz46XongOrohZp-cZQ.png?q=20",
+  "caption": "Source: TIOBE",
+  "type": "image",
+  "file": "1!dB-DGz46XongOrohZp-cZQ.png"
+}, {
+  "tag": "P",
+  "text": "Once dreaded by the developers, JavaScript also ranked as the 11th most loved programming language according to StackOverflow Developer survey:",
+  "translation": "一旦被开发人员所畏惧，根据StackOverflow开发人员调查，JavaScript也被列为最受欢迎的11种编程语言："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*0rx75P3pPCfv32_aEOxgeg.jpeg?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!0rx75P3pPCfv32_aEOxgeg.jpeg"
+}, {
+  "tag": "P",
+  "text": "The trending of JavaScript is relatively stable, as shown by Google Trends:",
+  "translation": "JavaScript的趋势相对稳定，如Google趋势所示："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*ro6qohYZyqI-fMdaeDPCBg.jpeg?q=20",
+  "caption": "Source: Google Trends",
+  "type": "image",
+  "file": "1!ro6qohYZyqI-fMdaeDPCBg.jpeg"
+}, {
+  "tag": "P",
+  "text": "Job Market:",
+  "translation": "人才市场："
+}, {
+  "tag": "P",
+  "text": "In the USA Job market, Indeed has ranked JavaScript as the third most demanding programming language with 57 K Job posting in January 2020. With $114 K average yearly salary, JavaScript ranks 4th in terms of salary:",
+  "translation": "在美国就业市场中，Indeed在2020年1月发布的5.7万份Job中，将JavaScript排名为第三高要求的编程语言。JavaScript的平均年薪为11.4万美元，在薪金方面排名第四："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*m27mKlO-4hfKlO0q9Jn7SQ.png?q=20",
+  "caption": "Source: Indeed",
+  "type": "image",
+  "file": "1!m27mKlO-4hfKlO0q9Jn7SQ.png"
+}, {
+  "tag": "P",
+  "text": "Also, StackOverflow developer survey has shown that JavaScript developers can earn a modest salary with relatively low experience:",
+  "translation": "另外，StackOverflow开发人员调查显示，JavaScript开发人员的经验相对较低，可以赚取适度的薪水："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*AsBZsg4KF2BR6iGT_U-jag.png?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!AsBZsg4KF2BR6iGT_U-jag.png"
+}, {
+  "tag": "P",
+  "text": "Main Use Cases:",
+  "translation": "主要用例："
+}, {
+  "tag": "UL",
+  "texts": ["Web Development", "Backend Development", "Mobile App Development", "Serverless Computing", "Browser Game Development"],
+  "translations": ["Web开发", "后端开发", "移动应用开发", "无服务器计算", "浏览器游戏开发"]
+}, {
+  "tag": "H1",
+  "text": "3. Java",
+  "translation": "3. Java"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*3ySqOjy40UX3oXpBTwqpXw.png?q=20",
+  "type": "image",
+  "file": "1!3ySqOjy40UX3oXpBTwqpXw.png"
+}, {
+  "tag": "P",
+  "text": "Java is one of the most disruptive programming languages to date. Back in the ’90s, business applications were mainly developed using C++, which was quite complicated and platform dependent. James Gosling and his team in Sun lowered the barrier to develop business applications by offering a much simpler, object-oriented, interpreted programming language that also supports Multi-threading programming.",
+  "translation": "Java是迄今为止最具破坏性的编程语言之一。 上世纪90年代，业务应用程序主要是使用C开发的，它非常复杂且依赖于平台。 James Gosling和他在Sun的团队通过提供一种更简单的，面向对象的，解释性编程语言（也支持多线程编程），降低了开发业务应用程序的障碍。"
+}, {
+  "tag": "P",
+  "text": "Java has achieved Platform independence by developing Java Virtual Machine (JVM), which abstracted the low-level Operating System from developers and gave the first “Write Once, Run anywhere” programming language. Also, JVM offered generation garbage collection, which manages the Object life cycle.",
+  "translation": "Java通过开发Java虚拟机（JVM）实现了平台独立性，该虚拟机从开发人员那里提取了底层操作系统，并提供了第一种“一次编写，可在任何地方运行”的编程语言。 而且，JVM提供了生成垃圾收集，该垃圾收集管理对象的生命周期。"
+}, {
+  "tag": "P",
+  "text": "In recent years, Java has lost some of its markets to highly developer-friendly modern languages and the rise of other languages, especially Python, JavaScript. Also, JVM is not quite Cloud friendly because of its bulky size. Oracle has recently introduced hefty licensing fees for JDK, which will dent Java’s popularity further.",
+  "translation": "近年来，由于高度受开发人员欢迎的现代语言以及其他语言（尤其是Python，JavaScript）的兴起，Java失去了部分市场。 另外，JVM体积庞大，因此对云不太友好。 甲骨文最近对JDK收取了高额的许可费，这将进一步削弱Java的受欢迎程度。"
+}, {
+  "tag": "P",
+  "text": "Fortunately, Java is working on its shortcomings and trying to make Java fit for Cloud via the GraalVM initiative. Also, in OpenJDK, there is a free alternative to the proprietary Oracle JDK.",
+  "translation": "幸运的是，Java正在努力解决其缺点，并试图通过GraalVM计划使Java适用于云。 另外，在OpenJDK中，可以免费使用专有的Oracle JDK。"
+}, {
+  "tag": "P",
+  "text": "Java is still the number one programming language for enterprises.",
+  "translation": "Java仍然是企业的第一编程语言。"
+}, {
+  "tag": "P",
+  "text": "3 Key Features:",
+  "translation": "3个主要功能："
+}, {
+  "tag": "UL",
+  "texts": ["Java offers a powerful, feature-rich, multi-paradigm, interpreted programming language with a moderate learning curve and high developer productivity.", "Java is strictly backward compatible, which is a crucial requirement for business applications. Java has never introduced a major breaking change like Python or Scala. As a result, it is still the number one choice for enterprises.", "Java’s runtime JVM is a masterpiece of Software Engineering and one of the best virtual machines in the industry. With 25 years of innovation and engineering craftsmanship, JVM offers high performance and features to Java. Also, JVM provides some advanced Garbage Collection to Java."],
+  "translations": ["Java提供了强大的，功能丰富的，多范式的解释型编程语言，具有适度的学习曲线和较高的开发人员生产力。", "Java严格向后兼容，这是业务应用程序的关键要求。 Java从未引入像Python或Scala这样的重大突破。 因此，它仍然是企业的第一选择。", "Java的运行时JVM是软件工程的杰作，也是业界最佳的虚拟机之一。 凭借25年的创新和工程技术水平，JVM为Java提供了高性能和功能。 此外，JVM还为Java提供了一些高级垃圾回收。"]
+}, {
+  "tag": "P",
+  "text": "Popularity:",
+  "translation": "人气："
+}, {
+  "tag": "P",
+  "text": "Only after five years of its release, Java becomes the 3rd most popular programming language and always remained in the top 3 lists in the next two decades. Here is the long-term history of Java in the popular TIOBE ranking:",
+  "translation": "Java发布仅五年之后，它便成为第三大最受欢迎的编程语言，并且在接下来的二十年中始终保持在前三名之列。 在流行的TIOBE排名中，这是Java的长期历史："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*wxGrNdAz6bzXk5XpS3eRyQ.jpeg?q=20",
+  "caption": "Source: TIOBE",
+  "type": "image",
+  "file": "1!wxGrNdAz6bzXk5XpS3eRyQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "Java’s popularity has waned in the last few years, but it is still the most popular programming language, according to TIOBE, as shown below:",
+  "translation": "在最近几年中，Java的流行度有所下降，但是根据TIOBE的说法，它仍然是最流行的编程语言，如下所示："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*3Nsut--6OHOnT0rh1mcqjw.png?q=20",
+  "caption": "Source: TIOBE",
+  "type": "image",
+  "file": "1!3Nsut--6OHOnT0rh1mcqjw.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*JVMYuiGRpgeMbV9IIdoYig.jpeg?q=20",
+  "caption": "Source: TIOBE",
+  "type": "image",
+  "file": "1!JVMYuiGRpgeMbV9IIdoYig.jpeg"
+}, {
+  "tag": "P",
+  "text": "According to the GitHub repository contribution, Java was in the number one spot during the 2014–2018 and only slipped to number 3rd position in last year:",
+  "translation": "根据GitHub存储库的贡献，Java在2014–2018年期间排名第一，而在去年仅下滑至第三位："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*lx1x2-q3rRpUSs78o_MXBQ.jpeg?q=20",
+  "caption": "Source: Octoverse",
+  "type": "image",
+  "file": "1!lx1x2-q3rRpUSs78o_MXBQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "The other popular programming language ranking website PYPL has ranked Java as 2nd most popular programming language:",
+  "translation": "另一个流行的编程语言排名网站PYPL将Java排名为第二大最受欢迎的编程语言："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*mGLNX-OYPs2Xc3t1Ru4RoQ.jpeg?q=20",
+  "caption": "Source: PYPL",
+  "type": "image",
+  "file": "1!mGLNX-OYPs2Xc3t1Ru4RoQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "StackOverflow developer survey also ranked Java high and only superseded by JavaScript and Python programming languages:",
+  "translation": "StackOverflow开发人员调查还对Java进行了排名，并且仅被JavaScript和Python编程语言所取代："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*KvkJcrcFwNuCS1QT5jaSaw.jpeg?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!KvkJcrcFwNuCS1QT5jaSaw.jpeg"
+}, {
+  "tag": "P",
+  "text": "According to Google trends, Java is losing its traction constantly in the past five years:",
+  "translation": "根据Google的趋势，Java在过去五年中不断失去吸引力："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*7_1aiHGvvi9n54KArKlJow.jpeg?q=20",
+  "caption": "Source: Google Trends",
+  "type": "image",
+  "file": "1!7_1aiHGvvi9n54KArKlJow.jpeg"
+}, {
+  "tag": "P",
+  "text": "Job Market:",
+  "translation": "人才市场："
+}, {
+  "tag": "P",
+  "text": "According to Indeed, Java is the second most demanding programming language in the USA with 69 K Job posting in January 2020. Also, Java developers earn the 6th highest annual salary ($104 K):",
+  "translation": "根据的确，Java是美国第二高要求的编程语言，于2020年1月发布了69 K Job。此外，Java开发人员的年薪排名第六高（10.4万美元）："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*jvlOZTUnhn2h4w5Kcgr1Rg.png?q=20",
+  "caption": "Source: Indeed",
+  "type": "image",
+  "file": "1!jvlOZTUnhn2h4w5Kcgr1Rg.png"
+}, {
+  "tag": "P",
+  "text": "As per StackOverflow Developers survey 2019, Java offers a modest salary after few years of experience:",
+  "translation": "根据2019年StackOverflow开发人员调查，Java经过几年的经验提供了适中的薪水："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*8HxOXjVtRsvvhQxSx1ckuA.png?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!8HxOXjVtRsvvhQxSx1ckuA.png"
+}, {
+  "tag": "P",
+  "text": "Main Use Cases:",
+  "translation": "主要用例："
+}, {
+  "tag": "UL",
+  "texts": ["Enterprise Application Development", "Android App Development", "Big Data", "Web Development"],
+  "translations": ["企业应用开发", "Android App开发", "大数据", "Web开发"]
+}, {
+  "tag": "H1",
+  "text": "4. C#",
+  "translation": "4. C＃"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*bu2Qea4bfAcVPRyUefowAw.png?q=20",
+  "type": "image",
+  "file": "1!bu2Qea4bfAcVPRyUefowAw.png"
+}, {
+  "tag": "P",
+  "text": "In 2000, Tech giant Microsoft decided to create their Object Oriented C like programming language C# as part of their .NET initiative, which will be managed (run on a Virtual Machine like Java). The veteran language designer Anders Hejlsberg designed C# as part of Microsoft’s Common Language Initiative (CLI) platform where many other (mainly Microsoft’s languages) compiled into an intermediate format which runs on a Runtime named Common Language Runtime (CLR).",
+  "translation": "2000年，科技巨头Microsoft决定创建自己的面向对象的C语言（如C＃）作为其.NET计划的一部分，并将对其进行管理（在Java等虚拟机上运行）。 资深的语言设计师Anders Hejlsberg将C＃设计为Microsoft公共语言计划（CLI）平台的一部分，该平台将许多其他语言（主要是Microsoft的语言）编译成一种中间格式，该格式可以在名为Common Language Runtime（CLR）的运行时上运行。"
+}, {
+  "tag": "P",
+  "text": "During the early days, C# was criticized as an imitation of Java. But later, both of the languages diverged. Also, Microsoft’s licensing of C# compiler/runtime is not always clear. Although Microsoft is currently not enforcing its patents under the Microsoft Open Specification Project, it may change.",
+  "translation": "在早期，C＃被批评为模仿Java。 但是后来，两种语言出现了分歧。 另外，微软对C＃编译器/运行时的许可并不总是很清楚。 尽管Microsoft当前未根据Microsoft Open Specification Project强制实施其专利，但它可能会更改。"
+}, {
+  "tag": "P",
+  "text": "Today, C# is a multi-paradigm programming language that is widely used not only on the Windows platform but also on the iOS/Android platform (thanks to Xamarian) and Linux platform.",
+  "translation": "今天，C＃是一种多范式编程语言，不仅在Windows平台上而且在iOS / Android平台（由于Xamarian）和Linux平台上也广泛使用。"
+}, {
+  "tag": "P",
+  "text": "3 Key Features:",
+  "translation": "3个主要功能："
+}, {
+  "tag": "UL",
+  "texts": ["Anders Hejlsberg did an excellent job to bring C# out of Java’s shadow and give its own identity. In terms of developer experience, C# is ahead of Java.", "Backed by Microsoft and being in the industry for 20 years, C# has large ecosystems of libraries and frameworks. The ASP.NET is used for Web Development, especially on Windows.", "Like Java, C# is also platform independent (thanks to CLR) and runs on Windows, Linux, Mobile devices."],
+  "translations": ["Anders Hejlsberg在将C＃摆脱Java的阴影并赋予其自己的身份方面做得非常出色。 在开发人员经验方面，C＃领先于Java。", "在Microsoft的支持下，C＃从事该行业已有20年，它拥有大型的库和框架生态系统。 ASP.NET用于Web开发，尤其是在Windows上。", "像Java一样，C＃也与平台无关（这要归功于CLR），并且可以在Windows，Linux和移动设备上运行。"]
+}, {
+  "tag": "P",
+  "text": "Popularity:",
+  "translation": "人气："
+}, {
+  "tag": "P",
+  "text": "The popular language ranking site TIOBE has ranked 5th in January 2020 with huge gain:",
+  "translation": "流行语言排名网站TIOBE在2020年1月排名第5位，获得了可观的收益："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Eng0m0-QHGQIbtn09QS7Pg.png?q=20",
+  "caption": "Source: TIOBE",
+  "type": "image",
+  "file": "1!Eng0m0-QHGQIbtn09QS7Pg.png"
+}, {
+  "tag": "P",
+  "text": "Also, Octoverse has listed C# as the 5th popular programming language by GitHub repositories contribution:",
+  "translation": "另外，Octoverse已将C＃列为GitHub存储库贡献的第五种流行编程语言："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*z7wT9V8QOcp85u230AHAKQ.jpeg?q=20",
+  "caption": "Source: Octoverse",
+  "type": "image",
+  "file": "1!z7wT9V8QOcp85u230AHAKQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "StackOverflow developer survey has placed C# as the 4th most popular language (7th most popular Technology for 2019:",
+  "translation": "StackOverflow开发人员调查已将C＃列为第四受欢迎的语言（2019年第七受欢迎的技术："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*_N0bbBQBdm7rIKlP9kZlXg.jpeg?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!_N0bbBQBdm7rIKlP9kZlXg.jpeg"
+}, {
+  "tag": "P",
+  "text": "It is interesting to note that StackOverflow developer survey has ranked C# as the 10th most loved programming language (well above Java):",
+  "translation": "有趣的是，StackOverflow开发人员调查将C＃列为最受欢迎的第十种编程语言（远高于Java）："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*UzAKXdyX9snm0qaUN0Kvzg.jpeg?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!UzAKXdyX9snm0qaUN0Kvzg.jpeg"
+}, {
+  "tag": "P",
+  "text": "As clear from Google trends, C# is not being much hyped in the last few years, as shown below:",
+  "translation": "从Google的趋势可以明显看出，C＃在过去的几年中并未被大肆宣传，如下所示："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*kHhsmkm99-x7RSZMdm1Ouw.jpeg?q=20",
+  "caption": "Source: Google Trends",
+  "type": "image",
+  "file": "1!kHhsmkm99-x7RSZMdm1Ouw.jpeg"
+}, {
+  "tag": "P",
+  "text": "Job Market:",
+  "translation": "人才市场："
+}, {
+  "tag": "P",
+  "text": "Indeed has posted 32 K openings for C# developers in the USA, which makes C# the 5th most demanding programming language in this list. With an annual salary of $96 K, C# ranks 8th in this list:",
+  "translation": "实际上，确实为美国的C＃开发人员发布了3万2千个职位，这使C＃成为此列表中要求最高的编程语言的第5位。 C＃的年薪为$ 96 K，在此列表中排名第8："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*1e_aiaid6IF_aWdA7QFyDw.png?q=20",
+  "caption": "Source: Indeed",
+  "type": "image",
+  "file": "1!1e_aiaid6IF_aWdA7QFyDw.png"
+}, {
+  "tag": "P",
+  "text": "StackOverflow developer survey has placed C# above Java (albeit with more experience) in terms of global average salary:",
+  "translation": "关于StackOverflow开发人员的调查，就全球平均薪水而言，C＃的排名高于Java（尽管有更多经验）："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*RF-v2BztqgMurFWAEuZuuw.png?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!RF-v2BztqgMurFWAEuZuuw.png"
+}, {
+  "tag": "P",
+  "text": "Main Use Cases:",
+  "translation": "主要用例："
+}, {
+  "tag": "UL",
+  "texts": ["Server-Side programming", "App development", "Web Development", "Game Development", "Software for Windows Platform"],
+  "translations": ["服务器端编程", "应用程式开发", "Web开发", "游戏开发", "Windows平台软件"]
+}, {
+  "tag": "H1",
+  "text": "5. C",
+  "translation": "5. C"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*3RMDPonny2buBl-kdZSm7Q.png?q=20",
+  "type": "image",
+  "file": "1!3RMDPonny2buBl-kdZSm7Q.png"
+}, {
+  "tag": "P",
+  "text": "During the 1960s and 1970s, every cycle of the CPU and every byte of memory was expensive. Dennis Ritchie, a Bell lab engineer, has developed a procedural, general-purpose programming language that is compiled directly to machine language during the 1969–1973. C programming offers low-level access to memory and gives full control over the underlying hardware.",
+  "translation": "在1960年代和1970年代，CPU的每个周期和每个字节的内存都非常昂贵。 贝尔实验室工程师Dennis Ritchie开发了一种程序通用编程语言，该语言在1969-1973年间直接编译为机器语言。 C编程提供对内存的低级访问，并提供对底层硬件的完全控制。"
+}, {
+  "tag": "P",
+  "text": "Over the years, C became one of the most used programming languages. Besides, C is arguably the most disruptive and influential programming language in history and has influenced almost all other languages on this list.",
+  "translation": "多年来，C成为最常用的编程语言之一。 此外，C可以说是历史上最具破坏性和影响力的编程语言，并且几乎影响了该列表中的所有其他语言。"
+}, {
+  "tag": "P",
+  "text": "Although C is often criticized for its accidental complexity, unsafe programming, and lack of features. Also, C is platform-dependent, i.e., C code is not portable. But if you want to make the most use of your hardware, then C/C++ or Rust is your only option.",
+  "translation": "尽管C因其偶然的复杂性，不安全的编程以及缺少功能而经常受到批评。 而且，C是平台相关的，即，C代码不可移植。 但是，如果您想充分利用硬件，则C / C或Rust是您唯一的选择。"
+}, {
+  "tag": "P",
+  "text": "3 Main Features:",
+  "translation": "3个主要功能："
+}, {
+  "tag": "UL",
+  "texts": ["As C gave low-level access to memory and compiled to Machine instructions, it is one of the fastest and most powerful programming languages.", "C gives full control over the underlying hardware. C program can run on every platform and take advantage of every kind of hardware, whether it is GPU, TPU, Container, Cloud, Mobile devices, or Microcontroller.", "C is one of the “Programming languages of the Language,” i.e., compilers of many other programming languages like Ruby, PHP, Python have been written in C."],
+  "translations": ["由于C提供了对内存的低级访问并可以编译为Machine指令，因此它是最快，最强大的编程语言之一。", "C完全控制了底层硬件。 C程序可以在每个平台上运行并利用各种硬件，无论是GPU，TPU，容器，云，移动设备还是微控制器。", "C是“语言的编程语言”之一，即，许多其他编程语言（如Ruby，PHP，Python）的编译器都用C编写。"]
+}, {
+  "tag": "P",
+  "text": "Popularity:",
+  "translation": "人气："
+}, {
+  "tag": "P",
+  "text": "C is the oldest programming language in this list and has dominated the industry for 47 years. C has also ruled the programming language popularity ranking more than any other language as clear from TIOBE’s long-term ranking history:",
+  "translation": "C是该列表中最古老的编程语言，并且在该行业中占据着主导地位达47年之久。 从TIOBE的长期排名历史可以明显看出，C还决定了编程语言的流行度排名要高于其他任何语言："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*2aJd8ua5l6sU6pMnog-Y2w.jpeg?q=20",
+  "caption": "Source: TIOBE",
+  "type": "image",
+  "file": "1!2aJd8ua5l6sU6pMnog-Y2w.jpeg"
+}, {
+  "tag": "P",
+  "text": "According to TIOBE ranking, C is the second most popular language with a huge popularity gain in 2019:",
+  "translation": "根据TIOBE排名，C是第二流行的语言，在2019年获得了巨大的流行："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*hwGgAPeoqnE2AsQqYxDr3w.jpeg?q=20",
+  "caption": "Source: TIOBE",
+  "type": "image",
+  "file": "1!hwGgAPeoqnE2AsQqYxDr3w.jpeg"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*KUq7PCIHARORSLqY7ksHWg.png?q=20",
+  "caption": "Source: TIOBE",
+  "type": "image",
+  "file": "1!KUq7PCIHARORSLqY7ksHWg.png"
+}, {
+  "tag": "P",
+  "text": "Octoverse has also ranked C as the 9th most popular language according to the GitHub repository contribution:",
+  "translation": "根据GitHub存储库的贡献，Octoverse还将C排在第9位最受欢迎的语言中："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*k83Ar1JwXW6jyzI3T5Ky0A.jpeg?q=20",
+  "caption": "Source: Octoverse",
+  "type": "image",
+  "file": "1!k83Ar1JwXW6jyzI3T5Ky0A.jpeg"
+}, {
+  "tag": "P",
+  "text": "StackOverflow developer survey has also ranked C in 12th (8th considering programming language) place:",
+  "translation": "StackOverflow开发人员调查还将C排在第12位（考虑到编程语言，则排名第8位）："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*5B9qL8OBSqpNZzdSYlhoCQ.jpeg?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!5B9qL8OBSqpNZzdSYlhoCQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "Google trending also shows a relatively stable interest in C over the last five years.",
+  "translation": "Google趋势在过去五年中也显示出对C的相对稳定的兴趣。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Sza8c4DGEfVvAB_fGWGSrA.jpeg?q=20",
+  "caption": "Source: Google Trends",
+  "type": "image",
+  "file": "1!Sza8c4DGEfVvAB_fGWGSrA.jpeg"
+}, {
+  "tag": "P",
+  "text": "Job Market:",
+  "translation": "人才市场："
+}, {
+  "tag": "P",
+  "text": "According to Indeed, there are 28K job postings for C developers in the USA, which make C the 6th most demanding programming language. In terms of salary, C ranks 6th with Java ($104 K):",
+  "translation": "根据Indeed的说法，在美国，有28,000个职位供C开发人员使用，这使C成为要求最高的第六种编程语言。 就薪水而言，C在Java（$ 104 K）中排名第六："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*SaZQgwsoJrUa8-q084WRkw.png?q=20",
+  "caption": "Source: Indeed",
+  "type": "image",
+  "file": "1!SaZQgwsoJrUa8-q084WRkw.png"
+}, {
+  "tag": "P",
+  "text": "StackOverflow developer survey showed C developers can earn an average wage but needs a longer time to achieve that compared to, e.g., Java, Python:",
+  "translation": "StackOverflow开发人员调查显示，与Java，Python等相比，C开发人员可以赚取平均工资，但需要更长的时间才能实现这一目标："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*i94VZsPdyNQX2bLhXrYlJw.png?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!i94VZsPdyNQX2bLhXrYlJw.png"
+}, {
+  "tag": "P",
+  "text": "Main Use Cases:",
+  "translation": "主要用例："
+}, {
+  "tag": "UL",
+  "texts": ["System Programming", "Game Development", "IoT and Real-Time Systems", "Machine Learning, Deep Learning", "Embedded Systems"],
+  "translations": ["系统程式设计", "游戏开发", "物联网和实时系统", "机器学习，深度学习", "嵌入式系统"]
+}, {
+  "tag": "H1",
+  "text": "6. C++",
+  "translation": "6. C"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/27/1*3BGTDWyiXFzF0nujGxJWlA.png?q=20",
+  "type": "image",
+  "file": "1!3BGTDWyiXFzF0nujGxJWlA.png"
+}, {
+  "tag": "P",
+  "text": "Bjarne Stroustrup has worked with Dennis Ritchie (creator of C) in Bell Lab during the 1970s. Heavily influenced by C, he first created C++ as an extension of C, adding Object-Oriented features. Over time, C++ has evolved into a multi-paradigm, general-purpose programming language. Like C, C++ also offers low-level memory access and directly compiled to machine instructions.",
+  "translation": "Bjarne Stroustrup在1970年代曾与贝尔实验室的Dennis Ritchie（C的创建者）合作。 受C的影响很大，他首先创建C作为C的扩展，并添加了面向对象的功能。 随着时间的流逝，C已经发展成为一种多范式的通用编程语言。 与C一样，C也提供低级内存访问并直接编译为机器指令。"
+}, {
+  "tag": "P",
+  "text": "C++ also offers full control over hardware but with the cost of accidental complexity and does not provide language-level support for memory safety and concurrency safety. Also, C++ offers too many features and is one of the most complicated programming languages to master.",
+  "translation": "C还提供了对硬件的完全控制，但是付出了意外复杂性的代价，并且不为内存安全性和并发安全性提供语言级别的支持。 而且，C提供了太多的功能，并且是要掌握的最复杂的编程语言之一。"
+}, {
+  "tag": "P",
+  "text": "For all these factors and its platform dependency, C++ has lost its popularity to Java in especially enterprise software development and Big Data domain in the early 2000s.",
+  "translation": "由于所有这些因素及其对平台的依赖性，在2000年代初期，C在Java尤其是企业软件开发和大数据领域中已不再流行。"
+}, {
+  "tag": "P",
+  "text": "C++ is once again gaining popularity with the rise of GPU, Containerization, Cloud computing, as it can quickly adapt itself to take advantage of Hardware or Ecosystem changes.",
+  "translation": "随着GPU，容器化和云计算的兴起，C再次流行起来，因为它可以快速适应自身以利用硬件或生态系统的变化。"
+}, {
+  "tag": "P",
+  "text": "Today, C++ is one of the most important and heavily used programming languages in the industry.",
+  "translation": "如今，C是业界最重要且使用最广泛的编程语言之一。"
+}, {
+  "tag": "P",
+  "text": "3 Main Features:",
+  "translation": "3个主要功能："
+}, {
+  "tag": "UL",
+  "texts": ["Like Java, C++ is also constantly modernizing and adapting itself with changes in Hardware or Ecosystem. Modern C++ is a much safer, productive niche compared to older C++ versions.", "Like C, C++ also gives full control over the underlying hardware and can run on every platform and take advantage of every kind of hardware, whether it is GPU, TPU, Container, Cloud, Mobile devices, or Microcontroller.", "C++ is blazingly fast and used heavily in performance-critical and resource-constrained systems. Many fantastic software like Java Virtual Machine, Chrome V8 Engine, lots of databases is written in C++."],
+  "translations": ["像Java一样，C也在不断地进行现代化和适应硬件或生态系统的变化。 与较旧的C版本相比，现代C是更安全，更具生产力的利基市场。", "与C一样，C也可以完全控制基础硬件，并且可以在每个平台上运行并利用每种硬件，无论是GPU，TPU，容器，云，移动设备还是微控制器。", "C非常快，并且在性能关键和资源受限的系统中大量使用。 许多出色的软件，例如Java虚拟机，Chrome V8引擎以及许多数据库都是用C编写的。"]
+}, {
+  "tag": "P",
+  "text": "Popularity:",
+  "translation": "人气："
+}, {
+  "tag": "P",
+  "text": "C++ is the second oldest programming language in this list and ranked 4th in the TIOBE programming language ranking:",
+  "translation": "C是此列表中第二古老的编程语言，在TIOBE编程语言排名中排名第四："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*3lXGdFL9uEhOBs510uGGkA.png?q=20",
+  "caption": "Source: TIOBE",
+  "type": "image",
+  "file": "1!3lXGdFL9uEhOBs510uGGkA.png"
+}, {
+  "tag": "P",
+  "text": "Octoverse has ranked C++ in 6th position by GitHub repository contributions:",
+  "translation": "Octoverse在GitHub存储库贡献中将C排在第六位："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Ljd2JHm1740XqwCJNHf9Vw.jpeg?q=20",
+  "caption": "Source: Octoverse",
+  "type": "image",
+  "file": "1!Ljd2JHm1740XqwCJNHf9Vw.jpeg"
+}, {
+  "tag": "P",
+  "text": "Also, StackOverflow Developer Survey in 2019 has listed C++ as the 9th most popular Technology (6th most popular language):",
+  "translation": "此外，2019年StackOverflow开发人员调查将C列为第9最受欢迎的技术（第6最受欢迎的语言）："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*FIDfqjomsU93cNULUzvUhw.jpeg?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!FIDfqjomsU93cNULUzvUhw.jpeg"
+}, {
+  "tag": "P",
+  "text": "Although C++ is facing massive competition from modern programming languages like Rust or Go, it is still generating stable interest in the last five years:",
+  "translation": "尽管C面临着来自Rust或Go之类的现代编程语言的激烈竞争，但在过去五年中，C仍引起了稳定的关注："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*xGCbwKUy5bSEaNeDwoIhLw.jpeg?q=20",
+  "type": "image",
+  "file": "1!xGCbwKUy5bSEaNeDwoIhLw.jpeg"
+}, {
+  "tag": "P",
+  "text": "Job Market:",
+  "translation": "人才市场："
+}, {
+  "tag": "P",
+  "text": "Indeed has ranked C++ as the 4th most demanding programming language with 41 K job posting. Also, C++ developers earn $108 K per annum, which places it in 5th place:",
+  "translation": "实际上，C职位排名为41 K，是要求最苛刻的编程语言排名第四。 此外，C开发人员每年可赚$ 108 K，位居第五："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*nMpEnJtI_6YQwkWSFV6mBA.png?q=20",
+  "caption": "Source: Indeed",
+  "type": "image",
+  "file": "1!nMpEnJtI_6YQwkWSFV6mBA.png"
+}, {
+  "tag": "P",
+  "text": "StackOverflow developer survey has shown that C++ developers can draw a higher salary compared to Java, albeit with a longer experience:",
+  "translation": "StackOverflow开发人员调查显示，与Java相比，C开发人员可以获得更高的薪水，尽管经验更长："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*l85BhQkIKgTwwC8NSg0f6w.png?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!l85BhQkIKgTwwC8NSg0f6w.png"
+}, {
+  "tag": "P",
+  "text": "Main Use Cases:",
+  "translation": "主要用例："
+}, {
+  "tag": "UL",
+  "texts": ["System Programming", "Game Development", "IoT and Real-Time Systems", "Machine Learning, Deep Learning", "Embedded Systems, Distributed Systems"],
+  "translations": ["系统程式设计", "游戏开发", "物联网和实时系统", "机器学习，深度学习", "嵌入式系统，分布式系统"]
+}, {
+  "tag": "H1",
+  "text": "7. PHP",
+  "translation": "7. PHP"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*0t99ZhhWltKWNr-WjsrVkg.png?q=20",
+  "type": "image",
+  "file": "1!0t99ZhhWltKWNr-WjsrVkg.png"
+}, {
+  "tag": "P",
+  "text": "Like Python, PHP is another programming language developed by a single developer as a side project during the ’90s. Software Engineer Rasmus Lerdorf has initially created PHP as a set of Common Gateway Interface binaries written in C to create dynamic Web Applications. Later, more functionalities were added to the PHP product, and it organically evolved into a fully-fledged programming language.",
+  "translation": "与Python一样，PHP是90年代由单个开发人员作为辅助项目开发的另一种编程语言。 软件工程师Rasmus Lerdorf最初将PHP创建为一组用C编写的通用网关接口二进制文件，以创建动态Web应用程序。 后来，更多的功能被添加到PHP产品中，并且有机地演变为成熟的编程语言。"
+}, {
+  "tag": "P",
+  "text": "At present, PHP is a general-purpose, dynamic programming language mainly used to develop server-side Web applications.",
+  "translation": "当前，PHP是一种通用的动态编程语言，主要用于开发服务器端Web应用程序。"
+}, {
+  "tag": "P",
+  "text": "With the rise of JavaScript based client-side Web application development, PHP is losing its appeal and popularity, and PHP is past its prime. Contrary to popular belief, PHP will not die soon, although its popularity will gradually diminish.",
+  "translation": "随着基于JavaScript的客户端Web应用程序开发的兴起，PHP失去了吸引力和流行性，并且PHP已过时。 与流行的看法相反，PHP不会很快消失，尽管它的流行将逐渐减少。"
+}, {
+  "tag": "P",
+  "text": "3 Key Features:",
+  "translation": "3个主要功能："
+}, {
+  "tag": "UL",
+  "texts": ["PHP is one of the highly productive Server-Side Web development programming languages. As a result, it is widely used in the industry to develop a Web application at a rapid pace. The most prominent social networking Facebook was developed in PHP.", "As PHP is used in Web development for the last 35 years, there are many successful and stable PHP frameworks in the market.", "Many giant companies are using PHP (Facebook, Wordpress), which leads to excellent tooling support for it."],
+  "translations": ["PHP是高效的服务器端Web开发编程语言之一。 结果，它在工业中被广泛使用以快速开发Web应用程序。 最著名的社交网络Facebook是用PHP开发的。", "由于PHP在过去35年中一直用于Web开发，因此市场上有许多成功且稳定的PHP框架。", "许多大型公司正在使用PHP（Facebook，Wordpress），这为其提供了出色的工具支持。"]
+}, {
+  "tag": "P",
+  "text": "Popularity:",
+  "translation": "人气："
+}, {
+  "tag": "P",
+  "text": "The programming language ranking site TIOBE has ranked PHP as the 8th most popular programming language in January 2020. Although the long term ranking history of PHP shows that PHP is past of its prime and slowly losing its appeal:",
+  "translation": "编程语言排名网站TIOBE在2020年1月将PHP排名为第八大最受欢迎的编程语言。尽管PHP的长期排名历史表明PHP已经过时了，并且逐渐失去了吸引力："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*ZeJ4cee9NY_WFYYBG6cbDw.png?q=20",
+  "caption": "Source: TIOBE",
+  "type": "image",
+  "file": "1!ZeJ4cee9NY_WFYYBG6cbDw.png"
+}, {
+  "tag": "P",
+  "text": "Octoverse has ranked PHP as the 4th most popular programming language by GitHub repositories contribution:",
+  "translation": "根据GitHub存储库的贡献，Octoverse将PHP排名为第四大最受欢迎的编程语言："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*W4aDtKMa2xIulpbuZLWhhg.jpeg?q=20",
+  "caption": "Source: Octoverse",
+  "type": "image",
+  "file": "1!W4aDtKMa2xIulpbuZLWhhg.jpeg"
+}, {
+  "tag": "P",
+  "text": "As per StackOverflow developer survey 2019, PHP is the 5th most popular programming language (8th most popular Technology):",
+  "translation": "根据2019年StackOverflow开发人员调查，PHP是第五种最受欢迎的编程语言（第八种最受欢迎的技术）："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*H6bb4ybFVlct9suY5xlbmQ.jpeg?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!H6bb4ybFVlct9suY5xlbmQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "Although PHP is still one of the most widely used programming languages, it’s trending is slowly going down as clear from Google Trends:",
+  "translation": "尽管PHP仍然是使用最广泛的编程语言之一，但从Google趋势可以明显看出，PHP的趋势正在缓慢下降："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*lflHIzji8GaoBw-6Q1k4Kw.jpeg?q=20",
+  "caption": "Source: Google Trends",
+  "type": "image",
+  "file": "1!lflHIzji8GaoBw-6Q1k4Kw.jpeg"
+}, {
+  "tag": "P",
+  "text": "Job Market:",
+  "translation": "人才市场："
+}, {
+  "tag": "P",
+  "text": "Job Search site Indeed has ranked PHP as the 7th most demanding programming language in the USA job market with 18 K positions in January 2020. Also, PHP developers can expect a reasonable salary ($90 K) which places them in 10th position in this category:",
+  "translation": "求职网站的确，在2020年1月，PHP以18K的职位将PHP排名为美国职位市场上要求最高的编程语言的第七位。此外，PHP开发人员可以期望得到合理的薪水（9万美元），使他们在该类别中排名第十。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*AJINiFSxISylk3ZWf1bWgA.png?q=20",
+  "caption": "Source: Indeed",
+  "type": "image",
+  "file": "1!AJINiFSxISylk3ZWf1bWgA.png"
+}, {
+  "tag": "P",
+  "text": "StackOverflow developer survey shows PHP as the lowest-paid programming language in 2019:",
+  "translation": "StackOverflow开发人员调查显示，PHP是2019年收入最低的编程语言："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*qhtibCzO9srMMy2XQ7Y_4g.png?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!qhtibCzO9srMMy2XQ7Y_4g.png"
+}, {
+  "tag": "P",
+  "text": "Main Use Cases:",
+  "translation": "主要用例："
+}, {
+  "tag": "UL",
+  "texts": ["Server-side Web Application Development", "Developing CMS systems", "Standalone Web Application Development."],
+  "translations": ["服务器端Web应用程序开发", "开发CMS系统", "独立的Web应用程序开发。"]
+}, {
+  "tag": "H1",
+  "text": "8. Swift",
+  "translation": "8.斯威夫特"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*JZsjbpNPx156vxT6jrSsHg.jpeg?q=20",
+  "type": "image",
+  "file": "1!JZsjbpNPx156vxT6jrSsHg.jpeg"
+}, {
+  "tag": "P",
+  "text": "Swift is one of the only two programming languages that has also appeared in my list: “Top 7 modern programming languages to learn now”. A group of Apple engineers led by Chris Lattner has worked to develop a new programming language Swift mainly to replace Objective-C in the Mac and iOS platforms.",
+  "translation": "Swift是也出现在我的列表中的仅有的两种编程语言之一：“现在可以学习的7大现代编程语言”。 由克里斯·拉特纳（Chris Lattner）领导的一组Apple工程师致力于开发一种新的Swift编程语言，主要用于在Mac和iOS平台上替代Objective-C。"
+}, {
+  "tag": "P",
+  "text": "It is a multi-paradigm, general-purpose, compiled programming language that also offers high developer productivity. Swift supports LLVM (developer by Chris Lattner) compiler toolchain like C/C++, Rust.",
+  "translation": "它是一种多范例的通用编译语言，还可以提高开发人员的工作效率。 Swift支持LLVM（由Chris Lattner开发）的编译器工具链，如C / C和Rust。"
+}, {
+  "tag": "P",
+  "text": "Swift has excellent interoperability with Objective-C codebase and has already established itself as the primary programming language in iOS App development. As a compiled and powerful language, Swift is gaining increasing popularity in other domains as well.",
+  "translation": "Swift与Objective-C代码库具有出色的互操作性，并且已经将自己确立为iOS App开发中的主要编程语言。 作为一种强大的汇编语言，Swift在其他领域也越来越受欢迎。"
+}, {
+  "tag": "P",
+  "text": "3 Main Features:",
+  "translation": "3个主要功能："
+}, {
+  "tag": "UL",
+  "texts": ["One of the main USP of Swift is its language design. With simpler, concise, and clean syntax and developer ergonomic features, it offers a more productive and better alternative to Objective-C in the Apple Ecosystem.", "Swift also offers features of modern program languages: null safety. Also, it provides syntactic sugar to avoid the “Pyramid of Doom.”", "As a compiled language, Swift is blazing fast as C++. It is also gaining increasing popularity in system programming and other domains."],
+  "translations": ["Swift的主要USP之一是其语言设计。 凭借更简单，简洁，简洁的语法以及开发人员人体工程学的功能，它为Apple生态系统中的Objective-C提供了更高产且更好的替代方案。", "Swift还提供了现代程序语言的功能：空安全。 此外，它提供了语法糖来避免“厄运金字塔”。", "作为一种编译语言，Swift与C一样快。 它还在系统编程和其他领域中越来越受欢迎。"]
+}, {
+  "tag": "P",
+  "text": "Popularity:",
+  "translation": "人气："
+}, {
+  "tag": "P",
+  "text": "Like other modern programming languages, Swift is hugely popular among developers and ranked 6th in the list of most beloved languages:",
+  "translation": "与其他现代编程语言一样，Swift在开发人员中也非常受欢迎，并在最受欢迎的语言列表中排名第六："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*BxHjlXZ_UfQSNbnVY0F7nQ.jpeg?q=20",
+  "type": "image",
+  "file": "1!BxHjlXZ_UfQSNbnVY0F7nQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "Swift also has propelled to top 10 lists of most popular programming languages in TIOBE index only in 5 years of its first stable release:",
+  "translation": "Swift在其第一个稳定版本发布仅五年后，就已在TIOBE索引中跻身最受欢迎的编程语言的前10名："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*wO5MgevW6NqQ0ujfNqMBZw.jpeg?q=20",
+  "caption": "Source: TIOBE",
+  "type": "image",
+  "file": "1!wO5MgevW6NqQ0ujfNqMBZw.jpeg"
+}, {
+  "tag": "P",
+  "text": "Another popular programming language ranking site PYPL has ranked Swift as 9th most popular programming language:",
+  "translation": "另一个流行的编程语言排名网站PYPL将Swift排名为第9大最受欢迎的编程语言："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*ZYNb6xKDemKymHZOFQEABw.jpeg?q=20",
+  "caption": "Source: PYPL",
+  "type": "image",
+  "file": "1!ZYNb6xKDemKymHZOFQEABw.jpeg"
+}, {
+  "tag": "P",
+  "text": "StackOverflow developer survey has ranked Swift as the 15th most popular Technology (12th most popular programming language):",
+  "translation": "StackOverflow开发人员调查将Swift排名为第15名最受欢迎的技术（第12名最受欢迎的编程语言）："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*8uq8kPHRP52POoPoZEgX3Q.jpeg?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!8uq8kPHRP52POoPoZEgX3Q.jpeg"
+}, {
+  "tag": "P",
+  "text": "Google trends also show a sharp rise in the Popularity of Swift:",
+  "translation": "Google的趋势还表明，Swift的普及程度急剧上升："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*EO-TFNeitbEz_T4I3pRoIw.jpeg?q=20",
+  "caption": "Source: Google Trends",
+  "type": "image",
+  "file": "1!EO-TFNeitbEz_T4I3pRoIw.jpeg"
+}, {
+  "tag": "P",
+  "text": "Job Market:",
+  "translation": "人才市场："
+}, {
+  "tag": "P",
+  "text": "Indeed has ranked Swift as the 9th most demanding language in the USA with 6 K openings. In terms of Salary, Indeed has ranked Swift in 2nd place with $125 K yearly salary:",
+  "translation": "实际上，Swift凭借6 K的空缺排名在美国要求最严格的语言中排名第9。 在薪资方面，Indeed将Swift排在第二位，年薪为$ 125 K："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*k4kThbvGhKBWBdgPsY25LA.png?q=20",
+  "caption": "Source: Indeed",
+  "type": "image",
+  "file": "1!k4kThbvGhKBWBdgPsY25LA.png"
+}, {
+  "tag": "P",
+  "text": "StackOverflow developer survey has also revealed that Swift developer can earn a high salary with relatively fewer years of experience compared to Objective-C:",
+  "translation": "StackOverflow开发人员调查还显示，与Objective-C相比，Swift开发人员可以以相对较少的经验获得高薪："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*5JFCJxEkqXASKlV7sKyB4w.png?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!5JFCJxEkqXASKlV7sKyB4w.png"
+}, {
+  "tag": "P",
+  "text": "Main Use Cases:",
+  "translation": "主要用例："
+}, {
+  "tag": "UL",
+  "texts": ["iOS App Development", "System Programming", "Client-side development (via WebAssembly)", "Deep Learning", "IoT"],
+  "translations": ["iOS App开发", "系统程式设计", "客户端开发（通过WebAssembly）", "深度学习", "物联网"]
+}, {
+  "tag": "H1",
+  "text": "9. Go",
+  "translation": "9.出发"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*QDU9Xxwi5PUVRymoC1Inbg.png?q=20",
+  "type": "image",
+  "file": "1!QDU9Xxwi5PUVRymoC1Inbg.png"
+}, {
+  "tag": "P",
+  "text": "Like Swift, Go is only the second programming language from the last decade in this list. Also, like Swift, Go is created by a Tech giant.",
+  "translation": "与Swift一样，Go只是该列表中最近十年的第二种编程语言。 同样，像Swift一样，Go是由科技巨头创建的。"
+}, {
+  "tag": "P",
+  "text": "In the last decade, Google has frustratingly discovered that existing programming languages cannot take the seemingly unlimited hardware, human resources of Google. For example, compiling the C++ codebase of Google took half an hour. Also, they wanted to tackle the development scaling issue in the new language.",
+  "translation": "在过去的十年中，Google令人沮丧地发现，现有的编程语言无法占用看似无限的Google硬件和人力资源。 例如，编译Google的C代码库花了半个小时。 此外，他们还想用新语言解决发展规模问题。"
+}, {
+  "tag": "P",
+  "text": "Renowned Software Engineers Rob Pike (UTF-8) and Ken Thompson (UNIX OS) in Google has created a new, pragmatic, easy-to-learn, highly scalable system programming language Go and released in 2012. Go has a runtime and Garbage collector (a few Megabytes), but this runtime is packed in the generated executable.",
+  "translation": "Google中的著名软件工程师Rob Pike（UTF-8）和Ken Thompson（UNIX OS）创建了一种新的，实用的，易于学习的，高度可扩展的系统编程语言Go，并于2012年发布。Go具有运行时和垃圾收集器 （几兆字节），但是此运行时打包在生成的可执行文件中。"
+}, {
+  "tag": "P",
+  "text": "Although Go is a bit feature anemic, it has become a mainstream programming language in a short period.",
+  "translation": "尽管Go有点功能不足，但在短时间内它已成为主流编程语言。"
+}, {
+  "tag": "P",
+  "text": "3 Key Features:",
+  "translation": "3个主要功能："
+}, {
+  "tag": "UL",
+  "texts": ["Go has language-level support for Concurrency. It offers a CSP based message-passing concurrency via Goroutine (lightweight Green thread) and Channel.", "The biggest USP of Go is its language design and simplicity. It has successfully combined the simplicity and productivity of Python and the power of C.", "Go has embedded Garbage Collector (albeit not as mature as JVM garbage collector). Go developers can write system programming with the safety of Java, Python."],
+  "translations": ["Go对并发具有语言级别的支持。 它通过Goroutine（轻量级绿色线程）和Channel提供基于CSP的消息传递并发。", "Go的最大USP是其语言设计和简单性。 它成功地结合了Python的简单性和生产力以及C的强大功能。", "Go嵌入了Garbage Collector（尽管还不如JVM垃圾收集器成熟）。 Go开发人员可以使用Java，Python的安全性来编写系统程序。"]
+}, {
+  "tag": "P",
+  "text": "Popularity:",
+  "translation": "人气："
+}, {
+  "tag": "P",
+  "text": "Like Swift, Go has also seen a meteoric rise in popularity.",
+  "translation": "像Swift一样，Go的知名度也在迅速提高。"
+}, {
+  "tag": "P",
+  "text": "In almost all popular programming languages comparing websites, Go ranks high and has surpassed many existing languages. Here is the TIOBE index ranking from January 2020, where Go ranks 14th:",
+  "translation": "在几乎所有比较网站的流行编程语言中，Go都排名很高，并且已经超过了许多现有语言。 以下是2020年1月的TIOBE指数排名，其中Go排名第14："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*q-6HgEXKZj4mjGiGL6R2mA.png?q=20",
+  "caption": "Source: TIOBE",
+  "type": "image",
+  "file": "1!q-6HgEXKZj4mjGiGL6R2mA.png"
+}, {
+  "tag": "P",
+  "text": "StackOverflow developer survey 2019 has also ranked Go as the 13th most popular Technology (10th most popular programming language):",
+  "translation": "2019年StackOverflow开发人员调查还将Go排名为第13名最受欢迎的技术（第10名最受欢迎的编程语言）："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*8WYmgEMeIqt_fWY2NuFcsA.jpeg?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!8WYmgEMeIqt_fWY2NuFcsA.jpeg"
+}, {
+  "tag": "P",
+  "text": "According to the Stackoverflow survey, Go is one 9th most loved programming languages:",
+  "translation": "根据Stackoverflow的调查，Go是最受欢迎的9种编程语言之一："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*AlZjgpQhANe7uJ_pJMQmdQ.jpeg?q=20",
+  "caption": "Source: StackOverflow Developer Survey, 2019",
+  "type": "image",
+  "file": "1!AlZjgpQhANe7uJ_pJMQmdQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "Go is also one of the top 10 fastest growing languages, according to GitHub Octoverse:",
+  "translation": "根据GitHub Octoverse的说法，Go还是增长最快的10种语言之一："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*avYTdU-SuMxL3qMufe9Xag.jpeg?q=20",
+  "caption": "Source: Octoverse",
+  "type": "image",
+  "file": "1!avYTdU-SuMxL3qMufe9Xag.jpeg"
+}, {
+  "tag": "P",
+  "text": "The increasing popularity of Go is also reflected in Google trends, which show increasing traction for Go over the last five years:",
+  "translation": "Go的日益普及也反映在Google的趋势中，这些趋势表明Go在过去五年中越来越受关注："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*0_FJP9mzllQyl7ql.jpeg?q=20",
+  "type": "image",
+  "file": "0!0_FJP9mzllQyl7ql.jpeg"
+}, {
+  "tag": "P",
+  "text": "Source: Google Trends",
+  "translation": "资料来源：Google趋势"
+}, {
+  "tag": "P",
+  "text": "Job Market:",
+  "translation": "人才市场："
+}, {
+  "tag": "P",
+  "text": "Indeed has ranked Go as the 10th most demanding language with 4 K openings in January 2020. In terms of salary, Go is ranked in 9th position:",
+  "translation": "实际上，在2020年1月，Go以4 K的空缺排名，成为Go要求最高的语言中排名第十。在薪资方面，Go排名第9："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*jCl5PdKN-bOEgKT6?q=20",
+  "type": "image",
+  "file": "0!jCl5PdKN-bOEgKT6"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*l1CdiWA_-BoIM4yc.png?q=20",
+  "type": "image",
+  "file": "0!l1CdiWA_-BoIM4yc.png"
+}, {
+  "tag": "P",
+  "text": "Source: Indeed",
+  "translation": "资料来源：的确"
+}, {
+  "tag": "P",
+  "text": "StackOverflow developer survey 2019 has shown Go as one of the highest-paid programming languages:",
+  "translation": "2019年StackOverflow开发人员调查显示，Go是收入最高的编程语言之一："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*OcDdrFy7OGpHuaUc?q=20",
+  "type": "image",
+  "file": "0!OcDdrFy7OGpHuaUc"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*JtJXaKqsKQpU0DaM.png?q=20",
+  "type": "image",
+  "file": "0!JtJXaKqsKQpU0DaM.png"
+}, {
+  "tag": "P",
+  "text": "Source: StackOverflow Developer Survey, 2019",
+  "translation": "资料来源：2019年StackOverflow开发人员调查"
+}, {
+  "tag": "P",
+  "text": "Main Use Cases:",
+  "translation": "主要用例："
+}, {
+  "tag": "UL",
+  "texts": ["System Programming", "Serverless Computing", "Business Applications", "Cloud-Native Development", "IoT"],
+  "translations": ["系统程式设计", "无服务器计算", "商业应用", "云原生开发", "物联网"]
+}, {
+  "tag": "H1",
+  "text": "10. Ruby",
+  "translation": "10.红宝石"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*JyfJRldsDzpBqKQW?q=20",
+  "type": "image",
+  "file": "0!JyfJRldsDzpBqKQW"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*kFvEL7Psp411m9Wa.png?q=20",
+  "type": "image",
+  "file": "0!kFvEL7Psp411m9Wa.png"
+}, {
+  "tag": "P",
+  "text": "Ruby is the third programming language in this list developed by an individual developer during the 1990s. Japanese computer scientist Yukihiro Matsumoto has created Ruby as an “Object-Oriented Scripting language” and released in 1995.",
+  "translation": "Ruby是该列表中的第三种编程语言，由单个开发人员在1990年代开发。 日本计算机科学家松本行弘（Yukihiro Matsumoto）创造了Ruby作为“面向对象的脚本语言”，并于1995年发布。"
+}, {
+  "tag": "P",
+  "text": "Ruby has later evolved into an interpreted, dynamically typed, high-level, multiple-paradigm general-purpose programming language. Ruby is implemented in C and offers garbage collection.",
+  "translation": "Ruby后来发展成为一种解释型，动态类型化的高级多范式通用编程语言。 Ruby是用C实现的，并提供垃圾回收。"
+}, {
+  "tag": "P",
+  "text": "Like Python, Ruby focused heavily on developer productivity and developer happiness. Although Ruby is not one of the hyped languages at this moment, it is an excellent language for new developers for a flat learning curve.",
+  "translation": "像Python一样，Ruby重点关注开发人员的生产力和开发人员的幸福感。 尽管Ruby目前还不是被炒作的语言之一，但是对于新开发者来说，它是学习平面曲线的绝佳语言。"
+}, {
+  "tag": "P",
+  "text": "3 Key Features:",
+  "translation": "3个主要功能："
+}, {
+  "tag": "UL",
+  "texts": ["Ruby has combined some of the best features of programming languages successfully: dynamic, object-oriented, functional, garbage-collected, and concise.", "Although Ruby itself is not disruptive, its Web development framework Ruby on Rails is probably the most disruptive and influential Server-side Web development framework.", "Ruby is used by some of the largest software projects like Twitter, GitHub, Airbnb, and has excellent tooling and framework support."],
+  "translations": ["Ruby成功地结合了编程语言的一些最佳功能：动态，面向对象，功能，垃圾回收和简洁。", "尽管Ruby本身并不是破坏性的，但其Web开发框架Ruby on Rails可能是最具破坏性和影响力的服务器端Web开发框架。", "Ruby被Twitter，GitHub，Airbnb等一些大型软件项目所使用，并具有出色的工具和框架支持。"]
+}, {
+  "tag": "P",
+  "text": "Popularity:",
+  "translation": "人气："
+}, {
+  "tag": "P",
+  "text": "TIOBE has ranked Ruby as the 11th most popular programming language in January 2020 with a hugely positive move:",
+  "translation": "TIOBE在2020年1月以巨大的积极举措将Ruby排名为第11大最受欢迎的编程语言："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*sEVhLjq1Yp3pEN8U?q=20",
+  "type": "image",
+  "file": "0!sEVhLjq1Yp3pEN8U"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*8Im75qZ3HrNJXZNh.png?q=20",
+  "type": "image",
+  "file": "0!8Im75qZ3HrNJXZNh.png"
+}, {
+  "tag": "P",
+  "text": "Source: TIOBE",
+  "translation": "资料来源：TIOBE"
+}, {
+  "tag": "P",
+  "text": "Octoverse has also ranked Ruby as the 10th most popular programming language in 2019 by GitHub repositories contributions:",
+  "translation": "根据GitHub存储库的贡献，Octoverse还将Ruby评为2019年最受欢迎的编程语言排名第10位："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*6DDuYAch1WHurI8Y?q=20",
+  "type": "image",
+  "file": "0!6DDuYAch1WHurI8Y"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*_vf2SFriSVV-bpfn.jpeg?q=20",
+  "type": "image",
+  "file": "0!_vf2SFriSVV-bpfn.jpeg"
+}, {
+  "tag": "P",
+  "text": "Source: Octoverse",
+  "translation": "资料来源：Octoverse"
+}, {
+  "tag": "P",
+  "text": "StackOverflow Developer survey 2019 has listed Ruby as the 9th most popular programming language (12th most popular Technology):",
+  "translation": "2019年StackOverflow开发人员调查将Ruby列为第9大最受欢迎的编程语言（第12大最受欢迎的技术）："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*YlsTeZTEasF4U73n?q=20",
+  "type": "image",
+  "file": "0!YlsTeZTEasF4U73n"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*tym0mXE2AvxiYPLo.jpeg?q=20",
+  "type": "image",
+  "file": "0!tym0mXE2AvxiYPLo.jpeg"
+}, {
+  "tag": "P",
+  "text": "Source: StackOverflow Developer Survey, 2019",
+  "translation": "资料来源：2019年StackOverflow开发人员调查"
+}, {
+  "tag": "P",
+  "text": "Ruby has not been a hyped language in recent years, but has maintained its traction as per Google trends:",
+  "translation": "近年来，Ruby并不是一门大肆宣传的语言，但根据Google的发展趋势，它一直保持着吸引力："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*gCMVOv-8H9g7vsDN?q=20",
+  "type": "image",
+  "file": "0!gCMVOv-8H9g7vsDN"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*K94Sg0Yc5yszA_UG.jpeg?q=20",
+  "type": "image",
+  "file": "0!K94Sg0Yc5yszA_UG.jpeg"
+}, {
+  "tag": "P",
+  "text": "Source: Google Trends",
+  "translation": "资料来源：Google趋势"
+}, {
+  "tag": "P",
+  "text": "Job Market:",
+  "translation": "人才市场："
+}, {
+  "tag": "P",
+  "text": "In the USA job market, Ruby developers can draw huge salaries and ranked 1st by Indeed. Also, Indeed has posted 16 K openings for Ruby developers in January 2020, which put Ruby 8th most demanding programming language in this list.",
+  "translation": "在美国的就业市场上，Ruby开发人员可以拿到丰厚的薪水，并居于Indeed的第一位。 此外，Indeed在2020年1月为Ruby开发人员发布了1万6千个职位，这使Ruby在要求最严格的编程语言中排名第8。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*520kxmL1Ll0CJ_qd?q=20",
+  "type": "image",
+  "file": "0!520kxmL1Ll0CJ_qd"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*D1d6rCZoDsaf766j.png?q=20",
+  "type": "image",
+  "file": "0!D1d6rCZoDsaf766j.png"
+}, {
+  "tag": "P",
+  "text": "Source: Indeed",
+  "translation": "资料来源：的确"
+}, {
+  "tag": "P",
+  "text": "StackOverflow developer survey 2019 has also shown that Ruby developers can earn a high salary with relatively low experience:",
+  "translation": "2019年StackOverflow开发人员调查还显示，Ruby开发人员可以以相对较低的经验获得高薪："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*CXHSAzCGEdD4skX3?q=20",
+  "type": "image",
+  "file": "0!CXHSAzCGEdD4skX3"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/0*3fXt8GxS4waAwmCD.png?q=20",
+  "type": "image",
+  "file": "0!3fXt8GxS4waAwmCD.png"
+}, {
+  "tag": "P",
+  "text": "Source: StackOverflow Developer Survey, 2019",
+  "translation": "资料来源：2019年StackOverflow开发人员调查"
+}, {
+  "tag": "H1",
+  "text": "Similar articles:",
+  "translation": "类似文章："
+}, {
+  "tag": "H2",
+  "text": "Top 7 Modern programming languages to learn now",
+  "translation": "现在学习的7种现代编程语言"
+}, {
+  "tag": "H3",
+  "text": "How Rust, Go, Kotlin, TypeScript, Swift, Dart, Julia can boost your career and improve your software development skills",
+  "translation": "Rust，Go，Kotlin，TypeScript，Swift，Dart和Julia如何促进您的职业发展并提高软件开发技能"
+}, {
+  "tag": "H2",
+  "text": "20 Predictions about Software Development trends in 2020",
+  "translation": "关于2020年软件开发趋势的20种预测"
+}, {
+  "tag": "H3",
+  "text": "Cloud, Container, Programming, Database, Deep Learning, Software Architecture, Web, App, Batch, Streaming, Data Lake…",
+  "translation": "云，容器，编程，数据库，深度学习，软件体系结构，Web，应用程序，批处理，流传输，Data Lake…"
+}, {
+  "tag": "H2",
+  "text": "Back to the metal: Top 3 Programming language to develop Big Data frameworks in 2019",
+  "translation": "回到最重要的方面：2019年开发大数据框架的三大编程语言"
+}, {
+  "tag": "H3",
+  "text": "C++, Rust, Go over Java for Data Intensive frameworks",
+  "translation": "C，Rust，Java遍历数据密集型框架"
+}, {
+  "tag": "H1",
+  "text": "Top 10 In-Demand programming languages to learn in 2020",
+  "translation": "2020年需要学习的十大按需编程语言"
+}, {
+  "tag": "H2",
+  "text": "In-depth analysis and ranking of the top programming languages for job seekers and new developers",
+  "translation": "对求职者和新开发人员的顶级编程语言的深入分析和排名"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*HLGtY6O2vUHqIyEbWdmBgA.jpeg?q=20",
+  "type": "image",
+  "file": "1!HLGtY6O2vUHqIyEbWdmBgA.jpeg"
+}, {
+  "tag": "FIGURE",
+  "type": "code"
+}, {
+  "tag": "P",
+  "text": "There are around 600 programming languages out there. The demand and popularity of programming languages fluctuate every year. Also, new programming languages are coming with attractive features.",
+  "translation": "那里大约有600种编程语言。 编程语言的需求和流行每年都在变化。 另外，新的编程语言也具有吸引人的功能。"
+}, {
+  "tag": "P",
+  "text": "So, which programming language should you learn? Learning a new programming language is always an investment of your time and brainpower. If you are a seasoned developer or if you already know several programming languages, then you can learn a niche, modern one. Recently, I have written a blog post where I have short-listed seven modern programming languages worth learning:",
+  "translation": "那么，您应该学习哪种编程语言？ 学习新的编程语言始终是您投入时间和智力的投资。 如果您是一位经验丰富的开发人员，或者您已经知道几种编程语言，那么您可以学习一种小众的现代语言。 最近，我写了一篇博客文章，列出了七种值得学习的现代编程语言："
+}, {
+  "tag": "H2",
+  "text": "Top 7 Modern programming languages to learn now",
+  "translation": "现在学习的7种现代编程语言"
+}, {
+  "tag": "H3",
+  "text": "How Rust, Go, Kotlin, TypeScript, Swift, Dart, Julia can boost your career and improve your software development skills",
+  "translation": "Rust，Go，Kotlin，TypeScript，Swift，Dart和Julia如何促进您的职业发展并提高软件开发技能"
+}, {
+  "tag": "P",
+  "text": "But if you are starting your programming career in 2020 or if you want to learn your first or second programming language, then it is wise to learn one of the mainstream and established programming languages. Here I will list programming languages based on the following criteria:",
+  "translation": "但是，如果您打算在2020年开始编程生涯，或者想学习第一或第二种编程语言，那么学习一种主流的和成熟的编程语言是明智的。 在这里，我将基于以下条件列出编程语言："
+}, {
+  "tag": "UL",
+  "texts": ["Already mainstream and firmly established in the Software Development industry.", "Top-ranked in the renowned programming languages ranking websites.", "Popularity is increasing or stable and not sharply decreasing.", "They have a large set of libraries, frameworks, tooling support, and have a large community.", "They are demanding in the job market with a good salary."],
+  "translations": ["在软件开发行业中已经是主流并已牢固确立。", "在著名的编程语言排名网站中排名第一。", "受欢迎程度正在增加或稳定，并且没有急剧下降。", "他们拥有大量的库，框架，工具支持，并且拥有庞大的社区。", "他们对工作市场有很高的薪水要求。"]
+}, {
+  "tag": "P",
+  "text": "Also, I will summarize the programming languages along with historical context, key features, and primary use cases.",
+  "translation": "另外，我将总结编程语言以及历史背景，关键功能和主要用例。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Md Kamaruzzaman的文章《Top 10 In-Demand programming languages to learn in 2020》，参考：https://towardsdatascience.com/top-10-in-demand-programming-languages-to-learn-in-2020-4462eb7d8d3e)",
+  "translation": "（本文翻译自Md Kamaruzzaman的文章，《 2020年需要学习的十大编程语言》，参考：https：//towardsdatascience.com/top-10-in-demand-programming-languages-to-learn-in- 2020-4462eb7d8d3e）"
+}]
