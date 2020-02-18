@@ -1,0 +1,341 @@
+[{
+  "tag": "H1",
+  "text": "Table Store Time Series Data Storage — Architecture",
+  "translation": "表存储时间序列数据存储—体系结构"
+}, {
+  "tag": "P",
+  "text": "By Zhaofeng Zhou (Muluo)",
+  "translation": "周兆丰（木罗）"
+}, {
+  "tag": "H1",
+  "text": "Background",
+  "translation": "背景"
+}, {
+  "tag": "P",
+  "text": "With IoT development in recent years, there has been an explosion in time series data. Based on growth trends of database types collected in DB-Engines over the past two years, there has been a rapid growth of time series databases. Implementations of these large open source time series databases differ, and none of them are perfect. However, the strengths of these databases can be combined to implement a perfect time series database.",
+  "translation": "近年来，随着物联网的发展，时间序列数据呈爆炸式增长。 根据过去两年在DB-Engines中收集的数据库类型的增长趋势，时间序列数据库一直在快速增长。 这些大型开源时间序列数据库的实现各不相同，但没有一个是完美的。 但是，可以结合使用这些数据库的优势来实现完美的时间序列数据库。"
+}, {
+  "tag": "P",
+  "text": "Table Store is a distributed NoSQL database developed by Alibaba Cloud. It features a multi-model design, which includes the same Wide Column model as BigTable, as well as a Timeline model for message data. In terms of storage models, data size, and write and query capabilities, it can better meet the requirements of time series data scenarios. However, as a general-purpose model database, if the time series data storage is to fully utilize the capabilities of the underlying database, the schema design and computational integration of the table require special designs, such as OpenTSDB’s RowKey design for HBase and UID encoding.",
+  "translation": "表存储是阿里云开发的分布式NoSQL数据库。 它具有多模型设计，其中包括与BigTable相同的宽列模型，以及消息数据的时间轴模型。 在存储模型，数据大小以及写入和查询功能方面，它可以更好地满足时间序列数据方案的要求。 但是，作为通用模型数据库，如果时间序列数据存储要充分利用基础数据库的功能，则表的模式设计和计算集成需要特殊的设计，例如用于HBase和UID编码的OpenTSDB的RowKey设计。 。"
+}, {
+  "tag": "P",
+  "text": "This article relates to the architecture, and focuses on data model definitions and core processing flows for time series data, and the architecture for building time series data storage based on Table Store. In the future, there will be an article on solutions, which will provide a highly-efficient schema design and indexing design for time series data and metadata storage. Finally, there will also be an article on computing, providing several project designs for time series data stream computing and time series analysis.",
+  "translation": "本文涉及该体系结构，重点关注时间序列数据的数据模型定义和核心处理流程，以及基于表存储构建时间序列数据存储的体系结构。 将来，将有一篇关于解决方案的文章，它将为时间序列数据和元数据存储提供高效的架构设计和索引设计。 最后，还将有一篇关于计算的文章，提供了一些用于时间序列数据流计算和时间序列分析的项目设计。"
+}, {
+  "tag": "H1",
+  "text": "What Is Time Series Data?",
+  "translation": "什么是时间序列数据？"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*EY7srOLci85tR0Be.png?q=20",
+  "type": "image",
+  "file": "0!EY7srOLci85tR0Be.png"
+}, {
+  "tag": "P",
+  "text": "Time series data is divided into two main types: ‘monitoring’ time series data and ‘status’ time series data. Current open source time series databases all focus on the monitoring type of time series data, and specific optimizations are made for the data characteristics in this scenario. However, based on the characteristics of time series data, there is still one other type of time series data, namely ‘status’ time series data. These two types of time series data correspond to different scenarios. As its name suggests, the monitoring type corresponds to monitoring scenarios, while the status type is for other scenarios, such as tracing and abnormal status recording. Our most common package trace is for status time series data.",
+  "translation": "时间序列数据分为两种主要类型：“监视”时间序列数据和“状态”时间序列数据。 当前的开源时间序列数据库都集中在时间序列数据的监视类型上，并且在这种情况下针对数据特征进行了特定的优化。 但是，根据时间序列数据的特征，还有另一种类型的时间序列数据，即“状态”时间序列数据。 这两种时间序列数据对应于不同的场景。 顾名思义，监视类型对应于监视方案，而状态类型则适用于其他方案，例如跟踪和异常状态记录。 我们最常见的程序包跟踪用于状态时间序列数据。"
+}, {
+  "tag": "P",
+  "text": "The reason both types of data are classified as ‘time series’ is that both are completely consistent in terms of data model definition, data collection, and data storage and computing, and the same database and the same technical architecture can be abstracted.",
+  "translation": "两种类型的数据都归为“时间序列”的原因是，它们在数据模型定义，数据收集以及数据存储和计算方面都完全一致，并且可以抽象出相同的数据库和相同的技术体系结构。"
+}, {
+  "tag": "H1",
+  "text": "Time Series Data Model",
+  "translation": "时间序列数据模型"
+}, {
+  "tag": "P",
+  "text": "Before defining the time series data model, we first make an abstract representation of the time series data.",
+  "translation": "在定义时间序列数据模型之前，我们首先对时间序列数据进行抽象表示。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*GOJVb6cIvumxaoU2.png?q=20",
+  "type": "image",
+  "file": "0!GOJVb6cIvumxaoU2.png"
+}, {
+  "tag": "UL",
+  "texts": ["Individual or group (WHO): Describes the subject that produces the data. This subject can be a person, a monitoring metric, or an object. It generally describes that an individual has multi-dimensional attributes, and a certain unique ID can be used to locate an individual. For example, using a person’s ID to locate a person, and using a device ID to locate a device. Individuals can also be located through multi-dimensional attributes. For example, by using clusters, machine IDs, and process names to locate a process.", "Time (WHEN): Time is the most important feature of time series data and is a key attribute that distinguishes it from other data.", "Location (WHERE): A location is usually located using a two-dimensional coordinate of latitude and longitude; and by a three-dimensional coordinate of latitude, longitude and altitude in fields related to scientific computing, such as meteorology.", "Status (WHAT): Used to describe the status of a specific individual at a certain moment. The time series data for monitoring is usually a numerical description status, while trace data uses an event-expressed status in which there are different expressions for different scenarios."],
+  "translations": ["个人或团体（WHO）：描述产生数据的主题。 该主题可以是人，监视指标或对象。 它通常描述一个人具有多维属性，并且可以使用某个唯一ID来定位该人。 例如，使用一个人的ID来找到一个人，然后使用设备的ID来找到一个设备。 也可以通过多维属性来定位个人。 例如，通过使用群集，计算机ID和进程名称来查找进程。", "时间（WHEN）：时间是时间序列数据的最重要特征，并且是将其与其他数据区分开的关键属性。", "位置（WHERE）：通常使用纬度和经度的二维坐标来定位位置； 并通过与纬度，经度和海拔的三维坐标来确定与科学计算有关的领域，例如气象学。", "状态（WHAT）：用于描述特定个人在特定时刻的状态。 用于监视的时间序列数据通常是数字描述状态，而跟踪数据使用事件表示的状态，其中对于不同的场景有不同的表达式。"]
+}, {
+  "tag": "P",
+  "text": "The above is an abstract representation of the time series data. Each open source time series database has its own definition of the time series data model, which defines the time series data for monitoring. Take the OpenTSDB data model as an example:",
+  "translation": "上面是时间序列数据的抽象表示。 每个开源时间序列数据库都有自己的时间序列数据模型定义，该模型定义了要监视的时间序列数据。 以OpenTSDB数据模型为例："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*chbnF19lYs24SePB.png?q=20",
+  "type": "image",
+  "file": "0!chbnF19lYs24SePB.png"
+}, {
+  "tag": "P",
+  "text": "The monitoring time series data model definition includes:",
+  "translation": "监视时间序列数据模型定义包括："
+}, {
+  "tag": "UL",
+  "texts": ["Metric: Used to describe the monitoring metric.", "Tags: Used to locate the monitored object, which is described using one or more tags.", "Timestamp: The time point when the monitoring value is collected.", "Value: The collected monitoring value, which is usually numeric."],
+  "translations": ["指标：用于描述监视指标。", "标签：用于定位被监视对象，使用一个或多个标签对其进行描述。", "时间戳记：收集监视值的时间点。", "值：收集的监视值，通常是数字。"]
+}, {
+  "tag": "P",
+  "text": "The monitoring time series data is the most typical type of time series data, and has specific characteristics. The characteristics of the monitoring time series data determine that these types of time series databases have specific storage and computing methods. Compared with the status time series data, it has specific optimizations in computing and storage. For example, the aggregation computing will have several specific numerical aggregate functions, and there will be specially optimized compression algorithms on the storage. In the data model, the monitoring time series data do not usually need to express the location, namely the spatiotemporal information. However, the overall model correlates with our unified abstract representation of the time series.",
+  "translation": "监视时间序列数据是时间序列数据的最典型类型，并且具有特定的特征。 监视时间序列数据的特征确定这些类型的时间序列数据库具有特定的存储和计算方法。 与状态时间序列数据相比，它在计算和存储方面有特定的优化。 例如，聚合计算将具有几个特定的数字聚合函数，并且存储上将有专门优化的压缩算法。 在数据模型中，监视时间序列数据通常不需要表达位置，即时空信息。 但是，总体模型与我们对时间序列的统一抽象表示相关。"
+}, {
+  "tag": "P",
+  "text": "Based on the monitoring time series data model, we can define a complete model of the following time series data according to the time series data abstract model described above:",
+  "translation": "基于监视时间序列数据模型，我们可以根据上述时间序列数据抽象模型定义以下时间序列数据的完整模型："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*jApODV8qIiHgIL6n.png?q=20",
+  "type": "image",
+  "file": "0!jApODV8qIiHgIL6n.png"
+}, {
+  "tag": "P",
+  "text": "The definition includes:",
+  "translation": "定义包括："
+}, {
+  "tag": "UL",
+  "texts": ["Name: Defines the type of the data.", "Tags: Describes the metadata of the individual.", "Location: The spatio-temporal information of the data.", "Timestamp: The timestamp when the data is generated.", "Values: The value or status corresponding to the data. Multiple values or statuses can be provided, which do not necessarily have to be numeric."],
+  "translations": ["名称：定义数据的类型。", "标签：描述个人的元数据。", "位置：数据的时空信息。", "时间戳：生成数据的时间戳。", "值：与数据相对应的值或状态。 可以提供多个值或状态，这些值或状态不必一定是数字。"]
+}, {
+  "tag": "P",
+  "text": "This is a more complete time series data model, and has two main differences with the model definition of the monitoring time series data of OpenTSDB: first, there is one more dimension, location, in metadata; second, it can express more values.",
+  "translation": "这是一个更完整的时间序列数据模型，与OpenTSDB的监视时间序列数据的模型定义有两个主要区别：首先，元数据中还有一个维度，位置。 其次，它可以表达更多的价值。"
+}, {
+  "tag": "H1",
+  "text": "Time Series Data Query, Computing, and Analysis",
+  "translation": "时间序列数据查询，计算和分析"
+}, {
+  "tag": "P",
+  "text": "Time series data has its own specific query and computing methods, which roughly include the following types:",
+  "translation": "时间序列数据具有自己的特定查询和计算方法，其中大致包括以下类型："
+}, {
+  "tag": "P",
+  "text": "Timeline retrieval",
+  "translation": "时间线检索"
+}, {
+  "tag": "P",
+  "text": "According to the data model definition, name + tags + location can be used to locate an individual. Each individual has its own timeline, and the points on the timeline are timestamps and values. For time series data queries, the timeline needs to be located first, which is a process of retrieval based on a combination of one or more values of the metadata. You can also drill down based on the association of metadata.",
+  "translation": "根据数据模型定义，可以使用名称标签位置来定位个人。 每个人都有自己的时间轴，时间轴上的点是时间戳和值。 对于时间序列数据查询，需要首先定位时间轴，这是基于元数据的一个或多个值的组合进行检索的过程。 您还可以根据元数据的关联进行深化。"
+}, {
+  "tag": "P",
+  "text": "Time range query",
+  "translation": "时间范围查询"
+}, {
+  "tag": "P",
+  "text": "After the timeline has been located through retrieval, the timeline is queried. There are very few queries on single time points on a timeline, and queries are usually on all points in a continuous time range. Interpolation is usually done for missing points in this continuous time range.",
+  "translation": "通过检索找到时间轴后，将查询时间轴。 在时间轴上的单个时间点上的查询很少，并且查询通常在连续时间范围内的所有点上进行。 通常在此连续时间范围内对缺失点进行插值。"
+}, {
+  "tag": "P",
+  "text": "Aggregation",
+  "translation": "聚合"
+}, {
+  "tag": "P",
+  "text": "A query can be made for a single timeline or multiple timelines. For range queries for multiple timelines, the results are usually aggregated. This aggregation is for values at the same time point on different timelines, commonly referred to as “post-aggregation.”",
+  "translation": "可以查询单个时间轴或多个时间轴。 对于多个时间轴的范围查询，通常会汇总结果。 此汇总适用于不同时间轴上同一时间点的值，通常称为“后汇总”。"
+}, {
+  "tag": "P",
+  "text": "The opposite of “post-aggregation” is “pre-aggregation”, which is the process of aggregating multiple timelines into one timeline before time series data storage. Pre-aggregation computes the data and then stores it, while post-aggregation queries the stored data and then computes it.",
+  "translation": "“后聚合”的对立面是“预聚合”，它是在时间序列数据存储之前将多个时间线聚合为一个时间线的过程。 预聚合计算数据然后存储它，而后聚合查询存储的数据然后计算它。"
+}, {
+  "tag": "P",
+  "text": "Downsampling",
+  "translation": "下采样"
+}, {
+  "tag": "P",
+  "text": "The computational logic of downsampling is similar to that of aggregation. The difference is that downsampling is for a single timeline instead of multiple timelines. It aggregates the data points in a time range on a single timeline. One of the primary purposes of downsampling is to display the data points in a large time range. Another is to reduce storage costs.",
+  "translation": "下采样的计算逻辑与聚合类似。 不同之处在于，下采样是针对单个时间轴而不是多个时间轴。 它在单个时间轴上聚合时间范围内的数据点。 下采样的主要目的之一是在很大的时间范围内显示数据点。 另一个是降低存储成本。"
+}, {
+  "tag": "P",
+  "text": "Analysis",
+  "translation": "分析"
+}, {
+  "tag": "P",
+  "text": "Analysis is done to extract more value from the time series data. There is a special research field called “time series analysis.”",
+  "translation": "进行分析以从时间序列数据中提取更多价值。 有一个特殊的研究领域称为“时间序列分析”。"
+}, {
+  "tag": "H1",
+  "text": "Time Series Data Processing Procedure",
+  "translation": "时间序列数据处理程序"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*bbo3-DFfclOrJ9kc.png?q=20",
+  "type": "image",
+  "file": "0!bbo3-DFfclOrJ9kc.png"
+}, {
+  "tag": "P",
+  "text": "The core procedure of time series data processing is shown above, and includes:",
+  "translation": "时间序列数据处理的核心过程如上所示，包括："
+}, {
+  "tag": "UL",
+  "texts": ["Data model: For the standard definition of time series data, the collected time series data must conform to the definition of the model, including all the characteristic attributes of the time series data.", "Stream computing: Pre-aggregation, downsampling, and post-aggregation for the time series data.", "Data storage: The storage system provides high-throughput, massive volume, and low-cost storage, and supports separation of cold/hot data, as well as efficient range query.", "Metadata retrieval: Provides the storage and retrieval of timeline metadata in the order of tens of millions to hundreds of millions, and supports different retrieval methods (multidimensional filtering and location query).", "Data analysis: Provides time series analysis and computing capabilities for time series data."],
+  "translations": ["数据模型：对于时间序列数据的标准定义，收集的时间序列数据必须符合模型的定义，包括时间序列数据的所有特征属性。", "流计算：时间序列数据的预聚合，下采样和后聚合。", "数据存储：该存储系统可提供高吞吐量，大容量和低成本的存储，并支持冷/热数据的分离以及有效的范围查询。", "元数据检索：提供时间轴元数据的存储和检索，顺序为数千万至数亿，并支持不同的检索方法（多维过滤和位置查询）。", "数据分析：提供时间序列数据的时间序列分析和计算功能。"]
+}, {
+  "tag": "P",
+  "text": "Let us now have a look at the selection of products that can be used in these core processes.",
+  "translation": "现在让我们看一下可以在这些核心流程中使用的产品的选择。"
+}, {
+  "tag": "P",
+  "text": "Data storage",
+  "translation": "数据存储"
+}, {
+  "tag": "P",
+  "text": "Time series data is typical non-relational data. It is characterized by high concurrency, high throughput, large data volume, and high write and low read. The query mode is usually range query. These data characteristics are very well-suited for use with NoSQL-type databases. Several popular open source time series databases use NoSQL database as the data storage layer, such as OpenTSDB based on HBase, and KairosDB based on Cassandra. Therefore, in terms of product selection for “data storage”, we can select an open source distributed NoSQL database such as HBase or Cassandra, or a cloud service such as Alibaba Cloud’s Table Store.",
+  "translation": "时间序列数据是典型的非关系数据。 它的特点是高并发，高吞吐量，大数据量以及高写入和低读取。 查询模式通常是范围查询。 这些数据特征非常适合与NoSQL类型的数据库一起使用。 一些流行的开源时间序列数据库使用NoSQL数据库作为数据存储层，例如基于HBase的OpenTSDB和基于Cassandra的KairosDB。 因此，就“数据存储”的产品选择而言，我们可以选择开源分布式NoSQL数据库（例如HBase或Cassandra）或云服务（例如阿里云的Table Store）。"
+}, {
+  "tag": "P",
+  "text": "Stream computing",
+  "translation": "流计算"
+}, {
+  "tag": "P",
+  "text": "For stream computing, we can use open source products such as JStrom, Spark Streaming, and Flink, or Alibaba’s Blink and cloud product StreamCompute.",
+  "translation": "对于流计算，我们可以使用JStrom，Spark Streaming和Flink等开源产品，或者使用阿里巴巴的Blink和云产品StreamCompute。"
+}, {
+  "tag": "P",
+  "text": "Metadata search",
+  "translation": "元数据搜索"
+}, {
+  "tag": "P",
+  "text": "Metadata for the timeline will also be large in magnitude, so we will first consider using a distributed database. In addition, because the query mode needs to support retrieval, the database needs to support inverted rank index and location index, so open source Elasticsearch or Solr can be used.",
+  "translation": "时间轴的元数据也将很大，因此我们将首先考虑使用分布式数据库。 另外，由于查询模式需要支持检索，因此数据库需要支持倒排索引和位置索引，因此可以使用开源的Elasticsearch或Solr。"
+}, {
+  "tag": "P",
+  "text": "Data analysis",
+  "translation": "数据分析"
+}, {
+  "tag": "P",
+  "text": "Data analysis requires a powerful distributed computing engine. We can select the open source software Spark, the cloud product MaxCompute, or a serverless SQL engine such as Presto or cloud product Data Lake Analytic.",
+  "translation": "数据分析需要强大的分布式计算引擎。 我们可以选择开源软件Spark，云产品MaxCompute或无服务器SQL引擎，例如Presto或云产品Data Lake Analytic。"
+}, {
+  "tag": "H1",
+  "text": "Open Source Time Series Databases",
+  "translation": "开源时间序列数据库"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*sm1CpLrWkxdtqSjs.png?q=20",
+  "type": "image",
+  "file": "0!sm1CpLrWkxdtqSjs.png"
+}, {
+  "tag": "P",
+  "text": "Based on database development trends on DB-Engines, we see that time series databases have developed rapidly over the past two years, and a number of excellent open source time series databases have emerged. Each implementation of major time series databases has its own merits. Below is a comprehensive comparison of these databases from a number of dimensions:",
+  "translation": "根据DB-Engines上数据库的发展趋势，我们看到时间序列数据库在过去两年中发展迅速，并且出现了许多出色的开源时间序列数据库。 主要时间序列数据库的每种实现都有其自身的优点。 以下是从多个维度对这些数据库进行的全面比较："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*ZzA2nDD_32bwD8KY.png?q=20",
+  "type": "image",
+  "file": "0!ZzA2nDD_32bwD8KY.png"
+}, {
+  "tag": "UL",
+  "texts": ["Data Storage: All the databases utilize distributed NoSQL (LSM engine) storage, including open source distributed databases, such as HBase and Cassandra, and cloud platforms such as BigTable, as well as self-developed storage engines.", "Aggregation:Pre-aggregation is solely reliant on external stream computing engines, such as Storm or Spark Streaming. At the post-aggregation level, query for post-aggregation is an interactive process, so it is generally not reliant on the stream computing engine. Different time series databases provide a single-threaded simple method or a concurrent computing method. Automatic downsampling is also a post-aggregation process, but is a stream process instead of an interactive process. This computing is suitable for the stream computing engine, but is not implemented in this way.", "Metadata storage and retrieval:The classic OpenTSDB does not have dedicated metadata storage, and does not support the retrieval of metadata. The metadata is obtained and queried by scanning the row keys of the data table. KairosDB uses a table for metadata storage in Cassandra, but retrieval efficiency is very low because the table needs to be scanned. The secondary development of Heroic was based on KairosDB. It uses Elasticsearch for metadata storage and indexing, and supports better metadata retrieval. InfluxDB and Prometheus implement indexing independently, but indexing is not easy, and requires timeline metadata in the order of tens of millions to hundreds of millions. In an earlier version, InfluxDB implemented an in-memory metadata index which is more restrictive. For example, the scale of the timeline is limited by the size of the memory, and the in-memory index structure has to scan all timeline metadata, causing a longer node failover time.", "Data analysis: Except for Elasticsearch, most TSDBs are not equipped with analysis capabilities, aside from query and analysis capabilities for post-aggregation. This is an important advantage that allows Elasticsearch to keep a foothold in the field of time series analysis."],
+  "translations": ["数据存储：所有数据库都使用分布式NoSQL（LSM引擎）存储，包括开源分布式数据库（例如HBase和Cassandra）以及云平台（例如BigTable）以及自行开发的存储引擎。", "聚合：预聚合完全依赖于外部流计算引擎，例如Storm或Spark Streaming。 在聚合后级别上，查询聚合后是一个交互式过程，因此通常不依赖于流计算引擎。 不同的时间序列数据库提供了单线程简单方法或并发计算方法。 自动下采样也是后聚合过程，但是它是流过程而不是交互过程。 此计算适用于流计算引擎，但不能以这种方式实现。", "元数据存储和检索：传统的OpenTSDB没有专用的元数据存储，并且不支持元数据的检索。 通过扫描数据表的行键来获取和查询元数据。 KairosDB使用表在Cassandra中存储元数据，但由于需要扫描该表，因此检索效率非常低。 Heroic的二次开发基于KairosDB。 它使用Elasticsearch进行元数据存储和索引，并支持更好的元数据检索。 InfluxDB和Prometheus独立地实现索引编制，但是索引编制并不容易，并且需要数以千万计至数亿美元的时间轴元数据。 在较早的版本中，InfluxDB实现了一个内存中的元数据索引，它的限制更为严格。 例如，时间轴的规模受到内存大小的限制，并且内存索引结构必须扫描所有时间轴元数据，从而导致更长的节点故障转移时间。", "数据分析：除了Elasticsearch之外，大多数TSDB均不具备分析功能，除了具有用于后聚合的查询和分析功能外。 这是一个重要的优势，它使Elasticsearch可以在时间序列分析领域立足。"]
+}, {
+  "tag": "H1",
+  "text": "Table Store Time Series Data Storage",
+  "translation": "表存储时间序列数据存储"
+}, {
+  "tag": "P",
+  "text": "As a distributed NoSQL database developed by Alibaba Cloud, Table Store uses the same Wide Column data model as Bigtable. The product is well-suited to time series data scenarios in terms of storage model, data size, and write and query capabilities. We also support monitoring time series products such as CloudMonitor, status time series products such as AliHealth’s drug tracking, and core services such as postal package tracing. There is also a complete computing ecosystem to support the computing and analysis of time series data. In our future plans, we have specific optimizations for time series scenarios regarding metadata retrieval, time series data storage, computing and analysis, and cost reduction.",
+  "translation": "作为阿里云开发的分布式NoSQL数据库，表存储使用与Bigtable相同的“宽列”数据模型。 就存储模型，数据大小以及写入和查询功能而言，该产品非常适合时间序列数据方案。 我们还支持监视时间序列产品（例如CloudMonitor），状态时间序列产品（例如AliHealth的药物跟踪）以及核心服务（例如邮政包裹跟踪）。 还有一个完整的计算生态系统来支持时间序列数据的计算和分析。 在我们的未来计划中，我们对时间序列方案进行了特定的优化，例如元数据检索，时间序列数据存储，计算和分析以及降低成本。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/0*TvfAKbVgHFEncRG_.png?q=20",
+  "type": "image",
+  "file": "0!TvfAKbVgHFEncRG_.png"
+}, {
+  "tag": "P",
+  "text": "The above is a complete architecture for time series data storage, computing, and analysis based on Table Store. This is a serverless architecture that can provide all the features needed for a complete time series scenario by combining cloud products. Each module has a distributed architecture, providing powerful storage and computing capabilities, and resources can be dynamically expanded. Each component can also be replaced with other similar cloud products. The architecture is flexible and has huge advantages over open source time series databases. The core advantages of this architecture are analyzed below:",
+  "translation": "以上是基于表存储的时间序列数据存储，计算和分析的完整架构。 这是一种无服务器架构，可以通过组合云产品来提供完整时间序列方案所需的所有功能。 每个模块都有分布式架构，提供强大的存储和计算功能，并且资源可以动态扩展。 每个组件也可以用其他类似的云产品替换。 与开放源时间序列数据库相比，该体系结构具有灵活性并具有巨大优势。 下面分析了此体系结构的核心优势："
+}, {
+  "tag": "P",
+  "text": "Separation of storage and compute",
+  "translation": "存储与计算分离"
+}, {
+  "tag": "P",
+  "text": "Separation of storage and compute is a leading form of technical architecture. Its core advantage is to provide more flexible computing and storage resource configuration, with more flexible costs, and better load balancing and data management. To allow users to truly enjoy the benefits brought by the separation of storage and compute, products for the separation of storage and compute must be provided in the context of the cloud environment.",
+  "translation": "存储和计算的分离是技术架构的一种主要形式。 它的核心优势是提供更灵活的计算和存储资源配置，更灵活的成本以及更好的负载平衡和数据管理。 为了让用户真正享受存储和计算分离带来的好处，必须在云环境的上下文中提供用于存储和计算分离的产品。"
+}, {
+  "tag": "P",
+  "text": "Table Store implements separation of storage and compute in both technical architecture and product form, and can freely allocate storage and computing resources at a relatively low cost. This is especially important in time series data scenarios, where computing is relatively constant yet storage volume grows linearly. The primary way to optimize costs is to allocate constant computing resources and infinitely scalable storage, so that computing drives storage without the need to shoulder extra computing costs.",
+  "translation": "表存储以技术架构和产品形式实现存储和计算的分离，并可以以相对较低的成本自由分配存储和计算资源。 这在时序数据场景中尤其重要，在时序场景中，计算相对恒定，而存储量却呈线性增长。 优化成本的主要方法是分配恒定的计算资源和无限可扩展的存储，从而使计算驱动存储而无需承担额外的计算成本。"
+}, {
+  "tag": "P",
+  "text": "Separation of cold/hot data",
+  "translation": "冷/热数据分离"
+}, {
+  "tag": "P",
+  "text": "A notable characteristic of time series data is the clear distinction between hot and cold data access, with recently written data being accessed more frequently. Given this characteristic, the hot data adopts a storage medium with a higher IOPS, which greatly improves the overall query efficiency. Table Store provides two types of instances: high-performance instances and capacity instances, which correspond to SSD and SATA storage media respectively. The service feature allows users to freely allocate tables with different specifications for data of different levels of precision and different performance requirements for query and analysis. For example, for high-concurrency and low-latency queries, high-performance instances are allocated; for cold data storage and low-frequency queries, capacity instances are allocated. For interactive data analysis that requires higher speed, high-performance instances can be allocated. For scenarios of time series data analysis and offline computing, capacity instances can be allocated.",
+  "translation": "时间序列数据的显着特征是热数据访问和冷数据访问之间的明显区别，最近写入的数据被更频繁地访问。鉴于此特性，热数据采用具有更高IOPS的存储介质，从而大大提高了整体查询效率。表存储提供了两种类型的实例：高性能实例和容量实例，分别对应于SSD和SATA存储介质。该服务功能允许用户自由分配具有不同规范的表，以用于不同精度级别的数据以及查询和分析的不同性能要求。例如，对于高并发和低延迟查询，将分配高性能实例；对于冷数据存储和低频查询，将分配容量实例。对于需要更高速度的交互式数据分析，可以分配高性能实例。对于时间序列数据分析和脱机计算的方案，可以分配容量实例。"
+}, {
+  "tag": "P",
+  "text": "For each table, the TTL of the data can be freely defined. For example, for a high-precision table, a relatively short TTL can be configured. For a low-precision table, a longer TTL can be configured.",
+  "translation": "对于每个表，可以自由定义数据的TTL。 例如，对于高精度表，可以配置相对较短的TTL。 对于低精度表，可以配置更长的TTL。"
+}, {
+  "tag": "P",
+  "text": "The bulk of the storage is for cold data. For this less-frequently accessed data, we will further reduce storage costs by using erasing coding and an extreme compression algorithm.",
+  "translation": "大部分存储用于冷数据。 对于这些访问频率较低的数据，我们将通过使用擦除编码和极限压缩算法来进一步降低存储成本。"
+}, {
+  "tag": "P",
+  "text": "Closed loop of data flow",
+  "translation": "数据流闭环"
+}, {
+  "tag": "P",
+  "text": "Stream computing is the core computing scenario in time series data computing. It performs pre-aggregation and post-aggregation on the time series data. A commonly-seen monitoring system architecture is the use of a front stream computing solution. Pre-aggregation and downsampling of the data are all performed in the front stream computing. That is, the data is processed before it is stored, and what is stored is only the result. A second downsample is no longer required, and at most post-aggregation queries may be required.",
+  "translation": "流计算是时间序列数据计算中的核心计算方案。 它对时间序列数据执行预聚合和后聚合。 常见的监视系统体系结构是使用前端计算解决方案。 数据的预聚集和下采样都在前端计算中执行。 也就是说，在存储数据之前先对其进行处理，而存储的只是结果。 不再需要第二个下采样，并且最多可能需要聚合后查询。"
+}, {
+  "tag": "P",
+  "text": "Table Store is deeply integrated with Blink and is now available as a Blink maintenance table and a result table. The source table has been developed and is ready for release. Table Store can be used as the source and back-end of Blink, and the entire data stream can form a closed loop, thus offering a more flexible computing configuration. The original data will be subject to data cleansing and pre-aggregation after entering Blink, and is then written to the hot data table. This data can automatically flow into Blink for post-aggregation, and historical data backtracking for a certain period of time is supported. The results of post-aggregation can be written to the cold storage.",
+  "translation": "Table Store与Blink紧密集成，现在可以作为Blink维护表和结果表使用。 源表已经开发完毕，可以发布了。 表存储可以用作Blink的源和后端，并且整个数据流可以形成一个闭环，从而提供更灵活的计算配置。 进入Blink后，原始数据将进行数据清洗和预聚合，然后写入到热数据表中。 这些数据可以自动流入Blink进行后聚合，并且支持一定时间段内的历史数据回溯。 聚合后的结果可以写入冷库。"
+}, {
+  "tag": "P",
+  "text": "In addition to integrating with Blink, Table Store can also integrate with Function Compute for event programming, and can enable real-time abnormal status monitoring in time series scenarios. It can also read incremental data through Stream APIs to perform custom analyses.",
+  "translation": "除了与Blink集成之外，表存储还可以与Function Compute集成以进行事件编程，并且可以在时间序列方案中启用实时异常状态监视。 它还可以通过Stream API读取增量数据以执行自定义分析。"
+}, {
+  "tag": "P",
+  "text": "Big data analysis engine",
+  "translation": "大数据分析引擎"
+}, {
+  "tag": "P",
+  "text": "Table Store deeply integrates with distributed computing engines developed by Alibaba Cloud, such as MaxCompute (formerly ODPS). MaxCompute can directly read the data on Table Store to perform an analysis, eliminating the ETL process for data.",
+  "translation": "Table Store与阿里云开发的分布式计算引擎（例如MaxCompute（以前称为ODPS））深度集成。 MaxCompute可以直接读取Table Store上的数据以执行分析，从而消除了数据的ETL处理。"
+}, {
+  "tag": "P",
+  "text": "The entire analysis process is currently undergoing several optimizations. For example, optimization of queries through the index, and providing more operators for computing pushdown at the bottom.",
+  "translation": "整个分析过程目前正在经历一些优化。 例如，通过索引优化查询，并在底部提供更多运算符来进行下推计算。"
+}, {
+  "tag": "P",
+  "text": "Service capabilities",
+  "translation": "服务能力"
+}, {
+  "tag": "P",
+  "text": "In summary, Table Store’s service capabilities are characterized by zero-cost integration, out-of-the-box functionality, global deployment, multi-language SDK, and fully managed services.",
+  "translation": "总之，Table Store的服务功能具有零成本集成，即用型功能，全局部署，多语言SDK和完全托管服务的特点。"
+}, {
+  "tag": "P",
+  "text": "Metadata storage and retrieval",
+  "translation": "元数据存储和检索"
+}, {
+  "tag": "P",
+  "text": "Metadata is also a very important component of time series data. It is much smaller than time series data in terms of volume, but much more complicated in terms of query complexity.",
+  "translation": "元数据也是时间序列数据的非常重要的组成部分。 就数量而言，它比时间序列数据要小得多，但就查询复杂度而言，它要复杂得多。"
+}, {
+  "tag": "P",
+  "text": "From the definition we provided above, metadata can be divided primarily into ‘Tags’ and ‘Location’. Tags are mainly used for multidimensional retrieval, while Location is mainly used for location retrieval. So, for efficient retrieval from the underlying storage, Tags must implement an inverted rank index, while Location needs to implement a location index. The order of timelines for a service-level monitoring system or tracing system is tens of millions to hundreds of millions, or even higher. Metadata also requires a distributed retrieval system to provide a high-concurrency low-latency solution. A preferable implementation in the industry is to use Elasticsearch for the storage and retrieval of metadata.",
+  "translation": "根据上面提供的定义，元数据可以主要分为“标签”和“位置”。 标签主要用于多维检索，而位置主要用于位置检索。 因此，为了从底层存储中高效检索，标签必须实现反向排名索引，而位置需要实现位置索引。 服务级别监视系统或跟踪系统的时间轴顺序为数千万到数亿，甚至更高。 元数据还需要分布式检索系统来提供高并发低延迟解决方案。 在行业中，更可取的实现方式是使用Elasticsearch来存储和检索元数据。"
+}, {
+  "tag": "H1",
+  "text": "Summary",
+  "translation": "摘要"
+}, {
+  "tag": "P",
+  "text": "Table Store is a general-purpose distributed NoSQL database that supports multiple data models. The data models currently available include Wide Column (BigTable) and Timeline (message data model).",
+  "translation": "表存储是支持多种数据模型的通用分布式NoSQL数据库。 当前可用的数据模型包括宽列（BigTable）和时间轴（消息数据模型）。"
+}, {
+  "tag": "P",
+  "text": "In applications of similar database products in the industry (such as HBase and Cassandra), time series data is a very important field. Table Store is constantly exploring the field of time series data storage. We are also constantly improving in the building of closed loops for stream computing data, data analysis optimization, and metadata retrieval, and we strive to provide a unified time series data storage platform.",
+  "translation": "在行业中类似数据库产品（例如HBase和Cassandra）的应用程序中，时间序列数据是非常重要的领域。 Table Store一直在探索时间序列数据存储领域。 我们还在不断完善用于流计算数据，数据分析优化和元数据检索的闭环构建，并努力提供统一的时间序列数据存储平台。"
+}, {
+  "tag": "P",
+  "text": "Reference:https://www.alibabacloud.com/blog/table-store-time-series-data-storage-architecture_594779?spm=a2c41.12860976.0.0",
+  "translation": "参考：https：//www.alibabacloud.com/blog/table-store-time-series-data-storage-architecture_594779？spm = a2c41.12860976.0.0"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Alibaba Cloud的文章《Table Store Time Series Data Storage — Architecture》，参考：https://medium.com/@Alibaba_Cloud/table-store-time-series-data-storage-architecture-f686e85cf259)",
+  "translation": "（本文翻译自阿里巴巴云的文章《表存储时间序列数据存储—体系结构》，参考：https：//medium.com/@Alibaba_Cloud/table-store-time-series-data-storage-architecture-f686e85cf259）"
+}]
