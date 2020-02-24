@@ -1,0 +1,588 @@
+[{
+  "tag": "P",
+  "text": "Resources:",
+  "translation": "资源："
+}, {
+  "tag": "UL",
+  "texts": ["CSS specificity calculator: https://specificity.keegan.st/", "The Clean Architecture: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html", "Screaming Architecture: https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html", "pgbadger: https://github.com/darold/pgbadger", "Postgres query explain tool: https://tatiyants.com/pev/#/plans/new", "‘ilities of software: https://codesqueeze.com/the-7-software-ilities-you-need-to-know/", "peril: https://github.com/danger/peril", "HoundCI: https://github.com/houndci/hound", "CircleCI: https://circleci.com/", "MVP cupcake metaphor: https://www.intercom.com/blog/start-with-a-cupcake/", "Inversion mental model: https://fs.blog/2013/10/inversion/"],
+  "translations": ["CSS特异性计算器：https：//specificity.keegan.st/", "清洁架构：https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html", "尖叫的体系结构：https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html", "pgbadger：https：//github.com/darold/pgbadger", "Postgres查询说明工具：https://tatiyants.com/pev/#/plans/new", "‘软件缺陷：https://codesqueeze.com/the-7-software-ilities-you-need-to-know/", "危险：https://github.com/danger/peril", "HoundCI：https：//github.com/houndci/hound", "CircleCI：https：//circleci.com/", "MVP蛋糕比喻：https：//www.intercom.com/blog/start-with-a-cupcake/", "反转思维模型：https://fs.blog/2013/10/inversion/"]
+}, {
+  "tag": "P",
+  "text": "About the Author:",
+  "translation": "关于作者："
+}, {
+  "tag": "H2",
+  "text": "Pranay Suresh — Engineering @Bolt | Ex-Tesla | Silicon Valley Startup Guy | Blogger | Speaker | Mentor",
+  "translation": "Pranay Suresh —工程@螺栓| 前特斯拉| 硅谷创业人| 博客| 讲者 导师"
+}, {
+  "tag": "H3",
+  "text": "Experienced engineer with a decade of experience in silicon valley. I’ve built products and technologies at startups…",
+  "translation": "经验丰富的工程师，在硅谷拥有十年的经验。 我已经在初创公司开发了产品和技术…"
+}, {
+  "tag": "H1",
+  "text": "Learn More",
+  "translation": "学到更多"
+}, {
+  "tag": "H2",
+  "text": "Maximizing Code Reuse in React",
+  "translation": "在React中最大化代码重用"
+}, {
+  "tag": "H3",
+  "text": "How to speed-up development by sharing ReactJS components from any codebase, using Bit",
+  "translation": "如何通过使用Bit从任何代码库共享ReactJS组件来加速开发"
+}, {
+  "tag": "H2",
+  "text": "Gradually using TypeScript in Your React Project",
+  "translation": "在您的React项目中逐渐使用TypeScript"
+}, {
+  "tag": "H3",
+  "text": "How to safely build and introduce React TypeScript components into your React JS project",
+  "translation": "如何安全地构建React TypeScript组件并将其引入到React JS项目中"
+}, {
+  "tag": "H2",
+  "text": "11 Recommended Tools for Frontend Developers",
+  "translation": "11个推荐给前端开发人员的工具"
+}, {
+  "tag": "H3",
+  "text": "A list of my favorite frontend tools.",
+  "translation": "我最喜欢的前端工具列表。"
+}, {
+  "tag": "H2",
+  "text": "1. CSS Specificity",
+  "translation": "1. CSS特异性"
+}, {
+  "tag": "P",
+  "text": "Mistake: My CSS is not applying. I am going to use !important",
+  "translation": "错误：我的CSS不适用。 我要用！重要"
+}, {
+  "tag": "P",
+  "text": "Lesson: Using !important should be reserved for special cases because they break the whole CSS hierarchy and force a particular style. Instead, learn about CSS specificity.",
+  "translation": "课程：使用！important应该保留给特殊情况，因为它们会破坏整个CSS层次结构并强制使用特定样式。 相反，了解CSS特异性。"
+}, {
+  "tag": "P",
+  "text": "CSS specificity is the set of rules a browser applies to determine which CSS styling is more specific. Think of this as a point-based system that determines which CSS style gets priority and is ultimately applied to a DOM element.",
+  "translation": "CSS特定性是浏览器用来确定哪种CSS样式更特定的一组规则。 可以将其视为基于点的系统，该系统确定哪种CSS样式获得优先权并最终应用于DOM元素。"
+}, {
+  "tag": "P",
+  "text": "If you ever wonder why your CSS is not being applied, its got to do with CSS specificity. This is a very common problem in larger projects where preprocessors like SCSS are used with complex CSS hierarchies. Understanding CSS specificity will help you reserve using !important only for rare overriding situations for example when you want to override CSS libraries or have iframes override host site styling.",
+  "translation": "如果您想知道为什么不使用CSS，那与CSS的特殊性有关。 在大型项目中，这是一个非常常见的问题，在此类项目中，预处理器（如SCSS）与复杂的CSS层次结构一起使用。 了解CSS的特殊性将有助于您仅在极少数情况下使用！important进行保留，例如，当您想覆盖CSS库或让iframe覆盖宿主网站样式时。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*PSa8EOnWBmfYjCqSGyGopg.png?q=20",
+  "type": "image",
+  "file": "1!PSa8EOnWBmfYjCqSGyGopg.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/25/1*05jFx1wWlPw4-AQu5ShL0Q.png?q=20",
+  "type": "image",
+  "file": "1!05jFx1wWlPw4-AQu5ShL0Q.png"
+}, {
+  "tag": "P",
+  "text": "Essentially ID selectors > Class selectors > Type selectors is the precedence order. !important and in-line style attributes override all CSS. For each CSS that applies to an element, you can then easily figure out which style will take effect. For example, if you load the HTML above:",
+  "translation": "本质上，ID选择器>类选择器>类型选择器是优先顺序。 ！important和行内样式属性会覆盖所有CSS。 然后，对于应用于元素的每个CSS，您都可以轻松确定哪种样式将生效。 例如，如果您加载上面的HTML："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*9U0E1zWZ_CKjJvhz9fd2WA.png?q=20",
+  "type": "image",
+  "file": "1!9U0E1zWZ_CKjJvhz9fd2WA.png"
+}, {
+  "tag": "P",
+  "text": "In this example, the ID selector takes precedence over the type selector. If the clashing CSS selectors have the same precedence, then the last one in the CSS file will be chosen. Finally, Chrome DevTools (why would you use any other browser :)) will show you the specificity order as shown in the image above. If you can’t get your CSS to apply, look at the specificity order that Chrome uses, then add a more specific selector (id, class, type) to make your CSS more specific and indicate to the browser to select it. If you don’t want to do this mentally, check this specificity calculator: https://specificity.keegan.st/",
+  "translation": "在此示例中，ID选择器优先于类型选择器。 如果冲突的CSS选择器具有相同的优先级，则将选择CSS文件中的最后一个。 最后，Chrome DevTools（为什么要使用其他浏览器：）将向您显示特异性顺序，如上图所示。 如果您无法使用CSS，请查看Chrome使用的特异性顺序，然后添加更具体的选择器（id，class，type）以使CSS更具体，并指示浏览器选择它。 如果您不愿意这样做，请检查以下特异性计算器：https://specificity.keegan.st/"
+}, {
+  "tag": "H2",
+  "text": "2. Design State From Component Hierarchy",
+  "translation": "2.从组件层次结构设计状态"
+}, {
+  "tag": "P",
+  "text": "Mistake: I need to add this new state, I’m just going to put it in this reducer…hmm not sure why this reducer has all this other state…Oh well!",
+  "translation": "错误：我需要添加这个新状态，我只是将其放入这个reducer中……嗯，不知道为什么为什么这个reducer具有其他所有状态……哦！"
+}, {
+  "tag": "P",
+  "text": "Lesson: Mismanaged redux state can cause confusion amongst developers and lead to bugs. If you use react and redux to structure your frontend applications, then you may consider this visualizing technique to build state and reducer hierarchies from the UI component hierarchy. There are 3 steps to go from nothing to a uniform component-state hierarchy:",
+  "translation": "教训：管理不当的redux状态可能会引起开发人员的困惑并导致bug。 如果您使用react和redux来构建前端应用程序，则可以考虑使用这种可视化技术从UI组件层次结构构建状态和reducer层次结构。 从零到统一的组件状态层次结构，共有3个步骤："
+}, {
+  "tag": "UL",
+  "texts": ["Visualize the UI in a wireframe", "Visualize the State hierarchy to mirror the UI", "Build the reducer hierarchy to mirror the state hierarchy"],
+  "translations": ["可视化线框中的UI", "可视化状态层次结构以反映UI", "建立化简器层次结构以反映状态层次结构"]
+}, {
+  "tag": "P",
+  "text": "Let’s look at an example where we are building a blog website that has 2 pages one for a list of blogs and another for an individual blog:",
+  "translation": "让我们看一个示例，我们正在构建一个博客网站，该网站有2页，一个页面用于博客列表，另一个页面用于单个博客："
+}, {
+  "tag": "P",
+  "text": "Step1: Visualize the UI in a wireframe",
+  "translation": "步骤1：可视化线框中的UI"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*6TMus9snf7osbH3toiyPrQ.png?q=20",
+  "type": "image",
+  "file": "1!6TMus9snf7osbH3toiyPrQ.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*m8kZEl3yeng7W8iU0ks7Vw.png?q=20",
+  "caption": "Home Page and Individual Blog Page",
+  "type": "image",
+  "file": "1!m8kZEl3yeng7W8iU0ks7Vw.png"
+}, {
+  "tag": "P",
+  "text": "Step2: Visualize the State hierarchy to mirror the UI",
+  "translation": "步骤2：可视化状态层次结构以反映UI"
+}, {
+  "tag": "P",
+  "text": "The corresponding state hierarchy diagram would look like this:",
+  "translation": "相应的状态层次结构图如下所示："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*ZwlzZaipn5B_ksKy6PFhMA.png?q=20",
+  "caption": "State hierarchy",
+  "type": "image",
+  "file": "1!ZwlzZaipn5B_ksKy6PFhMA.png"
+}, {
+  "tag": "P",
+  "text": "Notice how the common Header state has been pulled out into the root state. Similarly, any shared state can bubble up in the hierarchy so it’s clear the child components share that state.",
+  "translation": "注意公共标头状态如何被拉到根状态。 同样，任何共享状态都可以在层次结构中冒出，因此很明显子组件共享该状态。"
+}, {
+  "tag": "P",
+  "text": "Step3: Build the reducer hierarchy to mirror the state hierarchy",
+  "translation": "步骤3：构建Reducer层次结构以反映状态层次结构"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/19/1*tXkCBxiVim3eBgY1XTYG-g.png?q=20",
+  "caption": "Reducer hierarchy",
+  "type": "image",
+  "file": "1!tXkCBxiVim3eBgY1XTYG-g.png"
+}, {
+  "tag": "P",
+  "text": "This is a simple yet powerful example that shows how to structure your state and reducer hierarchy to match the UI. This process can easily scale for complex applications and large teams. Finally, you can build actions and presentation layer on top of this structure.",
+  "translation": "这是一个简单但功能强大的示例，显示了如何构造状态和reducer层次结构以匹配UI。 此过程可以轻松扩展到复杂的应用程序和大型团队。 最后，您可以在此结构之上构建操作和表示层。"
+}, {
+  "tag": "H2",
+  "text": "3. Backend Spaghetti to Lasagne to Ravioli",
+  "translation": "3.后端意大利面到千层面到馄饨"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/20/1*qw2VhBrFGOR2rfXctma0DA.jpeg?q=20",
+  "caption": "Photo by Lindsay Lenard on Unsplash",
+  "type": "image",
+  "file": "1!qw2VhBrFGOR2rfXctma0DA.jpeg"
+}, {
+  "tag": "P",
+  "text": "Mistake: How is this codebase organized? Maybe I can just add this file here seems like all other repository code lives here.",
+  "translation": "错误：这个代码库是如何组织的？ 也许我可以在这里添加此文件，似乎所有其他存储库代码都在这里。"
+}, {
+  "tag": "P",
+  "text": "Lesson: I have written all three Italian varieties of code. And honestly, I think mini-lasagna inside a ravioli is the way to go. Organizing and training all developers to build this way keeps the codebase maintainable, testable and most importantly agile. You can easily change the implementation details of a particular ravioli a.k.a feature without affecting other features.",
+  "translation": "课程：我已经编写了所有三种意大利语版本的代码。 老实说，我认为馄饨内的迷你千层面是必经之路。 组织和培训所有开发人员以这种方式进行构建，可保持代码库的可维护性，可测试性和最重要的敏捷性。 您可以轻松更改特定馄饨又名功能的实施细节，而不会影响其他功能。"
+}, {
+  "tag": "P",
+  "text": "Lasagne is:",
+  "translation": "千层面是："
+}, {
+  "tag": "UL",
+  "texts": ["layered architecture", "clean architecture", "I/O in outer layers pure data structures in inner layers", "Dependencies are injected inwards", "Inner layers don’t depend on outer layers", "Prefer composition over inheritance"],
+  "translations": ["分层架构", "干净的建筑", "外层的I / O内层的纯数据结构", "依赖项向内注入", "内层不依赖于外层", "优先考虑组成而不是继承"]
+}, {
+  "tag": "P",
+  "text": "Ravioli is:",
+  "translation": "馄饨是："
+}, {
+  "tag": "UL",
+  "texts": ["Screaming architecture", "Slice vs layered", "Spatial locality for folders and files", "Can be microservices"],
+  "translations": ["尖叫的建筑", "切片与分层", "文件夹和文件的空间位置", "可以是微服务"]
+}, {
+  "tag": "P",
+  "text": "Put them together, you get a scalable & maintainable codebase. If you can figure out a way to structure your folders by feature names (an individual ravioli) and within each feature implement the clean architecture methods, it will last you a long time.",
+  "translation": "将它们放在一起，您将获得可扩展且可维护的代码库。 如果您能找到一种通过功能名称（单个馄饨）来构造文件夹的方法，并且在每个功能内实施干净的架构方法，那么它将持续很长时间。"
+}, {
+  "tag": "H2",
+  "text": "4. Postgres in Production",
+  "translation": "4.生产中的Postgres"
+}, {
+  "tag": "P",
+  "text": "Mistake: Why is this query slow? I think Postgres is slow. I need to shard or I think it’s the ORM or maybe I need a different database Postgres is not working out for me.",
+  "translation": "错误：为什么查询速度慢？ 我认为Postgres很慢。 我需要分片，或者我认为这是ORM，或者我需要其他数据库，但Postgres不能为我工作。"
+}, {
+  "tag": "P",
+  "text": "Lesson: If you run Postgres in production then you are dealing with slow queries, table locks, infinitely waiting migrations, errors. If you are not, then good for you and also how did you do that? That doesn’t mean Postgres is no longer the right tool, it means you need to lift the curtain and see what’s happening underneath.",
+  "translation": "课程：如果在生产环境中运行Postgres，那么您将遇到查询缓慢，表锁，无限等待迁移，错误的问题。 如果您不是，那么对您有好处，您又是如何做到的？ 这并不意味着Postgres不再是正确的工具，而是意味着您需要拉开帷幕，看看下面发生了什么。"
+}, {
+  "tag": "P",
+  "text": "The best tool I’ve discovered thus far to wrangle almost all Postgres problems is pgbadger. It’s a Perl command-line tool that takes Postgres (RDS if you are on AWS) logs as input and spits out a report. The report is only as good as the logs you have enabled on Postgres. So as a first step you might want to enable these logs:",
+  "translation": "到目前为止，我发现解决几乎所有Postgres问题的最佳工具是pgbadger。 这是一个Perl命令行工具，它将Postgres（如果您在AWS上，则为RDS）日志作为输入并输出报告。 该报告仅与您在Postgres上启用的日志一样好。 因此，第一步，您可能要启用以下日志："
+}, {
+  "tag": "PRE",
+  "text": "log_checkpoints = onlog_connections = onlog_disconnections = onlog_lock_waits = onlog_temp_files = 0log_autovacuum_min_duration = 0log_error_verbosity = defaultlog_min_duration_statement = 1s",
+  "translation": "log_checkpoints = onlog_connections = onlog_disconnections = onlog_lock_waits = onlog_temp_files = 0log_autovacuum_min_duration = 0log_error_verbosity = defaultlog_min_duration_statement = 1s"
+}, {
+  "tag": "P",
+  "text": "In addition, you may also want to enable pg_stat_statements to analyze queries live and auto_explain to automatically explain analyze slow running queries in the log.",
+  "translation": "另外，您可能还希望启用pg_stat_statements来实时分析查询，并启用auto_explain来自动解释日志中运行缓慢的查询。"
+}, {
+  "tag": "P",
+  "text": "Running the report:",
+  "translation": "运行报告："
+}, {
+  "tag": "PRE",
+  "text": "pgbadger --prefix '%m %u@%d %p %r %a : ' /pglog/postgresql.log"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Vd5onWJuxJULzqFOtKab7A.png?q=20",
+  "type": "image",
+  "file": "1!Vd5onWJuxJULzqFOtKab7A.png"
+}, {
+  "tag": "P",
+  "text": "This report will aggregate data and provide a host of information about what Postgres has been up to. You will find information about errors, top slowest queries, top waiting queries, types of locks acquired, whether temp files were used for sorting or not, how often did checkpoints run, how often did vacuums run and other such information. Armed with this data you can identify and fix slow running queries & improve Postgres performance via tuning.",
+  "translation": "该报告将汇总数据并提供有关Postgres最新动态的大量信息。 您将找到有关错误，最慢查询，最等待查询，获取的锁的类型，是否使用临时文件进行排序，检查点运行的频率，真空运行的频率以及其他类似信息的信息。 有了这些数据，您就可以识别和修复运行缓慢的查询，并通过优化来提高Postgres性能。"
+}, {
+  "tag": "P",
+  "text": "You can run this report on an ongoing basis (the CLI support incremental mode) and thereby stay on top of new issues.",
+  "translation": "您可以持续运行此报告（CLI支持增量模式），从而始终关注新问题。"
+}, {
+  "tag": "P",
+  "text": "As a bonus, if you are looking to understand the explain output you can use this tool: https://tatiyants.com/pev/#/plans/new. The tool takes explain JSON and the original query as input and will explain the explain output in a visual tree graph like below. :",
+  "translation": "另外，如果您希望了解解释输出，可以使用此工具：https://tatiyants.com/pev/#/plans/new。 该工具将说明JSON和原始查询作为输入，并将在如下所示的可视树状图中说明说明输出。 ："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*_whgOG25vvwHtiRswix9Dg.png?q=20",
+  "type": "image",
+  "file": "1!_whgOG25vvwHtiRswix9Dg.png"
+}, {
+  "tag": "P",
+  "text": "As you can see nodes will have tags for largest, slowest, costliest and so on. This will help you optimize the query based on how Postgres is executing it.",
+  "translation": "如您所见，节点将具有针对最大，最慢，最昂贵等的标签。 这将帮助您根据Postgres如何执行查询来优化查询。"
+}, {
+  "tag": "P",
+  "text": "Finally, if building up competency in Postgres is not feasible I recommend hiring a DB consultancy like Percona.",
+  "translation": "最后，如果在Postgres中建立能力不可行，我建议雇用像Percona这样的DB咨询公司。"
+}, {
+  "tag": "H2",
+  "text": "5. Move Slow, Test Things",
+  "translation": "5.行动缓慢，测试事物"
+}, {
+  "tag": "P",
+  "text": "Mistake: LGTM let’s ship it!",
+  "translation": "错误：LGTM可以发货！"
+}, {
+  "tag": "P",
+  "text": "Lesson:",
+  "translation": "课："
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*UK8Jz_r__2nJcbLNosHMhw.png?q=20",
+  "caption": "From wikipedia: https://en.wikipedia.org/wiki/List_of_system_quality_attributes",
+  "type": "image",
+  "file": "1!UK8Jz_r__2nJcbLNosHMhw.png"
+}, {
+  "tag": "P",
+  "text": "In the era of move fast and break things this might not seem like the most popular advice but taking it slow will pay dividends. It’s better to be methodic and slow with little to no production bugs than to move fast and ship bad code.",
+  "translation": "在快速行动，打破常规的时代，这似乎不是最受欢迎的建议，但慢一点将带来好处。 有条理，速度慢，几乎没有生产错误的情况要比快速移动并发布错误代码更好。"
+}, {
+  "tag": "P",
+  "text": "Good engineers take into consideration all the ‘ilities of a software system. They care about not just code coverage but also weird inputs that might break the same code path. With a layered architecture, they implement mock layers and test only the layer under consideration. They not only implement unit tests but also implement integration and functional tests or if your team has a QA engineer, works with them to test those cases.",
+  "translation": "优秀的工程师会考虑软件系统的所有缺陷。 他们不仅关心代码覆盖率，而且关心可能破坏相同代码路径的奇怪输入。 通过分层体系结构，他们可以实现模拟层并仅测试所考虑的层。 他们不仅实施单元测试，而且实施集成和功能测试，或者如果您的团队有QA工程师，则与他们一起测试这些案例。"
+}, {
+  "tag": "P",
+  "text": "It’s okay to be slow. It’s better to be right.",
+  "translation": "可以慢一点。 最好是对的。"
+}, {
+  "tag": "H2",
+  "text": "6. Invest in Automation",
+  "translation": "6.投资自动化"
+}, {
+  "tag": "P",
+  "text": "Mistake: We hand deploy to staging and sandbox, ad-hoc. Production is also deployed by hand but once a day.",
+  "translation": "错误：我们将临时部署到临时和沙箱中。 生产也可以手工部署，但每天一次。"
+}, {
+  "tag": "P",
+  "text": "Lesson: Having a CI/CD system manage deploys means more predictable outcomes. Software moves through the pipeline in a promotional strategy and ad hoc deploys are relegated to special circumstances. This ensures the stability and reliability of the software you are shipping, which is the primary responsibility of an engineering team.",
+  "translation": "课程：拥有CI / CD系统管理部署意味着更可预测的结果。 软件按照促销策略在管道中移动，而临时部署则受特殊情况的影响。 这样可以确保所运送软件的稳定性和可靠性，这是工程团队的主要责任。"
+}, {
+  "tag": "P",
+  "text": "Invest in:",
+  "translation": "投资于："
+}, {
+  "tag": "UL",
+  "texts": ["Training team members on how to do code reviews. You may have a varied skillset in your team and not everyone will know how to do a good code review. Invest in learning and teaching best practices for code reviews.", "Using automated code review systems like peril and hound. Peril can inspect code changes and flag warnings and fail builds based on pre-configured settings. For example, you can fail a pull request if a database migration file is missing a statement_timeout or contains an unnecessary DEFAULT NULL . You can write many such checks and team-specific rules and have peril be the gatekeeper for changes. HoundCI can do similar things and the rules are fully configurable."],
+  "translations": ["培训团队成员如何进行代码审查。 您的团队中可能有各种各样的技能，但并不是每个人都知道如何进行良好的代码审查。 投资于学习和教授代码审查的最佳实践。", "使用危险和猎犬等自动代码审查系统。 Peril可以根据预先配置的设置检查代码更改并标记警告和构建失败。 例如，如果数据库迁移文件缺少statement_timeout或包含不必要的DEFAULT NULL，则可以使请求失败。 您可以编写许多此类检查和特定于团队的规则，并且要冒险进行更改。 HoundCI可以做类似的事情，并且规则是完全可配置的。"]
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*JXKxyHxhw5K_RLjZAka05Q.png?q=20",
+  "type": "image",
+  "file": "1!JXKxyHxhw5K_RLjZAka05Q.png"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*MqQJCA2e6BMs-GZnn7Y-lw.png?q=20",
+  "type": "image",
+  "file": "1!MqQJCA2e6BMs-GZnn7Y-lw.png"
+}, {
+  "tag": "UL",
+  "texts": ["Setup a CI/CD pipeline with an automated promotion strategy using tools like CircleCI . Over time, optimize build and deploy pipelines."],
+  "translations": ["使用CircleCI之类的工具通过自动推广策略设置CI / CD管道。 随着时间的流逝，优化构建和部署管道。"]
+}, {
+  "tag": "H2",
+  "text": "7. Master Your Tools",
+  "translation": "7.掌握工具"
+}, {
+  "tag": "P",
+  "text": "Mistake: Oh I need to find the interface for this implementation, let me just search for it. It used to be in this folder. Eh, not anymore huh. Let’s look there….let’s just ask someone.",
+  "translation": "错误：哦，我需要找到此实现的接口，让我搜索一下。 它曾经在此文件夹中。 恩，不再了。 让我们看看那里...。让我们问一个人。"
+}, {
+  "tag": "P",
+  "text": "Lesson: Not knowing how to operate your tools makes you unproductive. Can you imagine a tailor who is sloppy using a sewing machine? It’s not just about the outcome of your code, it’s also about how efficiently you build software.",
+  "translation": "课程：不知道如何操作工具会使您效率低下。 您能想象一个裁缝者使用缝纫机马虎吗？ 这不仅与代码的结果有关，还与软件构建的效率有关。"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*F-2_zyX8pst2F-_MtbG6Qw.png?q=20",
+  "caption": "Image from https://blog.jetbrains.com/go/2017/10/26/gogland-eap-17-type-hierarchy-call-hierarchy-parameter-hints-vendor-scope-and-more/",
+  "type": "image",
+  "file": "1!F-2_zyX8pst2F-_MtbG6Qw.png"
+}, {
+  "tag": "P",
+  "text": "Know your tools, learn shortcuts. Your code editor is probably the first tool to master. This is your bread and butter. You should know how to setup tab sorting, in place source code exploration, forward and backward code depth traversal, open last editing file, navigate to interface/implementation, read file structure within a file, display call graph. If you use a text-based editor without a GUI, that’s fine too. There’s plenty of useful tricks to master with editors like Vim.",
+  "translation": "了解您的工具，了解捷径。 您的代码编辑器可能是第一个掌握的工具。 这是你的面包和黄油。 您应该知道如何设置选项卡排序，到位的源代码浏览，向前和向后的代码深度遍历，打开最后的编辑文件，导航到界面/实现，读取文件中的文件结构，显示调用图。 如果您使用不带GUI的基于文本的编辑器，也可以。 有很多有用的技巧可以让Vim等编辑器掌握。"
+}, {
+  "tag": "P",
+  "text": "Pay attention to common operations you do manually and learn to do them via shortcuts. An easy way to accomplish that is to maintain notes on 5 shortcuts, master them until they become muscle memory then move on to the next 5.",
+  "translation": "请注意您手动执行的常见操作，并学习通过快捷方式进行操作。 一种简单的方法是在5个快捷方式上保留注释，掌握它们，直到它们成为肌肉记忆，然后继续进行下5个。"
+}, {
+  "tag": "P",
+  "text": "Other common tools full-stack engineers touch daily and should master are terminal, docker, tableplus/pgadmin/some other database client UI, chrome dev tools.",
+  "translation": "全栈工程师每天接触的其他常用工具应为终端，docker，tableplus / pgadmin /其他一些数据库客户端用户界面，chrome开发工具。"
+}, {
+  "tag": "H2",
+  "text": "8. MVP",
+  "translation": "8. MVP"
+}, {
+  "tag": "P",
+  "text": "Mistake: I think the feature will be useful. I am going to use a distributed-fault tolerant-replicated-highly available datastore. I will also build a plugin-based architecture that will make this software super extensible.",
+  "translation": "错误：我认为该功能将很有用。 我将使用分布式容错复制高可用性数据存储。 我还将建立一个基于插件的体系结构，使该软件具有超强的可扩展性。"
+}, {
+  "tag": "P",
+  "text": "Lesson: Before building something ensure that it is the right thing to build. This is where MVP’s come in.",
+  "translation": "课程：在构建某些东西之前，请确保它是正确的东西。 这就是MVP进来的地方。"
+}, {
+  "tag": "FIGURE",
+  "type": "code"
+}, {
+  "tag": "P",
+  "text": "An ideal MVP should minimally touch all the layers, not just one layer. This is an exercise in de-risking. It’s better to build all layers minimally than to perfect a single layer. MVP does not mean tech debt or bad coding or lack of testing. It’s not throw-away code.",
+  "translation": "理想的MVP应该至少接触所有层，而不仅仅是一层。 这是降低风险的一种做法。 最好最小化构建所有层，而不是完美构建单个层。 MVP并不意味着技术欠佳，编码错误或缺乏测试。 它不是一次性的代码。"
+}, {
+  "tag": "P",
+  "text": "If an MVP is taking too long (for some measure of long) then it is probably wrong and there is probably a simpler solution.",
+  "translation": "如果MVP花费的时间太长（某种程度的时间），则可能是错误的，并且可能有一个更简单的解决方案。"
+}, {
+  "tag": "P",
+  "text": "Other things being equal, simpler explanations are generally better than more complex ones — Occam’s razor",
+  "translation": "在其他条件相同的情况下，简单的解释通常比复杂的解释更好-奥卡姆剃须刀"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*R_bg3K1YVS57Y1SgeZvQDQ.jpeg?q=20",
+  "caption": "Photo by Conor Brown on Unsplash",
+  "type": "image",
+  "file": "1!R_bg3K1YVS57Y1SgeZvQDQ.jpeg"
+}, {
+  "tag": "P",
+  "text": "This cupcake metaphor is another way to explain MVP. Instead of trying to build a big cake or build a perfect base layer, build a cupcake, get feedback and iterate. At the least, you’d know if people liked this new flavor.",
+  "translation": "这种杯形蛋糕的比喻是解释MVP的另一种方式。 与其尝试构建一个大蛋糕或构建一个完美的基础层，不如构建一个蛋糕，获取反馈并进行迭代。 至少，您会知道人们是否喜欢这种新口味。"
+}, {
+  "tag": "H2",
+  "text": "9. Research-Backed Development",
+  "translation": "9.研究支持的开发"
+}, {
+  "tag": "P",
+  "text": "Mistake: I (engineer) think this is what we should build",
+  "translation": "错误：我（工程师）认为这是我们应该制造的"
+}, {
+  "tag": "P",
+  "text": "Lesson: Development should be preceded by strong research to back a claim. Instead of following your intuition, perform a user study. Understand what the user needs are by interviewing them in-person or on video, run surveys, look at logs. This will help you understand your users better. You can then come up with a hypothesis and run experiments. When forming a hypothesis, use inversion to counter your own claims. Invest in an A/B testing framework that will let you run experiments.",
+  "translation": "经验教训：在开发之前，应先进行大量研究以佐证。 与其跟随您的直觉，不如执行用户研究。 通过面对面访问或通过视频采访用户，进行调查，查看日志来了解用户的需求。 这将帮助您更好地了解您的用户。 然后，您可以提出一个假设并进行实验。 形成假设时，请使用反演来反驳自己的主张。 投资A / B测试框架，让您进行实验。"
+}, {
+  "tag": "P",
+  "text": "Time is valuable. Use it wisely. The smartest engineers try to optimize for something that should not exist. Asking the right questions early on is very important.",
+  "translation": "时间是宝贵的。 明智地使用它。 最聪明的工程师会尝试优化一些不应该存在的东西。 尽早提出正确的问题非常重要。"
+}, {
+  "tag": "H2",
+  "text": "10. Scientific Debugging",
+  "translation": "10.科学调试"
+}, {
+  "tag": "P",
+  "text": "Mistake: There is a bug. Hmm, I think it’s because of this code change. Let me look into this file. Or maybe its a memory issue. It can be a combination of both too.",
+  "translation": "错误：有一个错误。 嗯，我想是因为代码更改了。 让我看看这个文件。 也许是内存问题。 它也可以是两者的组合。"
+}, {
+  "tag": "P",
+  "text": "Lesson: As an engineer, you will be debugging problems with software whether as part of an incident or in your local environment. If not done via structured reasoning, debugging can be painful and slow.",
+  "translation": "课程：作为工程师，无论是作为事件的一部分还是在本地环境中，您都将调试软件问题。 如果不通过结构化推理来完成调试，那么调试将很痛苦且缓慢。"
+}, {
+  "tag": "P",
+  "text": "How can we systematically find out why a program fails? And how can we do so without vague concepts of “intuition”, “sharp thinking,” and so on? What we want is a method of finding an explanation for the failure — a method that:",
+  "translation": "我们如何系统地找出程序失败的原因？ 在没有模糊的“直觉”，“敏锐思维”等概念的情况下，我们如何做到这一点？ 我们想要的是一种查找故障原因的方法-一种方法："
+}, {
+  "tag": "UL",
+  "texts": ["Does not require prior knowledge", "Is systematic", "And one that we can be sure to find the root cause and reproduce at will"],
+  "translations": ["不需要先验知识", "系统的", "我们可以确保找到根本原因并随意复制"]
+}, {
+  "tag": "P",
+  "text": "Applying the scientific method to debugging problems is an unbiased way to develop a theory about the failure. The steps for scientific debugging are as follows:",
+  "translation": "将科学方法应用于调试问题是发展有关故障理论的公正方法。 科学调试的步骤如下："
+}, {
+  "tag": "OL",
+  "texts": ["Reproduce the error (Often some combination time, data, user, OS, debugger)", "Observe the facts (thoroughly read logs, error traces, etc.)", "Explicitly state the hypothesis in a logbook instead of doing it mentally", "If you’ve identified a section of the program as being buggy, use a structured approach to narrow down the bug eg binary search", "Test the hypothesis: Use logging, breakpoints, asserts", "If validated, apply the fix and ensure no new breakages", "If invalidated, redo steps #3 to #6"],
+  "translations": ["重现错误（通常是一些组合时间，数据，用户，操作系统，调试器）", "观察事实（彻底读取日志，错误跟踪等）", "在日志中明确陈述假设，而不是在脑海中做", "如果您发现程序的某个部分存在错误，请使用结构化方法缩小错误范围，例如二进制搜索", "测试假设：使用日志记录，断点，断言", "如果通过验证，请应用此修复程序并确保没有新的破损", "如果无效，请重做步骤3至6"]
+}, {
+  "tag": "P",
+  "text": "This might seem like an overkill for simple debugging situations but for complex distributed systems involving many teams, a systematic scientific debugging process provides the necessary structure to ambiguity.",
+  "translation": "对于简单的调试情况，这似乎是一个过大的选择，但是对于涉及许多团队的复杂分布式系统，系统的科学调试过程可提供消除歧义的必要结构。"
+}, {
+  "tag": "H1",
+  "text": "Bonus",
+  "translation": "奖金"
+}, {
+  "tag": "P",
+  "text": "If you have reached here, you might as well read on to the 3 bonus learnings. These cover soft/personal-growth aspects.",
+  "translation": "如果您已经到达这里，则不妨继续阅读这3个奖励学习内容。 这些涵盖了软性/个人成长方面。"
+}, {
+  "tag": "H2",
+  "text": "1. Share Learnings and Serve Others",
+  "translation": "1.分享学习成果并服务他人"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/22/1*Qy2RAaqFAQEsU0qyaRtKVA.jpeg?q=20",
+  "caption": "Photo by Pop & Zebra on Unsplash",
+  "type": "image",
+  "file": "1!Qy2RAaqFAQEsU0qyaRtKVA.jpeg"
+}, {
+  "tag": "P",
+  "text": "Extra-ordinary behavior is helping others grow. There is a certain level of clarity of thought you gain in the knowledge that you need to explain something in a way that someone else can understand.",
+  "translation": "非凡的行为正在帮助他人成长。 当您知道需要以其他人可以理解的方式来解释某件事时，您会获得一定程度的思路清晰。"
+}, {
+  "tag": "P",
+  "text": "Share thoughtful links on slack every day, run brown-bag sessions, demos, compliment others on positive behavior, challenge unclear decisions and give constructive feedback when you wish a different direction from someone or a decision. You can use the “Thanks for ABC….Wish that XYZ” syntax for giving feedback with a 3:1 average ratio between things you are thankful for and things you wish.",
+  "translation": "每天在闲暇中分享有思想的联系，进行袋装会议，演示，在积极的行为上称赞他人，挑战不清楚的决定，并在您希望与某人或某个决定不同的方向时提供建设性的反馈。 您可以使用“感谢ABC...。希望XYZ”语法在您要感恩的事情和希望的事情之间以3：1的平均比率给出反馈。"
+}, {
+  "tag": "P",
+  "text": "In doing so you can build a personal brand for yourself and thereby gain career capital. Research has shown that people who have a strong personal brand, online presence and track record of helping others have success and more importantly, satisfactory careers.",
+  "translation": "这样，您可以为自己建立个人品牌，从而获得职业资本。 研究表明，拥有强大个人品牌，在线业务并有帮助他人的成功记录的人会取得成功，更重要的是，他们会获得令人满意的职业。"
+}, {
+  "tag": "H2",
+  "text": "2. Shape Your Own World",
+  "translation": "2.塑造自己的世界"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*Ow0dHCP8q0eHlZ8C3nYY-A.jpeg?q=20",
+  "caption": "Photo by Ben White on Unsplash",
+  "type": "image",
+  "file": "1!Ow0dHCP8q0eHlZ8C3nYY-A.jpeg"
+}, {
+  "tag": "P",
+  "text": "You don’t need to accept the world the way it is. You can shape the world you perceive by taking the driver’s seat.",
+  "translation": "您无需按原样接受世界。 您可以坐在驾驶员座位上，塑造自己的世界。"
+}, {
+  "tag": "P",
+  "text": "This might mean vocalizing your opinions during design discussions and code reviews or fixing that critical flaky test. A lot of people will tell you to speak more and get visibility to grow within a company but they never explain how. The best way to do this is to have strong opinions and the confidence to pull people in your direction. Don’t be afraid to assemble small swat teams to build/improve things. Don’t surrender power to your fears. Speak up, as long as you are not being disrespectful, you can say it.",
+  "translation": "这可能意味着在设计讨论和代码审查期间表达您的意见，或者修复该关键的易碎测试。 很多人会告诉您多说一些，并获得在公司内部发展的知名度，但他们从未解释如何做。 做到这一点的最佳方法是拥有强烈的见解和信心，将人们拉向您的方向。 不要害怕组建小型特警队来建立/改善事物。 不要为恐惧而屈服。 大声说出来，只要您不被别人尊重，就可以说出来。"
+}, {
+  "tag": "P",
+  "text": "Negative emotions are great motivators for change. If something bugs you ask yourself why and figure out how you can lead the change. If you treat every day as an avenue for growth, then life becomes an exercise.",
+  "translation": "负面情绪是改变的重要动力。 如果出现问题，您会问自己为什么，并找出如何领导变更。 如果您将每一天都视为成长的途径，那么生活就会成为一种锻炼。"
+}, {
+  "tag": "H2",
+  "text": "3. Meet people",
+  "translation": "3.认识人"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*RMW1dCkork-oiUBEDgQNKA.jpeg?q=20",
+  "caption": "Photo by Perry Grone on Unsplash",
+  "type": "image",
+  "file": "1!RMW1dCkork-oiUBEDgQNKA.jpeg"
+}, {
+  "tag": "P",
+  "text": "If you are like me and are trying to figure out what truly matters to you, then meet loads of people, especially the ones who interest you in unclear ways. This might mean going to conferences, participating in online communities, collaborating on hackathons & projects or any such activities. This exposure will help you figure out what you want to do. That will allow you to say no to things that don’t matter to you and be open to opportunities that matter to you.",
+  "translation": "如果您像我一样，并试图找出对您真正重要的事物，那么会遇到很多人，尤其是那些以不清楚的方式对您感兴趣的人。 这可能意味着要参加会议，参加在线社区，就黑客马拉松和项目进行合作或进行任何此类活动。 这种接触将帮助您弄清楚您想做什么。 这样一来，您就可以拒绝对您不重要的事情，并愿意接受对您重要的机会。"
+}, {
+  "tag": "P",
+  "text": "Many successful people who feel lucky and say they were in the right place at the right time, knew what they wanted to begin with. This allowed them to be spontaneous and latch onto opportunities and minimize regrets. Default to saying yes when it comes to meeting smart people.",
+  "translation": "许多成功的人感到幸运，并说他们在正确的时间在正确的地方，知道他们想从什么开始。 这使他们能够自发地抓住机会并最大程度地减少后悔。 遇到聪明人时，默认为是。"
+}, {
+  "tag": "P",
+  "text": "In doing this, I found out that I prefer breadth over depth, value creativity, and freedom, enjoy variety & informal relationships. Structured repetitive work, routine, stability & security are things I am not suited for. This allows me to pick projects and people that align and compliment accordingly.",
+  "translation": "通过这样做，我发现我更喜欢广度而不是深度，重视创造力和自由，喜欢多样性和非正式的关系。 我不适合进行结构化的重复性工作，日常工作，稳定性和安全性。 这使我可以选择相应的项目和人员，并给予一致的称赞。"
+}, {
+  "tag": "P",
+  "text": "If you know what you want the world will give you the information that you need.",
+  "translation": "如果您知道自己想要什么，世界将为您提供所需的信息。"
+}, {
+  "tag": "P",
+  "text": "Full Stack programming is fun. It’s a constantly evolving landscape and there is a sea of learning to surf on. Don’t take yourself or your mistakes too seriously. Share them and keep growing.",
+  "translation": "全栈编程很有趣。 这是一个不断发展的景观，并且有很多学习可以继续学习。 不要过分重视自己或自己的错误。 分享它们并保持增长。"
+}, {
+  "tag": "P",
+  "text": "If these learning resonated with you let me know which ones did. If not, that’s okay too, still, let me know. What are some interesting things you’ve learned in your full-stack career (short or long)? Please share them below in the comments. If you feel inspired to write your own top 10 learnings, I’d encourage it.",
+  "translation": "如果这些学习引起您的共鸣，请让我知道是哪个做的。 如果不是，那也可以，请告诉我。 您在整个职业生涯（短期或长期）中学到了哪些有趣的事情？ 请在下面的评论中分享它们。 如果您有灵感来撰写自己的十大知识，我鼓励您。"
+}, {
+  "tag": "H1",
+  "text": "The Mechanics",
+  "translation": "力学"
+}, {
+  "tag": "FIGURE",
+  "type": "code"
+}, {
+  "tag": "P",
+  "text": "This was a hard list to compile but I can assure you I’ve rummaged through every todo list software (google keep, mac notes, Evernote, Gmail) and journal entries from the last decade. I’ve distilled it to the top 10 lessons learned based on what I believe will stand the test of time and stay true for some years to come. The list starts from the frontend, followed by backend APIs& databases and ends with engineering best practices/processes.",
+  "translation": "这是一份很难编译的清单，但可以向您保证，我已经遍历了过去十年中每个待办事项清单软件（谷歌Keep，Mac Notes，Evernote，Gmail）和日记条目。 根据我认为它将经受住时间的考验并在未来几年保持不变，我将其总结为十大经验教训。 该列表从前端开始，然后是后端API和数据库，并以工程最佳实践/过程结尾。"
+}, {
+  "tag": "H1",
+  "text": "Lessons Learned:",
+  "translation": "得到教训："
+}, {
+  "tag": "OL",
+  "texts": ["CSS Specificity", "Design State From Component Hierarchy", "Backend Spaghetti to Lasagne to Ravioli", "Postgres in Production", "Move Slow, Test Things", "Invest in Automation", "Master Your Tools", "MVP", "Research-Backed Development", "Scientific Debugging"],
+  "translations": ["CSS特异性", "组件层次结构的设计状态", "后端意大利面到烤宽面条到馄饨", "生产中的Postgres", "移动缓慢，测试事物", "投资自动化", "掌握您的工具", "最有价值球员", "研究开发", "科学调试"]
+}, {
+  "tag": "H2",
+  "text": "FULLSTACK ENGINEERING TIPS",
+  "translation": "全栈工程技巧"
+}, {
+  "tag": "H1",
+  "text": "10 FullStack Engineering Mistakes to Avoid",
+  "translation": "要避免的10个FullStack工程错误"
+}, {
+  "tag": "H2",
+  "text": "Top 10 Lessons Learned in Last 10 Years…",
+  "translation": "过去十年学习的十大经验教训…"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/30/1*q1Lvf1cVxpD34B9l3cYG9w.jpeg?q=20",
+  "caption": "Photo by Tudor Baciu on Unsplash",
+  "type": "image",
+  "file": "1!q1Lvf1cVxpD34B9l3cYG9w.jpeg"
+}, {
+  "tag": "P",
+  "text": "The way to pick good mentors is to always look for people who have successfully been through the same path you are about to embark on. Ask what they did, why and how?",
+  "translation": "选择优秀导师的方法是，始终寻找那些已经走上了与您即将走上的相同道路的人。 问他们做了什么，为什么以及如何做？"
+}, {
+  "tag": "P",
+  "text": "This was the advice I got as a young engineer. I had the pleasure of working with some great mentors and it comes naturally to me to want to repay the debt of gratitude. In this post, I will be sharing full-stack engineering lessons I’ve learned in my career so far.",
+  "translation": "这是我年轻时得到的建议。 我很高兴与一些出色的导师一起工作，而我自然要偿还感激之情。 在这篇文章中，我将分享到目前为止我在职业生涯中学到的全栈工程课程。"
+}, {
+  "tag": "H1",
+  "text": "Gracias",
+  "translation": "格拉西亚斯"
+}, {
+  "tag": "P",
+  "text": "Before we do that, a big Thank You to all my mentors, managers & colleagues who are responsible for teaching me these lessons and being part of my career journey thus far. You know who you are and I am grateful for the time we got to spend together.",
+  "translation": "在此之前，非常感谢我所有的指导老师，经理和同事，这些老师，经理和同事负责向我教授这些课程，并且是我迄今为止职业生涯的一部分。 你知道你是谁，我很感谢我们在一起度过的时间。"
+}, {
+  "tag": "H1",
+  "text": "Why Me, Why Now?",
+  "translation": "为什么是我，为什么是现在？"
+}, {
+  "tag": "P",
+  "text": "I’ve been in the tech industry and Silicon Valley for 10 years. In this time I’ve worked at high growth startups and ridden all the highs and lows that come part and parcel with that. Building nextgen email client to scaling electric vehicles worldwide to online shopping checkout, I’ve learned a lot. You can find my bio at the bottom if you are interested to learn more about these companies. As I look back on lessons learned, mistakes made and opportunities missed, I couldn’t help but think that some of these are very avoidable and hence I wanted to share them with you.",
+  "translation": "我在科技行业和硅谷工作了10年。 在这段时间里，我在高成长的初创公司工作，摆脱了所有与此相关的高低潮。 我建立了nextgen电子邮件客户端，以将全球的电动汽车扩展到在线购物结帐，我学到了很多东西。 如果您想了解有关这些公司的更多信息，可以在底部找到我的简历。 当我回顾过去的经验教训，犯下的错误和错过的机会时，我忍不住认为其中有些是可以避免的，因此我想与您分享。"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Pranay Suresh的文章《10 FullStack Engineering Mistakes to Avoid》，参考：https://blog.bitsrc.io/10-fullstack-engineering-mistakes-to-avoid-d6bec039c81a)",
+  "translation": "（本文翻译自Pranay Suresh的文章《要避免的10个FullStack工程错误》，参考：https：//blog.bitsrc.io/10-fullstack-engineering-mistakes-to-avoid-d6bec039c81a）"
+}]
