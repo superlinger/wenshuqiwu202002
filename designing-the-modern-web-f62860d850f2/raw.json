@@ -1,0 +1,191 @@
+[{
+  "tag": "H1",
+  "text": "Designing the Modern Web",
+  "translation": "设计现代网络"
+}, {
+  "tag": "P",
+  "text": "A few simple truths that can help solve bigger digital challenges",
+  "translation": "一些简单的事实可以帮助解决更大的数字挑战"
+}, {
+  "tag": "FIGURE",
+  "type": "code"
+}, {
+  "tag": "H2",
+  "text": "Designing and developing for the web has always been a moving target. Browsers and technologies have been perpetually changing requiring constant evolution of skill set but there are still some overarching truths that remain. In this article I have outlined a handful of what I think are some of the most commonly overlooked challenges when designing for the modern web that we should consider more deeply as we continue to define the future of web design practice.",
+  "translation": "Web设计和开发一直是一个移动的目标。 浏览器和技术一直在不断变化，需要不断发展的技能组合，但是仍然存在一些重要的事实。 在本文中，我概述了一些我认为是现代网页设计中最常被忽略的挑战，在继续定义网页设计实践的未来时，我们应该更深入地考虑这些挑战。"
+}, {
+  "tag": "H2",
+  "text": "The web is inherently rickety",
+  "translation": "网络天生就是摇摇欲坠的"
+}, {
+  "tag": "P",
+  "text": "HTML and CSS do things that they were never intended to do back when they were originally invented. My guess is Tim Berners-Lee did not anticipate the hot mess that we find ourselves in today. Rendering code in a browser has always been a tricky thing. Every browser version and update handle things a little differently and always have. How browsers on mobile devices handle the rendering of HTML, CSS and Javascript compounds the fragility of how we not only build web experiences but how we maintain them as well. We have to remember that it has been less than a decade since more users accessed the internet from mobile devices than desktop.",
+  "translation": "HTML和CSS的作用是它们最初被发明时从未打算做的。 我的猜测是蒂姆·伯纳斯·李（Tim Berners-Lee）没想到我们今天会发现自己很热。 在浏览器中呈现代码始终是一件棘手的事情。 每个浏览器版本和更新对事物的处理都有所不同，并且始终如此。 移动设备上的浏览器如何处理HTML，CSS和Javascript的呈现，增加了我们不仅构建Web体验而且还维护它们的方式的脆弱性。 我们必须记住，距移动设备访问互联网的用户数量超过台式机的用户还不到十年。"
+}, {
+  "tag": "P",
+  "text": "From a process perspective, clients and designers have never fully embraced the inherently brittle nature of the web as a communication channel. It is human nature to prioritize certainty and our technical processes reflect this. If you think about all of the mediums modern humans create in, only the web starts from a place of uncertainty, incompleteness and brokenness. In essence, the web as a medium is a fluid software that is constantly changing and being updated. The concept that bugs, fixes, tweaks and iteration and refinement are such a large constraint of the web is still a hard thing for some to embrace. To fully succeed within the rickety ecosystem of the web, we have to establish creative mindsets that allow uncertainty and brokenness to flourish with the understanding that finding perfection must be an open ended pursuit.",
+  "translation": "从过程的角度来看，客户和设计人员从未完全接受Web固有的脆弱特性作为通信渠道。 优先考虑确定性是人的天性，我们的技术流程反映了这一点。 如果您考虑现代人类创造的所有媒介，那么只有网络从不确定性，残缺性和破碎性开始。 本质上，网络作为一种媒介是不断变化和更新的流动软件。 错误，修复，调整以及迭代和完善是网络的巨大约束这一概念对于某些人来说仍然很难。 为了在摇摇欲坠的网络生态系统中完全成功，我们必须建立创造性的思维方式，让不确定性和破碎性蓬勃发展，同时要认识到寻找完美必须是一个开放的追求。"
+}, {
+  "tag": "H2",
+  "text": "A prototype is not a finished site",
+  "translation": "原型不是完整的网站"
+}, {
+  "tag": "P",
+  "text": "In recent years there has been a proliferation of different prototyping solutions. Invision, Figma, Principle, Adobe XD and many others. Part of the reason prototyping has become so important is it allows for visual and UX decisions to be made rapidly without any knowledge of the code that is required to build a site or web product. On the one hand this is great because strategic and visual problem solving is decoupled from the actual build allowing for non-developers to explore what is possible.",
+  "translation": "近年来，出现了各种原型解决方案。 Invision，Figma，Principle，Adobe XD等。 原型变得如此重要的部分原因是，它使快速做出视觉和UX决策成为可能，而无需了解构建站点或Web产品所需的任何代码。 一方面，这非常好，因为战略和视觉问题的解决方案与实际构建脱钩，从而允许非开发人员探索可能的解决方案。"
+}, {
+  "tag": "P",
+  "text": "The down-side is that there remains a separation between what a prototype can accomplish and what a real platform or product must accomplish. As long as prototypes are separated from the code and engineering that actually form its creation they will never ever be the same. There will always be a gap between the idea and the reality.",
+  "translation": "不利的一面是，原型可以完成的工作与实际平台或产品必须完成的工作之间存在着分离。 只要原型与实际形成其代码的代码和工程相分离，它们就永远不会相同。 思想与现实之间总会有鸿沟。"
+}, {
+  "tag": "P",
+  "text": "One metaphor I use often is the idea of the avatar of a person. For example, you could have a wide range of interpretations for visualizing a human being. You could do a pencil drawing, a painting, a photograph, a 3d model or even a robot of a person. None of these will ever replace the actual person. In the same way, it does not matter how high fidelity a prototype is, it will never be a replacement for the product itself.",
+  "translation": "我经常使用的一个隐喻是一个人的化身的想法。 例如，您可以使用多种解释来可视化人类。 您可以绘制铅笔素描，绘画，照片，3D模型，甚至是人的机器人。 这些都不会取代实际的人。 同样，原型的保真度也无关紧要，它永远不会替代产品本身。"
+}, {
+  "tag": "P",
+  "text": "Developing prototypes also can give teams a false sense of accelerated progress. Inherent in the term prototype is the idea of something experimental, initial or a model. On the web, there is an easy confusion between demonstrating an idea via a prototype that is created quickly and a final solution that has been properly tested and QAed.",
+  "translation": "开发原型也会给团队带来错误的加速进展感。 原型一词的本质是实验性，初始性或模型性的概念。 在网络上，通过快速创建的原型演示想法与经过正确测试和质量检查的最终解决方案之间容易混淆。"
+}, {
+  "tag": "P",
+  "text": "This misrepresentation of time is also compounded by the imperfect nature of prototypes themselves. The more energy and effort put into a high fidelity prototype to add the UX bells and whistles needed to sell an idea, requires an exponentially longer amount of time to reverse engineer into meaningful and usable components after the prototype has been sold in. As a result, there is an inherent redundancy; you spend time making a prototype of something only to make it again as a real thing.",
+  "translation": "原型本身不完善的性质也加剧了这种时间上的错误表述。 高保真度原型投入了更多精力和精力，以增加销售创意所需的用户体验，这需要花费成倍的时间，才能在原型售出后将工程师反向转换为有意义的可用组件。 ，存在固有的冗余； 您花时间制作某些东西的原型，然后又将其重新制成真实的东西。"
+}, {
+  "tag": "P",
+  "text": "The magical solution that no software has fully cracked is making the visualization and implementation of web experiences one and the same. Software solutions like Webflow and UXPin are getting closer by merging visual tools that can produce semantically correct markup and I think this merging of visual and code is where the solution will be found. But the ultimate answer to this dilemma is not entirely in the software.",
+  "translation": "没有软件可以完全破解的神奇解决方案是使Web体验的可视化和实现完全相同。 通过合并可以产生语义上正确的标记的可视化工具，Webflow和UXPin等软件解决方案越来越近了，我认为可视化和代码的合并就是找到解决方案的地方。 但是，解决这一难题的最终答案并不完全在软件中。"
+}, {
+  "tag": "P",
+  "text": "The primary leap that needs to happen is designers must have an intuitive willingness to connect the visual logic of what they are trying to achieve with an understanding of how their visual decisions get expressed in the constraints of code. The fact that the digital industry has not made this leap is more due to convenience and the desire to maintain delineated roles and process than anything else. Right now these two worlds — the visualization of web experiences and the implementation of them in code — are very separated because we perceive these as so specialized that one person cannot not do both of them. This basic assumption is the blocker to the next evolution in web creativity.",
+  "translation": "需要发生的主要飞跃是设计人员必须具有一种直观的意愿，将他们试图实现的视觉逻辑与理解如何在代码约束中表达其视觉决策联系起来。 数字产业之所以没有实现这一飞跃，更多的是归因于便利性以及保持划定角色和过程的渴望。 现在，这两个世界-Web体验的可视化和它们在代码中的实现-已非常分开，因为我们认为这两个世界是如此专业，以至于一个人不能同时做这两个世界。 这个基本假设阻碍了Web创意的下一次发展。"
+}, {
+  "tag": "P",
+  "text": "People are wired to make these kinds of innovative connections and we eventually will. Like the adoption of any new behavior, at some point in the near future the prototype and the real web experience will evolve and become one due to economic and technological necessity. It is not a matter of if, it is just a matter of when.",
+  "translation": "人们渴望建立这种创新的联系，而我们最终会。 像采用任何新行为一样，在不久的将来的某个时刻，由于经济和技术的需要，原型和真实的网络体验也将不断发展并成为一种体验。 这不是问题，只是时间的问题。"
+}, {
+  "tag": "H2",
+  "text": "Attention to detail is as important as the big idea",
+  "translation": "注重细节与大创意一样重要"
+}, {
+  "tag": "P",
+  "text": "For any given responsive web experience, the number of parts and pieces that need clear user experience definition, visualization and implementation can be extraordinarily large. Defining, creating and documenting these to ensure a cohesive experience requires an inherent love of detail. Depending on the flavor of designer you are, you may hate the fussy nature of web design and just want to design the big idea or you may be the kind of person that totally falls in love with the nit picky details.",
+  "translation": "对于任何给定的响应式Web体验，需要清晰的用户体验定义，可视化和实现的零件和零件的数量可能会非常大。 定义，创建和记录这些内容以确保凝聚力的体验需要对细节的内在热爱。 根据您的设计风格，您可能会讨厌网页设计的繁琐本质，而只想设计一个大创意，或者您可能是完全爱上精细挑剔细节的那种人。"
+}, {
+  "tag": "P",
+  "text": "For the best web designers, beauty, sophistication, ease of use and a love of detail are a complete and interrelated package. Like great visuals and great code, good taste and attention to detail are not always found in one person. I have been lucky enough to work with a handful of designers that know how to expertly strike this balance but more often than not you need a team that can work together to provide overlapping expertise. In the context of contemporary brand building, digital detail is a fundamental requirement. One needs only to look at IBM’s Design Language to see that the detail and nuance in digital is both a competitive differentiator and a reflection of the level of quality, reverence and integrity designs team hold for their brands.",
+  "translation": "对于最好的网页设计师而言，美丽，精致，易用性和对细节的热爱是一个完整且相互关联的软件包。 就像出色的视觉效果和出色的代码一样，并非总是一个人就能拥有良好的品味和对细节的关注。 我很幸运地与少数几个知道如何熟练地达到这种平衡的设计师一起工作，但通常，您需要一支可以一起工作以提供重叠专业知识的团队。 在当代品牌建设的背景下，数字细节是基本要求。 只需查看IBM的设计语言，即可发现数字化的细节和细微差别既是竞争优势，又反映了设计团队为其品牌所拥有的质量，崇敬度和完整性。"
+}, {
+  "tag": "FIGURE",
+  "type": "code"
+}, {
+  "tag": "H2",
+  "text": "You can’t make a website do everything",
+  "translation": "您无法让网站做任何事情"
+}, {
+  "tag": "P",
+  "text": "The internet is quite vast these days. Billions of sites doing billions of different things for different reasons. Some clients and some designers love cataloging all of the specific design, content, UI, and UX moments they see on the web with the intention of having these serve as a kind of reference toolbox for future site experiences. This is a great impulse. To add to this, sites such as Dribbble are also great for inspiration and have become a space to showcase idealized UX animation approaches that can make sites and apps look way cooler than they can be in reality. Much of this inspiration finds its way into project mood boards and can be incredibly helpful when you are working to align on creative approaches and to get people excited.",
+  "translation": "如今，互联网非常庞大。 数十亿个站点出于不同原因而做数十亿种不同的事情。 一些客户和一些设计师喜欢对他们在网络上看到的所有特定设计，内容，UI和UX时刻进行分类，目的是将它们用作将来站点体验的一种参考工具箱。 这是一个很大的冲动。 除此之外，Dribbble之类的网站也很受启发，并且已成为展示理想的UX动画方法的空间，该方法可以使网站和应用看起来比实际的要酷。 这些灵感大部分都可以用到项目情绪板中，当您努力调整创意方法并激发人们的热情时，它们可能会非常有用。"
+}, {
+  "tag": "P",
+  "text": "For all of this great inspiration and reference, we know that you can’t make a website do everything you see on the web all at once. It would be like shopping for a car by going to every dealership and glueing all of your favorite features together to make your own car. If you do this, your car will certainly not run well and it will certainly look terrible. The same goes for websites.",
+  "translation": "有了这么多的启发和参考，我们知道您无法让网站一次完成您在网络上看到的所有事情。 这就像去各个经销商处购买汽车并将所有您喜欢的功能粘合在一起来制造您自己的汽车一样。 如果这样做，您的汽车肯定不会运转良好，并且看起来肯定会很糟糕。 网站也是如此。"
+}, {
+  "tag": "P",
+  "text": "Reverse engineering cool web ideas you see out in the world is not inherently bad. What is bad is assuming that combing many ideas you like is the right way to solve the digital problem at hand. Ideally we develop web products and experiences by coming from a clear and informed strategic foundation with a firm understanding of business needs and technological limitations so that we do not create experiences that do not solve the intended problem, that are difficult to build, and are impossible to maintain.",
+  "translation": "您在世界上看到的反向工程很酷的Web想法并不是天生就坏的。 糟糕的是，假设将您喜欢的许多想法组合在一起是解决眼前数字问题的正确方法。 理想情况下，我们通过清晰明了的战略基础来开发Web产品和体验，并且对业务需求和技术局限性有深刻的了解，因此我们不会创建无法解决预期问题，难以构建且不可能的体验 保持。"
+}, {
+  "tag": "P",
+  "text": "People that are not technical tend to focus on what they can understand and that is the surface. As an example, I have been in situations where I have had to convince a client that we were not creating a web experience optimized for their personal iPad. We had to educate them on how the behavior of your finger navigating a site is inherently different than navigating a site on a person’s desktop using a mouse. For them, apps and sites were one and the same thing and they were annoyed that their site could not do everything a native app could when they were chilling at the office on their iPad. This probably seems rather silly and naive to people that design and build for the web but for many these basic misunderstandings and false assumptions persist. Due to this lack of knowledge we must acknowledge that without proactive education and context, some level of dysfunction will remain within any project.",
+  "translation": "非技术人员倾向于将重点放在他们可以理解的内容上，那就是表面。 举例来说，我一直不得不说服客户我们没有为他们的个人iPad创建优化的网络体验。 我们必须教育他们，用手指导航网站与使用鼠标在人的桌面上导航网站的行为有本质的不同。 对于他们来说，应用程序和网站是一回事，而他们恼怒的是，当他们在iPad上办公时，他们的网站无法完成本机应用程序所能做的一切。 对于为网络设计和构建的人们来说，这似乎很愚蠢和幼稚，但是对于许多这些基本的误解和错误的假设仍然存在。 由于缺乏知识，我们必须承认，如果没有积极的教育和背景，任何项目中都会存在一定程度的功能障碍。"
+}, {
+  "tag": "P",
+  "text": "Providing ongoing context and client education and at the very least understanding how savvy your clients are is crucial. To reduce the danger of trying to make a UX hodge-podge “Dribbble soup” of a site you have to build a process that aligns strategic and business goals with design and experience solutions that are contemporary and cool but are also focused and realistic. This requires lots of talking, rationalizing and education but it is a necessity to ensure that our web collecting eyes don’t get larger than our performant and complaint digital stomach.",
+  "translation": "提供持续的环境和客户教育，并且至少要了解您的客户的才干至关重要。 为了减少尝试在站点上制作UX大杂烩“滴落汤”的危险，您必须构建一个流程，使战略和业务目标与现代，炫酷但又专注且切合实际的设计和体验解决方案保持一致。 这需要大量的讨论，合理化和教育，但有必要确保我们的网络收集人员的眼睛不会超过我们的表演者并抱怨数字胃。"
+}, {
+  "tag": "H2",
+  "text": "Form and content are not the same thing",
+  "translation": "形式和内容不是一回事"
+}, {
+  "tag": "P",
+  "text": "A website is only as good as the information within it. Over the last 20 years, this basic concept still remains the most challenging for clients to understand. Some folks still have a hard time grasping the idea that no amount of good design can improve bad content.",
+  "translation": "网站仅与其中的信息一样好。 在过去的20年中，这个基本概念仍然是客户理解中最具挑战性的。 有些人仍然很难理解这样的想法，即没有多少好的设计可以改善不良的内容。"
+}, {
+  "tag": "P",
+  "text": "If you put a TV show on a more expensive TV does the show become narratively better? If you put a baby behind the wheel of a Lamborghini do they become an expert driver? You get the idea. Developing well crafted information — language, photography, video, illustrations, audio and the like is the necessary baseline for a great site experience. Full stop.",
+  "translation": "如果将电视节目放到价格更高的电视上，该节目的叙事效果会更好吗？ 如果您将婴儿放在兰博基尼的方向盘上，他们会成为专家吗？ 你明白了。 开发精心制作的信息-语言，摄影，视频，插图，音频等是获得出色网站体验的必要基础。 句号"
+}, {
+  "tag": "P",
+  "text": "The push and pull between form and content is as old as the need for clear communication. Designing for the web is one of those unique mediums where you can actually develop formal systems that can serve as a forcing function to improve content creation.",
+  "translation": "形式和内容之间的推拉和古老的交流需要清晰的沟通。 Web设计是那些独特的媒介之一，您可以在其中实际开发形式系统，这些系统可以用作强制功能来改善内容创建。"
+}, {
+  "tag": "P",
+  "text": "Creating modular content patterns that leverage the natural information consumption behaviors of the web can be extremely useful when a client is unsure how to optimize their storytelling. Building a formal scaffolding that also serves as an ideal narrative guide can provide more rigorous parameters around how and what to write in a way that has the most impact online and especially on mobile devices.",
+  "translation": "当客户不确定如何优化故事讲述时，创建利用网络自然信息消费行为的模块化内容模式将非常有用。 建立一个正式的脚手架，也可以作为理想的叙述指南，从而可以提供有关如何写和写什么的更严格的参数，以对在线尤其是对移动设备影响最大的方式进行。"
+}, {
+  "tag": "P",
+  "text": "Brands like Notion and Apple understand how digital craft, editorial economy, visual impact and crisp communication can all come together to provide a great online narrative experience. To do this right takes discipline as well as a solid understanding of how developing replicable narrative systems that seamlessly blend the form and content of a site can help keep communication sharp and beautiful.",
+  "translation": "诸如Notion和Apple之类的品牌了解数字技术，编辑经济，视觉冲击力和清晰的沟通方式如何融合在一起，以提供出色的在线叙事体验。 要做到这一点，需要纪律和对开发可重复叙述的系统无缝融合站点形式和内容如何有助于保持沟通清晰美观的深刻理解。"
+}, {
+  "tag": "H2",
+  "text": "Listen to and respect your developers",
+  "translation": "倾听并尊重您的开发人员"
+}, {
+  "tag": "P",
+  "text": "The web would not function as a contemporary communication medium unless really smart developers cared deeply about their work. There has never been enough really, really good developers on this planet. We always need more. As a designer I admit I am biased. I think we have too many “good” formal designers in the world but not enough amazing designers that also know how to work with developers in an integrated and nuanced way to make great experiences.",
+  "translation": "除非真正精明的开发人员深切关心他们的工作，否则网络将无法充当现代通信媒介。 在这个星球上，从来没有足够的真正优秀的开发人员。 我们总是需要更多。 作为一名设计师，我承认我有偏见。 我认为我们世界上有太多“优秀”的正式设计师，但没有足够多的出色设计师，他们也不知道如何以集成且细微的方式与开发人员合作，以创造良好的体验。"
+}, {
+  "tag": "P",
+  "text": "Since the advent of mobile devices and the wholesale adoption of responsive design, we probably all agree that designing for the web has become really annoying. There seems to be too many moving parts! We can’t escape this but we also can’t ignore it either. We are at an inflection point where developers are really co-designers because a smart development team has a better understanding of the technological dependencies and constraints that fundamentally inform the sandbox an amazing designer has to operate within.",
+  "translation": "自从移动设备问世并大量采用响应式设计以来，我们可能都同意，针对Web的设计已经变得非常烦人。 活动部件似乎过多！ 我们无法逃避这一点，但是我们也不能忽略它。 我们正处于开发人员真正是联合设计师的拐点，因为一个精明的开发团队对技术依赖性和约束有更好的了解，这些技术和约束从根本上告诉沙箱一个出色的设计师必须在其中工作。"
+}, {
+  "tag": "P",
+  "text": "In the past, people in business, management and creative roles did not deeply consider all of the technology infrastructure work required before a project begins. Again, it is human nature to focus on the things you understand and ignore the things you don’t. This kind of blissful ignorance is rapidly fading as creative and technology tools and processes merge. In the not too distant future design teams and development teams will blend in a way that will produce better work faster. I’m not talking about a world of all night design and development hackathons. In contrast, I believe that the developer mindset is rubbing off on the design mindset (and vice versa) and that we will find more and more common ground and mutual admiration happening as these two worlds continue to overlap and inform each other.",
+  "translation": "过去，担任业务，管理和创意职务的人员没有深入考虑项目开始之前所需的所有技术基础结构工作。 再次强调，专注于您了解的事物而忽略您不了解的事物是人类的天性。 随着创意和技术工具与流程的融合，这种幸福的无知正在迅速消失。 在不久的将来，设计团队和开发团队将以一种可以更快地产生更好工作的方式融合在一起。 我并不是在谈论一个通宵的设计和开发黑客马拉松的世界。 相比之下，我认为开发人员的思维方式正在设计思维方式上逐渐削弱（反之亦然），并且随着这两个世界继续交叠并相互告知，我们将发现越来越多的共同点和相互钦佩。"
+}, {
+  "tag": "H2",
+  "text": "Embrace best practices, documentation and accessibility",
+  "translation": "拥抱最佳做法，文档和可访问性"
+}, {
+  "tag": "P",
+  "text": "Personally, I’ve always had a kind of “Life Hack” philosophy when it comes to designing for the web. I have poorly rigged Lottie animations into sites, stolen heaps of Javascript, butchered WordPress Themes, you name it. As a designer, I felt I should do whatever I thought was required to sell in an idea. This approach is fine if you plan to throw it all away later. But in this day and age, you have to lead by doing things the right way even if it might be a little harder or a little slower.",
+  "translation": "就个人而言，在进行网络设计时，我一直都有一种“ Life Hack”的哲学。 我没有很好地将Lottie动画绑定到网站，被盗的Javascript堆中，但是却保留了WordPress主题，您可以这样命名。 作为设计师，我觉得我应该做我想卖出一个想法所需的一切。 如果您打算稍后将其全部丢弃，则此方法很好。 但是在当今时代，即使有些困难或较慢，您也必须以正确的方式做事。"
+}, {
+  "tag": "P",
+  "text": "In the fast paced world of the web, the worst thing you can do is half-ass it now because it will come back to haunt you later. Unraveling someone else’s undocumented code base is a horrible thing to have to do. When it comes to the web, a stitch in time saves nine. To this end, establishing a digital philosophy and clear tactics around handling best practices is an absolute necessity. A big part of this is about clear documentation. Building sites can get gnarly and the only way to not have this information be in the head of just one person is to write it all down.",
+  "translation": "在快速发展的网络世界中，您现在最糟糕的事情就是半打它，因为稍后它会再次困扰您。 弄乱别人未公开的代码库是一件可怕的事情。 当涉及到网络时，一针一针可节省九个针脚。 为此，绝对有必要围绕处理最佳实践建立数字哲学和清晰的策略。 其中很大一部分是关于清晰的文档。 建筑工地可能会令人生厌，只有一个人才能掌握这些信息，唯一的方法就是将其全部写下来。"
+}, {
+  "tag": "P",
+  "text": "Your technology stack should be created in a way so that someone not as smart as you can understand it and spin it up locally. This is because no two developers work in the same way and given the rapid nature of what we do, you may need to onboard someone new that is also less experienced. When it comes to developing for the web, the more you can think ahead and future-proof the better.",
+  "translation": "应该以某种方式创建您的技术堆栈，以使某人不像您那样聪明，可以理解它并在本地旋转它。 这是因为没有两个开发人员以相同的方式工作，并且鉴于我们所做的工作具有快速性，您可能需要加入经验不足的新手。 在进行网络开发时，您可以思考的越多，面向未来的越好。"
+}, {
+  "tag": "P",
+  "text": "Compliance is also something you need to understand and have a stance on. Currently minimum requirements for ADA compliance are still open for interpretation but you never know when someone might have an issue so it is better to know what your baseline is so that you can clearly articulate how you are handling WCAG 2.0.",
+  "translation": "合规性也是您需要了解并保持立场的东西。 当前，有关ADA遵从性的最低要求仍然可以解释，但您永远不知道何时有人可能遇到问题，因此最好知道您的基线是什么，以便您清楚地说明如何处理WCAG 2.0。"
+}, {
+  "tag": "H2",
+  "text": "The web sucks. Long live the web!",
+  "translation": "网络糟透了。 网络万岁！"
+}, {
+  "tag": "P",
+  "text": "Designing and building for the web will always be a fluid evolutionary vocation. Nothing really stays the same and new things are always on the horizon. This is what I love most about designing for the web. It keeps us learning and growing but it can also be extremely frustrating.",
+  "translation": "网络的设计和构建将永远是一项不断发展的职业。 没有什么可以保持不变，新事物总是在眼前。 这是我最喜欢的网络设计。 它使我们不断学习和成长，但同时也可能使他们非常沮丧。"
+}, {
+  "tag": "P",
+  "text": "The one thing I always try to remind clients and teams is it is just a website. We are not building a suspension bridge or doing brain surgery. We can push code, make fixes and try new things. This ability to iterate is what makes the web a fun medium to work in if you have the right temperament. I hate the web and I love the web as well. It’s a proverbial oily watermelon floating in the deep end that we are always trying to grab ahold of. Just as soon as we have a handle on it, it slips through our fingers. As long as we know this and embrace uncertainty while reaching for perfection, then the web will be an amazing place to push creativity and technology for decades to come.",
+  "translation": "我一直试图提醒客户和团队的一件事是它只是一个网站。 我们没有在建造吊桥或进行脑部手术。 我们可以推送代码，进行修复并尝试新事物。 这种迭代能力使网络成为一种有趣的媒介，如果您具有适当的性情，则可以使用它。 我讨厌网络，也喜欢网络。 这是漂浮在深处的油腻西瓜，我们一直在努力抓住。 只要握住手柄，它就会滑过我们的手指。 只要我们知道这一点并在达到完美的过程中拥抱不确定性，那么网络将是未来数十年推动创造力和技术发展的绝佳之地。"
+}, {
+  "tag": "P",
+  "text": "I would like to give special thanks to our Technical Director at Athletics Ross Luebe. He helped vet this article and gave me many helpful suggestions. As Technical Director, Ross is responsible for interfacing with clients, designers and developers and serves as a conduit and mediator to ensure that our teams are speaking the same language. Ross has the rare advantage of having a Master’s Degree in Graphic Design while having also gained very deep technology expertise over the last decade. This allows him to understand the common ground between design and technology and what needs to happen to get the best out of both.",
+  "translation": "我要特别感谢我们田径运动的技术总监Ross Luebe。 他帮助审查了这篇文章，并给了我许多有用的建议。 作为技术总监，Ross负责与客户，设计师和开发人员进行交互，并充当渠道和调解人，以确保我们的团队使用相同的语言。 Ross具有罕见的优势，即拥有图形设计硕士学位，同时在过去十年中也获得了非常深厚的技术专业知识。 这使他能够了解设计和技术之间的共同点，以及如何才能充分利用两者。"
+}, {
+  "tag": "FIGURE",
+  "type": "code"
+}, {
+  "tag": "FIGURE",
+  "image": "https://miro.medium.com/max/60/1*YDOpQ4N8_H15KE45cLjH-Q.jpeg?q=20",
+  "type": "image",
+  "file": "1!YDOpQ4N8_H15KE45cLjH-Q.jpeg"
+}, {
+  "tag": "PRE",
+  "text": "(本文翻译自Matt Owens的文章《Designing the Modern Web》，参考：https://medium.com/@matthew_owens/designing-the-modern-web-f62860d850f2)",
+  "translation": "（本文翻译自Matt Owens的文章，《设计现代网络》，参考：https：//medium.com/@matthew_owens/designing-the-modern-web-f62860d850f2）"
+}]
